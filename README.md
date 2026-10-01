@@ -82,8 +82,8 @@ independently measured.
 
 ## Frontend audit progress — 2026-10-01
 
-This pass incorporates the owner's visual audit corrections. The existing production
-release remains at https://ada-penyu-web.vercel.app and does not include these changes yet.
+This pass incorporates the owner's visual audit corrections. Production is served at https://ada-penyu-web.vercel.app. GitHub main is the
+automatic production-deployment branch.
 
 - The compact desktop navbar expands on pointer hover and keyboard focus.
 - Its background, logo, and single rendered labels split white/navy at section boundaries.
@@ -108,8 +108,8 @@ Uploads, AI inference, shared catalogue persistence, identity review, authentica
 and contact delivery are not implemented. Member bios, LinkedIn links, and IDs need
 real supplied details. The illustrated headings and some artwork remain raster data
 inside SVG containers. The design's accuracy figure is not an independently verified result.
-GitHub automatic deployment needs the owner's GitHub account connection in Vercel;
-manual deployment is available. The current frontend pass is being published to GitHub; Vercel production is a separate release.
+Vercel is linked to gungfebrian/adaPenyuWeb, with main as the production branch
+and automatic deployments enabled. The frontend changes and grey-hero restoration have been pushed to GitHub main.
 
 ### Hero and catalogue experiment — 2026-10-02
 
@@ -138,7 +138,7 @@ buttons were removed at the owner's request. Artwork1/artwork3 remain unused;
 the original satellite-message turtle retains automatic idle motion only.
 
 GitHub source publication was requested on 2026-10-02. Private/local progress notes
-remain ignored. Vercel production still contains the earlier deployed release.
+remain ignored. Vercel now follows GitHub main through its repository integration.
 
 ## Latest correction — original hero restored
 
@@ -147,3 +147,15 @@ and surface color are restored. The experimental turtle/water scene and its moti
 code were removed. Explore prototype and Explore the catalogue remain removed,
 and the phone separation and original satellite-message turtle's idle loop remain.
 This correction supersedes the earlier hero experiment described above.
+
+## GitHub deployment workflow
+
+Vercel project `ada-penyu-web` is linked to `gungfebrian/adaPenyuWeb`. Automatic
+deployments are enabled and `main` is the production branch. A push to `main`
+triggers a Vercel build and production deployment; other branch pushes use previews.
+The repository connection was added after the earlier manual release, so that
+older CLI deployment was not proof that the Git integration was working.
+
+The grey hero box, app icon, and wordmark are restored. The turtle/water hero
+experiment is removed; phone separation and the original satellite-message
+illustration's gentle idle movement remain. Both Explore buttons remain removed.

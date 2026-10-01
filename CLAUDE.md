@@ -67,3 +67,11 @@ Keep the original grey hero box, app icon, wordmark, and dimensions. The owner
 rejected the turtle/water replacement: its component and motion were removed.
 Do not re-add it. The two Explore buttons remain removed. Phone separation and
 the original satellite-message turtle idle loop are retained.
+
+## Current GitHub / Vercel workflow
+
+The Vercel project is now linked to gungfebrian/adaPenyuWeb, with main as the
+production branch and automatic deployments enabled. After an authorized push,
+check the Git-triggered Vercel build status and deployed commit before claiming
+production is updated. Earlier handover entries about a missing GitHub connection
+are historical; read the newest release entry first.
