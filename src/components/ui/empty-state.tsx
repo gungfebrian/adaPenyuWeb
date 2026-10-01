@@ -5,7 +5,7 @@ interface EmptyStateProps {
 
 export function EmptyState({ title, description }: EmptyStateProps) {
   return (
-    <div className="panel">
+    <div className="rounded-lg border border-foreground/20 bg-background p-5">
       <h2>{title}</h2>
       <p>{description}</p>
     </div>

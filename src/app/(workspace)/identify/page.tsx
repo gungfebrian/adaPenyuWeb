@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Identify a turtle" };
 
 export default function IdentifyPage() {
   return (
-    <section className="stack">
+    <section className="grid gap-5">
       <h1>Identify a turtle</h1>
       <PhotoUpload />
       <MatchCandidateList candidates={[]} />

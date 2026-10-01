@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Turtle catalogue" };
 
 export default function TurtlesPage() {
   return (
-    <section className="stack">
+    <section className="grid gap-5">
       <h1>Turtle catalogue</h1>
       <TurtleList turtles={[]} />
     </section>
