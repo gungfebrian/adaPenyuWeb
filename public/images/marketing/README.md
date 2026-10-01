@@ -14,6 +14,6 @@ Source: PenyuTab Figma file `z5H50coFF2jEVsszrxA65y`, page node `1084:1765`.
 - `wordmark`, `footer-wordmark`: original Figma wordmarks with transparent backgrounds.
 - `app-icon`: an SVG container for the supplied app logo in `public/Logo`.
 
-The Figma source uses bitmap artwork for headings, drawings, screenshots, and photography. These SVGs embed that original artwork rather than inventing a replacement. Embedded PNGs are resized and losslessly compressed for their display slots. The three phone screenshots use high-quality WebP inside their SVG containers to reduce transfer and decode cost; their PNG sources are preserved in the original-artwork folder; the traced pattern files contain no raster data.
+The Figma source uses bitmap artwork for headings, drawings, screenshots, and photography. These SVGs embed that original artwork rather than inventing a replacement. Embedded PNGs are resized and losslessly compressed for their display slots. The three phone screenshots use high-quality WebP inside their SVG containers to reduce transfer and decode cost; their PNG sources are preserved in `design-assets/marketing-originals`. The traced pattern files contain no raster data.
 
 Legacy PNG assets are preserved in `design-assets/marketing-originals`; the landing page references only SVG files. The supplied app logo originals remain in `public/Logo`.
