@@ -17,3 +17,15 @@ Source: PenyuTab Figma file `z5H50coFF2jEVsszrxA65y`, page node `1084:1765`.
 The Figma source uses bitmap artwork for headings, drawings, screenshots, and photography. These SVGs embed that original artwork rather than inventing a replacement. Embedded PNGs are resized and losslessly compressed for their display slots. The three phone screenshots use high-quality WebP inside their SVG containers to reduce transfer and decode cost; their PNG sources are preserved in `design-assets/marketing-originals`. The traced pattern files contain no raster data.
 
 Legacy PNG assets are preserved in `design-assets/marketing-originals`; the landing page references only SVG files. The supplied app logo originals remain in `public/Logo`.
+
+## Owner-supplied additions — 2026-10-01
+
+- `artwork2.png` is embedded unchanged in `citizens-turtle.svg` beside the team heading.
+  Its view box preserves its dimensions and transparency; it is not a vector tracing.
+- `artwork1.png` and `arwork3.png` are retained as supplied but are not used in the
+  landing page: their placements were reverted at the owner's request.
+- The original `banner-turtle.svg` remains at the complement/benefits boundary.
+  Its scroll parallax and gentle automatic idle float use separate wrappers;
+  there is no cursor-hover animation.
+- The new team emblem is decorative and hidden on narrow layouts where it would
+  compete with the original heading.

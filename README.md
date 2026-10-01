@@ -40,22 +40,25 @@ Keep `pnpm-lock.yaml` in version control when updating dependencies.
 - `src/app`: pages and API entry points.
 - `src/features`: turtle records and re-identification components and types.
 
-The existing .gitignore excludes all Markdown files, including these documents.
-They are local documents under the current Git preference.
+Markdown files are ignored by default. Already tracked documentation remains tracked.
+`handover.md` and `handoverpriv.md` are explicitly ignored local progress notes;
+they are not included in commits or deployments.
 
 ## Landing page
 
 The supplied Figma composition is implemented at `/`, including the story, three
 identification steps, three prototype screens, progress, team, contribution, and
-contact sections. The hero preview opens the identification workspace. The logo and navigation share
+contact sections. The hero uses a decorative animated ocean scene; the former Explore prototype link was removed. The logo and navigation share
 one floating block with a mobile dialog. Link hovers use a single label and
 underline, avoiding duplicate text during transitions.
 
 Motion handles section reveals, small button responses, navigation transitions,
 and member profile dialogs. GSAP ScrollTrigger handles the longer story,
 identification, and prototype scroll sequences. The story and steps use native sticky positioning so the browser owns scrolling.
-The steps use a short hold with direct scroll response; the phone screens reveal during natural scrolling without
-pinning, pointer tilt, or a delayed scrub. The story card overlaps the hero
+The steps use a short hold with direct scroll response. Phone screens start stacked
+behind the centre phone, then separate into the three original positions during
+natural scrolling, with an independent cursor-hover lift. There is no phone pinning
+or delayed scrub. The story card overlaps the hero
 without scaling the page or exposing a background gap. Reduced motion uses static
 content. Styling uses Tailwind utilities; global CSS contains Tailwind configuration
 and theme tokens.
@@ -76,3 +79,63 @@ independently measured.
 - `src/components/ui/button.tsx`: reusable primary and secondary buttons.
 - `public/images/marketing`: SVG components; the background patterns contain traced vector paths, while bitmap artwork is embedded in SVG containers.
 - `design-assets/marketing-originals`: preserved legacy source artwork, outside the public bundle.
+
+## Frontend audit progress — 2026-10-01
+
+This pass incorporates the owner's visual audit corrections. The existing production
+release remains at https://ada-penyu-web.vercel.app and does not include these changes yet.
+
+- The compact desktop navbar expands on pointer hover and keyboard focus.
+- Its background, logo, and single rendered labels split white/navy at section boundaries.
+- Identification steps use brand navy headings and blue body copy.
+- Member portraits have no arrow badges; names and profile titles use DM Sans.
+- Pointer focus restored after a profile closes has no outline. Keyboard focus stays visible.
+- FAQ uses the supplied screenshot's rounded rows, real answers, and a contact shortcut.
+- The original banner turtle and its original placement are preserved. It floats while
+  visible without any cursor-hover effect; offscreen and hidden-tab loops pause.
+- Only artwork2 is added beside the team heading, using separate reveal and idle
+  wrappers. Artwork1 and artwork3 placements were reverted at the owner's request.
+  All PNG sources remain unchanged; citizens-turtle.svg embeds artwork2 and is
+  not traced vector artwork.
+- Motion is disabled for reduced-motion preferences; text does not receive 3D tilt.
+
+For the complete local progress, fixes, limitations, and next steps, read
+`handover.md`. Operational continuation details are in `handoverpriv.md`.
+
+### Remaining product work
+
+Uploads, AI inference, shared catalogue persistence, identity review, authentication,
+and contact delivery are not implemented. Member bios, LinkedIn links, and IDs need
+real supplied details. The illustrated headings and some artwork remain raster data
+inside SVG containers. The design's accuracy figure is not an independently verified result.
+GitHub automatic deployment needs the owner's GitHub account connection in Vercel;
+manual deployment is available. The current frontend pass is being published to GitHub; Vercel production is a separate release.
+
+### Hero and catalogue experiment — 2026-10-02
+
+The grey prototype tile was replaced with HeroTurtleScene: custom SVG water layers,
+the original turtle illustration, gentle idle motion, and a small desktop pointer
+response. No Three.js dependency was added. The original turtle by the satellite
+message retains automatic movement only, with no cursor-hover effect.
+
+Phone screens start as one visible centre phone with the side screens behind it.
+Scrolling fans the side screens into their supplied three-screen arrangement.
+Hover lifts the inner image wrapper independently. Reduced motion shows all three
+screens without animation. Latest lint and production build pass; local review
+includes phone stacking/spread, hover, pointer/keyboard dialog close, mobile layout,
+and reduced motion. The experiment incorporates owner feedback and is included in this source release.
+
+- Programmatically focused story chapters no longer show a browser outline around
+  the full page. This applies to section containers; interactive keyboard controls
+  keep their own visible focus styles.
+
+### Final owner corrections
+
+The experimental blue-filled ocean panel was removed. The hero now uses a
+transparent stage over the original traced pattern and subtle SVG strokes in the
+existing secondary brand color. Both Explore prototype and Explore the catalogue
+buttons were removed at the owner's request. Artwork1/artwork3 remain unused;
+the original satellite-message turtle retains automatic idle motion only.
+
+GitHub source publication was requested on 2026-10-02. Private/local progress notes
+remain ignored. Vercel production still contains the earlier deployed release.
