@@ -34,8 +34,8 @@ export function BenefitCard({ title, description, variant }: BenefitCardProps) {
   const placement = variants[variant];
   return (
     <article data-stagger-item className="relative mx-auto min-h-[248px] w-full max-w-[480px] [perspective:1000px] md:mx-0 md:min-h-[27.7116cqw] md:max-w-none">
-      <div data-tilt className="relative h-full min-h-[248px] md:min-h-[27.7116cqw]">
-      <div aria-hidden="true" className={`absolute inset-0 h-full w-full overflow-hidden ${placement.artwork}`}>
+      <div className="relative h-full min-h-[248px] md:min-h-[27.7116cqw]">
+      <div data-tilt aria-hidden="true" className={`absolute inset-0 h-full w-full overflow-hidden ${placement.artwork}`}>
         <FigmaImage name={placement.name} width={placement.width} height={placement.height} className="h-full w-full" />
       </div>
       <div className={`relative p-10 md:pr-0 md:pb-0 ${placement.content}`}>

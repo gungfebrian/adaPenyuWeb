@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { MagneticButton } from "@/components/motion/magnetic-button";
-import { buttonClasses } from "@/components/ui/button";
 import { BenefitCard } from "../components/benefit-card";
 import { benefits } from "../content";
 import { FigmaImage } from "../components/figma-image";
@@ -17,7 +14,7 @@ export function BenefitsSection() {
     <section data-motion-section aria-labelledby="benefits-title" className="relative px-6 pt-[76px] pb-16 text-primary md:px-0 md:pt-[6.6138cqw] md:pb-[6.6138cqw]">
       <Pattern variant="benefits" />
       <div aria-hidden="true" data-parallax="-44" data-parallax-rotate="10" className="pointer-events-none absolute -top-[71px] right-[-22px] z-2 h-32 w-[180px] md:-top-[10.3cqw] md:right-[-5.1%] md:h-[20.5129cqw] md:w-[28.9056cqw]">
-        <div data-idle className="h-full w-full"><FigmaImage name="banner-turtle" width={437} height={310} className="h-full w-full" /></div>
+        <div data-idle="turtle" className="h-full w-full"><FigmaImage name="banner-turtle" width={437} height={310} className="h-full w-full" /></div>
       </div>
       <h2 id="benefits-title" data-reveal className="relative font-detail text-lg leading-[1.209] font-medium text-secondary md:ml-[5.291cqw] md:text-[1.9841cqw]">What it does?</h2>
       <div data-stagger className="relative mt-[26px] grid grid-cols-1 gap-7 md:mt-[1.3709cqw] md:ml-[3.1085cqw] md:grid-cols-[26.1905cqw_27.9762cqw_34.9868cqw] md:gap-0">
@@ -25,10 +22,10 @@ export function BenefitsSection() {
       </div>
       <div data-prototype-sequence className="relative mx-auto mt-12 max-w-[1000px] md:mt-[4cqw] md:w-[66.1376cqw]">
       <div className="flex items-start justify-between gap-[4%]">
-        {screens.map((screen) => (
-          <figure data-phone key={screen.name} className={`shrink-0 origin-center ${screen.position}`}>
-            <div>
-              <div className="overflow-hidden rounded-[8px] shadow-[3px_3px_15px_#0000002b] md:rounded-[20px]">
+        {screens.map((screen, index) => (
+          <figure data-phone key={screen.name} className={`group/phone relative shrink-0 origin-top ${index === 1 ? "z-2" : "z-1"} ${screen.position}`}>
+            <div className="transition-transform duration-300 ease-out motion-safe:[@media(hover:hover)]:group-hover/phone:-translate-y-2 motion-reduce:transition-none">
+              <div className="overflow-hidden rounded-[8px] shadow-[3px_3px_15px_#0000002b] transition-shadow duration-300 group-hover/phone:shadow-[0_12px_28px_#00263c25] motion-reduce:transition-none md:rounded-[20px]">
                 <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 30vw, 23vw" className="h-auto w-full" />
               </div>
             </div>
@@ -36,7 +33,6 @@ export function BenefitsSection() {
         ))}
       </div>
       </div>
-      <div data-reveal className="relative mt-8 text-center md:mt-12"><MagneticButton className="inline-block"><Link href="/turtles" className={buttonClasses("secondary", "border border-primary/15 bg-paper/90")}>Explore the catalogue <span aria-hidden="true">↗</span></Link></MagneticButton></div>
     </section>
   );
 }

@@ -49,7 +49,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
           beats.forEach((beat, index) => {
             const at = 0.25 + index * 1.15;
             if (arrows[index]) timeline.from(arrows[index], { scale: 0.65, opacity: 0, duration: 0.45, ease: "power2.out" }, at);
-            timeline.from(beat, { y: 40, opacity: 0, duration: 0.65, ease: "power3.out" }, at + 0.2);
+            timeline.from(beat, { y: 40, opacity: 0, duration: 0.65, ease: "power3.out", force3D: false }, at + 0.2);
           });
           timeline.to({}, { duration: 0.55 });
           timeline.scrollTrigger?.refresh();
@@ -67,21 +67,10 @@ export function LandingMotion({ children }: { children: ReactNode }) {
             const copy = step.querySelector("[data-step-copy]");
             const arrow = step.querySelector("[data-step-arrow]");
             if (circle) timeline.from(circle, { scale: 0.55, opacity: 0, duration: 0.5, ease: "back.out(1.4)" }, at);
-            if (copy) timeline.from(copy, { y: 28, opacity: 0, duration: 0.6, ease: "power3.out" }, at + 0.15);
+            if (copy) timeline.from(copy, { y: 28, opacity: 0, duration: 0.6, ease: "power3.out", force3D: false }, at + 0.15);
             if (arrow) timeline.from(arrow, { scaleY: 0, opacity: 0, duration: 0.4, ease: "power2.out" }, at + 0.6);
           });
           timeline.to({}, { duration: 0.08 });
-          timeline.scrollTrigger?.refresh();
-        }
-        const prototype = root.querySelector<HTMLElement>("[data-prototype-sequence]");
-        if (prototype) {
-          const phones = [...prototype.querySelectorAll<HTMLElement>("[data-phone]")];
-          // Reveal the three screens during normal scrolling. Holding and
-          // rotating the full screenshot group made this chapter feel heavy.
-          const timeline = gsap.timeline({
-            scrollTrigger: { trigger: prototype, start: "top 85%", end: "top 25%", scrub: true, invalidateOnRefresh: true },
-          });
-          timeline.from(phones, { y: 48, opacity: 0, stagger: 0.1, duration: 0.6, ease: "power2.out", force3D: false, snap: { y: 1 } });
           timeline.scrollTrigger?.refresh();
         }
       } else {
@@ -100,6 +89,25 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         });
       }
 
+      const prototype = root.querySelector<HTMLElement>("[data-prototype-sequence]");
+      if (prototype) {
+        const phones = [...prototype.querySelectorAll<HTMLElement>("[data-phone]")];
+        const centre = phones[1];
+        const sides = phones.filter((_, index) => index !== 1);
+        if (centre) {
+          // Offset-based layout reads exclude transforms, even after refresh.
+          // Side screens start hidden behind the taller centre phone, then fan out.
+          gsap.fromTo(sides, {
+            x: (_index, phone: HTMLElement) => centre.offsetLeft + centre.offsetWidth / 2 - phone.offsetLeft - phone.offsetWidth / 2,
+            y: (_index, phone: HTMLElement) => centre.offsetTop - phone.offsetTop,
+            scale: 0.92,
+          }, {
+            x: 0, y: 0, scale: 1, ease: "none", force3D: false,
+            scrollTrigger: { trigger: prototype, start: "top 90%", end: desktop ? "top 20%" : "top 45%", scrub: true, invalidateOnRefresh: true },
+          });
+        }
+      }
+
       // The story card sits directly over the preceding artwork. Its frame stays
       // full width: scaling the page would expose an empty canvas at its edges.
       const storyFrame = root.querySelector<HTMLElement>('[data-scene-anchor="our-project"]');
@@ -115,9 +123,45 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         const travel = Number(layer.dataset.parallax) * (desktop ? 1.5 : 0.35);
         gsap.fromTo(layer, { y: -travel / 2 }, { y: travel / 2, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: "top bottom", end: "bottom top", scrub: true } });
       });
+      root.querySelectorAll<HTMLElement>("[data-artwork-reveal]").forEach(artwork => {
+        gsap.from(artwork, { y: desktop ? 32 : 18, opacity: 0, duration: 0.85, ease: "power3.out", force3D: false, clearProps: "transform,opacity", scrollTrigger: { trigger: artwork, start: "top 90%", once: true } });
+      });
+      const pauseOutside = (loop: gsap.core.Animation, wrapper: Element) => {
+        let visible = false;
+        const syncPlayback = () => { if (visible && !document.hidden) loop.resume(); else loop.pause(); };
+        const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; syncPlayback(); });
+        observer.observe(wrapper);
+        document.addEventListener("visibilitychange", syncPlayback);
+        cleanup.push(() => { observer.disconnect(); document.removeEventListener("visibilitychange", syncPlayback); });
+      };
+      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="hero-turtle"]').forEach(artwork => {
+        const swimming = artwork.dataset.idle === "turtle";
+        const float = gsap.fromTo(artwork,
+          { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : -1 },
+          { x: swimming ? 2 : 0, y: swimming ? -9 : -5, rotation: swimming ? 1.8 : 1, duration: swimming ? 3 : 4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false },
+        );
+        // Observe the wrapper, so idle motion never moves its own trigger.
+        pauseOutside(float, artwork.parentElement ?? artwork);
+      });
+      const ocean = root.querySelector<HTMLElement>("[data-hero-ocean]");
+      if (ocean) {
+        ocean.querySelectorAll<SVGPathElement>("[data-hero-wave]").forEach((wave, index) => {
+          const drift = gsap.to(wave, { x: index % 2 ? -30 : 30, y: index % 2 ? -8 : 8, duration: 7 + index, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+          pauseOutside(drift, ocean);
+        });
+        const turtle = ocean.querySelector<HTMLElement>("[data-hero-turtle-pointer]");
+        if (turtle && pointer && desktop) {
+          const x = gsap.quickTo(turtle, "x", { duration: 0.8, ease: "power2.out", force3D: false });
+          const y = gsap.quickTo(turtle, "y", { duration: 0.8, ease: "power2.out", force3D: false });
+          const move = (event: PointerEvent) => { const rect = ocean.getBoundingClientRect(); x(((event.clientX - rect.left) / rect.width - 0.5) * 24); y(((event.clientY - rect.top) / rect.height - 0.5) * 16); };
+          const reset = () => { x(0); y(0); };
+          ocean.addEventListener("pointermove", move); ocean.addEventListener("pointerleave", reset);
+          cleanup.push(() => { ocean.removeEventListener("pointermove", move); ocean.removeEventListener("pointerleave", reset); });
+        }
+      }
       const heroMedia = root.querySelector("[data-hero-media]");
       const hero = root.querySelector("#home");
-      if (heroMedia && hero && desktop) gsap.to(heroMedia, { y: -48, rotationX: 6, scale: 0.94, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+      if (heroMedia && hero && desktop) gsap.to(heroMedia, { y: -32, force3D: false, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
 
       if (pointer && desktop) {
         root.querySelectorAll<HTMLElement>("[data-tilt]").forEach(card => {
