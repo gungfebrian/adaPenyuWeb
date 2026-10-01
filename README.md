@@ -48,7 +48,7 @@ they are not included in commits or deployments.
 
 The supplied Figma composition is implemented at `/`, including the story, three
 identification steps, three prototype screens, progress, team, contribution, and
-contact sections. The hero uses a decorative animated ocean scene; the former Explore prototype link was removed. The logo and navigation share
+contact sections. The hero retains its original grey box, app icon, and wordmark; the Explore prototype link is removed. The logo and navigation share
 one floating block with a mobile dialog. Link hovers use a single label and
 underline, avoiding duplicate text during transitions.
 
@@ -139,3 +139,11 @@ the original satellite-message turtle retains automatic idle motion only.
 
 GitHub source publication was requested on 2026-10-02. Private/local progress notes
 remain ignored. Vercel production still contains the earlier deployed release.
+
+## Latest correction — original hero restored
+
+The owner requested the original grey hero box. Its app icon, wordmark, dimensions,
+and surface color are restored. The experimental turtle/water scene and its motion
+code were removed. Explore prototype and Explore the catalogue remain removed,
+and the phone separation and original satellite-message turtle's idle loop remain.
+This correction supersedes the earlier hero experiment described above.

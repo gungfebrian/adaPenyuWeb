@@ -134,7 +134,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         document.addEventListener("visibilitychange", syncPlayback);
         cleanup.push(() => { observer.disconnect(); document.removeEventListener("visibilitychange", syncPlayback); });
       };
-      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="hero-turtle"]').forEach(artwork => {
+      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"]').forEach(artwork => {
         const swimming = artwork.dataset.idle === "turtle";
         const float = gsap.fromTo(artwork,
           { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : -1 },
@@ -143,22 +143,6 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         // Observe the wrapper, so idle motion never moves its own trigger.
         pauseOutside(float, artwork.parentElement ?? artwork);
       });
-      const ocean = root.querySelector<HTMLElement>("[data-hero-ocean]");
-      if (ocean) {
-        ocean.querySelectorAll<SVGPathElement>("[data-hero-wave]").forEach((wave, index) => {
-          const drift = gsap.to(wave, { x: index % 2 ? -30 : 30, y: index % 2 ? -8 : 8, duration: 7 + index, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
-          pauseOutside(drift, ocean);
-        });
-        const turtle = ocean.querySelector<HTMLElement>("[data-hero-turtle-pointer]");
-        if (turtle && pointer && desktop) {
-          const x = gsap.quickTo(turtle, "x", { duration: 0.8, ease: "power2.out", force3D: false });
-          const y = gsap.quickTo(turtle, "y", { duration: 0.8, ease: "power2.out", force3D: false });
-          const move = (event: PointerEvent) => { const rect = ocean.getBoundingClientRect(); x(((event.clientX - rect.left) / rect.width - 0.5) * 24); y(((event.clientY - rect.top) / rect.height - 0.5) * 16); };
-          const reset = () => { x(0); y(0); };
-          ocean.addEventListener("pointermove", move); ocean.addEventListener("pointerleave", reset);
-          cleanup.push(() => { ocean.removeEventListener("pointermove", move); ocean.removeEventListener("pointerleave", reset); });
-        }
-      }
       const heroMedia = root.querySelector("[data-hero-media]");
       const hero = root.querySelector("#home");
       if (heroMedia && hero && desktop) gsap.to(heroMedia, { y: -32, force3D: false, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });

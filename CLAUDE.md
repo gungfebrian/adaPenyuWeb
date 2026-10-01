@@ -60,3 +60,10 @@ See design.md and docs/stakeholder-overview.md for the planned boundaries.
 - No Three.js dependency was added. The hero uses the existing brand palette and
   transparent background, with no added blue panel. Explore prototype and Explore
   the catalogue buttons were removed at the owner's request.
+
+## Latest hero decision — supersedes the experiment
+
+Keep the original grey hero box, app icon, wordmark, and dimensions. The owner
+rejected the turtle/water replacement: its component and motion were removed.
+Do not re-add it. The two Explore buttons remain removed. Phone separation and
+the original satellite-message turtle idle loop are retained.
