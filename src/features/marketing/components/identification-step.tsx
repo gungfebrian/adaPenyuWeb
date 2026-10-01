@@ -4,14 +4,14 @@ type IdentificationStepProps = { number: string; title: string; description: str
 
 export function IdentificationStep({ number, title, description, isLast }: IdentificationStepProps) {
   return (
-    <li data-step className="group relative grid min-h-28 grid-cols-[74px_1fr] gap-[18px] md:min-h-[10.412cqw] md:grid-cols-[10.412cqw_1fr] md:gap-[0.2646cqw] md:first:mb-[3.6706cqw] md:[&:nth-child(2)]:mb-[4.8657cqw] lg:[@media(min-height:720px)]:min-h-[22vh] lg:[@media(min-height:720px)]:grid-cols-[min(10.4cqw,14vh)_1fr] lg:[@media(min-height:720px)]:gap-[1.3cqw] lg:[@media(min-height:720px)]:first:mb-0 lg:[@media(min-height:720px)]:[&:nth-child(2)]:mb-0">
+    <li data-step className="group relative grid text-primary min-h-28 grid-cols-[74px_1fr] gap-[18px] md:min-h-[10.412cqw] md:grid-cols-[10.412cqw_1fr] md:gap-[0.2646cqw] md:first:mb-[3.6706cqw] md:[&:nth-child(2)]:mb-[4.8657cqw] lg:[@media(min-height:720px)]:min-h-[22vh] lg:[@media(min-height:720px)]:grid-cols-[min(10.4cqw,14vh)_1fr] lg:[@media(min-height:720px)]:gap-[1.3cqw] lg:[@media(min-height:720px)]:first:mb-0 lg:[@media(min-height:720px)]:[&:nth-child(2)]:mb-0">
       <span data-step-circle aria-hidden="true" className="relative grid h-[74px] place-items-center font-display text-[23px] leading-none font-semibold md:h-[10.2851cqw] md:text-[2.7778cqw] lg:[@media(min-height:720px)]:h-[min(10.4cqw,14vh)]">
         <FigmaImage name="step-circle" width={158} height={156} className="absolute inset-0 h-full w-full" />
         <span className="relative text-primary transition-transform duration-300 motion-safe:group-hover:scale-110">{number}</span>
       </span>
       <div data-step-copy className="pt-2.5 md:pt-[2.7778cqw] lg:[@media(min-height:720px)]:pt-[3vh]">
         <h3 className="font-display text-[25px] leading-[1.2] font-semibold md:text-[2.7778cqw] md:leading-[1.88095] lg:[@media(min-height:720px)]:leading-[1.35]">{title}</h3>
-        <p className={`mt-3.5 font-detail text-[17px] leading-[1.32] font-medium md:mt-0 md:text-[1.6534cqw] ${number === "01" ? "md:max-w-[26.3889cqw]" : "md:max-w-[32.3413cqw]"}`}>{description}</p>
+        <p className={`mt-3.5 font-detail text-[17px] text-secondary leading-[1.32] font-medium md:mt-0 md:text-[1.6534cqw] ${number === "01" ? "md:max-w-[26.3889cqw]" : "md:max-w-[32.3413cqw]"}`}>{description}</p>
       </div>
       {!isLast && <span data-step-arrow aria-hidden="true" className="absolute top-20 left-7 h-[50px] w-6 origin-top md:top-[9.6561cqw] md:left-[3.9683cqw] md:h-[6.8989cqw] md:w-[3.3069cqw] lg:[@media(min-height:720px)]:top-[13vh] lg:[@media(min-height:720px)]:left-[5.5vh] lg:[@media(min-height:720px)]:h-[8vh] lg:[@media(min-height:720px)]:w-[3vh]"><FigmaImage name="step-arrow" width={50} height={104} className="h-full w-full" /></span>}
     </li>

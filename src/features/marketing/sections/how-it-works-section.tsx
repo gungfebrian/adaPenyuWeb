@@ -5,7 +5,7 @@ import { FigmaImage } from "../components/figma-image";
 export function HowItWorksSection() {
   return (
     <>
-      <div data-scroll-stage><section id="how-it-works" data-steps-pin data-motion-section aria-labelledby="how-title" className="relative min-h-svh scroll-mt-0 px-6 pt-28 pb-16 lg:[@media(min-height:720px)]:px-0 lg:[@media(min-height:720px)]:pt-[max(100px,9vh)] lg:[@media(min-height:720px)]:pb-8">
+      <div data-scroll-stage><section id="how-it-works" data-steps-pin data-motion-section aria-labelledby="how-title" className="relative min-h-svh scroll-mt-0 text-primary px-6 pt-28 pb-16 lg:[@media(min-height:720px)]:px-0 lg:[@media(min-height:720px)]:pt-[max(100px,9vh)] lg:[@media(min-height:720px)]:pb-8">
         <p data-reveal className="font-detail text-lg leading-[1.209] font-medium text-secondary md:ml-[5.6217cqw] md:text-[1.9841cqw]">How AdaPenyu works?</p>
         <h2 id="how-title" data-reveal className="mt-4 md:mt-[0.7275cqw] md:ml-[3.836cqw]">
           <span className="sr-only">Three steps only</span>
