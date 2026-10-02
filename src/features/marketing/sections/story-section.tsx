@@ -1,5 +1,4 @@
 import { FigmaImage } from "../components/figma-image";
-import { Pattern } from "../components/pattern";
 import { OceanCurrents } from "../components/ocean-artwork";
 
 const arrows = {
@@ -16,7 +15,9 @@ function StoryArrow({ variant, mobile = false }: { variant: keyof typeof arrows;
 
 export function StorySection() {
   return <div data-scroll-stage><section id="our-project" data-story-pin data-header-theme="dark" data-motion-section aria-labelledby="story-title" className="relative min-h-svh scroll-mt-0 bg-banner px-6 pt-28 pb-14 text-white lg:[@media(min-height:720px)]:h-svh lg:[@media(min-height:720px)]:p-0">
-    <Pattern variant="story" />
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
+      <div data-parallax="-24" className="absolute -inset-y-5 inset-x-0 bg-[url('/images/Screen/deep-ocean-background.svg')] bg-cover bg-center" />
+    </div>
     <OceanCurrents />
     <div className="relative flex flex-col lg:[@media(min-height:720px)]:h-full">
       <div data-story-opening className="lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[14%] lg:[@media(min-height:720px)]:left-[5.3%] lg:[@media(min-height:720px)]:w-[42.33%]">
