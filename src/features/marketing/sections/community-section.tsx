@@ -5,7 +5,6 @@ import { ContactForm } from "../components/contact-form";
 import { Pattern } from "../components/pattern";
 import { TeamProfiles } from "../components/team-profiles";
 import { FigmaImage } from "../components/figma-image";
-import { OceanReef, OceanCurrents } from "../components/ocean-artwork";
 import { buttonClasses } from "@/components/ui/button";
 
 const waysToContribute = [
@@ -153,8 +152,7 @@ export function ContactSection() {
       className="scroll-mt-0 bg-paper px-5 py-12 text-white sm:px-8 md:px-12 md:py-16"
     >
       <div className="relative isolate mx-auto grid w-full max-w-6xl gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-14 lg:py-16">
-        <Pattern variant="accuracy" />
-        <OceanCurrents />
+        <Pattern variant="accuracy" parallax={false} />
         <div data-reveal className="relative self-start">
           <p className="font-detail text-sm font-semibold uppercase tracking-[0.12em] text-white/70">
             Contact
@@ -225,10 +223,9 @@ export function FaqSection() {
 
 export function MarketingFooter() {
   return (
-    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-6 py-9 text-white sm:px-8 md:px-12 md:py-12">
-      <Pattern variant="accuracy" />
-      <OceanReef variant="footer" />
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-6 py-9 text-white sm:px-8 sm:py-12 md:px-[3.2%]">
+      <Pattern variant="accuracy" parallax={false} />
+      <div className="relative mx-auto grid w-full max-w-[1440px] gap-5 font-body text-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10 md:gap-14">
         <Link href="#home" aria-label="AdaPenyu home" className="w-fit rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
           <Image
             src="/images/marketing/footer-wordmark.svg"
@@ -236,15 +233,11 @@ export function MarketingFooter() {
             width={129}
             height={40}
             unoptimized
-            className="h-10 w-auto"
+            className="h-auto w-24"
           />
         </Link>
-        <nav aria-label="Footer navigation" className="relative flex flex-wrap gap-x-6 gap-y-3 font-detail text-sm font-medium text-white/85">
-          <Link className="rounded-sm transition-colors hover:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none" href="#home">Home</Link>
-          <Link className="rounded-sm transition-colors hover:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none" href="#our-project">Our Project</Link>
-          <Link className="rounded-sm transition-colors hover:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none" href="#about-us">About Us</Link>
-          <Link className="rounded-sm transition-colors hover:text-white focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 motion-reduce:transition-none" href="#faq">FAQ</Link>
-        </nav>
+        <p>© 2026 AdaPenyu. All rights reserved.</p>
+        <a href="mailto:adapenyu@gmail.com" className="w-fit rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
       </div>
     </footer>
   );

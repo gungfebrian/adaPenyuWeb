@@ -8,11 +8,11 @@ const variants = {
   accuracy: { name: "accuracy-pattern", width: 1369, height: 430 },
 } as const;
 
-export function Pattern({ variant }: { variant: PatternVariant }) {
+export function Pattern({ variant, parallax = true }: { variant: PatternVariant; parallax?: boolean }) {
   const artwork = variants[variant];
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
-      <div data-parallax={variant === "hero" || variant === "benefits" ? "20" : "-24"} className="absolute -inset-y-5 inset-x-0">
+      <div data-parallax={parallax ? (variant === "hero" || variant === "benefits" ? "20" : "-24") : undefined} className="absolute -inset-y-5 inset-x-0">
         <FigmaImage {...artwork} loading={variant === "hero" ? "eager" : "lazy"} className="h-full w-full object-cover" />
       </div>
     </div>
