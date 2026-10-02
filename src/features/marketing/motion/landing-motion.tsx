@@ -60,7 +60,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
           });
           timeline.to({}, { duration: 0.55 });
           const turtle = story.querySelector("[data-story-swim]");
-          if (turtle) timeline.to(turtle, { x: 48, y: -18, rotation: -5, duration: timeline.duration(), ease: "none", force3D: false }, 0);
+          if (turtle) timeline.to(turtle, { x: -32, y: -10, rotation: -3, duration: timeline.duration(), ease: "none", force3D: false }, 0);
           timeline.scrollTrigger?.refresh();
         }
         const steps = root.querySelector<HTMLElement>("[data-steps-pin]");
@@ -179,14 +179,16 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       root.querySelectorAll<SVGElement>("[data-ocean-sway]").forEach(artwork => {
         gsap.set(artwork, { svgOrigin: artwork.dataset.oceanPivot });
         const order = Number(artwork.dataset.oceanSway ?? 0);
-        const angle = (order % 2 ? 1 : -1) * (desktop ? 1.3 : 0.5);
-        const loop = gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration: 3.5 + order % 4 * 0.65, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        const chapter = !!artwork.closest("[data-chapter-ocean]");
+        const angle = (order % 2 ? 1 : -1) * (chapter ? (desktop ? 2.4 : 0.95) : (desktop ? 1.3 : 0.5));
+        const duration = chapter ? 2.1 + order % 4 * 0.25 : 3.5 + order % 4 * 0.65;
+        const loop = gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, artwork.parentElement ?? artwork);
       });
       root.querySelectorAll<HTMLElement>("[data-chapter-sway]").forEach(plant => {
         const order = Number(plant.dataset.chapterSway);
-        const angle = (desktop ? 1.2 : 0.45) * (order % 2 ? 1 : -1);
-        const loop = gsap.fromTo(plant, { rotation: -angle }, { rotation: angle, duration: 4.5 + order * 0.5, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        const angle = (desktop ? 1.8 : 0.7) * (order % 2 ? 1 : -1);
+        const loop = gsap.fromTo(plant, { rotation: -angle }, { rotation: angle, duration: 2.6 + order * 0.25, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, plant.parentElement ?? plant);
       });
       root.querySelectorAll<SVGElement>("[data-ocean-bubble]").forEach(artwork => {
@@ -205,9 +207,19 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       });
       root.querySelectorAll<HTMLElement>("[data-ocean-current]").forEach(artwork => {
         const order = Number(artwork.dataset.oceanCurrent);
-        const travel = (desktop ? 8 : 3) * (order % 2 ? 1 : -1);
-        const loop = gsap.fromTo(artwork, { x: -travel }, { x: travel, duration: 6 + order, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        const chapter = !!artwork.closest("[data-chapter-ocean]");
+        const travel = (chapter ? (desktop ? 14 : 6) : (desktop ? 8 : 3)) * (order % 2 ? 1 : -1);
+        const loop = gsap.fromTo(artwork, { x: -travel }, { x: travel, duration: chapter ? 3.2 + order * 0.35 : 6 + order, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, artwork.parentElement ?? artwork);
+      });
+      root.querySelectorAll<SVGElement>("[data-chapter-ocean] [data-ocean-ribbon]").forEach(ribbon => {
+        const order = Number(ribbon.dataset.oceanRibbon);
+        const direction = order % 2 ? 1 : -1;
+        const rotation = (desktop ? 1.1 : 0.4) * direction;
+        const skew = (desktop ? 1.4 : 0.5) * direction;
+        gsap.set(ribbon, { svgOrigin: ribbon.dataset.oceanPivot });
+        const loop = gsap.fromTo(ribbon, { rotation: -rotation, skewX: -skew }, { rotation, skewX: skew, duration: 3.6 + order * 0.4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        pauseOutside(loop, ribbon.closest("[data-ocean-current]") ?? ribbon);
       });
 
       root.querySelectorAll<HTMLElement>("[data-match-sequence]").forEach(sequence => {

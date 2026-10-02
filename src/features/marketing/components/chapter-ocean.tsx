@@ -22,8 +22,8 @@ function ChapterPlantBed({ side }: { side: "left" | "right" }) {
     element.label === (left ? "left seaweed" : "right coral"),
   );
   return (
-    <div data-ocean-depth="30" className={`absolute bottom-3 opacity-80 md:bottom-5 md:opacity-100 ${left ? "-left-3 w-[clamp(125px,15vw,220px)]" : "-right-2 w-[clamp(110px,14vw,205px)]"}`}>
-      <svg viewBox={left ? "-4 80 205 224" : "245 125 180 180"} className="h-auto w-full overflow-visible">
+    <div data-ocean-depth="30" className={`absolute bottom-3 opacity-80 md:bottom-5 md:opacity-100 ${left ? "left-4 w-[clamp(125px,15vw,220px)] md:left-6" : "right-4 w-[clamp(110px,14vw,205px)] md:right-6"}`}>
+      <svg viewBox={left ? "-12 70 225 238" : "233 115 200 194"} className="h-auto w-full overflow-visible">
         {selection.map(element => {
           const { x, y, width, height } = element.bounds;
           return (
@@ -53,8 +53,8 @@ function ChapterWave() {
 /** Restrained deep-ocean layers frame the copy without intercepting input. */
 export function ChapterOcean({ chapter }: { chapter: OceanChapter }) {
   return (
-    <div aria-hidden="true" data-chapter-ocean={chapter} className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit] select-none [mask-image:linear-gradient(to_bottom,transparent,black_32px,black_calc(100%-20px),transparent)]">
-      <div className="absolute inset-0 opacity-65"><OceanCurrents /></div>
+    <div aria-hidden="true" data-chapter-ocean={chapter} className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit] select-none [mask-image:linear-gradient(to_bottom,transparent,black_80px,black_calc(100%-72px),transparent)]">
+      <div className="absolute inset-0 opacity-65 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_78%,transparent)]"><OceanCurrents /></div>
       <div className="absolute inset-0 opacity-60">
         <OceanBubbles className="top-[28%] -left-8 md:left-0" />
         <OceanBubbles className="top-[35%] -right-8 md:right-0" />

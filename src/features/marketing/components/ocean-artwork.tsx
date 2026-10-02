@@ -9,14 +9,18 @@ function OceanElements({ collection, from, to, sway = false }: { collection: str
   const selection = elements.filter(element => element.collection === collection && element.layerOrder >= from && element.layerOrder <= to && (collection !== "01-ocean-reef" || !omittedHeroElements.has(element.layerOrder)));
   return (
     <svg viewBox={selection[0].originalViewBox} preserveAspectRatio="none" className="h-full w-full overflow-visible">
-      {collection === "01-ocean-reef" && from === 13 && <rect x="0" y="299" width="1536" height="101" fill="#133045" />}
       {selection.map(element => {
         const bounds = element.bounds;
         const plant = sway && (element.label === "left seaweed" || element.label === "right coral");
+        const frontWave = collection === "01-ocean-reef" && element.layerOrder === 13;
+        const foregroundWave = collection === "01-ocean-reef" && element.layerOrder === 12;
+        // Extend both foreground fills past the baseline so their independent
+        // scroll depths cannot expose a lighter rear wave at the chapter join.
+        const imagePath = frontWave ? "/images/marketing/hero-frontmost-wave.svg" : foregroundWave ? "/images/marketing/hero-foreground-wave.svg" : `${assetRoot}/${element.file}`;
         return (
           <g key={element.file} data-ocean-sway={plant ? element.layerOrder : undefined} data-ocean-bubble={element.label === "bubble" ? element.layerOrder : undefined} data-ocean-pivot={`${bounds.x + bounds.width / 2} ${bounds.y + bounds.height}`}>
-            <g data-bubble-response={element.label === "bubble" ? element.layerOrder : undefined} data-ocean-pivot={`${bounds.x + bounds.width / 2} ${bounds.y + bounds.height / 2}`}>
-              <image href={collection === "01-ocean-reef" && element.layerOrder === 13 ? "/images/marketing/hero-frontmost-wave.svg" : `${assetRoot}/${element.file}`} x={bounds.x} y={bounds.y} width={bounds.width} height={bounds.height} preserveAspectRatio="none" />
+            <g data-bubble-response={element.label === "bubble" ? element.layerOrder : undefined} data-ocean-ribbon={element.label === "current band" ? element.layerOrder : undefined} data-ocean-pivot={`${bounds.x + bounds.width / 2} ${bounds.y + bounds.height / 2}`}>
+              <image href={imagePath} x={bounds.x} y={bounds.y - (frontWave ? 6 : 0)} width={bounds.width} height={bounds.height + (frontWave || foregroundWave ? 100 : 0)} preserveAspectRatio="none" />
             </g>
           </g>
         );
