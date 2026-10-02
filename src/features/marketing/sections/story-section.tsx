@@ -17,7 +17,10 @@ export function StorySection() {
     <div className="relative mx-auto flex w-full max-w-[1512px] flex-col lg:[@media(min-height:720px)]:h-full">
       <div data-story-opening className="lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[max(96px,8%)] lg:[@media(min-height:720px)]:left-[5.3%] lg:[@media(min-height:720px)]:w-1/2">
         <p className="font-detail text-lg font-medium lg:[@media(min-height:720px)]:text-[clamp(20px,1.98cqw,30px)]">The Story Behind It</p>
-        <h2 id="story-title" className="mt-5 lg:[@media(min-height:720px)]:mt-5"><span className="sr-only">Turtles are being traded illegally</span><FigmaImage name="story-title" width={640} height={200} className="h-auto w-full max-w-[768px]" /></h2>
+        <h2 id="story-title" className="mt-5 font-display text-[clamp(36px,4.23cqw,64px)] leading-[1.12] font-medium tracking-[-0.025em]">Turtles are being<br />{" "}traded illegally</h2>
+        <div aria-hidden="true" data-story-swim className="pointer-events-none mt-5 w-[180px] sm:w-[210px] lg:[@media(min-height:720px)]:mt-4 lg:[@media(min-height:720px)]:w-[clamp(160px,24svh,260px)]">
+          <div data-idle="story-turtle"><FigmaImage name="banner-turtle" width={437} height={310} className="h-auto w-full" /></div>
+        </div>
       </div>
       <div data-story-beat className="relative mt-[90px] w-full lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[41%] lg:[@media(min-height:720px)]:right-[11%] lg:[@media(min-height:720px)]:mt-0 lg:[@media(min-height:720px)]:w-[43.5%] lg:[@media(min-height:720px)]:text-right">
         <StoryArrow variant="first" mobile />

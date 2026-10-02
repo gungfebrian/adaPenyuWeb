@@ -59,6 +59,8 @@ export function LandingMotion({ children }: { children: ReactNode }) {
             timeline.from(beat, { y: 40, opacity: 0, duration: 0.65, ease: "power3.out", force3D: false }, at + 0.2);
           });
           timeline.to({}, { duration: 0.55 });
+          const turtle = story.querySelector("[data-story-swim]");
+          if (turtle) timeline.to(turtle, { x: 48, y: -18, rotation: -5, duration: timeline.duration(), ease: "none", force3D: false }, 0);
           timeline.scrollTrigger?.refresh();
         }
         const steps = root.querySelector<HTMLElement>("[data-steps-pin]");
@@ -149,12 +151,13 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         if (!loops) { loops = new Set(); observedLoops.set(wrapper, loops); loopObserver.observe(wrapper); }
         loops.add(loop);
       };
-      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="logo"], [data-idle="step-mark"]').forEach(artwork => {
+      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="story-turtle"], [data-idle="emblem"], [data-idle="logo"], [data-idle="step-mark"]').forEach(artwork => {
+        const storyTurtle = artwork.dataset.idle === "story-turtle";
         const swimming = artwork.dataset.idle === "turtle";
         const step = artwork.dataset.idle === "step-mark";
         const float = gsap.fromTo(artwork,
-          { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : step ? -0.6 : -1 },
-          { x: swimming ? 2 : 0, y: swimming ? -9 : step ? -2 : -5, rotation: swimming ? 1.8 : step ? 0.6 : 1, duration: swimming ? 3 : step ? 5 : 4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false },
+          { x: storyTurtle ? -6 : swimming ? -2 : 0, y: storyTurtle ? 4 : swimming ? 2 : 0, rotation: storyTurtle ? -2 : swimming ? -1.2 : step ? -0.6 : -1 },
+          { x: storyTurtle ? 8 : swimming ? 2 : 0, y: storyTurtle ? -7 : swimming ? -9 : step ? -2 : -5, rotation: swimming || storyTurtle ? 1.8 : step ? 0.6 : 1, duration: storyTurtle ? 4.2 : swimming ? 3 : step ? 5 : 4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false },
         );
         // Observe the wrapper, so idle motion never moves its own trigger.
         pauseOutside(float, artwork.parentElement ?? artwork);
