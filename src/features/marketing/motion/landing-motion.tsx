@@ -134,7 +134,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         document.addEventListener("visibilitychange", syncPlayback);
         cleanup.push(() => { observer.disconnect(); document.removeEventListener("visibilitychange", syncPlayback); });
       };
-      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"]').forEach(artwork => {
+      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="logo"]').forEach(artwork => {
         const swimming = artwork.dataset.idle === "turtle";
         const float = gsap.fromTo(artwork,
           { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : -1 },
@@ -146,6 +146,21 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       const heroMedia = root.querySelector("[data-hero-media]");
       const hero = root.querySelector("#home");
       if (heroMedia && hero && desktop) gsap.to(heroMedia, { y: -32, force3D: false, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+      root.querySelectorAll<HTMLElement>("[data-ocean-depth]").forEach(layer => {
+        const section = layer.closest("[data-motion-section]");
+        if (!section) return;
+        const depth = Number(layer.dataset.oceanDepth) * (desktop ? 1 : 0.3);
+        gsap.fromTo(layer, { y: -depth / 2 }, { y: depth / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section, start: section === hero ? "top top" : "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
+      });
+      root.querySelectorAll<HTMLElement>("[data-ocean-sway], [data-ocean-bubbles]").forEach(artwork => {
+        const bubbles = artwork.hasAttribute("data-ocean-bubbles");
+        const order = Number(artwork.dataset.oceanSway ?? 0);
+        const angle = (order % 2 ? 1 : -1) * (desktop ? 1.3 : 0.5);
+        const loop = bubbles
+          ? gsap.fromTo(artwork, { y: 4 }, { y: -9, duration: 5.5, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false })
+          : gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration: 3.5 + order % 4 * 0.65, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        pauseOutside(loop, artwork.parentElement ?? artwork);
+      });
 
       if (pointer && desktop) {
         root.querySelectorAll<HTMLElement>("[data-tilt]").forEach(card => {

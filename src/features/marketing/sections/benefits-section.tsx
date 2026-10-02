@@ -2,6 +2,7 @@ import { BenefitCard } from "../components/benefit-card";
 import { benefits } from "../content";
 import { FigmaImage } from "../components/figma-image";
 import { Pattern } from "../components/pattern";
+import { OceanBubbles } from "../components/ocean-artwork";
 
 const screens = [
   { name: "app-photo", width: 272, height: 590, alt: "Turtle photo capture in the AdaPenyu prototype", position: "mt-[4%] w-[27.2%]" },
@@ -13,6 +14,8 @@ export function BenefitsSection() {
   return (
     <section data-motion-section aria-labelledby="benefits-title" className="relative px-6 pt-[76px] pb-16 text-primary md:px-0 md:pt-[6.6138cqw] md:pb-[6.6138cqw]">
       <Pattern variant="benefits" />
+      <OceanBubbles className="bottom-[12%] -left-8 opacity-40 md:left-[1%]" />
+      <OceanBubbles className="-right-8 bottom-[24%] -scale-x-100 opacity-40 md:right-[1%]" />
       <div aria-hidden="true" data-parallax="-44" data-parallax-rotate="10" className="pointer-events-none absolute -top-[71px] right-[-22px] z-2 h-32 w-[180px] md:-top-[10.3cqw] md:right-[-5.1%] md:h-[20.5129cqw] md:w-[28.9056cqw]">
         <div data-idle="turtle" className="h-full w-full"><FigmaImage name="banner-turtle" width={437} height={310} className="h-full w-full" /></div>
       </div>

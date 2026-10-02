@@ -5,6 +5,7 @@ import { ContactForm } from "../components/contact-form";
 import { Pattern } from "../components/pattern";
 import { TeamProfiles } from "../components/team-profiles";
 import { FigmaImage } from "../components/figma-image";
+import { OceanReef } from "../components/ocean-artwork";
 import { buttonClasses } from "@/components/ui/button";
 
 const waysToContribute = [
@@ -225,6 +226,7 @@ export function MarketingFooter() {
   return (
     <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-6 py-9 text-white sm:px-8 md:px-12 md:py-12">
       <Pattern variant="accuracy" />
+      <OceanReef variant="footer" />
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
         <Link href="#home" aria-label="AdaPenyu home" className="w-fit rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
           <Image
