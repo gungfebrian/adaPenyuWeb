@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ContactForm } from "../components/contact-form";
+import { FaqAccordion } from "../components/faq-accordion";
 import { Pattern } from "../components/pattern";
 import { TeamProfiles } from "../components/team-profiles";
 import { FigmaImage } from "../components/figma-image";
@@ -56,9 +57,9 @@ export function AboutSection() {
         id="about-us"
         aria-labelledby="team-title"
         data-motion-section
-        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-28 pb-20 text-primary md:pt-32 md:pb-28"
+        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-24 pb-[var(--section-space)] text-primary"
       >
-        <div className="mx-auto w-full max-w-6xl">
+        <div className="mx-auto w-full max-w-[1352px]">
           <div className="flex items-center justify-between gap-6 md:gap-10">
             <div data-reveal className="min-w-0 max-w-[782px] flex-1 text-left">
               <p className="font-body text-base font-medium text-secondary md:text-lg">About Us</p>
@@ -88,9 +89,9 @@ export function AboutSection() {
         id="where-we-come-from"
         aria-labelledby="academy-title"
         data-motion-section
-        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-12 text-primary md:py-16"
+        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-[var(--section-space)] text-primary"
       >
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-6 border-t border-primary/15 pt-10 md:gap-12 md:pt-14">
+        <div className="mx-auto grid w-full max-w-[1352px] grid-cols-[1fr_auto] items-center gap-6 md:gap-10">
           <div data-reveal>
             <p className="font-body text-lg font-medium text-secondary sm:text-xl">
               Where we come from
@@ -121,9 +122,9 @@ export function ContributionSection() {
       id="contribute"
       aria-labelledby="contribute-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-16 text-white md:py-24"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-[var(--section-space)] text-white"
     >
-      <div className="mx-auto w-full max-w-6xl">
+      <div className="mx-auto w-full max-w-[1352px]">
         <h2 data-reveal id="contribute-title" className="font-display text-3xl font-medium text-primary sm:text-4xl md:text-5xl">
           Ways to contribute
         </h2>
@@ -149,9 +150,9 @@ export function ContactSection() {
       id="contact"
       aria-labelledby="contact-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-12 text-white md:py-16"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-[var(--section-space)] text-white"
     >
-      <div className="relative isolate mx-auto grid w-full max-w-6xl gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-14 lg:py-16">
+      <div className="relative isolate mx-auto grid w-full max-w-[1352px] gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr]">
         <Pattern variant="accuracy" parallax={false} />
         <div data-reveal className="relative self-start">
           <p className="font-detail text-sm font-semibold uppercase tracking-[0.12em] text-white/70">
@@ -178,40 +179,14 @@ export function FaqSection() {
       id="faq"
       aria-labelledby="faq-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-28 pb-14 text-primary md:pt-28 md:pb-20"
+      className="flex-1 scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-24 pb-[var(--section-space)] text-primary [overflow-anchor:none]"
     >
-      <div className="mx-auto w-full max-w-[960px]">
+      <div className="mx-auto w-full max-w-[1352px]">
         <div data-reveal>
           <p className="font-body text-base font-medium text-secondary sm:text-lg">FAQ</p>
           <h2 id="faq-title" className="mt-4 max-w-[20ch] font-display text-[32px] font-medium leading-[1.2] text-secondary sm:text-[42px]">Frequently asked questions</h2>
         </div>
-        <div data-stagger className="mt-8 grid gap-4 sm:mt-10">
-          {faqs.map(({ question, answer }) => (
-            <details key={question} data-stagger-item className="group rounded-2xl bg-surface sm:rounded-[20px]">
-              <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 rounded-[inherit] px-5 py-4 font-body text-base font-medium motion-safe:transition-colors hover:bg-primary/5 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-secondary focus-visible:outline-offset-2 active:bg-primary/5 sm:px-6 [&::-webkit-details-marker]:hidden">
-                <span>{question}</span>
-                <span className="grid size-8 shrink-0 place-items-center rounded-full bg-secondary text-white">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="size-4 group-open:rotate-45 motion-safe:transition-transform motion-reduce:transition-none"
-                  >
-                    <path
-                      d="M12 5v14M5 12h14"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                </span>
-              </summary>
-              <p className="max-w-[64ch] px-5 pb-5 font-body leading-relaxed text-secondary sm:px-6">
-                {answer}
-              </p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion items={faqs} />
         <div data-reveal className="mt-8 flex flex-col items-start gap-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-6">
           <p className="font-body text-base text-secondary sm:text-lg">Still have questions?</p>
           <Link href="#contact" className={buttonClasses("primary", "rounded-2xl")}>Start a conversation <span aria-hidden="true">→</span></Link>
@@ -223,17 +198,17 @@ export function FaqSection() {
 
 export function MarketingFooter() {
   return (
-    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-[var(--page-gutter)] py-9 text-white sm:py-12">
+    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-[var(--page-gutter)] py-9 text-white [overflow-anchor:none] sm:py-12">
       <Pattern variant="accuracy" parallax={false} />
       <div className="relative mx-auto grid w-full max-w-[1440px] gap-5 font-body text-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10 md:gap-14">
         <Link href="#home" aria-label="AdaPenyu home" className="w-fit rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
           <Image
-            src="/images/marketing/footer-wordmark.svg"
+            src="/images/marketing/wordmark.svg"
             alt="AdaPenyu"
-            width={129}
-            height={40}
+            width={251}
+            height={78}
             unoptimized
-            className="h-auto w-24"
+            className="h-auto w-24 brightness-0 invert"
           />
         </Link>
         <p>© 2026 AdaPenyu. All rights reserved.</p>

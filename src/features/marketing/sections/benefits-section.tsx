@@ -29,9 +29,7 @@ export function BenefitsSection() {
         {screens.map((screen, index) => (
           <figure data-phone key={screen.name} className={`group/phone relative shrink-0 origin-top ${index === 1 ? "z-2" : "z-1"} ${screen.position}`}>
             <div className="transition-transform duration-300 ease-out motion-safe:[@media(hover:hover)]:group-hover/phone:-translate-y-2 motion-reduce:transition-none">
-              <div className="overflow-hidden rounded-[8px] shadow-[3px_3px_15px_#0000002b] transition-shadow duration-300 group-hover/phone:shadow-[0_12px_28px_#00263c25] motion-reduce:transition-none md:rounded-[20px]">
-                <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 30vw, 23vw" className="h-auto w-full" />
-              </div>
+              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 30vw, 23vw" className="h-auto w-full" />
             </div>
           </figure>
         ))}

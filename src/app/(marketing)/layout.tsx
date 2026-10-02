@@ -8,7 +8,7 @@ const dynaPuff = DynaPuff({ variable: "--font-dynapuff", subsets: ["latin"], dis
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${dmSans.variable} ${manrope.variable} ${dynaPuff.variable} min-h-dvh overflow-x-clip bg-paper text-ink [--page-gutter:clamp(24px,5.3vw,80px)]`}>
+    <div className={`${dmSans.variable} ${manrope.variable} ${dynaPuff.variable} min-h-dvh overflow-x-clip bg-paper text-ink [--page-gutter:clamp(24px,5.3vw,80px)] [--section-space:clamp(40px,4vw,64px)]`}>
       <div className="relative font-body [font-optical-sizing:none] [font-variation-settings:'opsz'_14]">
         <LandingHeader />
         <ChapterTransition />
