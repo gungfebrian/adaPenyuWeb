@@ -73,6 +73,9 @@ HeroTurtleScene or change the supplied ocean palette.
 - Phone hover translates inner wrappers independently from the scroll tween.
 - The two Explore buttons remain removed. The original satellite-message turtle
   retains its own artwork, placement, and automatic idle movement.
+- Latest owner preview: the second section (The Story Behind It) uses
+  public/images/Screen/deep-ocean-background.svg with the existing background
+  parallax. Keep the original story-pattern asset available for comparison/revert.
 
 ## Current GitHub / Vercel workflow
 

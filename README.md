@@ -181,6 +181,10 @@ height after rejecting the shorter-viewport sizing experiment. The marked small
 coral and distant reef fragments are omitted from the hero; the single large right
 coral remains. Source SVG files and the footer composition are preserved.
 
+The second section, The Story Behind It, currently previews the supplied
+deep-ocean-background.svg with the existing background parallax and story sequence.
+The original story-pattern asset remains available.
+
 The malformed frontend team-member name was restored to its last valid value,
 fixing the page compilation error without changing other supplied member details.
 
