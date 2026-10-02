@@ -176,6 +176,11 @@ src/features/marketing/components/ocean-artwork.tsx and hero-logo.tsx. Styling u
 Tailwind, with SVG canvas positions derived from the supplied asset metadata.
 No new animation package or custom CSS was introduced.
 
+The owner retained the original hero typography, spacing, logo dimensions, and reef
+height after rejecting the shorter-viewport sizing experiment. The marked small
+coral and distant reef fragments are omitted from the hero; the single large right
+coral remains. Source SVG files and the footer composition are preserved.
+
 The malformed frontend team-member name was restored to its last valid value,
 fixing the page compilation error without changing other supplied member details.
 

@@ -59,6 +59,10 @@ HeroTurtleScene or change the supplied ocean palette.
 
 - OceanReef assembles cropped SVGs from public/images/Screen/detached-ocean-elements
   using positions.json. Keep the source positions, paths, gradients, and colors.
+- Keep the original hero typography, spacing, logo dimensions, and reef height.
+  The owner rejected compressing the composition to fit shorter viewports.
+  Omit hero reef orders 9–11, 20, and 22–25; retain 21-right-coral.svg as the
+  single large right coral. Preserve the source files and footer composition.
 - Hero waves use separate scroll depths. Seaweed/coral sway around their bases.
   Bubbles appear beside the hero logo and phone sequence; low waves decorate the footer.
 - HeroLogo keeps the button hit area stationary. GSAP idle, Motion hover, and tap
