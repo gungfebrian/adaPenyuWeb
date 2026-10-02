@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3080" height="628" viewBox="-2 688 1540 314" fill="none" preserveAspectRatio="xMidYMid meet">
+  <title>Distant reef contour</title>
+  <desc>One detached, editable deep ocean component. Transparent background. Original colors and contours preserved.</desc>
+  <defs>
+    <linearGradient id="page-3-09-distant-reef-layer-deep-07-distant-reef-contour-rear-reef" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#294C63" />
+      <stop offset="1" stop-color="#1A3B50" />
+    </linearGradient>
+    <clipPath id="page-3-09-distant-reef-layer-deep-07-distant-reef-contour-deep-ocean-bounds">
+      <rect width="1536" height="1000" />
+    </clipPath>
+  </defs>
+  <g id="page-3-09-distant-reef-layer-deep-07-distant-reef-contour-deep-ocean-scene" clip-path="url(#page-3-09-distant-reef-layer-deep-07-distant-reef-contour-deep-ocean-bounds)">
+    <g id="page-3-09-distant-reef-layer-deep-07-distant-reef-contour-distant-layered-reef" transform="translate(0 690) scale(1 1.033334)">
+      <path id="page-3-09-distant-reef-layer-deep-07-distant-reef-contour-distant-reef-contour" fill="url(#page-3-09-distant-reef-layer-deep-07-distant-reef-contour-rear-reef)" d="M0 0C36 17 70 30 98 59C128 90 134 118 166 128C197 137 226 137 251 151C280 166 292 194 323 204C349 213 370 199 404 205C441 211 457 232 486 247C516 262 549 255 581 247C614 238 642 233 669 238C704 244 736 260 770 253C804 246 827 237 854 241C884 244 907 258 936 251C968 243 997 219 1031 207C1072 192 1110 195 1147 207C1183 218 1216 208 1244 202C1281 196 1306 180 1333 157C1365 130 1392 117 1427 107C1469 95 1501 90 1536 72V300H0Z" />
+    </g>
+  </g>
+</svg>

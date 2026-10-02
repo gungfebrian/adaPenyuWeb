@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3080" height="170" viewBox="-2 917 1540 85" fill="none" preserveAspectRatio="xMidYMid meet">
+  <title>Foreground reef contour</title>
+  <desc>One detached, editable deep ocean component. Transparent background. Original colors and contours preserved.</desc>
+  <defs>
+    <linearGradient id="page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-front-reef" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#123349" />
+      <stop offset="1" stop-color="#092333" />
+    </linearGradient>
+    <clipPath id="page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-deep-ocean-bounds">
+      <rect width="1536" height="1000" />
+    </clipPath>
+  </defs>
+  <g id="page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-deep-ocean-scene" clip-path="url(#page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-deep-ocean-bounds)">
+    <g id="page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-foreground-seabed" transform="translate(0 690) scale(1 1.033334)">
+      <path id="page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-foreground-reef-contour" fill="url(#page-3-11-foreground-reef-layer-deep-27-foreground-reef-contour-front-reef)" d="M0 287C53 280 84 282 119 264C157 244 192 223 233 231C278 239 305 261 344 269C381 277 410 258 447 253C486 248 514 239 547 248C580 257 593 278 629 284C665 290 696 283 727 273C759 263 787 259 816 264C852 270 879 289 913 288C949 287 976 293 1008 293C1041 292 1067 287 1093 267C1129 239 1155 221 1193 222C1235 222 1267 235 1300 248C1335 262 1372 281 1407 275C1450 267 1487 253 1536 267V300H0Z" />
+    </g>
+  </g>
+</svg>

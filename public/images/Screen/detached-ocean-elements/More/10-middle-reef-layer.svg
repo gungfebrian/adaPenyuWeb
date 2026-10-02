@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3080" height="552" viewBox="-2 726 1540 276" fill="none" preserveAspectRatio="xMidYMid meet">
+  <title>Middle reef contour</title>
+  <desc>One detached, editable deep ocean component. Transparent background. Original colors and contours preserved.</desc>
+  <defs>
+    <linearGradient id="page-3-10-middle-reef-layer-deep-10-middle-reef-contour-middle-reef" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#224960" />
+      <stop offset="1" stop-color="#14374D" />
+    </linearGradient>
+    <clipPath id="page-3-10-middle-reef-layer-deep-10-middle-reef-contour-deep-ocean-bounds">
+      <rect width="1536" height="1000" />
+    </clipPath>
+  </defs>
+  <g id="page-3-10-middle-reef-layer-deep-10-middle-reef-contour-deep-ocean-scene" clip-path="url(#page-3-10-middle-reef-layer-deep-10-middle-reef-contour-deep-ocean-bounds)">
+    <g id="page-3-10-middle-reef-layer-deep-10-middle-reef-contour-distant-layered-reef" transform="translate(0 690) scale(1 1.033334)">
+      <path id="page-3-10-middle-reef-layer-deep-10-middle-reef-contour-middle-reef-contour" fill="url(#page-3-10-middle-reef-layer-deep-10-middle-reef-contour-middle-reef)" d="M0 37C28 48 39 70 65 80C94 92 99 109 103 133C106 166 127 179 167 184C216 191 254 205 291 217C329 229 360 222 396 231C428 239 452 263 486 259C520 255 538 249 568 257C597 265 624 274 656 269C688 264 710 268 736 277C765 287 793 279 823 272C851 265 880 274 909 267C945 259 974 243 1007 235C1042 226 1080 226 1113 234C1149 243 1172 249 1206 242C1243 235 1267 233 1295 223C1339 207 1368 199 1393 173C1431 133 1474 113 1536 104V300H0Z" />
+    </g>
+  </g>
+</svg>
