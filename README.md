@@ -58,8 +58,8 @@ identification, and prototype scroll sequences. The story and steps use native s
 The steps use a short hold with direct scroll response. Phone screens start stacked
 behind the centre phone, then separate into the three original positions during
 natural scrolling, with an independent cursor-hover lift. There is no phone pinning
-or delayed scrub. The story card overlaps the hero
-without scaling the page or exposing a background gap. Reduced motion uses static
+or delayed scrub. The story sheet follows the full-height hero without covering its reef. Its rounded
+corners settle as it enters the viewport, without scaling the page or exposing a background gap. Reduced motion uses static
 content. Styling uses Tailwind utilities; global CSS contains Tailwind configuration
 and theme tokens.
 
@@ -178,3 +178,23 @@ No new animation package or custom CSS was introduced.
 
 The malformed frontend team-member name was restored to its last valid value,
 fixing the page compilation error without changing other supplied member details.
+
+## Full-height hero and motion across chapters — 2026-10-02
+
+The hero now has a 100svh minimum height. Removed the next chapter's negative margin,
+which had hidden the bottom 48–80px of the reef. The story retains its rounded sheet
+transition with a deep-ocean corner backdrop.
+
+Bubbles now rise independently with staggered phases instead of moving as one cluster.
+Desktop pointer movement nudges a separate inner wrapper; clicking/tapping the logo
+adds a small bubble ripple. Absolute SVG pivots keep coral rooted at its base and
+bubble scaling centered on each circle.
+
+The supplied current bands drift behind the story, complement message, and contact
+panel. Step-circle artwork moves independently from its number and reveal wrapper;
+comparison photos enter as the progress scene comes into view. Footer plants sway.
+All loops share one visibility observer, pause offscreen/hidden, and disappear from
+the motion setup under reduced motion. No dependencies or custom CSS were added.
+
+LottieFiles MCP was attempted but reported no connected Creator tab; the website
+uses the existing SVG assets and GSAP runtime for these effects.

@@ -77,3 +77,18 @@ production branch and automatic deployments enabled. After an authorized push,
 check the Git-triggered Vercel build status and deployed commit before claiming
 production is updated. Earlier handover entries about a missing GitHub connection
 are historical; read the newest release entry first.
+
+## Latest motion audit — full hero and other chapters
+
+- Hero minimum height is 100svh. Do not restore the negative story margin: it covered
+  48–80px of the reef. Story sheet corner rounding remains, with an ocean-colored backdrop.
+- SVG animation pivots use data-ocean-pivot and GSAP svgOrigin in source coordinates.
+  Pixel transformOrigin offsets are local to the element and previously doubled the
+  coordinates of right-side coral. Keep plants anchored and bubble scale centered.
+- Individual bubbles rise/fade on separate outer groups; pointer response and logo
+  ripple use inner groups. Current bands drift behind story/complement/contact.
+- Step circles own a tiny idle wrapper separately from the number and scroll reveal.
+  Progress photos have outer scroll wrappers and inner pointer tilt wrappers.
+- Decorative loops share one IntersectionObserver and one visibilitychange listener.
+  Keep reduced-motion cleanup and offscreen/hidden-tab pausing.
+- Lottie MCP has no connected Creator tab. No Lottie player was added; effects use GSAP.
