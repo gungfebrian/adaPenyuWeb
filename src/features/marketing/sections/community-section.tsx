@@ -56,7 +56,7 @@ export function AboutSection() {
         id="about-us"
         aria-labelledby="team-title"
         data-motion-section
-        className="scroll-mt-0 bg-paper px-6 pt-28 pb-20 text-primary sm:px-8 md:px-12 md:pt-32 md:pb-28"
+        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-28 pb-20 text-primary md:pt-32 md:pb-28"
       >
         <div className="mx-auto w-full max-w-6xl">
           <div className="flex items-center justify-between gap-6 md:gap-10">
@@ -88,7 +88,7 @@ export function AboutSection() {
         id="where-we-come-from"
         aria-labelledby="academy-title"
         data-motion-section
-        className="scroll-mt-0 bg-paper px-6 py-12 text-primary sm:px-8 md:px-12 md:py-16"
+        className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-12 text-primary md:py-16"
       >
         <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-6 border-t border-primary/15 pt-10 md:gap-12 md:pt-14">
           <div data-reveal>
@@ -121,7 +121,7 @@ export function ContributionSection() {
       id="contribute"
       aria-labelledby="contribute-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-6 py-16 text-white sm:px-8 md:px-12 md:py-24"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-16 text-white md:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <h2 data-reveal id="contribute-title" className="font-display text-3xl font-medium text-primary sm:text-4xl md:text-5xl">
@@ -149,7 +149,7 @@ export function ContactSection() {
       id="contact"
       aria-labelledby="contact-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-5 py-12 text-white sm:px-8 md:px-12 md:py-16"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-12 text-white md:py-16"
     >
       <div className="relative isolate mx-auto grid w-full max-w-6xl gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-14 lg:py-16">
         <Pattern variant="accuracy" parallax={false} />
@@ -178,7 +178,7 @@ export function FaqSection() {
       id="faq"
       aria-labelledby="faq-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-6 pt-28 pb-14 text-primary sm:px-8 md:px-12 md:pt-28 md:pb-20"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-28 pb-14 text-primary md:pt-28 md:pb-20"
     >
       <div className="mx-auto w-full max-w-[960px]">
         <div data-reveal>
@@ -223,7 +223,7 @@ export function FaqSection() {
 
 export function MarketingFooter() {
   return (
-    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-6 py-9 text-white sm:px-8 sm:py-12 md:px-[3.2%]">
+    <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-[var(--page-gutter)] py-9 text-white sm:py-12">
       <Pattern variant="accuracy" parallax={false} />
       <div className="relative mx-auto grid w-full max-w-[1440px] gap-5 font-body text-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10 md:gap-14">
         <Link href="#home" aria-label="AdaPenyu home" className="w-fit rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">

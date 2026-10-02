@@ -16,6 +16,12 @@ export function LandingMotion({ children }: { children: ReactNode }) {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+    // 100vw includes the scrollbar on desktop. Use the actual page width so
+    // full-bleed chapters and their gutters stay aligned with the fixed header.
+    const sizeScenes = () => root.style.setProperty("--scene-width", `${document.documentElement.clientWidth}px`);
+    sizeScenes();
+    const sceneObserver = new ResizeObserver(sizeScenes);
+    sceneObserver.observe(document.documentElement);
     gsap.registerPlugin(ScrollTrigger);
     const media = gsap.matchMedia();
     media.add({
@@ -306,7 +312,8 @@ export function LandingMotion({ children }: { children: ReactNode }) {
     let mounted = true;
     document.fonts.ready.then(() => { if (mounted && location.hash) restore(); });
     return () => {
-      mounted = false; version++; curtainAnimation?.stop(); media.revert();
+      mounted = false; version++; curtainAnimation?.stop(); media.revert(); sceneObserver.disconnect();
+      root.style.removeProperty("--scene-width");
       document.removeEventListener("click", click, true); window.removeEventListener("popstate", restore); window.removeEventListener("hashchange", restore);
     };
   }, []);
