@@ -67,3 +67,25 @@ longer rendered in StorySection; that heading uses the site's DynaPuff display f
 The story's swimming turtle reuses banner-turtle.svg unchanged. It is an original
 raster illustration embedded in an SVG, not a new vector reconstruction. Body
 movement uses separate idle and desktop-scroll wrappers; flippers are not redrawn.
+
+
+## Latest deep-ocean ambient assets — 2026-10-02
+
+ChapterOcean renders pages 2/3 using flatter supplied artwork rather than the
+initial densely shaded coral, seaweed, rocks, and wave preview.
+
+- `Screen/detached-ocean-elements/More/09-distant-reef-layer.svg`,
+  `10-middle-reef-layer.svg`, and `11-foreground-reef-layer.svg`: original one-path
+  contours with restrained two-stop blue gradients. They contain no raster data.
+- Existing detached `04-seaweed-left` and `05-coral-right` plant files: the same
+  simple silhouettes/palette as the hero, assembled using original bounds.
+- Existing `03-wave-divider`: three single-path, solid-color layers. The 40-path
+  `More/08-wave-divider-low.svg` is not used.
+- Selected `Screen/Secondpages` silhouettes: seaweed 21/22 and coral 13/15, all
+  single solid-color vector paths. No other Secondpages files are rendered.
+- Existing currents and bubbles helpers supply restrained background motion.
+
+Source SVGs are unchanged. Background contours stretch; plant proportions remain
+intact. Source-coordinate plant pivots prevent detached bases during animation.
+The untracked `marketing/ocean-chapters` draft pack is unused and is not part of
+this release. Preserve owner source packs and avoid staging unused files.

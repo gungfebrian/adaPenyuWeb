@@ -264,3 +264,28 @@ as source artwork but is no longer rendered on page 2. The original banner-turtl
 artwork is reused beneath the heading, with a gentle automatic swimming loop and
 a separate desktop scroll drift. Motion pauses offscreen/hidden and becomes static
 under reduced motion. The existing tags/satellites banner is unchanged.
+
+
+## Latest pages 2/3 ambience — 2026-10-02
+
+The story and three-step chapters now use layered deep-ocean scenery. This
+supersedes the earlier solid-only story background. The owner preferred the
+hero's simpler silhouettes over the densely shaded coral/rock preview.
+
+- Muted reef contours come from the newly supplied detached `More` collection.
+- Seaweed and coral reuse the hero's original SVG silhouettes; four restrained
+  solid-color silhouettes come from `Screen/Secondpages`.
+- Soft currents and bubbles reuse the existing ocean helpers. The steps end in
+  the original three flat wave layers, rather than the tonal traced wave.
+- Separate wrappers own scroll depth and gentle plant sway. Mobile movement is
+  reduced; offscreen/hidden-tab loops pause; reduced motion keeps the scene static.
+- Ocean-colored chapter frames and faded artwork edges prevent white seams.
+
+This phase adds background ambience. The main story/steps illustration layout
+remains a separate design phase. The hero, current content, original turtle, and
+“Turtle ID does NOT replace tags or satellites” banner are preserved.
+Styling uses Tailwind; no dependency or custom CSS was added.
+
+Lint and TypeScript checks passed. Browser review covered 390×844, 1440×720,
+1440×900, and 2560×1440, plus reduced motion. No automated tests were added/run.
+Physical-device performance measurements remain outside this review.

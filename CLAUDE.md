@@ -74,9 +74,10 @@ HeroTurtleScene or change the supplied ocean palette.
 - Phone hover translates inner wrappers independently from the scroll tween.
 - The two Explore buttons remain removed. The original satellite-message turtle
   retains its own artwork, placement, and automatic idle movement.
-- Latest owner correction: the second section (The Story Behind It) uses solid
-  #133045, matching the hero's frontmost wave. No pattern/current overlay or top
-  shadow is rendered there. Original story-pattern and deep-ocean SVGs remain.
+- The story and steps keep a #133045 base matching the hero's frontmost wave.
+  The latest owner request adds ChapterOcean ambience from the flat detached
+  artwork; this supersedes the earlier solid-only background correction.
+  Original story-pattern and deep-ocean SVGs remain unused.
 - The frontmost hero wave owns a separate upward scroll layer and an SVG fill
   extending below its baseline. Keep the 1px overlap to avoid fractional seams.
 - Hero parallax uses the width breakpoint independently of the 720px height
@@ -103,7 +104,8 @@ are historical; read the newest release entry first.
   coordinates of right-side coral. Keep plants anchored and bubble scale centered.
 - Individual bubbles rise/fade on separate outer groups; pointer response and logo
   ripple use inner groups. Current bands remain behind the complement message;
-  story has a solid background and contact/footer retain the original static pattern.
+  story/steps now have the owner-requested ChapterOcean ambience; contact/footer
+  retain the original static pattern.
 - Step circles own a tiny idle wrapper separately from the number and scroll reveal.
   Progress photos have outer scroll wrappers and inner pointer tilt wrappers.
 - Decorative loops share one IntersectionObserver and one visibilitychange listener.
@@ -136,8 +138,9 @@ are historical; read the newest release entry first.
   it is masked with the original step-circle.svg alpha silhouette.
 - step-arrow-white.svg is the supplied alpha-mask SVG. hero-frontmost-wave.svg is
   a separate supplied-wave copy with the #133045 fill. Preserve all original assets.
-- public/images/Screen/Secondpages is owner-added, untracked, and currently unused.
-  Do not stage it with unrelated changes or start placing it without design scope.
+- Only the selected Secondpages SVG silhouettes listed under the latest ambient
+  phase are used. Preserve the rest of that owner-added pack; do not stage it
+  with unrelated changes.
 - Current Figma MCP access hit the Starter call limit. Use the owner-provided
   screenshots/exports listed in the handover until access is available again.
 
@@ -156,3 +159,27 @@ are historical; read the newest release entry first.
   and reduced-motion cleanup. Do not turn it into cursor-only hover animation.
 - The original complement banner remains unchanged. No new assets, custom CSS,
   animation packages, or owner Secondpages files are needed for this change.
+
+
+## Latest pages 2/3 ambient phase — 2026-10-02
+
+- The owner requested ambience first, then rejected the densely shaded coral and
+  rocks in favor of artwork matching the hero. Do not restore the 40-path tonal
+  scenery from the initial preview. The central story/steps redesign is still pending.
+- ChapterOcean uses detached-ocean-elements/More reef contours 09/10/11, the
+  existing 04-seaweed-left and 05-coral-right plant silhouettes, and the existing
+  flat 03-wave-divider collection. More/08-wave-divider-low.svg is not rendered.
+- Selected Secondpages shapes: seaweed/21-left-distant-kelp.svg,
+  seaweed/22-right-distant-kelp.svg, coral/13-small-distant-left-coral-01.svg,
+  coral/15-small-distant-right-coral-01.svg. They are single solid-color paths.
+- Keep the original shape proportions, SVG paths, and palette. Wide reef contours
+  stretch in a dedicated SVG wrapper without object-cover cropping their crests.
+- Plants sway around source-coordinate bottom pivots through data-ocean-sway.
+  The four simple background silhouettes use data-chapter-sway wrappers; their
+  outer data-ocean-depth wrappers own scroll parallax independently.
+- Reuse LandingMotion's shared observer and visibility listener. Mobile movement
+  is reduced, hidden/offscreen loops pause, and reduced motion is static.
+- Both chapter frames/sheets use bg-banner, preventing fractional white seams.
+  Ambient top/bottom masking blends into that base; scenery stays behind text.
+- Hero, original turtle artwork, current copy/steps, and complement banner remain
+  unchanged. No dependency or custom CSS was added.
