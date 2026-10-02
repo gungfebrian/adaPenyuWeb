@@ -140,3 +140,19 @@ are historical; read the newest release entry first.
   Do not stage it with unrelated changes or start placing it without design scope.
 - Current Figma MCP access hit the Starter call limit. Use the owner-provided
   screenshots/exports listed in the handover until access is available again.
+
+
+## Latest page 2 change — 2026-10-02
+
+- The owner explicitly requested replacing the SVG story heading with a normal
+  font. StorySection now renders real HTML text in the existing DynaPuff display
+  font, with 36–64px responsive sizing. Preserve story-title.svg as source; it is
+  no longer displayed in that heading. This supersedes earlier SVG-title guidance.
+- The new story turtle reuses banner-turtle.svg. It does not replace or modify the
+  existing turtle at the tags/satellites/benefits boundary.
+- data-story-swim is the desktop scroll-transform wrapper; data-idle="story-turtle"
+  is its inner idle-transform wrapper. Keep transform ownership separate.
+- The inner loop swims gently on its own, using the existing visibility observer
+  and reduced-motion cleanup. Do not turn it into cursor-only hover animation.
+- The original complement banner remains unchanged. No new assets, custom CSS,
+  animation packages, or owner Secondpages files are needed for this change.

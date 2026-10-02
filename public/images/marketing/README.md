@@ -58,3 +58,12 @@ the owner supplied screenshots and local exports instead.
 The current phase changes colors and responsive proportions. It does not yet
 implement the revised left-stacked third-screen title/composition. The original
 story-title.svg is rendered larger; its original illustrated artwork is unchanged.
+
+
+## Story heading and turtle — 2026-10-02
+
+The owner requested real-font text on page 2. story-title.svg is preserved but no
+longer rendered in StorySection; that heading uses the site's DynaPuff display font.
+The story's swimming turtle reuses banner-turtle.svg unchanged. It is an original
+raster illustration embedded in an SVG, not a new vector reconstruction. Body
+movement uses separate idle and desktop-scroll wrappers; flippers are not redrawn.

@@ -254,3 +254,13 @@ viewport's final step, full-width backgrounds, and large-screen hero gutters.
 These spot checks are not a claim of testing every browser or device. Read
 `docs/AGENT_HANDOVER.md` for the release hashes, deployment state, constraints,
 source references, and prioritized remaining work.
+
+
+## Page 2 — real heading text and swimming turtle, 2026-10-02
+
+The story heading now uses the existing DynaPuff display font as real HTML text,
+matching the other section headings. The original story-title.svg remains preserved
+as source artwork but is no longer rendered on page 2. The original banner-turtle
+artwork is reused beneath the heading, with a gentle automatic swimming loop and
+a separate desktop scroll drift. Motion pauses offscreen/hidden and becomes static
+under reduced motion. The existing tags/satellites banner is unchanged.
