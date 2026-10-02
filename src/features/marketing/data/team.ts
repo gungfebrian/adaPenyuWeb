@@ -1,12 +1,21 @@
+export type TeamMemberLink = {
+  label?: string | null;
+  url?: string | null;
+};
+
 export type TeamMember = {
   name: string;
   role: string;
   artwork: string;
   width: number;
   height: number;
-  bio?: string;
-  linkedin?: string;
-  memberId?: string;
+  bio?: string | null;
+  linkedin?: string | null;
+  linkedinId?: string | null;
+  instagram?: string | null;
+  instagramId?: string | null;
+  extraLinks?: readonly TeamMemberLink[] | null;
+  memberId?: string | null;
 };
 
 export const team = [

@@ -5,7 +5,40 @@ import { useEffect, useRef, useState } from "react";
 import { animate, motion, useReducedMotion } from "motion/react";
 
 import { motionDuration, motionEasing } from "@/lib/motion";
-import { team, type TeamMember } from "../data/team";
+import { team, type TeamMember, type TeamMemberLink } from "../data/team";
+
+function nonEmptyText(value: string | null | undefined) {
+  const text = value?.trim();
+  return text || null;
+}
+
+function safeExternalUrl(value: string | null | undefined) {
+  const text = value?.trim();
+  if (!text) return null;
+
+  try {
+    const url = new URL(text);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function getMemberLinks(member: TeamMember) {
+  const linkedinId = nonEmptyText(member.linkedinId);
+  const instagramId = nonEmptyText(member.instagramId)?.replace(/^@/, "");
+  const links: TeamMemberLink[] = [
+    { label: "LinkedIn profile", url: safeExternalUrl(member.linkedin) ?? (linkedinId ? `https://www.linkedin.com/in/${encodeURIComponent(linkedinId)}/` : null) },
+    { label: "Instagram profile", url: safeExternalUrl(member.instagram) ?? (instagramId ? `https://www.instagram.com/${encodeURIComponent(instagramId)}/` : null) },
+    ...(member.extraLinks ?? []),
+  ];
+
+  return links.flatMap((link) => {
+    const label = nonEmptyText(link.label);
+    const url = safeExternalUrl(link.url);
+    return label && url ? [{ label, url }] : [];
+  });
+}
 
 export function TeamProfiles() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
@@ -15,6 +48,9 @@ export function TeamProfiles() {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const openedWithKeyboardRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
+  const bio = selectedMember ? nonEmptyText(selectedMember.bio) : null;
+  const memberId = selectedMember ? nonEmptyText(selectedMember.memberId) : null;
+  const memberLinks = selectedMember ? getMemberLinks(selectedMember) : [];
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -52,7 +88,7 @@ export function TeamProfiles() {
 
   return (
     <>
-      <ul data-stagger className="mx-auto mt-12 grid max-w-5xl list-none grid-cols-2 gap-x-5 gap-y-10 p-0 sm:grid-cols-3 sm:gap-x-8 md:mt-16 md:grid-cols-5 md:gap-x-6">
+      <ul data-stagger className="mx-auto mt-8 grid list-none grid-cols-2 gap-x-5 gap-y-8 p-0 sm:grid-cols-3 sm:gap-x-8 md:mt-10 md:grid-cols-5 md:gap-x-6">
         {team.map((member) => (
           <li key={member.name} data-stagger-item className="text-center">
             <button
@@ -135,21 +171,26 @@ export function TeamProfiles() {
                 {selectedMember.name}
               </h2>
               <p className="mt-2 font-detail text-lg text-secondary">{selectedMember.role}</p>
-              {selectedMember.bio && (
-                <p className="mt-5 font-detail leading-relaxed text-secondary">{selectedMember.bio}</p>
+              {bio && (
+                <p className="mt-5 font-detail leading-relaxed text-secondary">{bio}</p>
               )}
-              {selectedMember.memberId && (
-                <p className="mt-4 font-detail text-sm text-secondary">Member ID: {selectedMember.memberId}</p>
+              {memberId && (
+                <p className="mt-4 font-detail text-sm text-secondary">Member ID: {memberId}</p>
               )}
-              {selectedMember.linkedin && (
-                <a
-                  href={selectedMember.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-5 inline-flex rounded-sm font-detail text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-secondary focus-visible:outline-offset-4"
-                >
-                  LinkedIn profile
-                </a>
+              {memberLinks.length > 0 && (
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
+                  {memberLinks.map((link) => (
+                    <a
+                      key={`${link.label}:${link.url}`}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex rounded-sm font-detail text-sm font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-secondary focus-visible:outline-offset-4"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
           </motion.div>
