@@ -298,9 +298,11 @@ Physical-device performance measurements remain outside this review.
 - Story/steps share a continuous ocean backdrop; coral is inset to avoid clipping,
   and plant/current movement is more visible. The story turtle is larger, darker,
   fully opaque, and on the right, retaining its automatic swim.
-- The complement banner now fades into the darkest reef blue (#061c2b). This
-  owner-requested tone change supersedes the earlier protected-background rule;
-  its wording and original turtle are preserved.
+- The latest reference sets the seabed and complement to navy-black (#051320).
+  A continuous SVG reef contour joins the two; the earlier gradient/blue step
+  divider is replaced. Page 3 reuses page 2's preferred coral shapes with varied
+  sizing and a few additional small branches. The hand-shaped preview was removed.
+  Banner wording and original turtle are preserved.
 - Community, Academy, contribution, contact, and FAQ share 1352px containers and
   40–64px section spacing. The Academy divider is removed; FAQ keeps shared heading
   clearance and a minimum viewport scene with the footer at the bottom for direct navigation.

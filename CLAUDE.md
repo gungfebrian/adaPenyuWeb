@@ -203,8 +203,14 @@ are historical; read the newest release entry first.
   sine movement. Inner current ribbons rotate/skew around source-coordinate pivots.
   Hero sway and complement-current timing remain unchanged. Shared visibility
   pausing, reduced mobile movement, and reduced-motion cleanup still apply.
-- The complement background now fades #133045 → #092333 → #061c2b, with currents
-  fading out before the bottom. Keep its text, dimensions, and original turtle.
+- The latest 23:12 reference sets the bottom to #051320. StepsSeabed carries this
+  solid color into the complement, replacing the earlier #061c2b gradient and blue
+  step divider. Keep the complement text, dimensions, and original turtle.
+- The hand-shaped step coral was rejected. Story and steps reuse the original hero
+  seaweed/coral beds. Steps varies their width/inset and adds small Secondpages
+  coral 14/16/40 with independent sway. Large coral 19/20 are not rendered. Steps
+  mask fades only at the top so its dark floor
+  stays opaque at the join; story still fades at top/bottom. No dense rock shading.
 - Community/Academy/contribution/contact/FAQ use shared gutters, 1352px containers,
   and 40–64px section spacing; About/FAQ start at 96px to clear navigation. Remove
   the Academy divider and extra top padding. FAQ retains a minimum viewport scene
