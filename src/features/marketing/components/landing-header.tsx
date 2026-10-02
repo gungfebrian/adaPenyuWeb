@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { animate, motion, useReducedMotion } from "motion/react";
 import { Button, buttonClasses } from "@/components/ui/button";
+import { Pattern } from "./pattern";
 
 const navigation = [
-  { label: "Home", href: "#home", detail: "Overview", artwork: "app-icon" },
-  { label: "Our Project", href: "#our-project", detail: "Turtle identification", artwork: "banner-turtle" },
-  { label: "About Us", href: "#about-us", detail: "Team and collaboration", artwork: "team-mayun" },
-  { label: "FAQ", href: "#faq", detail: "Common questions", artwork: null },
+  { label: "Home", href: "#home", detail: "Every story starts here" },
+  { label: "Our Project", href: "#our-project", detail: "Recognising turtles through photographs" },
+  { label: "About Us", href: "#about-us", detail: "Meet the Citizens of the Sea" },
+  { label: "FAQ", href: "#faq", detail: "Your questions, answered" },
 ] as const;
 
 function NavigationLabel({ children, adaptive = false }: { children: string; adaptive?: boolean }) {
@@ -140,16 +140,16 @@ export function LandingHeader() {
         </div>
         <Link href="#contact" data-nav-paint="surface" className="group/link pointer-events-auto hidden min-h-12 items-center gap-3 rounded-2xl bg-primary px-5 text-sm font-medium text-white [background-image:var(--nav-paint)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary sm:inline-flex"><NavigationLabel adaptive>Get Involved</NavigationLabel><span aria-hidden="true" data-nav-paint="ink" className="bg-clip-text text-transparent [background-image:var(--nav-paint)]">↗</span></Link>
       </div>
-      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); menuButtonRef.current?.focus({ preventScroll: true }); }}>
-        <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="w-full max-w-[560px] rounded-[20px] bg-paper p-5 shadow-[0_20px_70px_#00263c20] sm:p-6 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
-          <div className="mb-5 flex items-center justify-between gap-4"><h2 id={`${menuId}-title`} className="font-body text-lg font-semibold">Explore AdaPenyu</h2><Button variant="secondary" className="px-3" onClick={closeMenu} aria-label="Close navigation"><span aria-hidden="true">×</span></Button></div>
-          <nav aria-label="Expanded navigation" className="grid">
-            {navigation.map((item, index) => <motion.div key={item.href} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : 12 }} transition={{ duration: reduceMotion ? 0 : 0.35, delay: reduceMotion || !isMenuOpen ? 0 : 0.06 + index * 0.055 }}><Link data-menu-item href={item.href} onClick={() => void closeMenu()} className="group/link grid min-h-20 grid-cols-[56px_1fr_auto] items-center gap-4 rounded-md border-b border-primary/10 py-3 transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:outline-secondary">
-              {item.artwork ? <Image src={`/images/marketing/${item.artwork}.svg`} alt="" width={56} height={56} unoptimized className="size-14 rounded-xl object-contain transition-transform duration-300 motion-safe:group-hover/link:rotate-[-6deg] motion-safe:group-hover/link:scale-105" /> : <span aria-hidden="true" className="grid size-14 place-items-center rounded-xl bg-surface font-display text-3xl">?</span>}
-              <span><span className="block font-body text-xl font-medium"><NavigationLabel>{item.label}</NavigationLabel></span><span className="block text-xs text-secondary">{item.detail}</span></span>
-              <span aria-hidden="true" className="mr-2 transition-transform duration-300 motion-safe:group-hover/link:translate-x-1">↗</span>
+      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); menuButtonRef.current?.focus({ preventScroll: true }); }}>
+        <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="relative isolate mx-auto w-full max-w-[560px] overflow-hidden rounded-[24px] bg-banner p-5 text-white shadow-[0_20px_70px_#00263c20] sm:p-8 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
+          <Pattern variant="accuracy" parallax={false} />
+          <div className="relative mb-4 flex items-center justify-between gap-4 sm:mb-6"><h2 id={`${menuId}-title`} className="font-body text-base font-medium text-white/80">Explore AdaPenyu</h2><Button variant="secondary" className="size-11 rounded-full bg-white/10 p-0 text-white hover:bg-white/20 hover:text-white focus-visible:outline-white" onClick={closeMenu} aria-label="Close navigation"><span aria-hidden="true">×</span></Button></div>
+          <nav aria-label="Expanded navigation" className="relative grid gap-1">
+            {navigation.map((item, index) => <motion.div key={item.href} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : 12 }} transition={{ duration: reduceMotion ? 0 : 0.35, delay: reduceMotion || !isMenuOpen ? 0 : 0.06 + index * 0.055 }}><Link data-menu-item href={item.href} onClick={() => void closeMenu()} className="group/link block min-h-20 rounded-xl px-3 py-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 aria-[current=location]:bg-white/10 sm:py-4">
+              <span className="block font-display text-[clamp(26px,7.7vw,30px)] font-medium leading-tight sm:text-[34px]">{item.label}</span>
+              <span className="mt-1.5 block font-body text-sm leading-5 text-white/75 sm:mt-2 sm:leading-relaxed">{item.detail}</span>
             </Link></motion.div>)}
-            <Link data-menu-item href="#contact" onClick={() => void closeMenu()} className={buttonClasses("primary", "mt-5 w-full")}>Get Involved <span aria-hidden="true">↗</span></Link>
+            <Link data-menu-item href="#contact" onClick={() => void closeMenu()} className={buttonClasses("secondary", "mt-4 w-full bg-white text-primary hover:bg-white/90 focus-visible:outline-white sm:mt-6")}>Get Involved</Link>
           </nav>
         </motion.div>
       </dialog>
