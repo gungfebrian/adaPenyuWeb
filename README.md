@@ -295,11 +295,14 @@ Physical-device performance measurements remain outside this review.
 
 - Hero foreground waves join page 2 in the same #133045 blue. Extended SVG fills
   prevent lighter rear waves from showing as thin strips during parallax.
-- Story/steps share a continuous ocean backdrop; coral is inset to avoid clipping,
+- Story/steps share a continuous ocean backdrop; padded coral viewBoxes avoid clipping,
   and plant/current movement is more visible. The story turtle is larger, darker,
   fully opaque, and on the right, retaining its automatic swim.
-- The latest reference sets the seabed and complement to navy-black (#051320).
-  A continuous SVG reef contour joins the two; the earlier gradient/blue step
+- The latest coral adjustment moves both chapters' beds to the outside edges and
+  lowers their bases into the reef. More visible automatic sway keeps the original shapes.
+- The latest reference sets the bottom to navy-black (#051320). The seabed fades
+  from ocean blue to #0c2434, then the banner fades toward #051320; the solid-black
+  jump was removed. A continuous SVG reef contour joins the two; the blue step
   divider is replaced. Page 3 reuses page 2's preferred coral shapes with varied
   sizing and a few additional small branches. The hand-shaped preview was removed.
   Banner wording and original turtle are preserved.

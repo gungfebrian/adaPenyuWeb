@@ -197,17 +197,22 @@ are historical; read the newest release entry first.
 - The story turtle is a larger right-side sibling of the heading: desktop
   220–360px, mobile 220px in normal flow. Full opacity, brightness-90/contrast-110.
   Its outer scroll drift is x−32/y−10/rotation−3; the inner idle loop is separate.
-- Chapter corals are inset 16px/24px with padded viewBoxes so their side branches
-  remain visible while swaying. Background edges fade across 80px/72px.
-- Chapter plant sway uses 2.1–2.85s half-cycles; chapter currents use wider, shorter
+- The latest 23:31 screenshot correction places the story coral beds at left/right0 and
+  bottom0, closer to the page edges and rooted in the reef. Padded viewBoxes keep
+  side branches visible while swaying. Steps is now edge-aligned too, with larger
+  mobile bed minimum widths (135px left/155px right) and bottom0 in all layouts.
+  Story background edges fade across 80px/72px.
+- Chapter plant sway uses ±3.6deg desktop/±1.8deg mobile and 1.8–2.4s half-cycles;
+  small distant plants use ±2.6/1.1deg and 2.2+order*.2s half-cycles. Currents use wider, shorter
   sine movement. Inner current ribbons rotate/skew around source-coordinate pivots.
   Hero sway and complement-current timing remain unchanged. Shared visibility
   pausing, reduced mobile movement, and reduced-motion cleanup still apply.
-- The latest 23:12 reference sets the bottom to #051320. StepsSeabed carries this
-  solid color into the complement, replacing the earlier #061c2b gradient and blue
-  step divider. Keep the complement text, dimensions, and original turtle.
+- The reference's bottom remains #051320, but the flat black transition was
+  rejected. StepsSeabed now fades #133045 to #0c2434; the complement continues
+  #0c2434 → #071b2b → #051320. Its 1px overlap matches #0c2434. Keep the text,
+  dimensions, and original turtle. Do not restore the abrupt solid dark contour.
 - The hand-shaped step coral was rejected. Story and steps reuse the original hero
-  seaweed/coral beds. Steps varies their width/inset and adds small Secondpages
+  seaweed/coral beds. Steps varies their widths and adds small Secondpages
   coral 14/16/40 with independent sway. Large coral 19/20 are not rendered. Steps
   mask fades only at the top so its dark floor
   stays opaque at the join; story still fades at top/bottom. No dense rock shading.

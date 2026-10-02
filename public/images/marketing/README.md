@@ -85,11 +85,12 @@ initial densely shaded coral, seaweed, rocks, and wave preview.
   simple silhouettes/palette as the hero, assembled using original bounds.
 - The original `03-wave-divider` and 40-path `More/08-wave-divider-low.svg` are
   preserved but are not rendered after the owner's latest deep-floor reference.
-  `steps-seabed.svg` uses the supplied foreground crest, a y400 closure, and
-  solid #051320 fill to join the complement banner without a blue divider.
+  `steps-seabed.svg` uses the supplied foreground crest and y400 closure. Its
+  gradient runs #133045 → #0c2434; the complement then fades to #051320. This
+  replaces the rejected abrupt solid-black contour and the blue divider.
 - Selected `Screen/Secondpages` silhouettes: seaweed 21/22 and coral 13/15, all
   single solid-color vector paths. These four remain in the story chapter.
-- Steps reuses the original hero plant beds at different widths/insets, with
+- Steps reuses the original hero plant beds at different widths, with
   additional Secondpages coral 14/16/40. The hand-shaped 19/20 preview was rejected;
   these large shapes are not rendered or included in this release. All three new
   selected sources are solid-color paths; source bytes are preserved.
