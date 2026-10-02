@@ -18,8 +18,8 @@ function OceanContour({ file, width, height }: { file: string; width: number; he
 function ChapterPlantBed({ side, chapter = "story" }: { side: "left" | "right"; chapter?: OceanChapter }) {
   const left = side === "left";
   const position = chapter === "steps"
-    ? left ? "left-4 bottom-12 w-[clamp(110px,13vw,195px)] md:left-8 md:bottom-4" : "right-4 bottom-12 w-[clamp(125px,17vw,250px)] md:right-8 md:bottom-3"
-    : left ? "left-4 bottom-3 w-[clamp(125px,15vw,220px)] md:left-6 md:bottom-5" : "right-4 bottom-3 w-[clamp(110px,14vw,205px)] md:right-6 md:bottom-5";
+    ? left ? "left-0 bottom-0 w-[clamp(135px,13vw,195px)]" : "right-0 bottom-0 w-[clamp(155px,17vw,250px)]"
+    : left ? "left-0 bottom-0 w-[clamp(125px,15vw,220px)]" : "right-0 bottom-0 w-[clamp(110px,14vw,205px)]";
   const selection = elements.filter(element =>
     element.collection === (left ? "04-seaweed-left" : "05-coral-right") &&
     element.label === (left ? "left seaweed" : "right coral"),

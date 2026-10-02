@@ -180,15 +180,15 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         gsap.set(artwork, { svgOrigin: artwork.dataset.oceanPivot });
         const order = Number(artwork.dataset.oceanSway ?? 0);
         const chapter = !!artwork.closest("[data-chapter-ocean]");
-        const angle = (order % 2 ? 1 : -1) * (chapter ? (desktop ? 2.4 : 0.95) : (desktop ? 1.3 : 0.5));
-        const duration = chapter ? 2.1 + order % 4 * 0.25 : 3.5 + order % 4 * 0.65;
+        const angle = (order % 2 ? 1 : -1) * (chapter ? (desktop ? 3.6 : 1.8) : (desktop ? 1.3 : 0.5));
+        const duration = chapter ? 1.8 + order % 4 * 0.2 : 3.5 + order % 4 * 0.65;
         const loop = gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, artwork.parentElement ?? artwork);
       });
       root.querySelectorAll<HTMLElement>("[data-chapter-sway]").forEach(plant => {
         const order = Number(plant.dataset.chapterSway);
-        const angle = (desktop ? 1.8 : 0.7) * (order % 2 ? 1 : -1);
-        const loop = gsap.fromTo(plant, { rotation: -angle }, { rotation: angle, duration: 2.6 + order * 0.25, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        const angle = (desktop ? 2.6 : 1.1) * (order % 2 ? 1 : -1);
+        const loop = gsap.fromTo(plant, { rotation: -angle }, { rotation: angle, duration: 2.2 + order * 0.2, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, plant.parentElement ?? plant);
       });
       root.querySelectorAll<SVGElement>("[data-ocean-bubble]").forEach(artwork => {
