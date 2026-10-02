@@ -51,13 +51,17 @@ the owner supplied screenshots and local exports instead.
   the original hand-drawn silhouette.
 - step-arrow-white.svg: unchanged Mask group.svg export (50×105). Its white fill
   uses the supplied embedded bitmap alpha mask; it is not all vector paths.
-- hero-frontmost-wave.svg: copy of detached reef layer 13-frontmost-wave.svg. Only
-  its solid fill changes from #0B2E47 to #133045, joining the revised story color.
-  The detached source file stays unchanged.
+- hero-frontmost-wave.svg: derived copy of detached layer 13. Its solid fill is
+  #133045 and its closure extends to y400 without the y300 crop. The original
+  crest is preserved, preventing clipped valleys and gaps during scroll parallax.
+- hero-foreground-wave.svg: derived copy of layer 12 with the original crest,
+  y400 closure, and gradient ending at #133045. Extending this second foreground
+  layer prevents lighter rear waves showing between the two foreground crests.
+  Both detached source files stay unchanged.
 
 The current phase changes colors and responsive proportions. It does not yet
-implement the revised left-stacked third-screen title/composition. The original
-story-title.svg is rendered larger; its original illustrated artwork is unchanged.
+implement the revised left-stacked third-screen title/composition. story-title.svg
+is preserved as source; the latest story heading uses real DynaPuff HTML text.
 
 
 ## Story heading and turtle — 2026-10-02
@@ -89,3 +93,11 @@ Source SVGs are unchanged. Background contours stretch; plant proportions remain
 intact. Source-coordinate plant pivots prevent detached bases during animation.
 The untracked `marketing/ocean-chapters` draft pack is unused and is not part of
 this release. Preserve owner source packs and avoid staging unused files.
+
+## Logo sharpness — latest evening audit
+
+Footer now references wordmark.svg, whose original embedded PNG is 1600×498,
+instead of footer-wordmark.svg's 258×80 bitmap. Tailwind brightness/invert keeps
+the footer wordmark white; its displayed size and original shape are preserved.
+src/app/icon.svg embeds the original 1024px dark iOS app logo unchanged and
+replaces the generic favicon. These are SVG containers, not vector tracings.

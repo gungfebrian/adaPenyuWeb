@@ -122,13 +122,15 @@ are historical; read the newest release entry first.
   Figma composition is a later phase. Third-screen steps now have a #133045
   background and white/off-white artwork/copy. Do not mark the new left-stacked
   “Three / steps / only” composition implemented: it is still pending.
-- Do not change the complement section headed “Turtle ID does NOT replace tags or
-  satellites”. Its markup and existing visual design are preserved in this pass.
+- Preserve the complement copy and original turtle artwork/placement. The owner's
+  latest ocean-floor request explicitly permits a darker, smoothly blended
+  background there; this supersedes the earlier instruction to leave its tone unchanged.
 - StoryScene backgrounds span the available document width; inherited cqw sizing
   remains capped by the 1512px marketing container. LandingMotion owns --scene-width
   through one ResizeObserver, using clientWidth to avoid scrollbar-induced offsets.
-- --page-gutter is clamp(24px,5.3vw,80px). Keep shared outer gutters consistent;
-  narrower team/FAQ/contact reading widths remain deliberate.
+- --page-gutter is clamp(24px,5.3vw,80px). The community/FAQ/contact containers now
+  share the progress section's 1352px maximum width. Individual paragraph widths
+  remain bounded for reading; --section-space is clamp(40px,4vw,64px).
 - Hero laptop dimensions are retained. Only >=120rem (1920px at default root size)
   gets the larger capped hero typography/icon/wordmark and tall-screen top spacing.
   Keep breakpoint units consistent with Tailwind's rem breakpoints.
@@ -157,8 +159,8 @@ are historical; read the newest release entry first.
   is its inner idle-transform wrapper. Keep transform ownership separate.
 - The inner loop swims gently on its own, using the existing visibility observer
   and reduced-motion cleanup. Do not turn it into cursor-only hover animation.
-- The original complement banner remains unchanged. No new assets, custom CSS,
-  animation packages, or owner Secondpages files are needed for this change.
+- This historical page-2 pass preserved the complement banner. Read the latest
+  audit below for the subsequently authorized ocean-floor tone and seam changes.
 
 
 ## Latest pages 2/3 ambient phase — 2026-10-02
@@ -181,5 +183,44 @@ are historical; read the newest release entry first.
   is reduced, hidden/offscreen loops pause, and reduced motion is static.
 - Both chapter frames/sheets use bg-banner, preventing fractional white seams.
   Ambient top/bottom masking blends into that base; scenery stays behind text.
-- Hero, original turtle artwork, current copy/steps, and complement banner remain
-  unchanged. No dependency or custom CSS was added.
+- This ambient phase preserved the original turtle artwork and central copy/steps.
+  Read the audit below for the newer framing, seam, and ocean-floor corrections.
+
+## Latest visual audit — 2026-10-02, evening
+
+- Hero sizing is unchanged. Both foreground wave copies preserve their supplied
+  crests and extend to source y400. The back foreground gradient ends at #133045;
+  the frontmost wave is solid #133045. Do not restore the short y300 crop or
+  separate extender rectangle: independent scroll depths exposed blue slivers.
+- Story and steps share a full-width bg-banner backdrop with a 1px top overlap.
+  Matching each individual sheet alone still allowed fractional white seams.
+- The story turtle is a larger right-side sibling of the heading: desktop
+  220–360px, mobile 220px in normal flow. Full opacity, brightness-90/contrast-110.
+  Its outer scroll drift is x−32/y−10/rotation−3; the inner idle loop is separate.
+- Chapter corals are inset 16px/24px with padded viewBoxes so their side branches
+  remain visible while swaying. Background edges fade across 80px/72px.
+- Chapter plant sway uses 2.1–2.85s half-cycles; chapter currents use wider, shorter
+  sine movement. Inner current ribbons rotate/skew around source-coordinate pivots.
+  Hero sway and complement-current timing remain unchanged. Shared visibility
+  pausing, reduced mobile movement, and reduced-motion cleanup still apply.
+- The complement background now fades #133045 → #092333 → #061c2b, with currents
+  fading out before the bottom. Keep its text, dimensions, and original turtle.
+- Community/Academy/contribution/contact/FAQ use shared gutters, 1352px containers,
+  and 40–64px section spacing; About/FAQ start at 96px to clear navigation. Remove
+  the Academy divider and extra top padding. FAQ retains a minimum viewport scene
+  with the same 96px heading clearance and the footer at the bottom; navigation
+  must not expose the previous section when answers are closed on a tall screen.
+- Phone images already have transparency. The rectangular wrapper shadow was the
+  unwanted frame; it is removed. Keep physical phone artwork and fan/hover motion.
+- FaqAccordion is a narrow client component. Accessible buttons control regions;
+  height/opacity animate for 0.3s, reduced motion is immediate. Closed answers are
+  inert and aria-hidden. FAQ/footer exclude scroll anchoring to prevent a jump.
+- TeamMember and TeamMemberLink are exported. Optional nullable bio, memberId,
+  LinkedIn/Instagram URL or ID, and extraLinks render only when filled. Trim blanks,
+  filter invalid/non-HTTP URLs, and do not invent member data. Portraits stay plain.
+- src/app/icon.svg embeds the original dark iOS logo unchanged. Generic favicon.ico
+  is removed. Footer uses wordmark.svg's 1600×498 original instead of the small
+  258×80 footer bitmap, with a white Tailwind filter. Both are SVG raster containers;
+  do not describe them as traced vector paths or recreate the logo.
+- No package, custom CSS, canvas, or backend integration was added. Full reference
+  story/step illustration redesign remains pending; this pass fixes the visual audit.

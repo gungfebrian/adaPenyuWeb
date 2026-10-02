@@ -72,7 +72,7 @@ independently measured.
 - `src/features/marketing/sections`: section components styled with Tailwind utilities.
 - `src/features/marketing/components`: adaptive header, scene wrapper, profile dialogs, contact form, and artwork helpers.
 - `src/features/marketing/motion`: feature-specific GSAP sequences and chapter navigation.
-- `src/features/marketing/data/team.ts`: supplied member details; optional bios, LinkedIn URLs, and member IDs appear only when populated.
+- `src/features/marketing/data/team.ts`: supplied member details; nullable bios, member IDs, LinkedIn/Instagram URLs or handles, and extra links appear only when populated.
 - `src/components/motion`: reusable Motion reveals and button response.
 - `src/features/marketing/landing-page.tsx`: assembles the story chapters.
 - `src/app/globals.css`: Tailwind theme colors and typography tokens.
@@ -236,7 +236,8 @@ Section backgrounds span the available page width. Their reading/composition
 canvas remains capped at 1512px, keeping container-unit typography bounded.
 LandingMotion measures the available document width to exclude desktop scrollbars.
 Shared outer gutters use clamp(24px, 5.3vw, 80px), including the navbar, hero,
-community sections, progress, and footer. FAQ and team keep narrower reading widths.
+community sections, progress, and footer. The latest audit aligns community and
+FAQ containers with progress; paragraph widths remain limited for reading.
 
 Hero sizing below 1920px remains unchanged. At 1920px and wider, headline/body
 sizes grow within caps of 80px/45px, the app icon is 200px, and the wordmark is 260px.
@@ -289,3 +290,31 @@ Styling uses Tailwind; no dependency or custom CSS was added.
 Lint and TypeScript checks passed. Browser review covered 390×844, 1440×720,
 1440×900, and 2560×1440, plus reduced motion. No automated tests were added/run.
 Physical-device performance measurements remain outside this review.
+
+## Latest visual audit — 2026-10-02, evening
+
+- Hero foreground waves join page 2 in the same #133045 blue. Extended SVG fills
+  prevent lighter rear waves from showing as thin strips during parallax.
+- Story/steps share a continuous ocean backdrop; coral is inset to avoid clipping,
+  and plant/current movement is more visible. The story turtle is larger, darker,
+  fully opaque, and on the right, retaining its automatic swim.
+- The complement banner now fades into the darkest reef blue (#061c2b). This
+  owner-requested tone change supersedes the earlier protected-background rule;
+  its wording and original turtle are preserved.
+- Community, Academy, contribution, contact, and FAQ share 1352px containers and
+  40–64px section spacing. The Academy divider is removed; FAQ keeps shared heading
+  clearance and a minimum viewport scene with the footer at the bottom for direct navigation.
+- The phone wrapper shadow is removed; the supplied transparent phone artwork,
+  scroll separation, and independent hover lift remain.
+- FAQ answers open/close with a 0.3-second height/opacity transition and accessible
+  keyboard controls. Reduced motion opens immediately; scroll position stays stable.
+- Optional member details accept null/empty values without printing placeholders.
+  LinkedIn/Instagram support full URLs or IDs; additional labeled HTTP(S) links
+  are supported. Current member details remain exactly as supplied.
+- The browser icon uses the owner's dark AdaPenyu logo. The footer uses the larger
+  original wordmark SVG for sharpness. These supplied logo SVGs embed raster artwork.
+
+Lint and TypeScript checks passed. Manual review covered phone, short laptop,
+desktop, and wide-desktop layouts, keyboard FAQ operation, and reduced motion.
+No dependency, custom CSS, or automated tests were added. The full reference
+story/steps illustration composition and real backend integrations remain pending.
