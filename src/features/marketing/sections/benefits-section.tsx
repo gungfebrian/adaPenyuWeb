@@ -5,9 +5,9 @@ import { Pattern } from "../components/pattern";
 import { OceanBubbles } from "../components/ocean-artwork";
 
 const screens = [
-  { name: "app-photo", width: 272, height: 590, alt: "Turtle photo capture in the AdaPenyu prototype", position: "mt-[4%] w-[27.2%]" },
-  { name: "app-catalogue", width: 348, height: 691, alt: "Shared turtle catalogue in the AdaPenyu prototype", position: "w-[34.8%]" },
-  { name: "app-record", width: 275, height: 590, alt: "Individual turtle record and body condition history", position: "mt-[4%] w-[27.5%]" },
+  { name: "app-photo", width: 272, height: 590, alt: "Turtle photo capture in the AdaPenyu prototype", position: "absolute bottom-0 left-0 w-[42%] md:relative md:bottom-auto md:left-auto md:mt-[4%] md:w-[27.2%]" },
+  { name: "app-catalogue", width: 348, height: 691, alt: "Shared turtle catalogue in the AdaPenyu prototype", position: "absolute top-0 left-[22%] w-[56%] md:relative md:top-auto md:left-auto md:w-[34.8%]" },
+  { name: "app-record", width: 275, height: 590, alt: "Individual turtle record and body condition history", position: "absolute right-0 bottom-0 w-[42%] md:relative md:right-auto md:bottom-auto md:mt-[4%] md:w-[27.5%]" },
 ] as const;
 
 export function BenefitsSection() {
@@ -21,15 +21,15 @@ export function BenefitsSection() {
       </div>
       <div className="relative mx-auto w-full max-w-[1512px]">
       <h2 id="benefits-title" data-reveal className="relative font-detail text-lg leading-[1.209] font-medium text-secondary md:ml-[5.291cqw] md:text-[1.9841cqw]">What it does?</h2>
-      <div data-stagger className="relative mt-[26px] grid grid-cols-1 gap-7 md:mt-[1.3709cqw] md:ml-[3.1085cqw] md:grid-cols-[26.1905cqw_27.9762cqw_34.9868cqw] md:gap-0">
+      <div data-stagger className="relative mt-[26px] grid grid-cols-1 gap-4 md:mt-[1.3709cqw] md:ml-[3.1085cqw] md:grid-cols-[26.1905cqw_27.9762cqw_34.9868cqw] md:gap-0">
         {benefits.map((benefit) => <BenefitCard key={benefit.title} {...benefit} />)}
       </div>
-      <div data-prototype-sequence className="relative mx-auto mt-12 max-w-[1000px] md:mt-[4cqw] md:w-[66.1376cqw]">
-      <div className="flex items-start justify-between gap-[4%]">
+      <div data-prototype-sequence className="relative mx-auto mt-8 max-w-[460px] md:mt-[4cqw] md:w-[66.1376cqw] md:max-w-[1000px]">
+      <div className="relative aspect-[0.9] md:flex md:aspect-auto md:items-start md:justify-between md:gap-[4%]">
         {screens.map((screen, index) => (
-          <figure data-phone key={screen.name} className={`group/phone relative shrink-0 origin-top ${index === 1 ? "z-2" : "z-1"} ${screen.position}`}>
+          <figure data-phone key={screen.name} className={`group/phone shrink-0 origin-top ${index === 1 ? "z-2" : "z-1"} ${screen.position}`}>
             <div className="transition-transform duration-300 ease-out motion-safe:[@media(hover:hover)]:group-hover/phone:-translate-y-2 motion-reduce:transition-none">
-              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 30vw, 23vw" className="h-auto w-full" />
+              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 56vw, 23vw" className="h-auto w-full" />
             </div>
           </figure>
         ))}

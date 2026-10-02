@@ -91,12 +91,12 @@ export function AboutSection() {
         data-motion-section
         className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-[var(--section-space)] text-primary"
       >
-        <div className="mx-auto grid w-full max-w-[1352px] grid-cols-[1fr_auto] items-center gap-6 md:gap-10">
+        <div className="mx-auto grid w-full max-w-[1352px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:gap-6 md:gap-10">
           <div data-reveal>
-            <p className="font-body text-lg font-medium text-secondary sm:text-xl">
+            <p className="font-body text-base font-medium text-secondary sm:text-xl">
               Where we come from
             </p>
-            <h2 id="academy-title" className="mt-3 max-w-3xl font-body text-3xl font-semibold leading-tight text-primary sm:text-4xl">
+            <h2 id="academy-title" className="mt-3 max-w-3xl font-body text-2xl font-semibold leading-tight text-primary sm:text-4xl">
               Apple Developer Academy Bali
             </h2>
           </div>
@@ -108,7 +108,7 @@ export function AboutSection() {
             width={132}
             height={178}
             unoptimized
-            className="h-auto w-[76px] sm:w-[100px] md:w-[132px]"
+            className="h-auto w-16 sm:w-[100px] md:w-[132px]"
           />
         </div>
       </section>
@@ -130,9 +130,9 @@ export function ContributionSection() {
         </h2>
         <ul data-stagger className="mt-8 grid list-none gap-4 p-0 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-5">
           {waysToContribute.map(({ title, description }) => (
-            <li key={title} data-stagger-item className="relative isolate min-h-64 overflow-hidden rounded-[28px] bg-banner p-6 shadow-[0_12px_32px_#00263c18] sm:min-h-72 sm:p-7">
+            <li key={title} data-stagger-item className="relative isolate overflow-hidden rounded-[20px] bg-banner p-5 shadow-[0_12px_32px_#00263c18] sm:min-h-72 sm:rounded-[28px] sm:p-7">
               <Pattern variant="accuracy" />
-              <div className="relative flex min-h-52 flex-col justify-between sm:min-h-56">
+              <div className="relative flex min-h-28 flex-col justify-between gap-5 sm:min-h-56 sm:gap-0">
                 <h3 className="font-display text-2xl font-medium leading-tight sm:text-[27px]">{title}</h3>
                 <p className="mt-3 font-detail text-base leading-relaxed text-white/85">{description}</p>
               </div>
@@ -150,18 +150,18 @@ export function ContactSection() {
       id="contact"
       aria-labelledby="contact-title"
       data-motion-section
-      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] py-[var(--section-space)] text-white"
+      className="scroll-mt-0 bg-paper px-[var(--page-gutter)] pt-24 pb-[var(--section-space)] text-white md:pt-[var(--section-space)]"
     >
-      <div className="relative isolate mx-auto grid w-full max-w-[1352px] gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr]">
+      <div className="relative isolate mx-auto grid w-full max-w-[1352px] gap-7 overflow-hidden rounded-[24px] bg-banner px-5 py-7 shadow-[0_24px_64px_#00263c20] sm:gap-10 sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr]">
         <Pattern variant="accuracy" parallax={false} />
         <div data-reveal className="relative self-start">
           <p className="font-detail text-sm font-semibold uppercase tracking-[0.12em] text-white/70">
             Contact
           </p>
-          <h2 id="contact-title" className="mt-4 max-w-md font-display text-4xl font-medium leading-[1.1] sm:text-5xl">
+          <h2 id="contact-title" className="mt-4 max-w-md font-display text-[32px] font-medium leading-[1.15] text-balance sm:text-5xl sm:leading-[1.1]">
             Start a conversation!
           </h2>
-          <p className="mt-6 max-w-md font-detail text-lg leading-relaxed text-white/85 sm:text-xl">
+          <p className="mt-4 max-w-md font-detail text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
             Researcher, conservationist, or potential collaborator, we’d love to hear from you!
           </p>
         </div>
@@ -184,7 +184,7 @@ export function FaqSection() {
       <div className="mx-auto w-full max-w-[1352px]">
         <div data-reveal>
           <p className="font-body text-base font-medium text-secondary sm:text-lg">FAQ</p>
-          <h2 id="faq-title" className="mt-4 max-w-[20ch] font-display text-[32px] font-medium leading-[1.2] text-secondary sm:text-[42px]">Frequently asked questions</h2>
+          <h2 id="faq-title" className="mt-4 max-w-[20ch] font-display text-[32px] font-medium leading-[1.2] text-secondary max-sm:text-balance sm:text-[42px]">Frequently asked questions</h2>
         </div>
         <FaqAccordion items={faqs} />
         <div data-reveal className="mt-8 flex flex-col items-start gap-4 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-6">
@@ -201,7 +201,7 @@ export function MarketingFooter() {
     <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-[var(--page-gutter)] py-9 text-white [overflow-anchor:none] sm:py-12">
       <Pattern variant="accuracy" parallax={false} />
       <div className="relative mx-auto grid w-full max-w-[1440px] gap-5 font-body text-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10 md:gap-14">
-        <Link href="#home" aria-label="AdaPenyu home" className="w-fit rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
+        <Link href="#home" aria-label="AdaPenyu home" className="inline-flex min-h-11 w-fit items-center rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
           <Image
             src="/images/marketing/wordmark.svg"
             alt="AdaPenyu"
@@ -212,7 +212,7 @@ export function MarketingFooter() {
           />
         </Link>
         <p>© 2026 AdaPenyu. All rights reserved.</p>
-        <a href="mailto:adapenyu@gmail.com" className="w-fit rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
+        <a href="mailto:adapenyu@gmail.com" className="inline-flex min-h-11 w-fit items-center rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
       </div>
     </footer>
   );

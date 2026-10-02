@@ -90,7 +90,7 @@ export function TeamProfiles() {
     <>
       <ul data-stagger className="mx-auto mt-8 grid list-none grid-cols-2 gap-x-5 gap-y-8 p-0 sm:grid-cols-3 sm:gap-x-8 md:mt-10 md:grid-cols-5 md:gap-x-6">
         {team.map((member) => (
-          <li key={member.name} data-stagger-item className="text-center">
+          <li key={member.name} data-stagger-item className="text-center last:max-sm:col-span-2">
             <button
               type="button"
               aria-haspopup="dialog"
@@ -99,7 +99,7 @@ export function TeamProfiles() {
               onClick={(event) => openProfile(member, event.currentTarget, event.detail === 0)}
               onKeyDown={(event) => { delete event.currentTarget.dataset.pointerReturn; }}
               onBlur={(event) => { delete event.currentTarget.dataset.pointerReturn; }}
-              className="group relative mx-auto block cursor-pointer w-full max-w-[218px] border-0 bg-transparent text-center outline-none focus-visible:outline-solid focus-visible:outline-3 focus-visible:outline-secondary focus-visible:outline-offset-4 data-[pointer-return=true]:focus-visible:outline-none"
+              className="group relative mx-auto block w-full max-w-[136px] cursor-pointer border-0 bg-transparent text-center outline-none focus-visible:outline-solid focus-visible:outline-3 focus-visible:outline-secondary focus-visible:outline-offset-4 data-[pointer-return=true]:focus-visible:outline-none sm:max-w-[218px]"
             >
               <span className="relative block">
                 <Image
@@ -113,7 +113,7 @@ export function TeamProfiles() {
                   className="mx-auto h-auto w-full transition-transform duration-300 group-hover:scale-[1.025] motion-reduce:transition-none"
                 />
               </span>
-              <span className="mt-4 block font-body text-lg font-semibold leading-tight text-primary md:text-xl">
+              <span className="mt-3 block font-body text-lg font-semibold leading-tight text-primary sm:mt-4 md:text-xl">
                 {member.name}
               </span>
               <span className="mt-1 block font-body text-sm leading-snug text-secondary md:text-base">
@@ -160,7 +160,7 @@ export function TeamProfiles() {
               width={selectedMember.width}
               height={selectedMember.height}
               unoptimized
-              className="mx-auto h-auto w-full max-w-[260px] sm:max-w-none"
+              className="mx-auto h-auto w-full max-w-[180px] sm:max-w-none"
             />
 
             <div className="pr-10 sm:pr-4">
