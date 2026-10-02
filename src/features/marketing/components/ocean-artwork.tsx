@@ -9,6 +9,7 @@ function OceanElements({ collection, from, to, sway = false }: { collection: str
   const selection = elements.filter(element => element.collection === collection && element.layerOrder >= from && element.layerOrder <= to && (collection !== "01-ocean-reef" || !omittedHeroElements.has(element.layerOrder)));
   return (
     <svg viewBox={selection[0].originalViewBox} preserveAspectRatio="none" className="h-full w-full overflow-visible">
+      {collection === "01-ocean-reef" && from === 13 && <rect x="0" y="299" width="1536" height="101" fill="#0b2e47" />}
       {selection.map(element => {
         const bounds = element.bounds;
         const plant = sway && (element.label === "left seaweed" || element.label === "right coral");
@@ -28,12 +29,12 @@ export function OceanReef({ variant = "hero" }: { variant?: "hero" | "footer" })
   const hero = variant === "hero";
   const collection = hero ? "01-ocean-reef" : "02-low-wave-footer";
   const layers = hero
-    ? [{ from: 1, to: 3, depth: 14 }, { from: 4, to: 11, depth: 30 }, { from: 12, to: 13, depth: 48 }, { from: 14, to: 25, depth: 48 }]
+    ? [{ from: 1, to: 3, depth: 14 }, { from: 4, to: 11, depth: 30 }, { from: 12, to: 12, depth: 48 }, { from: 14, to: 25, depth: 48 }, { from: 13, to: 13, depth: 48 }]
     : [{ from: 1, to: 1, depth: 10 }, { from: 2, to: 2, depth: 20 }, { from: 3, to: 17, depth: 30 }];
   return (
-    <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 bottom-0 [clip-path:inset(-80px_0_0_0)] ${hero ? "h-[180px] sm:h-[240px] md:h-[300px]" : "h-[110px] opacity-30 sm:h-[140px]"}`}>
+    <div aria-hidden="true" className={`pointer-events-none absolute inset-x-0 [clip-path:inset(-80px_0_0_0)] ${hero ? "-bottom-px h-[180px] sm:h-[240px] md:h-[300px]" : "bottom-0 h-[110px] opacity-30 sm:h-[140px]"}`}>
       {layers.map(layer => (
-        <div key={layer.from} data-ocean-depth={layer.depth} className="absolute inset-x-0 -inset-y-8">
+        <div key={layer.from} data-ocean-depth={layer.depth} data-ocean-seabed={hero && layer.from === 13 ? "true" : undefined} className={`absolute inset-x-0 ${hero && layer.from === 13 ? "inset-y-0" : "-inset-y-8"}`}>
           <OceanElements collection={collection} from={layer.from} to={layer.to} sway={layer.to > 13} />
         </div>
       ))}

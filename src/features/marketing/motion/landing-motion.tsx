@@ -21,9 +21,10 @@ export function LandingMotion({ children }: { children: ReactNode }) {
     media.add({
       motion: "(prefers-reduced-motion: no-preference)",
       desktop: "(min-width: 1024px) and (min-height: 720px)",
+      wide: "(min-width: 1024px)",
       pointer: "(hover: hover) and (pointer: fine)",
     }, context => {
-      const { motion: permitted, desktop, pointer } = context.conditions ?? {};
+      const { motion: permitted, desktop, wide, pointer } = context.conditions ?? {};
       if (!permitted) return;
       const cleanup: (() => void)[] = [observeReveals(root, desktop ? 32 : 18)];
 
@@ -119,8 +120,8 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       root.querySelectorAll<HTMLElement>("[data-parallax]").forEach(layer => {
         const section = layer.closest("[data-motion-section]");
         if (!section) return;
-        const travel = Number(layer.dataset.parallax) * (desktop ? 1.5 : 0.35);
-        gsap.fromTo(layer, { y: -travel / 2 }, { y: travel / 2, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: "top bottom", end: "bottom top", scrub: true } });
+        const travel = Number(layer.dataset.parallax) * (section.id === "home" ? (wide ? 3 : 0.6) : (desktop ? 1.5 : 0.35));
+        gsap.fromTo(layer, { y: -travel / 2 }, { y: travel / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: "top bottom", end: "bottom top", scrub: true } });
       });
       root.querySelectorAll<HTMLElement>("[data-artwork-reveal]").forEach(artwork => {
         gsap.from(artwork, { y: desktop ? 32 : 18, opacity: 0, duration: 0.85, ease: "power3.out", force3D: false, clearProps: "transform,opacity", scrollTrigger: { trigger: artwork, start: "top 90%", once: true } });
@@ -154,12 +155,17 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       });
       const heroMedia = root.querySelector("[data-hero-media]");
       const hero = root.querySelector("#home");
-      if (heroMedia && hero && desktop) gsap.to(heroMedia, { y: -32, force3D: false, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+      // Hero depth also works on short laptop windows; only story pinning needs
+      // the taller viewport. Each layer moves independently with native scroll.
+      if (heroMedia && hero && wide) gsap.to(heroMedia, { y: -64, force3D: false, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
       root.querySelectorAll<HTMLElement>("[data-ocean-depth]").forEach(layer => {
         const section = layer.closest("[data-motion-section]");
         if (!section) return;
-        const depth = Number(layer.dataset.oceanDepth) * (desktop ? 1 : 0.3);
-        gsap.fromTo(layer, { y: -depth / 2 }, { y: depth / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: section === hero ? "top top" : "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
+        const depth = Number(layer.dataset.oceanDepth) * (section === hero ? (wide ? 1.75 : 0.45) : (desktop ? 1 : 0.3));
+        // The front wave lifts while its SVG fill extends below the baseline,
+        // joining the next chapter without cropping a moving wave at the seam.
+        const seabed = layer.hasAttribute("data-ocean-seabed");
+        gsap.fromTo(layer, { y: seabed ? 0 : -depth / 2 }, { y: seabed ? -depth / 2 : depth / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: section === hero ? "top top" : "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
       });
       root.querySelectorAll<SVGElement>("[data-ocean-sway]").forEach(artwork => {
         gsap.set(artwork, { svgOrigin: artwork.dataset.oceanPivot });
