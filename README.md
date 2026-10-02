@@ -48,7 +48,7 @@ they are not included in commits or deployments.
 
 The supplied Figma composition is implemented at `/`, including the story, three
 identification steps, three prototype screens, progress, team, contribution, and
-contact sections. The hero retains its original grey box, app icon, and wordmark; the Explore prototype link is removed. The logo and navigation share
+contact sections. The hero uses the original app icon and wordmark without the grey box, framed by the supplied layered ocean reef. The Explore prototype link is removed. The logo and navigation share
 one floating block with a mobile dialog. Link hovers use a single label and
 underline, avoiding duplicate text during transitions.
 
@@ -109,7 +109,7 @@ and contact delivery are not implemented. Member bios, LinkedIn links, and IDs n
 real supplied details. The illustrated headings and some artwork remain raster data
 inside SVG containers. The design's accuracy figure is not an independently verified result.
 Vercel is linked to gungfebrian/adaPenyuWeb, with main as the production branch
-and automatic deployments enabled. The frontend changes and grey-hero restoration have been pushed to GitHub main.
+and automatic deployments enabled. Production deployment follows authorized pushes to GitHub main.
 
 ### Hero and catalogue experiment — 2026-10-02
 
@@ -140,7 +140,7 @@ the original satellite-message turtle retains automatic idle motion only.
 GitHub source publication was requested on 2026-10-02. Private/local progress notes
 remain ignored. Vercel now follows GitHub main through its repository integration.
 
-## Latest correction — original hero restored
+## Previous correction — original hero restored (superseded)
 
 The owner requested the original grey hero box. Its app icon, wordmark, dimensions,
 and surface color are restored. The experimental turtle/water scene and its motion
@@ -156,6 +156,25 @@ triggers a Vercel build and production deployment; other branch pushes use previ
 The repository connection was added after the earlier manual release, so that
 older CLI deployment was not proof that the Git integration was working.
 
-The grey hero box, app icon, and wordmark are restored. The turtle/water hero
-experiment is removed; phone separation and the original satellite-message
-illustration's gentle idle movement remain. Both Explore buttons remain removed.
+The rejected homemade turtle/water hero experiment remains removed. Both Explore buttons remain removed.
+
+## Current hero — supplied ocean artwork, 2026-10-02
+
+The latest owner request removes the grey box and keeps the original app icon and
+wordmark. The icon floats gently, lifts on hover, and wiggles when clicked or tapped.
+Its button hit area stays stationary while the artwork moves.
+
+The supplied ocean-reef.svg is reconstructed from its detached SVG elements, using
+positions.json to preserve composition, paths, gradients, and colors. Four wave/reef
+groups scroll at different depths; individual seaweed and coral sway slightly.
+Supplied bubbles float beside the hero and phone sequence, and the low-wave collection
+adds depth to the footer. Mobile uses less parallax; all new motion is disabled for
+reduced motion. Idle loops pause offscreen and while the document is hidden.
+
+Source artwork lives in public/images/Screen; rendering is in
+src/features/marketing/components/ocean-artwork.tsx and hero-logo.tsx. Styling uses
+Tailwind, with SVG canvas positions derived from the supplied asset metadata.
+No new animation package or custom CSS was introduced.
+
+The malformed frontend team-member name was restored to its last valid value,
+fixing the page compilation error without changing other supplied member details.

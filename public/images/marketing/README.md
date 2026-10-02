@@ -29,3 +29,13 @@ Legacy PNG assets are preserved in `design-assets/marketing-originals`; the land
   there is no cursor-hover animation.
 - The new team emblem is decorative and hidden on narrow layouts where it would
   compete with the original heading.
+
+## Owner-supplied ocean elements — 2026-10-02
+
+Original ocean-reef.svg and detached SVGs remain unchanged under public/images/Screen.
+These are actual vector paths, circles, and gradients. OceanReef uses the supplied
+positions.json metadata to rebuild the original reef across independent scroll layers.
+Seaweed and coral keep their original shapes and colors while their wrappers sway.
+The bubbles collection is used beside the hero and phones; the low-wave-footer
+collection decorates the footer. No raster tracing or generated substitute artwork
+was needed for these assets.

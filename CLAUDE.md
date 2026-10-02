@@ -50,23 +50,25 @@ See design.md and docs/stakeholder-overview.md for the planned boundaries.
 - Source publication and Vercel deployment are separate steps. Check the local
   handover for current release state; do not claim a GitHub push is a deployment.
 
-## Hero and phone experiment
+## Current hero and ocean artwork — 2026-10-02
 
-- HeroTurtleScene replaces the grey prototype tile/CTA with custom SVG water and the
-  original turtle. Hero pointer response and the satellite turtle's idle loop are distinct.
+The owner explicitly requested removing the grey hero box in favor of the original
+app icon and wordmark with the supplied ocean-reef.svg artwork. This supersedes
+prior instructions to preserve the grey box. Do not restore the rejected homemade
+HeroTurtleScene or change the supplied ocean palette.
+
+- OceanReef assembles cropped SVGs from public/images/Screen/detached-ocean-elements
+  using positions.json. Keep the source positions, paths, gradients, and colors.
+- Hero waves use separate scroll depths. Seaweed/coral sway around their bases.
+  Bubbles appear beside the hero logo and phone sequence; low waves decorate the footer.
+- HeroLogo keeps the button hit area stationary. GSAP idle, Motion hover, and tap
+  wiggle use separate inner wrappers. Reduced motion leaves artwork static.
+- Ocean and logo loops pause offscreen and in hidden tabs. Mobile parallax is reduced.
 - Phones begin stacked behind the centre phone, then separate with native scrolling.
-  Read offset geometry, not transformed rectangles, for the starting positions.
-- Phone hover translates inner wrappers only. Keep it separate from the scroll tween.
-- No Three.js dependency was added. The hero uses the existing brand palette and
-  transparent background, with no added blue panel. Explore prototype and Explore
-  the catalogue buttons were removed at the owner's request.
-
-## Latest hero decision — supersedes the experiment
-
-Keep the original grey hero box, app icon, wordmark, and dimensions. The owner
-rejected the turtle/water replacement: its component and motion were removed.
-Do not re-add it. The two Explore buttons remain removed. Phone separation and
-the original satellite-message turtle idle loop are retained.
+  Read offset geometry rather than transformed rectangles for starting positions.
+- Phone hover translates inner wrappers independently from the scroll tween.
+- The two Explore buttons remain removed. The original satellite-message turtle
+  retains its own artwork, placement, and automatic idle movement.
 
 ## Current GitHub / Vercel workflow
 
