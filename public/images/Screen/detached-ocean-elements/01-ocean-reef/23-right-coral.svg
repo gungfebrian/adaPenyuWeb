@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75" height="56" viewBox="1366 244 75 56" preserveAspectRatio="xMidYMid meet" fill="none"><title>Right coral — separate element 23</title><defs>
+    <linearGradient id="01-ocean-reef-23-right-coral-ocean-reef-plants" x1="0" y1="130" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103D5C" />
+      <stop offset="1" stop-color="#082C45" />
+    </linearGradient>
+    <clipPath id="01-ocean-reef-23-right-coral-ocean-reef-bounds"><path d="M0 0H1536V300H0Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#01-ocean-reef-23-right-coral-ocean-reef-bounds)"><g id="01-ocean-reef-23-right-coral-right-coral" fill="url(#01-ocean-reef-23-right-coral-ocean-reef-plants)"><path d="M1437 290C1425 283 1414 279 1407 269C1400 259 1398 248 1391 247C1384 246 1383 254 1387 261C1391 268 1396 272 1396 276C1385 274 1378 262 1374 261C1367 259 1368 266 1372 273C1379 284 1400 288 1404 300H1439Z" />
+      </g></g></svg>

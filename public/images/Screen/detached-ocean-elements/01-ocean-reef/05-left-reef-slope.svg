@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="510" height="265" viewBox="0 35 510 265" preserveAspectRatio="xMidYMid meet" fill="none"><title>Left reef slope — separate element 5</title><defs>
+    <linearGradient id="01-ocean-reef-05-left-reef-slope-ocean-reef-deep" x1="768" y1="90" x2="768" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B648C" />
+      <stop offset="1" stop-color="#174B70" />
+    </linearGradient>
+    <clipPath id="01-ocean-reef-05-left-reef-slope-ocean-reef-bounds"><path d="M0 0H1536V300H0Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#01-ocean-reef-05-left-reef-slope-ocean-reef-bounds)"><path id="01-ocean-reef-05-left-reef-slope-left-reef-slope" fill="url(#01-ocean-reef-05-left-reef-slope-ocean-reef-deep)" d="M0 37C28 48 39 70 65 80C95 93 100 109 103 137C106 167 126 180 165 185C207 191 243 204 281 216C319 228 348 239 378 243C410 246 438 261 467 277C482 286 497 294 508 300H0Z" />
+    </g></svg>

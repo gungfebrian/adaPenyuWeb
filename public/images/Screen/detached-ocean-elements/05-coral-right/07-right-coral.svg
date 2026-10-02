@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="43" height="45" viewBox="282 210 43 45" preserveAspectRatio="xMidYMid meet" fill="none"><title>Right coral — separate element 7</title><defs>
+    <linearGradient id="05-coral-right-07-right-coral-05-coral-right-ocean-reef-plants" x1="0" y1="130" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103D5C" />
+      <stop offset="1" stop-color="#082C45" />
+    </linearGradient>
+    </defs><g transform="translate(-1116 0)"><g id="05-coral-right-07-right-coral-05-coral-right-right-coral" fill="url(#05-coral-right-07-right-coral-05-coral-right-ocean-reef-plants)"><path d="M1416 250C1410 246 1407 239 1403 232C1399 225 1399 215 1404 213C1410 211 1416 222 1418 229C1421 237 1417 242 1420 249C1426 247 1427 237 1432 236C1438 235 1440 241 1437 246C1433 253 1422 254 1416 250Z" />
+      </g></g></svg>

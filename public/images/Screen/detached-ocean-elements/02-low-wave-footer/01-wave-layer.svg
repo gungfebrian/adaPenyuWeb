@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="188" viewBox="0 112 1536 188" preserveAspectRatio="xMidYMid meet" fill="none"><title>Wave layer — separate element 1</title><defs>
+    <linearGradient id="02-low-wave-footer-01-wave-layer-02-low-wave-footer-ocean-reef-shallows" x1="768" y1="0" x2="768" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DBBDC" />
+      <stop offset="1" stop-color="#76ACD0" />
+    </linearGradient>
+    </defs>
+<path fill="url(#02-low-wave-footer-01-wave-layer-02-low-wave-footer-ocean-reef-shallows)" d="M0 130C74 105 141 111 206 137C279 167 341 178 407 158C474 138 532 122 602 141C674 161 735 175 800 151C868 126 921 118 992 140C1062 162 1121 165 1191 145C1265 125 1327 112 1400 129C1459 142 1502 132 1536 114V300H0Z" />
+</svg>

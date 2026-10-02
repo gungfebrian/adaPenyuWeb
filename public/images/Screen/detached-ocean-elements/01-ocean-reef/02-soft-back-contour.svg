@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="246" height="152" viewBox="0 0 246 152" preserveAspectRatio="xMidYMid meet" fill="none"><title>Soft back contour — separate element 2</title><defs>
+    <clipPath id="01-ocean-reef-02-soft-back-contour-ocean-reef-bounds"><path d="M0 0H1536V300H0Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#01-ocean-reef-02-soft-back-contour-ocean-reef-bounds)"><path id="01-ocean-reef-02-soft-back-contour-soft-back-contour" fill="#A2C9E2" opacity=".26" d="M0 0C36 17 70 30 98 59C128 90 134 118 166 128C194 136 223 137 244 147C200 141 169 158 142 143C112 127 111 93 85 66C59 39 27 30 0 22Z" />
+    </g></svg>

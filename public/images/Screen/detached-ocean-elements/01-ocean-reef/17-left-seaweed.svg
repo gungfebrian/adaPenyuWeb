@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="105" viewBox="97 193 83 105" preserveAspectRatio="xMidYMid meet" fill="none"><title>Left seaweed — separate element 17</title><defs>
+    <linearGradient id="01-ocean-reef-17-left-seaweed-ocean-reef-plants" x1="0" y1="130" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103D5C" />
+      <stop offset="1" stop-color="#082C45" />
+    </linearGradient>
+    <clipPath id="01-ocean-reef-17-left-seaweed-ocean-reef-bounds"><path d="M0 0H1536V300H0Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#01-ocean-reef-17-left-seaweed-ocean-reef-bounds)"><g id="01-ocean-reef-17-left-seaweed-left-seaweed" fill="url(#01-ocean-reef-17-left-seaweed-ocean-reef-plants)"><path d="M99 296C117 275 122 252 140 229C153 212 163 200 178 195C168 210 167 226 155 239C140 255 117 266 109 287Z" />
+      </g></g></svg>

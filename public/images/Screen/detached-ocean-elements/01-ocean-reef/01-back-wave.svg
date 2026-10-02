@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="300" viewBox="0 0 1536 300" preserveAspectRatio="xMidYMid meet" fill="none"><title>Back wave — separate element 1</title><defs>
+    <linearGradient id="01-ocean-reef-01-back-wave-ocean-reef-shallows" x1="768" y1="0" x2="768" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8DBBDC" />
+      <stop offset="1" stop-color="#76ACD0" />
+    </linearGradient>
+    <clipPath id="01-ocean-reef-01-back-wave-ocean-reef-bounds"><path d="M0 0H1536V300H0Z" /></clipPath>
+  </defs>
+  <g clip-path="url(#01-ocean-reef-01-back-wave-ocean-reef-bounds)"><path id="01-ocean-reef-01-back-wave-back-wave" fill="url(#01-ocean-reef-01-back-wave-ocean-reef-shallows)" d="M0 0C36 17 70 30 98 59C128 90 134 118 166 128C197 137 226 137 251 151C280 166 292 194 323 204C349 213 370 199 404 205C441 211 457 232 486 247C516 262 549 255 581 247C614 238 642 233 669 238C704 244 736 260 770 253C804 246 827 237 854 241C884 244 907 258 936 251C968 243 997 219 1031 207C1072 192 1110 195 1147 207C1183 218 1216 208 1244 202C1281 196 1306 180 1333 157C1365 130 1392 117 1427 107C1469 95 1501 90 1536 72V300H0Z" />
+    </g></svg>

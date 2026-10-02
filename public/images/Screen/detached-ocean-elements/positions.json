@@ -1,0 +1,1080 @@
+[
+  {
+    "collection": "01-ocean-reef",
+    "filename": "01-back-wave.svg",
+    "label": "back wave",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1536,
+      "height": 300
+    },
+    "file": "01-ocean-reef/01-back-wave.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "02-soft-back-contour.svg",
+    "label": "soft back contour",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 246,
+      "height": 152
+    },
+    "file": "01-ocean-reef/02-soft-back-contour.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "03-right-soft-contour.svg",
+    "label": "right soft contour",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1242,
+      "y": 70,
+      "width": 294,
+      "height": 145
+    },
+    "file": "01-ocean-reef/03-right-soft-contour.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "04-middle-wave.svg",
+    "label": "middle wave",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 35,
+      "width": 1536,
+      "height": 265
+    },
+    "file": "01-ocean-reef/04-middle-wave.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "05-left-reef-slope.svg",
+    "label": "left reef slope",
+    "layerOrder": 5,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 35,
+      "width": 510,
+      "height": 265
+    },
+    "file": "01-ocean-reef/05-left-reef-slope.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "06-midwater-ripple.svg",
+    "label": "midwater ripple",
+    "layerOrder": 6,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 259,
+      "y": 221,
+      "width": 976,
+      "height": 79
+    },
+    "file": "01-ocean-reef/06-midwater-ripple.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "07-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 7,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 188,
+      "y": 152,
+      "width": 62,
+      "height": 82
+    },
+    "file": "01-ocean-reef/07-left-distant-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "08-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 8,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 232,
+      "y": 185,
+      "width": 49,
+      "height": 54
+    },
+    "file": "01-ocean-reef/08-left-distant-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "09-right-distant-reef.svg",
+    "label": "right distant reef",
+    "layerOrder": 9,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 970,
+      "y": 216,
+      "width": 80,
+      "height": 77
+    },
+    "file": "01-ocean-reef/09-right-distant-reef.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "10-right-distant-reef.svg",
+    "label": "right distant reef",
+    "layerOrder": 10,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1034,
+      "y": 214,
+      "width": 57,
+      "height": 79
+    },
+    "file": "01-ocean-reef/10-right-distant-reef.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "11-right-distant-reef.svg",
+    "label": "right distant reef",
+    "layerOrder": 11,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1093,
+      "y": 219,
+      "width": 29,
+      "height": 29
+    },
+    "file": "01-ocean-reef/11-right-distant-reef.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "12-foreground-wave.svg",
+    "label": "foreground wave",
+    "layerOrder": 12,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 220,
+      "width": 1536,
+      "height": 80
+    },
+    "file": "01-ocean-reef/12-foreground-wave.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "13-frontmost-wave.svg",
+    "label": "frontmost wave",
+    "layerOrder": 13,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 258,
+      "width": 1536,
+      "height": 42
+    },
+    "file": "01-ocean-reef/13-frontmost-wave.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "14-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 14,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 91,
+      "width": 59,
+      "height": 209
+    },
+    "file": "01-ocean-reef/14-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "15-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 15,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 46,
+      "y": 170,
+      "width": 42,
+      "height": 130
+    },
+    "file": "01-ocean-reef/15-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "16-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 16,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 75,
+      "y": 137,
+      "width": 97,
+      "height": 163
+    },
+    "file": "01-ocean-reef/16-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "17-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 17,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 97,
+      "y": 193,
+      "width": 83,
+      "height": 105
+    },
+    "file": "01-ocean-reef/17-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "18-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 18,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 89,
+      "y": 259,
+      "width": 67,
+      "height": 41
+    },
+    "file": "01-ocean-reef/18-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "19-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 19,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 48,
+      "y": 233,
+      "width": 21,
+      "height": 67
+    },
+    "file": "01-ocean-reef/19-left-seaweed.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "20-small-left-coral.svg",
+    "label": "small left coral",
+    "layerOrder": 20,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 344,
+      "y": 239,
+      "width": 50,
+      "height": 43
+    },
+    "file": "01-ocean-reef/20-small-left-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "21-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 21,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1441,
+      "y": 145,
+      "width": 95,
+      "height": 155
+    },
+    "file": "01-ocean-reef/21-right-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "22-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 22,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1417,
+      "y": 227,
+      "width": 67,
+      "height": 69
+    },
+    "file": "01-ocean-reef/22-right-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "23-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 23,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1366,
+      "y": 244,
+      "width": 75,
+      "height": 56
+    },
+    "file": "01-ocean-reef/23-right-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "24-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 24,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1398,
+      "y": 210,
+      "width": 43,
+      "height": 45
+    },
+    "file": "01-ocean-reef/24-right-coral.svg"
+  },
+  {
+    "collection": "01-ocean-reef",
+    "filename": "25-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 25,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1509,
+      "y": 266,
+      "width": 27,
+      "height": 34
+    },
+    "file": "01-ocean-reef/25-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "01-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 112,
+      "width": 1536,
+      "height": 188
+    },
+    "file": "02-low-wave-footer/01-wave-layer.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "02-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 150,
+      "width": 1536,
+      "height": 150
+    },
+    "file": "02-low-wave-footer/02-wave-layer.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "03-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 201,
+      "width": 1536,
+      "height": 99
+    },
+    "file": "02-low-wave-footer/03-wave-layer.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "04-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 24,
+      "y": 166,
+      "width": 40,
+      "height": 134
+    },
+    "file": "02-low-wave-footer/04-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "05-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 5,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 54,
+      "y": 216,
+      "width": 29,
+      "height": 84
+    },
+    "file": "02-low-wave-footer/05-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "06-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 6,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 72,
+      "y": 195,
+      "width": 64,
+      "height": 105
+    },
+    "file": "02-low-wave-footer/06-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "07-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 7,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 86,
+      "y": 230,
+      "width": 55,
+      "height": 69
+    },
+    "file": "02-low-wave-footer/07-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "08-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 8,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 81,
+      "y": 272,
+      "width": 44,
+      "height": 28
+    },
+    "file": "02-low-wave-footer/08-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "09-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 9,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 56,
+      "y": 256,
+      "width": 15,
+      "height": 44
+    },
+    "file": "02-low-wave-footer/09-left-seaweed.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "10-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 10,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 143,
+      "y": 205,
+      "width": 41,
+      "height": 54
+    },
+    "file": "02-low-wave-footer/10-left-distant-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "11-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 11,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 171,
+      "y": 226,
+      "width": 33,
+      "height": 36
+    },
+    "file": "02-low-wave-footer/11-left-distant-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "12-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 12,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1438,
+      "y": 191,
+      "width": 72,
+      "height": 109
+    },
+    "file": "02-low-wave-footer/12-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "13-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 13,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1421,
+      "y": 248,
+      "width": 49,
+      "height": 50
+    },
+    "file": "02-low-wave-footer/13-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "14-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 14,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1386,
+      "y": 260,
+      "width": 54,
+      "height": 40
+    },
+    "file": "02-low-wave-footer/14-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "15-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 15,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1408,
+      "y": 236,
+      "width": 31,
+      "height": 33
+    },
+    "file": "02-low-wave-footer/15-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "16-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 16,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 1485,
+      "y": 272,
+      "width": 30,
+      "height": 28
+    },
+    "file": "02-low-wave-footer/16-right-coral.svg"
+  },
+  {
+    "collection": "02-low-wave-footer",
+    "filename": "17-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 17,
+    "originalViewBox": "0 0 1536 300",
+    "bounds": {
+      "x": 0,
+      "y": 256,
+      "width": 1536,
+      "height": 44
+    },
+    "file": "02-low-wave-footer/17-wave-layer.svg"
+  },
+  {
+    "collection": "03-wave-divider",
+    "filename": "01-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 1536 180",
+    "bounds": {
+      "x": 0,
+      "y": 21,
+      "width": 1536,
+      "height": 134
+    },
+    "file": "03-wave-divider/01-wave-layer.svg"
+  },
+  {
+    "collection": "03-wave-divider",
+    "filename": "02-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 1536 180",
+    "bounds": {
+      "x": 0,
+      "y": 46,
+      "width": 1536,
+      "height": 109
+    },
+    "file": "03-wave-divider/02-wave-layer.svg"
+  },
+  {
+    "collection": "03-wave-divider",
+    "filename": "03-wave-layer.svg",
+    "label": "wave layer",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 1536 180",
+    "bounds": {
+      "x": 0,
+      "y": 73,
+      "width": 1536,
+      "height": 82
+    },
+    "file": "03-wave-divider/03-wave-layer.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "01-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 58,
+      "width": 420,
+      "height": 242
+    },
+    "file": "04-seaweed-left/01-reef-layer.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "02-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 103,
+      "width": 420,
+      "height": 197
+    },
+    "file": "04-seaweed-left/02-reef-layer.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "03-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 151,
+      "width": 420,
+      "height": 149
+    },
+    "file": "04-seaweed-left/03-reef-layer.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "04-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 188,
+      "y": 152,
+      "width": 62,
+      "height": 82
+    },
+    "file": "04-seaweed-left/04-left-distant-coral.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "05-left-distant-coral.svg",
+    "label": "left distant coral",
+    "layerOrder": 5,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 232,
+      "y": 185,
+      "width": 49,
+      "height": 54
+    },
+    "file": "04-seaweed-left/05-left-distant-coral.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "06-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 6,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 91,
+      "width": 59,
+      "height": 209
+    },
+    "file": "04-seaweed-left/06-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "07-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 7,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 46,
+      "y": 170,
+      "width": 42,
+      "height": 130
+    },
+    "file": "04-seaweed-left/07-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "08-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 8,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 75,
+      "y": 137,
+      "width": 97,
+      "height": 163
+    },
+    "file": "04-seaweed-left/08-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "09-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 9,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 97,
+      "y": 193,
+      "width": 83,
+      "height": 105
+    },
+    "file": "04-seaweed-left/09-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "10-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 10,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 89,
+      "y": 259,
+      "width": 67,
+      "height": 41
+    },
+    "file": "04-seaweed-left/10-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "11-left-seaweed.svg",
+    "label": "left seaweed",
+    "layerOrder": 11,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 48,
+      "y": 233,
+      "width": 21,
+      "height": 67
+    },
+    "file": "04-seaweed-left/11-left-seaweed.svg"
+  },
+  {
+    "collection": "04-seaweed-left",
+    "filename": "12-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 12,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 259,
+      "width": 420,
+      "height": 41
+    },
+    "file": "04-seaweed-left/12-reef-layer.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "01-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 85,
+      "width": 420,
+      "height": 215
+    },
+    "file": "05-coral-right/01-reef-layer.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "02-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 120,
+      "width": 420,
+      "height": 180
+    },
+    "file": "05-coral-right/02-reef-layer.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "03-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 183,
+      "width": 420,
+      "height": 117
+    },
+    "file": "05-coral-right/03-reef-layer.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "04-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 325,
+      "y": 145,
+      "width": 95,
+      "height": 155
+    },
+    "file": "05-coral-right/04-right-coral.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "05-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 5,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 301,
+      "y": 227,
+      "width": 67,
+      "height": 69
+    },
+    "file": "05-coral-right/05-right-coral.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "06-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 6,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 250,
+      "y": 244,
+      "width": 75,
+      "height": 56
+    },
+    "file": "05-coral-right/06-right-coral.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "07-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 7,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 282,
+      "y": 210,
+      "width": 43,
+      "height": 45
+    },
+    "file": "05-coral-right/07-right-coral.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "08-right-coral.svg",
+    "label": "right coral",
+    "layerOrder": 8,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 393,
+      "y": 266,
+      "width": 27,
+      "height": 34
+    },
+    "file": "05-coral-right/08-right-coral.svg"
+  },
+  {
+    "collection": "05-coral-right",
+    "filename": "09-reef-layer.svg",
+    "label": "reef layer",
+    "layerOrder": 9,
+    "originalViewBox": "0 0 420 300",
+    "bounds": {
+      "x": 0,
+      "y": 279,
+      "width": 420,
+      "height": 21
+    },
+    "file": "05-coral-right/09-reef-layer.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "01-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 143,
+      "y": 17,
+      "width": 34,
+      "height": 34
+    },
+    "file": "06-bubbles/01-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "02-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 113,
+      "y": 87,
+      "width": 20,
+      "height": 20
+    },
+    "file": "06-bubbles/02-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "03-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 171,
+      "y": 132,
+      "width": 24,
+      "height": 24
+    },
+    "file": "06-bubbles/03-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "04-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 143,
+      "y": 173,
+      "width": 16,
+      "height": 16
+    },
+    "file": "06-bubbles/04-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "05-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 5,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 85,
+      "y": 217,
+      "width": 28,
+      "height": 28
+    },
+    "file": "06-bubbles/05-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "06-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 6,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 116,
+      "y": 271,
+      "width": 20,
+      "height": 20
+    },
+    "file": "06-bubbles/06-bubble.svg"
+  },
+  {
+    "collection": "06-bubbles",
+    "filename": "07-bubble.svg",
+    "label": "bubble",
+    "layerOrder": 7,
+    "originalViewBox": "0 0 240 360",
+    "bounds": {
+      "x": 59,
+      "y": 318,
+      "width": 14,
+      "height": 14
+    },
+    "file": "06-bubbles/07-bubble.svg"
+  },
+  {
+    "collection": "07-ocean-currents",
+    "filename": "01-current-band.svg",
+    "label": "current band",
+    "layerOrder": 1,
+    "originalViewBox": "0 0 1536 900",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 365,
+      "height": 900
+    },
+    "file": "07-ocean-currents/01-current-band.svg"
+  },
+  {
+    "collection": "07-ocean-currents",
+    "filename": "02-current-band.svg",
+    "label": "current band",
+    "layerOrder": 2,
+    "originalViewBox": "0 0 1536 900",
+    "bounds": {
+      "x": 341,
+      "y": 0,
+      "width": 236,
+      "height": 900
+    },
+    "file": "07-ocean-currents/02-current-band.svg"
+  },
+  {
+    "collection": "07-ocean-currents",
+    "filename": "03-current-band.svg",
+    "label": "current band",
+    "layerOrder": 3,
+    "originalViewBox": "0 0 1536 900",
+    "bounds": {
+      "x": 701,
+      "y": 0,
+      "width": 287,
+      "height": 900
+    },
+    "file": "07-ocean-currents/03-current-band.svg"
+  },
+  {
+    "collection": "07-ocean-currents",
+    "filename": "04-current-band.svg",
+    "label": "current band",
+    "layerOrder": 4,
+    "originalViewBox": "0 0 1536 900",
+    "bounds": {
+      "x": 1181,
+      "y": 0,
+      "width": 240,
+      "height": 900
+    },
+    "file": "07-ocean-currents/04-current-band.svg"
+  }
+]

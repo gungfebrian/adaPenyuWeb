@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="44" viewBox="56 256 15 44" preserveAspectRatio="xMidYMid meet" fill="none"><title>Left seaweed — separate element 9</title><defs>
+    <linearGradient id="02-low-wave-footer-09-left-seaweed-02-low-wave-footer-ocean-reef-plants" x1="0" y1="130" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103D5C" />
+      <stop offset="1" stop-color="#082C45" />
+    </linearGradient>
+    </defs>
+<g transform="translate(26 110) scale(.63)"><g id="02-low-wave-footer-09-left-seaweed-02-low-wave-footer-left-seaweed" fill="url(#02-low-wave-footer-09-left-seaweed-02-low-wave-footer-ocean-reef-plants)"><path d="M52 300C56 283 48 267 52 251C56 238 63 235 67 236C65 249 68 262 64 275C61 285 64 294 65 300Z" />
+    </g></g></svg>
