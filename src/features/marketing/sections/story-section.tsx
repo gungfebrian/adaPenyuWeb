@@ -1,4 +1,5 @@
 import { FigmaImage } from "../components/figma-image";
+import { ChapterOcean } from "../components/chapter-ocean";
 
 const arrows = {
   first: "lg:[@media(min-height:720px)]:top-[calc(max(96px,8%)+15.625cqw+70px)] lg:[@media(min-height:720px)]:left-[40.4%] lg:[@media(min-height:720px)]:h-[clamp(60px,calc(65svh-max(96px,8svh)-15.625cqw-80px),228px)] lg:[@media(min-height:720px)]:aspect-[231/228]",
@@ -14,6 +15,7 @@ function StoryArrow({ variant, mobile = false }: { variant: keyof typeof arrows;
 
 export function StorySection() {
   return <div data-scroll-stage><section id="our-project" data-story-pin data-header-theme="dark" data-motion-section aria-labelledby="story-title" className="relative min-h-svh scroll-mt-0 bg-banner px-[var(--page-gutter)] pt-28 pb-14 text-white lg:[@media(min-height:720px)]:h-svh lg:[@media(min-height:720px)]:px-0 lg:[@media(min-height:720px)]:py-0">
+    <ChapterOcean chapter="story" />
     <div className="relative mx-auto flex w-full max-w-[1512px] flex-col lg:[@media(min-height:720px)]:h-full">
       <div data-story-opening className="lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[max(96px,8%)] lg:[@media(min-height:720px)]:left-[5.3%] lg:[@media(min-height:720px)]:w-1/2">
         <p className="font-detail text-lg font-medium lg:[@media(min-height:720px)]:text-[clamp(20px,1.98cqw,30px)]">The Story Behind It</p>

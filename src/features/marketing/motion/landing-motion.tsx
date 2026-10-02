@@ -183,6 +183,12 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         const loop = gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration: 3.5 + order % 4 * 0.65, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, artwork.parentElement ?? artwork);
       });
+      root.querySelectorAll<HTMLElement>("[data-chapter-sway]").forEach(plant => {
+        const order = Number(plant.dataset.chapterSway);
+        const angle = (desktop ? 1.2 : 0.45) * (order % 2 ? 1 : -1);
+        const loop = gsap.fromTo(plant, { rotation: -angle }, { rotation: angle, duration: 4.5 + order * 0.5, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        pauseOutside(loop, plant.parentElement ?? plant);
+      });
       root.querySelectorAll<SVGElement>("[data-ocean-bubble]").forEach(artwork => {
         const order = Number(artwork.dataset.oceanBubble);
         const duration = 5.5 + order * 0.35;

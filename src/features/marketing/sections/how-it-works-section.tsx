@@ -2,12 +2,14 @@ import { IdentificationStep } from "../components/identification-step";
 import { identificationSteps } from "../content";
 import { FigmaImage } from "../components/figma-image";
 import { OceanCurrents } from "../components/ocean-artwork";
+import { ChapterOcean } from "../components/chapter-ocean";
 
 export function HowItWorksSection() {
   return (
     <>
       <div data-scroll-stage><section id="how-it-works" data-steps-pin data-header-theme="dark" data-motion-section aria-labelledby="how-title" className="relative min-h-svh scroll-mt-0 bg-banner px-[var(--page-gutter)] pt-28 pb-16 text-white lg:[@media(min-height:720px)]:h-svh lg:[@media(min-height:720px)]:px-0 lg:[@media(min-height:720px)]:pt-[max(100px,9vh)] lg:[@media(min-height:720px)]:pb-8">
-        <div className="mx-auto w-full max-w-[1512px] lg:[@media(min-height:720px)]:flex lg:[@media(min-height:720px)]:h-full lg:[@media(min-height:720px)]:flex-col">
+        <ChapterOcean chapter="steps" />
+        <div className="relative mx-auto w-full max-w-[1512px] lg:[@media(min-height:720px)]:flex lg:[@media(min-height:720px)]:h-full lg:[@media(min-height:720px)]:flex-col">
         <p data-reveal className="font-detail text-lg leading-[1.209] font-medium text-white md:ml-[5.6217cqw] md:text-[clamp(18px,1.9841cqw,30px)]">How AdaPenyu works?</p>
         <h2 id="how-title" data-reveal className="mt-4 md:mt-[0.7275cqw] md:ml-[3.836cqw]">
           <span className="sr-only">Three steps only</span>
