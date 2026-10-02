@@ -1,10 +1,12 @@
 import elements from "../../../../public/images/Screen/detached-ocean-elements/positions.json";
 
 const assetRoot = "/images/Screen/detached-ocean-elements";
+// Owner's marked screenshot: remove small reef fragments, retain one large right coral.
+const omittedHeroElements = new Set([9, 10, 11, 20, 22, 23, 24, 25]);
 
 /** Cropped SVGs retain their source positions on a responsive artwork canvas. */
 function OceanElements({ collection, from, to, sway = false }: { collection: string; from: number; to: number; sway?: boolean }) {
-  const selection = elements.filter(element => element.collection === collection && element.layerOrder >= from && element.layerOrder <= to);
+  const selection = elements.filter(element => element.collection === collection && element.layerOrder >= from && element.layerOrder <= to && (collection !== "01-ocean-reef" || !omittedHeroElements.has(element.layerOrder)));
   return (
     <svg viewBox={selection[0].originalViewBox} preserveAspectRatio="none" className="h-full w-full overflow-visible">
       {selection.map(element => {
