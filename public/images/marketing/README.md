@@ -37,5 +37,24 @@ These are actual vector paths, circles, and gradients. OceanReef uses the suppli
 positions.json metadata to rebuild the original reef across independent scroll layers.
 Seaweed and coral keep their original shapes and colors while their wrappers sway.
 The bubbles collection is used beside the hero and phones; the low-wave-footer
-collection decorates the footer. No raster tracing or generated substitute artwork
+collection remains available as source artwork; the footer uses its original static pattern. No raster tracing or generated substitute artwork
 was needed for these assets.
+
+
+## Revised second/third screen exports — 2026-10-02
+
+Source revision: PenyuTab node 1142:1752. Figma MCP reached the Starter call limit;
+the owner supplied screenshots and local exports instead.
+
+- step-circle-white-fill.svg: unchanged Rectangle 271.svg export (158×156). It is
+  a white rectangle used behind the existing step-circle.svg alpha mask, preserving
+  the original hand-drawn silhouette.
+- step-arrow-white.svg: unchanged Mask group.svg export (50×105). Its white fill
+  uses the supplied embedded bitmap alpha mask; it is not all vector paths.
+- hero-frontmost-wave.svg: copy of detached reef layer 13-frontmost-wave.svg. Only
+  its solid fill changes from #0B2E47 to #133045, joining the revised story color.
+  The detached source file stays unchanged.
+
+The current phase changes colors and responsive proportions. It does not yet
+implement the revised left-stacked third-screen title/composition. The original
+story-title.svg is rendered larger; its original illustrated artwork is unchanged.

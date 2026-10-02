@@ -75,7 +75,7 @@ HeroTurtleScene or change the supplied ocean palette.
 - The two Explore buttons remain removed. The original satellite-message turtle
   retains its own artwork, placement, and automatic idle movement.
 - Latest owner correction: the second section (The Story Behind It) uses solid
-  #0b2e47, matching the hero's frontmost wave. No pattern/current overlay or top
+  #133045, matching the hero's frontmost wave. No pattern/current overlay or top
   shadow is rendered there. Original story-pattern and deep-ocean SVGs remain.
 - The frontmost hero wave owns a separate upward scroll layer and an SVG fill
   extending below its baseline. Keep the 1px overlap to avoid fractional seams.
@@ -109,3 +109,34 @@ are historical; read the newest release entry first.
 - Decorative loops share one IntersectionObserver and one visibilitychange listener.
   Keep reduced-motion cleanup and offscreen/hidden-tab pausing.
 - Lottie MCP has no connected Creator tab. No Lottie player was added; effects use GSAP.
+
+
+## Latest revision and continuation — 2026-10-02
+
+- Read docs/AGENT_HANDOVER.md first for the newest local continuation state. Older
+  progress entries are history and may describe reverted experiments. This new
+  Markdown handover is ignored under the existing *.md rule.
+- The owner requested colors/responsiveness first; the full revised second/third
+  Figma composition is a later phase. Third-screen steps now have a #133045
+  background and white/off-white artwork/copy. Do not mark the new left-stacked
+  “Three / steps / only” composition implemented: it is still pending.
+- Do not change the complement section headed “Turtle ID does NOT replace tags or
+  satellites”. Its markup and existing visual design are preserved in this pass.
+- StoryScene backgrounds span the available document width; inherited cqw sizing
+  remains capped by the 1512px marketing container. LandingMotion owns --scene-width
+  through one ResizeObserver, using clientWidth to avoid scrollbar-induced offsets.
+- --page-gutter is clamp(24px,5.3vw,80px). Keep shared outer gutters consistent;
+  narrower team/FAQ/contact reading widths remain deliberate.
+- Hero laptop dimensions are retained. Only >=120rem (1920px at default root size)
+  gets the larger capped hero typography/icon/wordmark and tall-screen top spacing.
+  Keep breakpoint units consistent with Tailwind's rem breakpoints.
+- The desktop step list is flex-1 with three grid rows; row minimum heights must not
+  push the last step below the viewport. Tablet copy uses 25px/17px minimum sizes.
+- step-circle-white-fill.svg is a rectangular white fill, not a new circle path;
+  it is masked with the original step-circle.svg alpha silhouette.
+- step-arrow-white.svg is the supplied alpha-mask SVG. hero-frontmost-wave.svg is
+  a separate supplied-wave copy with the #133045 fill. Preserve all original assets.
+- public/images/Screen/Secondpages is owner-added, untracked, and currently unused.
+  Do not stage it with unrelated changes or start placing it without design scope.
+- Current Figma MCP access hit the Starter call limit. Use the owner-provided
+  screenshots/exports listed in the handover until access is available again.

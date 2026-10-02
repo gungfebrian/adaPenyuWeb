@@ -87,7 +87,7 @@ automatic production-deployment branch.
 
 - The compact desktop navbar expands on pointer hover and keyboard focus.
 - Its background, logo, and single rendered labels split white/navy at section boundaries.
-- Identification steps use brand navy headings and blue body copy.
+- Identification steps use white artwork and copy on the revised ocean background.
 - Member portraits have no arrow badges; names and profile titles use DM Sans.
 - Pointer focus restored after a profile closes has no outline. Keyboard focus stays visible.
 - FAQ uses the supplied screenshot's rounded rows, real answers, and a contact shortcut.
@@ -100,7 +100,7 @@ automatic production-deployment branch.
 - Motion is disabled for reduced-motion preferences; text does not receive 3D tilt.
 
 For the complete local progress, fixes, limitations, and next steps, read
-`handover.md`. Operational continuation details are in `handoverpriv.md`.
+`handover.md`. Operational continuation details are in `handoverpriv.md`. The newest standalone agent handover is `docs/AGENT_HANDOVER.md` (local and ignored).
 
 ### Remaining product work
 
@@ -182,7 +182,7 @@ height after rejecting the shorter-viewport sizing experiment. The marked small
 coral and distant reef fragments are omitted from the hero; the single large right
 coral remains. Source SVG files are preserved.
 
-The second section, The Story Behind It, now uses one solid ocean color (#0b2e47)
+The second section, The Story Behind It, now uses one solid ocean color (#133045)
 matching the hero's frontmost wave. That wave extends below its baseline and moves
 upward independently to keep the transition continuous; the story's top shadow and
 pattern/current overlays are removed. The original story-pattern and supplied
@@ -221,3 +221,36 @@ Contact retains its original layout and pattern without added ocean layers or
 background parallax. The footer follows the supplied reference: AdaPenyu logo,
 © 2026 AdaPenyu. All rights reserved., and adapenyu@gmail.com as a plain email link.
 It uses the original static pattern and a single desktop row that stacks on mobile.
+
+
+## Revised ocean chapters and responsive canvas — 2026-10-02
+
+The supplied second/third-screen revision is being implemented in phases. This
+release applies the revised #133045 ocean background and white/off-white step
+artwork/copy, enlarges the existing story SVG heading, and fixes responsive sizing.
+The new left-stacked “Three / steps / only” layout remains the next design phase.
+The “Turtle ID does NOT replace tags or satellites” section retains its existing
+markup, artwork, typography, and placement.
+
+Section backgrounds span the available page width. Their reading/composition
+canvas remains capped at 1512px, keeping container-unit typography bounded.
+LandingMotion measures the available document width to exclude desktop scrollbars.
+Shared outer gutters use clamp(24px, 5.3vw, 80px), including the navbar, hero,
+community sections, progress, and footer. FAQ and team keep narrower reading widths.
+
+Hero sizing below 1920px remains unchanged. At 1920px and wider, headline/body
+sizes grow within caps of 80px/45px, the app icon is 200px, and the wordmark is 260px.
+The tall-screen top spacing grows with viewport height. The reef remains full bleed.
+The desktop step list shares the available viewport height across three rows, with
+minimum readable tablet font sizes instead of shrinking below the mobile sizes.
+
+The new step-circle white fill and arrow are unchanged owner-provided SVG exports.
+The circle fill is masked with the existing hand-drawn circle silhouette. A separate
+frontmost-wave copy matches the revised ocean color; original source SVGs remain.
+
+This release passed pnpm lint and pnpm typecheck. Manual browser review covered
+390×844, 768×1024, 1440×720, and 2560×1440, including visible step copy, the short
+viewport's final step, full-width backgrounds, and large-screen hero gutters.
+These spot checks are not a claim of testing every browser or device. Read
+`docs/AGENT_HANDOVER.md` for the release hashes, deployment state, constraints,
+source references, and prioritized remaining work.
