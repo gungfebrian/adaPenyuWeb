@@ -4,7 +4,7 @@ import { OceanReef, OceanBubbles } from "../components/ocean-artwork";
 
 export function HeroSection() {
   return (
-    <section id="home" data-motion-section aria-labelledby="hero-title" className="relative isolate scroll-mt-0 px-6 pt-28 pb-16 text-ink sm:pt-32 md:px-[5.3%] md:pt-[11.1cqw] md:pb-[5.3cqw]">
+    <section id="home" data-motion-section aria-labelledby="hero-title" className="relative isolate min-h-svh scroll-mt-0 px-6 pt-28 pb-16 text-ink sm:pt-32 md:px-[5.3%] md:pt-[11.1cqw] md:pb-[5.3cqw]">
       <Pattern variant="hero" />
       <div className="relative mx-auto max-w-[900px] text-center">
         <h1 id="hero-title" className="font-body text-[clamp(2.25rem,4.23vw,4rem)] leading-[1.22] font-medium tracking-[-0.035em]">

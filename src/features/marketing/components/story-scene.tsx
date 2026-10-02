@@ -5,8 +5,8 @@ const layers = ["z-0", "z-10", "z-20", "z-30", "z-40", "z-50"] as const;
 /** Stable frames support precise navigation while their inner sheets animate. */
 export function StoryScene({ children, layer = 0, anchor }: { children: ReactNode; layer?: 0 | 1 | 2 | 3 | 4 | 5; anchor?: string }) {
   return (
-    <div data-scene data-scene-anchor={anchor} data-scene-first={layer === 0 ? "true" : undefined} className={`relative ${layers[layer]} ${anchor === "our-project" ? "-mt-12 lg:-mt-20" : ""}`}>
-      <div data-scene-sheet className={`origin-top bg-paper ${anchor === "our-project" ? "rounded-t-[28px] shadow-[0_-16px_48px_#00263c18] lg:rounded-t-[48px] [&_[data-story-pin]]:rounded-t-[inherit] [&>div>section:first-child]:rounded-t-[inherit]" : ""}`}>{children}</div>
+    <div data-scene data-scene-anchor={anchor} data-scene-first={layer === 0 ? "true" : undefined} className={`relative ${layers[layer]} ${anchor === "our-project" ? "bg-[#0b2e47]" : ""}`}>
+      <div data-scene-sheet className={`origin-top bg-paper ${anchor === "our-project" ? "rounded-t-[28px] shadow-[0_-16px_48px_#00263c18] lg:rounded-t-[48px] [&>div]:rounded-t-[inherit] [&_[data-story-pin]]:rounded-t-[inherit] [&>div>section:first-child]:rounded-t-[inherit]" : ""}`}>{children}</div>
     </div>
   );
 }
