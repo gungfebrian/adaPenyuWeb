@@ -108,8 +108,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         }
       }
 
-      // The story card sits directly over the preceding artwork. Its frame stays
-      // full width: scaling the page would expose an empty canvas at its edges.
+      // Round the next sheet without overlapping and hiding the hero reef.
       const storyFrame = root.querySelector<HTMLElement>('[data-scene-anchor="our-project"]');
       const storySheet = storyFrame?.querySelector<HTMLElement>("[data-scene-sheet]");
       if (storyFrame && storySheet) gsap.fromTo(storySheet, { borderRadius: "48px 48px 0px 0px" }, {
@@ -126,19 +125,29 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       root.querySelectorAll<HTMLElement>("[data-artwork-reveal]").forEach(artwork => {
         gsap.from(artwork, { y: desktop ? 32 : 18, opacity: 0, duration: 0.85, ease: "power3.out", force3D: false, clearProps: "transform,opacity", scrollTrigger: { trigger: artwork, start: "top 90%", once: true } });
       });
+      // All decorative loops share one observer and one document listener.
+      const observedLoops = new Map<Element, Set<gsap.core.Animation>>();
+      const visibleWrappers = new Set<Element>();
+      const syncLoops = () => observedLoops.forEach((loops, wrapper) => loops.forEach(loop => {
+        if (visibleWrappers.has(wrapper) && !document.hidden) loop.resume(); else loop.pause();
+      }));
+      const loopObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) visibleWrappers.add(entry.target); else visibleWrappers.delete(entry.target); });
+        syncLoops();
+      });
+      document.addEventListener("visibilitychange", syncLoops);
+      cleanup.push(() => { loopObserver.disconnect(); document.removeEventListener("visibilitychange", syncLoops); });
       const pauseOutside = (loop: gsap.core.Animation, wrapper: Element) => {
-        let visible = false;
-        const syncPlayback = () => { if (visible && !document.hidden) loop.resume(); else loop.pause(); };
-        const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; syncPlayback(); });
-        observer.observe(wrapper);
-        document.addEventListener("visibilitychange", syncPlayback);
-        cleanup.push(() => { observer.disconnect(); document.removeEventListener("visibilitychange", syncPlayback); });
+        let loops = observedLoops.get(wrapper);
+        if (!loops) { loops = new Set(); observedLoops.set(wrapper, loops); loopObserver.observe(wrapper); }
+        loops.add(loop);
       };
-      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="logo"]').forEach(artwork => {
+      root.querySelectorAll<HTMLElement>('[data-idle="turtle"], [data-idle="emblem"], [data-idle="logo"], [data-idle="step-mark"]').forEach(artwork => {
         const swimming = artwork.dataset.idle === "turtle";
+        const step = artwork.dataset.idle === "step-mark";
         const float = gsap.fromTo(artwork,
-          { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : -1 },
-          { x: swimming ? 2 : 0, y: swimming ? -9 : -5, rotation: swimming ? 1.8 : 1, duration: swimming ? 3 : 4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false },
+          { x: swimming ? -2 : 0, y: swimming ? 2 : 0, rotation: swimming ? -1.2 : step ? -0.6 : -1 },
+          { x: swimming ? 2 : 0, y: swimming ? -9 : step ? -2 : -5, rotation: swimming ? 1.8 : step ? 0.6 : 1, duration: swimming ? 3 : step ? 5 : 4, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false },
         );
         // Observe the wrapper, so idle motion never moves its own trigger.
         pauseOutside(float, artwork.parentElement ?? artwork);
@@ -150,19 +159,74 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         const section = layer.closest("[data-motion-section]");
         if (!section) return;
         const depth = Number(layer.dataset.oceanDepth) * (desktop ? 1 : 0.3);
-        gsap.fromTo(layer, { y: -depth / 2 }, { y: depth / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section, start: section === hero ? "top top" : "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
+        gsap.fromTo(layer, { y: -depth / 2 }, { y: depth / 2, force3D: false, ease: "none", scrollTrigger: { trigger: section.closest("[data-scroll-stage]") ?? section, start: section === hero ? "top top" : "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } });
       });
-      root.querySelectorAll<HTMLElement>("[data-ocean-sway], [data-ocean-bubbles]").forEach(artwork => {
-        const bubbles = artwork.hasAttribute("data-ocean-bubbles");
+      root.querySelectorAll<SVGElement>("[data-ocean-sway]").forEach(artwork => {
+        gsap.set(artwork, { svgOrigin: artwork.dataset.oceanPivot });
         const order = Number(artwork.dataset.oceanSway ?? 0);
         const angle = (order % 2 ? 1 : -1) * (desktop ? 1.3 : 0.5);
-        const loop = bubbles
-          ? gsap.fromTo(artwork, { y: 4 }, { y: -9, duration: 5.5, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false })
-          : gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration: 3.5 + order % 4 * 0.65, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        const loop = gsap.fromTo(artwork, { rotation: -angle }, { rotation: angle, duration: 3.5 + order % 4 * 0.65, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
+        pauseOutside(loop, artwork.parentElement ?? artwork);
+      });
+      root.querySelectorAll<SVGElement>("[data-ocean-bubble]").forEach(artwork => {
+        const order = Number(artwork.dataset.oceanBubble);
+        const duration = 5.5 + order * 0.35;
+        const travel = desktop ? 90 : 52;
+        const loop = gsap.timeline({ repeat: -1, paused: true });
+        loop.fromTo(artwork, { y: 18, x: -3, opacity: 0 }, { y: -travel, x: 3 + order % 3 * 3, duration, ease: "none", force3D: false }, 0)
+          .to(artwork, { opacity: 1, duration: 0.7 }, 0)
+          .to(artwork, { opacity: 0, duration: 1.1 }, duration - 1.1);
+        loop.time(order / 8 * duration);
+        pauseOutside(loop, artwork.parentElement?.parentElement ?? artwork);
+      });
+      root.querySelectorAll<SVGElement>("[data-bubble-response]").forEach(artwork => {
+        gsap.set(artwork, { svgOrigin: artwork.dataset.oceanPivot });
+      });
+      root.querySelectorAll<HTMLElement>("[data-ocean-current]").forEach(artwork => {
+        const order = Number(artwork.dataset.oceanCurrent);
+        const travel = (desktop ? 8 : 3) * (order % 2 ? 1 : -1);
+        const loop = gsap.fromTo(artwork, { x: -travel }, { x: travel, duration: 6 + order, repeat: -1, yoyo: true, ease: "sine.inOut", paused: true, force3D: false });
         pauseOutside(loop, artwork.parentElement ?? artwork);
       });
 
+      root.querySelectorAll<HTMLElement>("[data-match-sequence]").forEach(sequence => {
+        gsap.fromTo(sequence.querySelectorAll("[data-match-photo]"), {
+          x: index => index === 0 ? -24 : 24, y: 12, scale: 0.94, opacity: 0,
+        }, { x: 0, y: 0, scale: 1, opacity: 1, force3D: false, ease: "none",
+          scrollTrigger: { trigger: sequence, start: "top 90%", end: "top 65%", scrub: true, invalidateOnRefresh: true },
+        });
+      });
+
+      const heroBubbles = hero?.querySelectorAll<SVGElement>("[data-bubble-response]");
+      if (heroBubbles?.length) {
+        const ripple = gsap.timeline({ paused: true })
+          .to(heroBubbles, { scale: 1.25, duration: 0.24, stagger: 0.025, ease: "power2.out" })
+          .to(heroBubbles, { scale: 1, duration: 0.8, stagger: 0.025, ease: "sine.out" }, 0.32);
+        const respond = () => { ripple.restart(); };
+        window.addEventListener("adapenyu:logo-respond", respond);
+        cleanup.push(() => window.removeEventListener("adapenyu:logo-respond", respond));
+      }
+
       if (pointer && desktop) {
+        root.querySelectorAll<HTMLElement>("[data-ocean-bubbles]").forEach(field => {
+          const section = field.closest<HTMLElement>("[data-motion-section]");
+          if (!section) return;
+          const responses = [...field.querySelectorAll<SVGElement>("[data-bubble-response]")].map((bubble, index) => ({
+            x: gsap.quickTo(bubble, "x", { duration: 0.8, ease: "power2.out" }),
+            y: gsap.quickTo(bubble, "y", { duration: 0.8, ease: "power2.out" }),
+            depth: 5 + index % 3 * 3,
+          }));
+          const move = (event: PointerEvent) => {
+            if (event.pointerType !== "mouse") return;
+            const bounds = section.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            responses.forEach(response => { response.x(x * response.depth); response.y(y * response.depth); });
+          };
+          const reset = () => responses.forEach(response => { response.x(0); response.y(0); });
+          section.addEventListener("pointermove", move); section.addEventListener("pointerleave", reset);
+          cleanup.push(() => { section.removeEventListener("pointermove", move); section.removeEventListener("pointerleave", reset); });
+        });
         root.querySelectorAll<HTMLElement>("[data-tilt]").forEach(card => {
           const rotateX = gsap.quickTo(card, "rotationX", { duration: 0.4, ease: "power3.out" });
           const rotateY = gsap.quickTo(card, "rotationY", { duration: 0.4, ease: "power3.out" });

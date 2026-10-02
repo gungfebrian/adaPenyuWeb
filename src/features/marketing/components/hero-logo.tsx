@@ -13,6 +13,7 @@ export function HeroLogo() {
 
   function respond() {
     if (reducedMotion !== false || !artworkRef.current) return;
+    window.dispatchEvent(new Event("adapenyu:logo-respond"));
     responseRef.current?.stop();
     responseRef.current = animate(artworkRef.current,
       { rotate: [0, -7, 5, -2, 0] },

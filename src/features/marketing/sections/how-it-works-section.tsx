@@ -1,6 +1,7 @@
 import { IdentificationStep } from "../components/identification-step";
 import { identificationSteps } from "../content";
 import { FigmaImage } from "../components/figma-image";
+import { OceanCurrents } from "../components/ocean-artwork";
 
 export function HowItWorksSection() {
   return (
@@ -16,8 +17,9 @@ export function HowItWorksSection() {
         </ol>
       </section></div>
       <section data-header-theme="dark" data-motion-section aria-labelledby="complement-title" className="relative z-1 bg-banner px-6 pt-11 pb-[70px] text-center text-white md:min-h-[22.3545cqw] md:px-0 md:pt-[4.2989cqw] md:pb-12">
-        <h2 id="complement-title" data-reveal className="font-display text-[26px] leading-[1.3] font-medium md:text-[2.7778cqw] md:leading-[1.85]">Turtle ID does NOT replace tags or satellites</h2>
-        <p data-reveal className="mx-auto mt-[22px] max-w-[560px] font-detail text-[19px] leading-[1.5] font-medium md:mt-[1.6534cqw] md:max-w-[47.8836cqw] md:text-[2.1164cqw] md:leading-[1.22]">It complements them with something every turtle is already wearing</p>
+        <OceanCurrents />
+        <h2 id="complement-title" data-reveal className="relative font-display text-[26px] leading-[1.3] font-medium md:text-[2.7778cqw] md:leading-[1.85]">Turtle ID does NOT replace tags or satellites</h2>
+        <p data-reveal className="relative mx-auto mt-[22px] max-w-[560px] font-detail text-[19px] leading-[1.5] font-medium md:mt-[1.6534cqw] md:max-w-[47.8836cqw] md:text-[2.1164cqw] md:leading-[1.22]">It complements them with something every turtle is already wearing</p>
       </section>
     </>
   );

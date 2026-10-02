@@ -5,7 +5,7 @@ import { ContactForm } from "../components/contact-form";
 import { Pattern } from "../components/pattern";
 import { TeamProfiles } from "../components/team-profiles";
 import { FigmaImage } from "../components/figma-image";
-import { OceanReef } from "../components/ocean-artwork";
+import { OceanReef, OceanCurrents } from "../components/ocean-artwork";
 import { buttonClasses } from "@/components/ui/button";
 
 const waysToContribute = [
@@ -154,6 +154,7 @@ export function ContactSection() {
     >
       <div className="relative isolate mx-auto grid w-full max-w-6xl gap-10 overflow-hidden rounded-[32px] bg-banner px-6 py-9 shadow-[0_24px_64px_#00263c20] sm:rounded-[40px] sm:px-10 sm:py-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:px-14 lg:py-16">
         <Pattern variant="accuracy" />
+        <OceanCurrents />
         <div data-reveal className="relative self-start">
           <p className="font-detail text-sm font-semibold uppercase tracking-[0.12em] text-white/70">
             Contact
