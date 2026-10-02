@@ -44,6 +44,11 @@ next-env.d.ts
 
 # Markdown documents
 *.md
+!/README.md
+
+# Local coding-agent instructions
+/AGENTS.md
+/CLAUDE.md
 
 # Local progress and private handover notes
 /handover.md
