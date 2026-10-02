@@ -1,8 +1,8 @@
 import { FigmaImage } from "../components/figma-image";
 
 const arrows = {
-  first: "lg:[@media(min-height:720px)]:top-[34%] lg:[@media(min-height:720px)]:left-[40.4%] lg:[@media(min-height:720px)]:h-[min(15.1cqw,21vh)] lg:[@media(min-height:720px)]:w-[15.25cqw]",
-  second: "lg:[@media(min-height:720px)]:top-[58%] lg:[@media(min-height:720px)]:left-[58.4%] lg:[@media(min-height:720px)]:h-[7.34cqw] lg:[@media(min-height:720px)]:w-[7.54cqw]",
+  first: "lg:[@media(min-height:720px)]:top-[calc(max(96px,8%)+15.625cqw+70px)] lg:[@media(min-height:720px)]:left-[40.4%] lg:[@media(min-height:720px)]:h-[clamp(60px,calc(65svh-max(96px,8svh)-15.625cqw-80px),228px)] lg:[@media(min-height:720px)]:aspect-[231/228]",
+  second: "lg:[@media(min-height:720px)]:top-[max(58%,calc(41%+205px))] lg:[@media(min-height:720px)]:left-[58.4%] lg:[@media(min-height:720px)]:h-[7.34cqw] lg:[@media(min-height:720px)]:w-[7.54cqw]",
   third: "lg:[@media(min-height:720px)]:top-[76%] lg:[@media(min-height:720px)]:left-[39.35%] lg:[@media(min-height:720px)]:h-[9.68cqw] lg:[@media(min-height:720px)]:w-[9.82cqw]",
 } as const;
 
@@ -13,11 +13,11 @@ function StoryArrow({ variant, mobile = false }: { variant: keyof typeof arrows;
 }
 
 export function StorySection() {
-  return <div data-scroll-stage><section id="our-project" data-story-pin data-header-theme="dark" data-motion-section aria-labelledby="story-title" className="relative min-h-svh scroll-mt-0 bg-[#0b2e47] px-6 pt-28 pb-14 text-white lg:[@media(min-height:720px)]:h-svh lg:[@media(min-height:720px)]:p-0">
-    <div className="relative flex flex-col lg:[@media(min-height:720px)]:h-full">
-      <div data-story-opening className="lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[14%] lg:[@media(min-height:720px)]:left-[5.3%] lg:[@media(min-height:720px)]:w-[42.33%]">
+  return <div data-scroll-stage><section id="our-project" data-story-pin data-header-theme="dark" data-motion-section aria-labelledby="story-title" className="relative min-h-svh scroll-mt-0 bg-banner px-[var(--page-gutter)] pt-28 pb-14 text-white lg:[@media(min-height:720px)]:h-svh lg:[@media(min-height:720px)]:px-0 lg:[@media(min-height:720px)]:py-0">
+    <div className="relative mx-auto flex w-full max-w-[1512px] flex-col lg:[@media(min-height:720px)]:h-full">
+      <div data-story-opening className="lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[max(96px,8%)] lg:[@media(min-height:720px)]:left-[5.3%] lg:[@media(min-height:720px)]:w-1/2">
         <p className="font-detail text-lg font-medium lg:[@media(min-height:720px)]:text-[clamp(20px,1.98cqw,30px)]">The Story Behind It</p>
-        <h2 id="story-title" className="mt-5 lg:[@media(min-height:720px)]:mt-5"><span className="sr-only">Turtles are being traded illegally</span><FigmaImage name="story-title" width={640} height={200} className="h-auto w-full max-w-[640px]" /></h2>
+        <h2 id="story-title" className="mt-5 lg:[@media(min-height:720px)]:mt-5"><span className="sr-only">Turtles are being traded illegally</span><FigmaImage name="story-title" width={640} height={200} className="h-auto w-full max-w-[768px]" /></h2>
       </div>
       <div data-story-beat className="relative mt-[90px] w-full lg:[@media(min-height:720px)]:absolute lg:[@media(min-height:720px)]:top-[41%] lg:[@media(min-height:720px)]:right-[11%] lg:[@media(min-height:720px)]:mt-0 lg:[@media(min-height:720px)]:w-[43.5%] lg:[@media(min-height:720px)]:text-right">
         <StoryArrow variant="first" mobile />
@@ -33,7 +33,7 @@ export function StorySection() {
         <StoryArrow variant="third" mobile />
         <h3 className="font-display text-[clamp(26px,2.78cqw,42px)] leading-[1.12] font-medium">Satellite tracking<br /> is also expensive</h3>
       </div>
-    </div>
     <StoryArrow variant="first" /><StoryArrow variant="second" /><StoryArrow variant="third" />
+    </div>
   </section></div>;
 }
