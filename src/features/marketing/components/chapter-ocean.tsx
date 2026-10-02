@@ -1,6 +1,6 @@
 import Image from "next/image";
 import elements from "../../../../public/images/Screen/detached-ocean-elements/positions.json";
-import { chapterReefs, chapterSilhouettes, type OceanChapter } from "../data/ocean-chapters";
+import { chapterReefs, chapterSilhouettes, stepCorals, type OceanChapter } from "../data/ocean-chapters";
 import { OceanBubbles, OceanCurrents } from "./ocean-artwork";
 
 const detachedRoot = "/images/Screen/detached-ocean-elements";
@@ -15,14 +15,17 @@ function OceanContour({ file, width, height }: { file: string; width: number; he
 }
 
 /** The same silhouettes and source-coordinate pivots used by the hero plants. */
-function ChapterPlantBed({ side }: { side: "left" | "right" }) {
+function ChapterPlantBed({ side, chapter = "story" }: { side: "left" | "right"; chapter?: OceanChapter }) {
   const left = side === "left";
+  const position = chapter === "steps"
+    ? left ? "left-4 bottom-12 w-[clamp(110px,13vw,195px)] md:left-8 md:bottom-4" : "right-4 bottom-12 w-[clamp(125px,17vw,250px)] md:right-8 md:bottom-3"
+    : left ? "left-4 bottom-3 w-[clamp(125px,15vw,220px)] md:left-6 md:bottom-5" : "right-4 bottom-3 w-[clamp(110px,14vw,205px)] md:right-6 md:bottom-5";
   const selection = elements.filter(element =>
     element.collection === (left ? "04-seaweed-left" : "05-coral-right") &&
     element.label === (left ? "left seaweed" : "right coral"),
   );
   return (
-    <div data-ocean-depth="30" className={`absolute bottom-3 opacity-80 md:bottom-5 md:opacity-100 ${left ? "left-4 w-[clamp(125px,15vw,220px)] md:left-6" : "right-4 w-[clamp(110px,14vw,205px)] md:right-6"}`}>
+    <div data-ocean-depth="30" className={`absolute opacity-80 md:opacity-100 ${position}`}>
       <svg viewBox={left ? "-12 70 225 238" : "233 115 200 194"} className="h-auto w-full overflow-visible">
         {selection.map(element => {
           const { x, y, width, height } = element.bounds;
@@ -37,23 +40,31 @@ function ChapterPlantBed({ side }: { side: "left" | "right" }) {
   );
 }
 
-function ChapterWave() {
-  const waves = elements.filter(element => element.collection === "03-wave-divider");
+function StepsSeabed() {
   return (
-    <div data-ocean-depth="14" className="absolute -inset-x-8 -bottom-5 h-[clamp(45px,8svh,95px)] opacity-65">
-      <svg viewBox="0 0 1536 180" preserveAspectRatio="none" className="h-full w-full">
-        {waves.map(wave => (
-          <image key={wave.file} href={`${detachedRoot}/${wave.file}`} {...wave.bounds} preserveAspectRatio="none" />
-        ))}
+    <div data-ocean-depth="14" className="absolute -inset-x-8 bottom-0 h-[clamp(80px,12svh,160px)]">
+      <svg viewBox="0 220 1536 115" preserveAspectRatio="none" className="h-full w-full overflow-visible">
+        <image href="/images/marketing/steps-seabed.svg" x="0" y="220" width="1536" height="180" preserveAspectRatio="none" />
       </svg>
     </div>
   );
 }
 
+function StepsCorals() {
+  return stepCorals.map((coral, index) => (
+    <div key={`${coral.file}:${index}`} data-ocean-depth={coral.depth} className={`absolute ${coral.position}`}>
+      <div data-chapter-sway={index + 1} className="origin-bottom">
+        <Image src={`/images/Screen/Secondpages/${coral.file}.svg`} alt="" width={coral.width} height={coral.height} unoptimized className="h-auto w-full" />
+      </div>
+    </div>
+  ));
+}
+
 /** Restrained deep-ocean layers frame the copy without intercepting input. */
 export function ChapterOcean({ chapter }: { chapter: OceanChapter }) {
+  const steps = chapter === "steps";
   return (
-    <div aria-hidden="true" data-chapter-ocean={chapter} className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit] select-none [mask-image:linear-gradient(to_bottom,transparent,black_80px,black_calc(100%-72px),transparent)]">
+    <div aria-hidden="true" data-chapter-ocean={chapter} className={`pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit] select-none ${steps ? "[mask-image:linear-gradient(to_bottom,transparent,black_80px)]" : "[mask-image:linear-gradient(to_bottom,transparent,black_80px,black_calc(100%-72px),transparent)]"}`}>
       <div className="absolute inset-0 opacity-65 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_78%,transparent)]"><OceanCurrents /></div>
       <div className="absolute inset-0 opacity-60">
         <OceanBubbles className="top-[28%] -left-8 md:left-0" />
@@ -66,7 +77,7 @@ export function ChapterOcean({ chapter }: { chapter: OceanChapter }) {
         </div>
       ))}
 
-      {chapterSilhouettes.map((plant, index) => (
+      {!steps && chapterSilhouettes.map((plant, index) => (
         <div key={plant.file} data-ocean-depth="20" className={`absolute ${plant.position}`}>
           <div data-chapter-sway={index + 1} className="origin-bottom">
             <Image src={`/images/Screen/Secondpages/${plant.file}.svg`} alt="" width={plant.width} height={plant.height} unoptimized className="h-auto w-full" />
@@ -74,12 +85,18 @@ export function ChapterOcean({ chapter }: { chapter: OceanChapter }) {
         </div>
       ))}
 
-      <ChapterPlantBed side="left" />
-      <ChapterPlantBed side="right" />
-      <div data-ocean-depth={chapterReefs[2].depth} className={`absolute -inset-x-8 -bottom-4 ${chapterReefs[2].position}`}>
-        <OceanContour file={chapterReefs[2].file} width={chapterReefs[2].width} height={chapterReefs[2].height} />
-      </div>
-      {chapter === "steps" && <ChapterWave />}
+      {steps ? <>
+        <StepsCorals />
+        <ChapterPlantBed side="left" chapter="steps" />
+        <ChapterPlantBed side="right" chapter="steps" />
+        <StepsSeabed />
+      </> : <>
+        <ChapterPlantBed side="left" />
+        <ChapterPlantBed side="right" />
+        <div data-ocean-depth={chapterReefs[2].depth} className={`absolute -inset-x-8 -bottom-4 ${chapterReefs[2].position}`}>
+          <OceanContour file={chapterReefs[2].file} width={chapterReefs[2].width} height={chapterReefs[2].height} />
+        </div>
+      </>}
     </div>
   );
 }
