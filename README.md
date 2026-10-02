@@ -167,8 +167,9 @@ Its button hit area stays stationary while the artwork moves.
 The supplied ocean-reef.svg is reconstructed from its detached SVG elements, using
 positions.json to preserve composition, paths, gradients, and colors. Wave/reef
 groups scroll at different depths; individual seaweed and coral sway slightly.
-Supplied bubbles float beside the hero and phone sequence, and the low-wave collection
-adds depth to the footer. Mobile uses less parallax; all new motion is disabled for
+Supplied bubbles float beside the hero and phone sequence. Low-wave footer source
+assets remain available, but the footer uses its original static pattern. Mobile
+uses less parallax; all new motion is disabled for
 reduced motion. Idle loops pause offscreen and while the document is hidden.
 
 Source artwork lives in public/images/Screen; rendering is in
@@ -179,7 +180,7 @@ No new animation package or custom CSS was introduced.
 The owner retained the original hero typography, spacing, logo dimensions, and reef
 height after rejecting the shorter-viewport sizing experiment. The marked small
 coral and distant reef fragments are omitted from the hero; the single large right
-coral remains. Source SVG files and the footer composition are preserved.
+coral remains. Source SVG files are preserved.
 
 The second section, The Story Behind It, now uses one solid ocean color (#0b2e47)
 matching the hero's frontmost wave. That wave extends below its baseline and moves
@@ -204,11 +205,19 @@ Desktop pointer movement nudges a separate inner wrapper; clicking/tapping the l
 adds a small bubble ripple. Absolute SVG pivots keep coral rooted at its base and
 bubble scaling centered on each circle.
 
-The supplied current bands drift behind the story, complement message, and contact
-panel. Step-circle artwork moves independently from its number and reveal wrapper;
-comparison photos enter as the progress scene comes into view. Footer plants sway.
+The supplied current bands remain behind the complement message. Step-circle
+artwork moves independently from its number and reveal wrapper; comparison photos
+enter as the progress scene comes into view. Contact and footer keep the original
+static pattern, with the added current/wave/plant layers removed per the owner.
 All loops share one visibility observer, pause offscreen/hidden, and disappear from
 the motion setup under reduced motion. No dependencies or custom CSS were added.
 
 LottieFiles MCP was attempted but reported no connected Creator tab; the website
 uses the existing SVG assets and GSAP runtime for these effects.
+
+## Contact and footer — original artwork restored, 2026-10-02
+
+Contact retains its original layout and pattern without added ocean layers or
+background parallax. The footer follows the supplied reference: AdaPenyu logo,
+© 2026 AdaPenyu. All rights reserved., and adapenyu@gmail.com as a plain email link.
+It uses the original static pattern and a single desktop row that stacks on mobile.

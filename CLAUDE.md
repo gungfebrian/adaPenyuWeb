@@ -62,9 +62,10 @@ HeroTurtleScene or change the supplied ocean palette.
 - Keep the original hero typography, spacing, logo dimensions, and reef height.
   The owner rejected compressing the composition to fit shorter viewports.
   Omit hero reef orders 9–11, 20, and 22–25; retain 21-right-coral.svg as the
-  single large right coral. Preserve the source files and footer composition.
+  single large right coral. Preserve the source files.
 - Hero waves use separate scroll depths. Seaweed/coral sway around their bases.
-  Bubbles appear beside the hero logo and phone sequence; low waves decorate the footer.
+  Bubbles appear beside the hero logo and phone sequence. Footer waves are retained
+  as source assets but are no longer rendered per the owner's latest correction.
 - HeroLogo keeps the button hit area stationary. GSAP idle, Motion hover, and tap
   wiggle use separate inner wrappers. Reduced motion leaves artwork static.
 - Ocean and logo loops pause offscreen and in hidden tabs. Mobile parallax is reduced.
@@ -80,6 +81,10 @@ HeroTurtleScene or change the supplied ocean palette.
   extending below its baseline. Keep the 1px overlap to avoid fractional seams.
 - Hero parallax uses the width breakpoint independently of the 720px height
   requirement for story pinning. Keep original hero typography/layout dimensions.
+- Contact and footer keep the original accuracy-pattern SVG static: no added
+  OceanCurrents/OceanReef layers or background parallax. Footer follows the latest
+  screenshot: logo, © 2026 AdaPenyu. All rights reserved., and a plain mailto link
+  to adapenyu@gmail.com. No footer navigation links or extra decorative elements.
 
 ## Current GitHub / Vercel workflow
 
@@ -97,7 +102,8 @@ are historical; read the newest release entry first.
   Pixel transformOrigin offsets are local to the element and previously doubled the
   coordinates of right-side coral. Keep plants anchored and bubble scale centered.
 - Individual bubbles rise/fade on separate outer groups; pointer response and logo
-  ripple use inner groups. Current bands drift behind story/complement/contact.
+  ripple use inner groups. Current bands remain behind the complement message;
+  story has a solid background and contact/footer retain the original static pattern.
 - Step circles own a tiny idle wrapper separately from the number and scroll reveal.
   Progress photos have outer scroll wrappers and inner pointer tilt wrappers.
 - Decorative loops share one IntersectionObserver and one visibilitychange listener.
