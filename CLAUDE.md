@@ -73,9 +73,13 @@ HeroTurtleScene or change the supplied ocean palette.
 - Phone hover translates inner wrappers independently from the scroll tween.
 - The two Explore buttons remain removed. The original satellite-message turtle
   retains its own artwork, placement, and automatic idle movement.
-- Latest owner preview: the second section (The Story Behind It) uses
-  public/images/Screen/deep-ocean-background.svg with the existing background
-  parallax. Keep the original story-pattern asset available for comparison/revert.
+- Latest owner correction: the second section (The Story Behind It) uses solid
+  #0b2e47, matching the hero's frontmost wave. No pattern/current overlay or top
+  shadow is rendered there. Original story-pattern and deep-ocean SVGs remain.
+- The frontmost hero wave owns a separate upward scroll layer and an SVG fill
+  extending below its baseline. Keep the 1px overlap to avoid fractional seams.
+- Hero parallax uses the width breakpoint independently of the 720px height
+  requirement for story pinning. Keep original hero typography/layout dimensions.
 
 ## Current GitHub / Vercel workflow
 

@@ -165,7 +165,7 @@ wordmark. The icon floats gently, lifts on hover, and wiggles when clicked or ta
 Its button hit area stays stationary while the artwork moves.
 
 The supplied ocean-reef.svg is reconstructed from its detached SVG elements, using
-positions.json to preserve composition, paths, gradients, and colors. Four wave/reef
+positions.json to preserve composition, paths, gradients, and colors. Wave/reef
 groups scroll at different depths; individual seaweed and coral sway slightly.
 Supplied bubbles float beside the hero and phone sequence, and the low-wave collection
 adds depth to the footer. Mobile uses less parallax; all new motion is disabled for
@@ -181,9 +181,14 @@ height after rejecting the shorter-viewport sizing experiment. The marked small
 coral and distant reef fragments are omitted from the hero; the single large right
 coral remains. Source SVG files and the footer composition are preserved.
 
-The second section, The Story Behind It, currently previews the supplied
-deep-ocean-background.svg with the existing background parallax and story sequence.
-The original story-pattern asset remains available.
+The second section, The Story Behind It, now uses one solid ocean color (#0b2e47)
+matching the hero's frontmost wave. That wave extends below its baseline and moves
+upward independently to keep the transition continuous; the story's top shadow and
+pattern/current overlays are removed. The original story-pattern and supplied
+deep-ocean-background.svg remain available after the earlier background preview.
+Hero parallax is more visible and stays active at full strength in shorter laptop
+windows, while story pinning still requires a taller viewport. Hero sizing remains
+as originally designed; reduced motion disables the scroll effects.
 
 The malformed frontend team-member name was restored to its last valid value,
 fixing the page compilation error without changing other supplied member details.
