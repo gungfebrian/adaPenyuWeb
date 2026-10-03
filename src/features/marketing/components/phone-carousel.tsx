@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "motion/react";
 import { prototypeScreens } from "../data/prototype-screens";
 import { FigmaImage } from "./figma-image";
 
@@ -8,14 +9,17 @@ import { FigmaImage } from "./figma-image";
 export function PhoneCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
+  const activeRef = useRef(0);
+  const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const syncActive = useCallback(() => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track?.clientWidth) return;
     const centre = track.scrollLeft + track.clientWidth / 2;
     const slides = [...track.children] as HTMLElement[];
     const closest = slides.reduce((best, slide, index) =>
       Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - centre) < Math.abs(slides[best].offsetLeft + slides[best].offsetWidth / 2 - centre) ? index : best, 0);
+    activeRef.current = closest;
     setActive(closest);
   }, []);
   const onScroll = () => {
@@ -23,11 +27,22 @@ export function PhoneCarousel() {
     frameRef.current = requestAnimationFrame(() => { frameRef.current = 0; syncActive(); });
   };
   useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
-  const goTo = (index: number) => {
+  const goTo = useCallback((index: number, instant = false) => {
     const track = trackRef.current;
     const slide = track?.children[Math.max(0, Math.min(index, prototypeScreens.length - 1))] as HTMLElement | undefined;
-    if (track && slide) track.scrollTo({ left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2, behavior: "smooth" });
-  };
+    if (track?.clientWidth && slide) track.scrollTo({ left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2, behavior: reduceMotion || instant ? "instant" : "smooth" });
+  }, [reduceMotion]);
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const observer = new ResizeObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => goTo(activeRef.current, true));
+    });
+    observer.observe(track);
+    return () => { observer.disconnect(); cancelAnimationFrame(frame); };
+  }, [goTo]);
 
   return (
     <div className="relative mt-8 md:hidden">
@@ -37,8 +52,8 @@ export function PhoneCarousel() {
       }} data-phone-carousel aria-label="AdaPenyu prototype screens" aria-roledescription="carousel" role="region" className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-xl px-[8%] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [scroll-padding-inline:8%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {prototypeScreens.map((screen, index) => (
           <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-[84%] shrink-0 snap-center flex-col items-center">
-            <div className="flex h-[min(118vw,540px)] w-full items-center justify-center">
-              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" className="h-full w-auto max-w-full object-contain" />
+            <div className="flex h-[min(145vw,590px)] w-full items-center justify-center">
+              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" className="h-full w-full object-contain" />
             </div>
             <figcaption className="mt-4 text-center text-base font-medium text-primary">{screen.title}</figcaption>
           </figure>
