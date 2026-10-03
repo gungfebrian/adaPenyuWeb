@@ -54,6 +54,21 @@ export function LandingHeader() {
   const mobileMenuId = useId();
 
   useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const onChange = () => {
+      if (desktop.matches) {
+        const focusedInside = mobilePanelRef.current?.contains(document.activeElement);
+        setIsMobileMenuOpen(false);
+        if (focusedInside) menuButtonRef.current?.focus({ preventScroll: true });
+      } else if (dialogRef.current?.open) dialogRef.current.close();
+    };
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => { refreshHeaderRef.current?.(); }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     if (!isMobileMenuOpen) return;
     const outside = (event: PointerEvent) => {
       const target = event.target as Node;
@@ -174,7 +189,7 @@ export function LandingHeader() {
           </nav>
       </MobileNavigationPanel>}
       </AnimatePresence>
-      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); menuButtonRef.current?.focus({ preventScroll: true }); }}>
+      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); (window.matchMedia("(min-width: 768px)").matches ? menuButtonRef : mobileButtonRef).current?.focus({ preventScroll: true }); }}>
         <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="relative isolate mx-auto w-full max-w-[560px] overflow-hidden rounded-[24px] bg-banner p-5 text-white shadow-[0_20px_70px_#00263c20] sm:p-8 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
           <Pattern variant="accuracy" parallax={false} />
           <div className="relative mb-4 flex items-center justify-between gap-4 sm:mb-6"><h2 id={`${menuId}-title`} className="font-body text-base font-medium text-white/80">Explore AdaPenyu</h2><Button variant="secondary" className="size-11 rounded-full bg-white/10 p-0 text-white hover:bg-white/20 hover:text-white focus-visible:outline-white" onClick={closeMenu} aria-label="Close navigation"><span aria-hidden="true">×</span></Button></div>
