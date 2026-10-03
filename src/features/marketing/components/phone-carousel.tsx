@@ -44,6 +44,9 @@ export function PhoneCarousel() {
       <p aria-live="polite" aria-atomic="true" className="mt-4 text-center text-sm text-secondary">{active + 1} / {prototypeScreens.length} · {prototypeScreens[active].title}</p>
       <div className="mt-2 flex items-center justify-center gap-4">
         <button type="button" aria-label="Previous prototype screen" disabled={active === 0} onClick={() => goTo(active - 1)} className="flex size-11 items-center justify-center rounded-full bg-primary/5 text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default disabled:opacity-30 motion-reduce:transition-none"><span aria-hidden="true">←</span></button>
+        <div className="flex items-center">
+          {prototypeScreens.map((screen, index) => <button key={screen.name} type="button" aria-label={`Show ${screen.title}`} aria-current={active === index ? "true" : undefined} onClick={() => goTo(index)} className="group/dot flex size-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"><span className={`h-2 rounded-full transition-[width,background-color] motion-reduce:transition-none ${active === index ? "w-5 bg-primary" : "w-2 bg-primary/25 group-hover/dot:bg-primary/60"}`} /></button>)}
+        </div>
         <button type="button" aria-label="Next prototype screen" disabled={active === prototypeScreens.length - 1} onClick={() => goTo(active + 1)} className="flex size-11 items-center justify-center rounded-full bg-primary/5 text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default disabled:opacity-30 motion-reduce:transition-none"><span aria-hidden="true">→</span></button>
       </div>
       <p className="mt-3 text-center text-sm text-secondary">Swipe to explore the prototype</p>
