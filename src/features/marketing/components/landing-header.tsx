@@ -124,7 +124,7 @@ export function LandingHeader() {
 
   return (
     <header ref={headerRef} className="group/header pointer-events-none fixed top-0 left-1/2 z-100 w-full max-w-[1512px] -translate-x-1/2 px-[var(--page-gutter)] pt-4 lg:pt-6">
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-center gap-4 md:justify-between">
         <div ref={blockRef} data-nav-paint="surface" onPointerEnter={event => { if (event.pointerType === "mouse") { hoveringRef.current = true; refreshHeaderRef.current?.(); } }} onPointerLeave={() => { hoveringRef.current = false; refreshHeaderRef.current?.(); }} onFocusCapture={() => refreshHeaderRef.current?.()} onBlurCapture={() => refreshHeaderRef.current?.()} className="pointer-events-auto flex items-center gap-3 rounded-2xl bg-primary p-1.5 pl-4 text-white shadow-[0_4px_20px_#00263c08] [background-image:var(--nav-paint)] lg:gap-5">
           <Link ref={brandRef} href="#home" aria-label="AdaPenyu home" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:[outline-color:var(--nav-focus,currentColor)]">
             <span aria-hidden="true" data-nav-paint="ink" className="block aspect-[251/78] w-[112px] bg-white [background-image:var(--nav-paint)] [mask-image:url('/images/marketing/wordmark.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] sm:w-[125px]" />
@@ -138,7 +138,7 @@ export function LandingHeader() {
             </button>
           </div>
         </div>
-        <Link href="#contact" data-nav-paint="surface" className="group/link pointer-events-auto hidden min-h-12 items-center gap-3 rounded-2xl bg-primary px-5 text-sm font-medium text-white [background-image:var(--nav-paint)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary sm:inline-flex"><NavigationLabel adaptive>Get Involved</NavigationLabel><span aria-hidden="true" data-nav-paint="ink" className="bg-clip-text text-transparent [background-image:var(--nav-paint)]">↗</span></Link>
+        <Link href="#contact" data-nav-paint="surface" className="group/link pointer-events-auto hidden min-h-12 items-center gap-3 rounded-2xl bg-primary px-5 text-sm font-medium text-white [background-image:var(--nav-paint)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary md:inline-flex"><NavigationLabel adaptive>Get Involved</NavigationLabel><span aria-hidden="true" data-nav-paint="ink" className="bg-clip-text text-transparent [background-image:var(--nav-paint)]">↗</span></Link>
       </div>
       <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); menuButtonRef.current?.focus({ preventScroll: true }); }}>
         <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="relative isolate mx-auto w-full max-w-[560px] overflow-hidden rounded-[24px] bg-banner p-5 text-white shadow-[0_20px_70px_#00263c20] sm:p-8 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
