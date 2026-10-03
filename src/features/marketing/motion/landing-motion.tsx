@@ -28,9 +28,10 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       motion: "(prefers-reduced-motion: no-preference)",
       desktop: "(min-width: 1024px) and (min-height: 720px)",
       wide: "(min-width: 1024px)",
+      phoneFan: "(min-width: 768px)",
       pointer: "(hover: hover) and (pointer: fine)",
     }, context => {
-      const { motion: permitted, desktop, wide, pointer } = context.conditions ?? {};
+      const { motion: permitted, desktop, wide, phoneFan, pointer } = context.conditions ?? {};
       if (!permitted) return;
       const cleanup: (() => void)[] = [observeReveals(root, desktop ? 32 : 18)];
 
@@ -99,7 +100,7 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       }
 
       const prototype = root.querySelector<HTMLElement>("[data-prototype-sequence]");
-      if (prototype) {
+      if (phoneFan && prototype) {
         const phones = [...prototype.querySelectorAll<HTMLElement>("[data-phone]")];
         const centre = phones[1];
         const sides = phones.filter((_, index) => index !== 1);
