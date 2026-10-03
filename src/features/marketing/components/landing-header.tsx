@@ -54,6 +54,23 @@ export function LandingHeader() {
   const mobileMenuId = useId();
 
   useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const outside = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (!mobilePanelRef.current?.contains(target) && !blockRef.current?.contains(target)) setIsMobileMenuOpen(false);
+    };
+    const escape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setIsMobileMenuOpen(false);
+      mobileButtonRef.current?.focus({ preventScroll: true });
+    };
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", escape); };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     let frame = 0;
     let settleTimer = 0;
     const update = () => {
