@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "motion/react";
 import { prototypeScreens } from "../data/prototype-screens";
 import { FigmaImage } from "./figma-image";
 
@@ -10,7 +9,6 @@ export function PhoneCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
   const activeRef = useRef(0);
-  const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const syncActive = useCallback(() => {
     const track = trackRef.current;
@@ -30,8 +28,9 @@ export function PhoneCarousel() {
   const goTo = useCallback((index: number, instant = false) => {
     const track = trackRef.current;
     const slide = track?.children[Math.max(0, Math.min(index, prototypeScreens.length - 1))] as HTMLElement | undefined;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (track?.clientWidth && slide) track.scrollTo({ left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2, behavior: reduceMotion || instant ? "instant" : "smooth" });
-  }, [reduceMotion]);
+  }, []);
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -51,7 +50,7 @@ export function PhoneCarousel() {
         if (next !== null) { event.preventDefault(); goTo(next); }
       }} data-phone-carousel aria-label="AdaPenyu prototype screens" aria-roledescription="carousel" role="region" className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-xl px-[8%] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [scroll-padding-inline:8%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {prototypeScreens.map((screen, index) => (
-          <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-[84%] shrink-0 snap-center flex-col items-center">
+          <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-full shrink-0 snap-center flex-col items-center">
             <div className="flex h-[min(145vw,590px)] w-full items-center justify-center">
               <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" className="h-full w-full object-contain" />
             </div>
