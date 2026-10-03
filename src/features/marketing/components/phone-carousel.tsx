@@ -31,7 +31,10 @@ export function PhoneCarousel() {
 
   return (
     <div className="relative mt-8 md:hidden">
-      <div ref={trackRef} onScroll={onScroll} data-phone-carousel aria-label="AdaPenyu prototype screens" aria-roledescription="carousel" role="region" className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-[8%] [scroll-padding-inline:8%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div ref={trackRef} onScroll={onScroll} tabIndex={0} onKeyDown={event => {
+        const next = event.key === "ArrowRight" ? active + 1 : event.key === "ArrowLeft" ? active - 1 : event.key === "Home" ? 0 : event.key === "End" ? prototypeScreens.length - 1 : null;
+        if (next !== null) { event.preventDefault(); goTo(next); }
+      }} data-phone-carousel aria-label="AdaPenyu prototype screens" aria-roledescription="carousel" role="region" className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-xl px-[8%] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [scroll-padding-inline:8%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {prototypeScreens.map((screen, index) => (
           <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-[84%] shrink-0 snap-center flex-col items-center">
             <div className="flex h-[min(118vw,540px)] w-full items-center justify-center">
