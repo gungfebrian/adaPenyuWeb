@@ -28,7 +28,10 @@ can help, the prototype, and the people behind it.
 
 - Layered ocean artwork, swimming turtles, coral sway, and scroll reveals.
 - Desktop story sequences with native sticky scrolling; a linear composition on mobile.
-- Phone previews that separate as you scroll, member profile dialogs, and an animated FAQ.
+- Phone previews that separate as you scroll on larger screens; a swipeable carousel
+  with buttons and keyboard controls below 768px.
+- A centred mobile navbar with an animated dropdown, member profile dialogs,
+  and an animated FAQ.
 - Keyboard navigation, visible focus states, and a static alternative for reduced motion.
 
 ## Design language

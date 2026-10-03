@@ -29,5 +29,12 @@ Scroll depth belongs to an outer wrapper. Sway and idle movement belong to a
 separate inner wrapper, with pivots at the original plant bases. Mobile compositions
 use smaller movement and a natural reading order. Reduced motion renders static art.
 
+The three original phone SVGs share their intrinsic dimensions through
+`data/prototype-screens.ts`. Below 768px, `phone-carousel.tsx` displays them in a
+native horizontal scroll-snap track with manual controls and no autoplay. At 768px
+and above, the original GSAP phone fan remains. The mobile navigation dropdown uses
+the existing accuracy pattern and custom menu/close SVG masks; it adds no new artwork
+or carousel dependency.
+
 Browser and Apple touch icons are generated from the original dark PNG in
 `public/Logo`, with a tighter crop. The website's source logos are unchanged.
