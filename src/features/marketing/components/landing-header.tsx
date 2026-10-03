@@ -35,6 +35,7 @@ function boundaryPaint(top: number, height: number, bands: { top: number; bottom
 
 export function LandingHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const closingRef = useRef(false);
   const hoveringRef = useRef(false);
@@ -42,11 +43,14 @@ export function LandingHeader() {
   const refreshHeaderRef = useRef<(() => void) | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileButtonRef = useRef<HTMLButtonElement>(null);
+  const mobilePanelRef = useRef<HTMLDivElement>(null);
   const brandRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const menuId = useId();
+  const mobileMenuId = useId();
 
   useEffect(() => {
     let frame = 0;
@@ -133,13 +137,25 @@ export function LandingHeader() {
             <nav ref={navRef} aria-label="Main navigation" className="hidden max-w-[450px] items-center gap-5 overflow-hidden pr-4 pl-3 opacity-100 transition-[max-width,opacity,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-[expanded=false]/header:pointer-events-none group-data-[expanded=false]/header:max-w-0 group-data-[expanded=false]/header:px-0 group-data-[expanded=false]/header:opacity-0 motion-reduce:transition-none lg:flex">
               {navigation.map(item => <Link key={item.href} href={item.href} className="group/link flex min-h-11 shrink-0 items-center rounded-md text-sm font-medium aria-[current=location]:font-semibold focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2"><NavigationLabel adaptive>{item.label}</NavigationLabel></Link>)}
             </nav>
-            <button ref={menuButtonRef} type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded={isMenuOpen} aria-controls={menuId} onClick={() => { dialogRef.current?.showModal(); setIsMenuOpen(true); }} className="group flex size-11 cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-[var(--nav-hover)] focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2">
+            <button ref={menuButtonRef} type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded={isMenuOpen} aria-controls={menuId} onClick={() => { dialogRef.current?.showModal(); setIsMenuOpen(true); }} className="group hidden size-11 cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-[var(--nav-hover)] focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2 md:flex">
+              <span aria-hidden="true" data-nav-paint="ink" className="size-5 bg-white [background-image:var(--nav-paint)] [mask-image:url('/icons/nav-menu.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]" />
+            </button>
+            <button ref={mobileButtonRef} type="button" aria-label={isMobileMenuOpen ? "Close navigation" : "Open navigation"} aria-expanded={isMobileMenuOpen} aria-controls={mobileMenuId} onClick={() => setIsMobileMenuOpen(open => !open)} className="flex size-11 cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-[var(--nav-hover)] focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2 md:hidden">
               <span aria-hidden="true" data-nav-paint="ink" className="size-5 bg-white [background-image:var(--nav-paint)] [mask-image:url('/icons/nav-menu.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]" />
             </button>
           </div>
         </div>
         <Link href="#contact" data-nav-paint="surface" className="group/link pointer-events-auto hidden min-h-12 items-center gap-3 rounded-2xl bg-primary px-5 text-sm font-medium text-white [background-image:var(--nav-paint)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary md:inline-flex"><NavigationLabel adaptive>Get Involved</NavigationLabel><span aria-hidden="true" data-nav-paint="ink" className="bg-clip-text text-transparent [background-image:var(--nav-paint)]">↗</span></Link>
       </div>
+      {isMobileMenuOpen && <div ref={mobilePanelRef} id={mobileMenuId} className="pointer-events-auto absolute top-full left-1/2 mt-3 w-[calc(100%-2*var(--page-gutter))] max-w-[360px] -translate-x-1/2 md:hidden">
+        <div className="relative isolate overflow-hidden rounded-2xl bg-banner p-3 text-white shadow-[0_16px_40px_#00263c20]">
+          <Pattern variant="accuracy" parallax={false} />
+          <nav aria-label="Mobile navigation" className="relative grid gap-1">
+            {navigation.map(item => <Link key={item.href} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className="group/link flex min-h-12 items-center rounded-xl px-4 font-display text-2xl transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 aria-[current=location]:bg-white/10"><NavigationLabel>{item.label}</NavigationLabel></Link>)}
+            <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)} className={buttonClasses("secondary", "mt-2 w-full bg-white text-primary hover:bg-white/90 focus-visible:outline-white")}>Get Involved</Link>
+          </nav>
+        </div>
+      </div>}
       <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); menuButtonRef.current?.focus({ preventScroll: true }); }}>
         <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="relative isolate mx-auto w-full max-w-[560px] overflow-hidden rounded-[24px] bg-banner p-5 text-white shadow-[0_20px_70px_#00263c20] sm:p-8 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
           <Pattern variant="accuracy" parallax={false} />
