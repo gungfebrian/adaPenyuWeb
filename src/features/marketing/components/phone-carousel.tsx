@@ -23,6 +23,11 @@ export function PhoneCarousel() {
     frameRef.current = requestAnimationFrame(() => { frameRef.current = 0; syncActive(); });
   };
   useEffect(() => () => cancelAnimationFrame(frameRef.current), []);
+  const goTo = (index: number) => {
+    const track = trackRef.current;
+    const slide = track?.children[Math.max(0, Math.min(index, prototypeScreens.length - 1))] as HTMLElement | undefined;
+    if (track && slide) track.scrollTo({ left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2, behavior: "smooth" });
+  };
 
   return (
     <div className="relative mt-8 md:hidden">
@@ -37,6 +42,10 @@ export function PhoneCarousel() {
         ))}
       </div>
       <p aria-live="polite" aria-atomic="true" className="mt-4 text-center text-sm text-secondary">{active + 1} / {prototypeScreens.length} · {prototypeScreens[active].title}</p>
+      <div className="mt-2 flex items-center justify-center gap-4">
+        <button type="button" aria-label="Previous prototype screen" disabled={active === 0} onClick={() => goTo(active - 1)} className="flex size-11 items-center justify-center rounded-full bg-primary/5 text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default disabled:opacity-30 motion-reduce:transition-none"><span aria-hidden="true">←</span></button>
+        <button type="button" aria-label="Next prototype screen" disabled={active === prototypeScreens.length - 1} onClick={() => goTo(active + 1)} className="flex size-11 items-center justify-center rounded-full bg-primary/5 text-primary transition-colors hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-default disabled:opacity-30 motion-reduce:transition-none"><span aria-hidden="true">→</span></button>
+      </div>
       <p className="mt-3 text-center text-sm text-secondary">Swipe to explore the prototype</p>
     </div>
   );
