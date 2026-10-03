@@ -160,7 +160,7 @@ export function LandingHeader() {
   };
 
   return (
-    <header ref={headerRef} className="group/header pointer-events-none fixed top-0 left-1/2 z-100 w-full max-w-[1512px] -translate-x-1/2 px-[var(--page-gutter)] pt-4 lg:pt-6">
+    <header ref={headerRef} className="group/header pointer-events-none fixed top-0 left-1/2 z-100 w-full max-w-[1512px] -translate-x-1/2 px-[var(--page-gutter)] pt-[max(16px,env(safe-area-inset-top))] md:pt-4 lg:pt-6">
       <div className="flex items-center justify-center gap-4 md:justify-between">
         <div ref={blockRef} data-nav-paint="surface" onPointerEnter={event => { if (event.pointerType === "mouse") { hoveringRef.current = true; refreshHeaderRef.current?.(); } }} onPointerLeave={() => { hoveringRef.current = false; refreshHeaderRef.current?.(); }} onFocusCapture={() => refreshHeaderRef.current?.()} onBlurCapture={() => refreshHeaderRef.current?.()} className="pointer-events-auto flex items-center gap-3 rounded-2xl bg-primary p-1.5 pl-4 text-white shadow-[0_4px_20px_#00263c08] [background-image:var(--nav-paint)] lg:gap-5">
           <Link ref={brandRef} href="#home" aria-label="AdaPenyu home" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:[outline-color:var(--nav-focus,currentColor)]">
