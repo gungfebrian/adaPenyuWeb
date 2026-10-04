@@ -36,5 +36,15 @@ and above, the original GSAP phone fan remains. The mobile navigation dropdown u
 the existing accuracy pattern and custom menu/close SVG masks; it adds no new artwork
 or carousel dependency.
 
+## Adding artwork
+
+Use descriptive filenames and retain the source SVG's `viewBox` and aspect ratio.
+Register phone artwork in `data/prototype-screens.ts` so both responsive presentations
+use the same dimensions and accessible description. Give meaningful images useful
+alt text; keep purely decorative ocean layers hidden from assistive technology.
+
+An SVG containing an embedded bitmap still has raster resolution and payload costs.
+Keep source exports intact and optimize derived assets separately when needed.
+
 Browser and Apple touch icons are generated from the original dark PNG in
 `public/Logo`, with a tighter crop. The website's source logos are unchanged.
