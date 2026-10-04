@@ -75,6 +75,15 @@ from scroll movement; decorative loops pause offscreen and in hidden tabs.
 Domain types and server adapter interfaces keep future storage and model integration
 separate from the presentation layer. GitHub pushes to `main` deploy through Vercel.
 
+### Mobile interaction guide
+
+Open the centred navigation button to reveal the chapter links. Escape closes the
+dropdown and returns focus to the button; selecting a chapter moves to that section.
+
+The phone carousel supports swiping, previous/next buttons, and direct slide selection.
+With the carousel focused, use Left/Right to change slides or Home/End to reach the
+first/last screen. It never advances automatically and respects reduced motion.
+
 ## Run locally
 
 Requires Node.js 20.9+ and pnpm.
