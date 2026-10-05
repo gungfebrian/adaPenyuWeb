@@ -1,4 +1,4 @@
 export const siteConfig = {
-  name: "AdaPenyuWeb",
-  description: "A workspace for turtle photo re-identification.",
+  name: "AdaPenyu",
+  description: "Recognising individual sea turtles through their unique facial patterns.",
 } as const;
