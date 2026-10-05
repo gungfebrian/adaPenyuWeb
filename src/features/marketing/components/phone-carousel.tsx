@@ -5,7 +5,7 @@ import { prototypeScreens } from "../data/prototype-screens";
 import { FigmaImage } from "./figma-image";
 
 /** Native scroll snapping keeps touch swipes independent of the page animation. */
-export function PhoneCarousel() {
+export function PhoneCarousel({ compact = false }: { compact?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
   const activeRef = useRef(0);
@@ -44,14 +44,14 @@ export function PhoneCarousel() {
   }, [goTo]);
 
   return (
-    <div className="relative mt-8 md:hidden">
+    <div className={`relative md:hidden ${compact ? "mt-2" : "mt-8"}`}>
       <div ref={trackRef} onScroll={onScroll} tabIndex={0} onKeyDown={event => {
         const next = event.key === "ArrowRight" ? active + 1 : event.key === "ArrowLeft" ? active - 1 : event.key === "Home" ? 0 : event.key === "End" ? prototypeScreens.length - 1 : null;
         if (next !== null) { event.preventDefault(); goTo(next); }
       }} data-phone-carousel aria-label="AdaPenyu prototype screens" aria-roledescription="carousel" role="region" className="relative flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-xl px-[8%] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [scroll-padding-inline:8%] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {prototypeScreens.map((screen, index) => (
           <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-full shrink-0 snap-center flex-col items-center">
-            <div className="flex h-[min(145vw,590px)] w-full items-center justify-center">
+            <div className={`flex w-full items-center justify-center ${compact ? "h-[min(55dvh,460px)]" : "h-[min(145vw,590px)]"}`}>
               <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" className="h-full w-full object-contain" />
             </div>
             <figcaption className="mt-4 text-center text-base font-medium text-primary">{screen.title}</figcaption>
