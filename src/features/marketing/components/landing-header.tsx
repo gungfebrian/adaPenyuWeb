@@ -88,15 +88,16 @@ export function LandingHeader() {
   useEffect(() => {
     let frame = 0;
     let settleTimer = 0;
+    const darkSections = [...document.querySelectorAll<HTMLElement>('[data-header-theme="dark"]')];
+    const chapters = [...document.querySelectorAll<HTMLElement>("main section[id]")];
     const update = () => {
       frame = 0;
       const header = headerRef.current;
       if (!header) return;
-      const darkBands = [...document.querySelectorAll<HTMLElement>('[data-header-theme="dark"]')].map(section => section.getBoundingClientRect());
+      const darkBands = darkSections.map(section => section.getBoundingClientRect());
       const paints = [...header.querySelectorAll<HTMLElement>("[data-nav-paint]")].map(element => ({ element, rect: element.getBoundingClientRect() }));
       // Finish geometry reads before changing styles during a scroll frame.
-      const current = [...document.querySelectorAll<HTMLElement>('main section[id]')]
-        .map(section => ({ id: section.id, top: section.getBoundingClientRect().top }))
+      const current = chapters.map(section => ({ id: section.id, top: section.getBoundingClientRect().top }))
         .filter(section => section.top <= 100).at(-1)?.id ?? "home";
       const compact = window.scrollY > Math.min(320, innerHeight * 0.35);
       const expanded = !compact || hoveringRef.current || !!blockRef.current?.contains(document.activeElement);
