@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
+  icons: {
+    icon: { url: "/icons/adapenyu-browser-v3.png", type: "image/png", sizes: "64x64" },
+    shortcut: "/icons/adapenyu-browser-v3.png",
+    apple: { url: "/icons/adapenyu-touch-v3.png", sizes: "180x180", type: "image/png" },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
