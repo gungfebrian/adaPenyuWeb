@@ -39,6 +39,7 @@ export function LandingHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const closingRef = useRef(false);
+  const restoreMenuFocusRef = useRef(true);
   const hoveringRef = useRef(false);
   const blockRef = useRef<HTMLDivElement>(null);
   const refreshHeaderRef = useRef<(() => void) | null>(null);
@@ -155,9 +156,10 @@ export function LandingHeader() {
     return () => { document.body.style.overflow = previousOverflow; };
   }, [isMenuOpen]);
 
-  const closeMenu = async () => {
+  const closeMenu = async (restoreFocus = true) => {
     if (closingRef.current) return;
     closingRef.current = true;
+    restoreMenuFocusRef.current = restoreFocus;
     if (panelRef.current && !reduceMotion) await animate(panelRef.current, { opacity: 0, y: -8 }, { duration: 0.16 });
     dialogRef.current?.close();
     closingRef.current = false;
@@ -193,16 +195,16 @@ export function LandingHeader() {
           </nav>
       </MobileNavigationPanel>}
       </AnimatePresence>
-      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); (window.matchMedia("(min-width: 768px)").matches ? menuButtonRef : mobileButtonRef).current?.focus({ preventScroll: true }); }}>
+      <dialog ref={dialogRef} id={menuId} aria-labelledby={`${menuId}-title`} className="pointer-events-auto fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-y-auto bg-transparent p-4 text-primary backdrop:bg-primary/25 backdrop:backdrop-blur-sm sm:p-8 lg:p-0" onClick={event => { if (event.target === event.currentTarget) void closeMenu(); }} onCancel={event => { event.preventDefault(); void closeMenu(); }} onClose={() => { setIsMenuOpen(false); if (restoreMenuFocusRef.current) (window.matchMedia("(min-width: 768px)").matches ? menuButtonRef : mobileButtonRef).current?.focus({ preventScroll: true }); }}>
         <motion.div ref={panelRef} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : -12 }} transition={{ duration: reduceMotion ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="relative isolate mx-auto w-full max-w-[560px] overflow-hidden rounded-[24px] bg-banner p-5 text-white shadow-[0_20px_70px_#00263c20] sm:p-8 lg:mt-[96px] lg:ml-[max(5.3vw,calc((100vw-1512px)/2+80px))]">
           <Pattern variant="accuracy" parallax={false} />
-          <div className="relative mb-4 flex items-center justify-between gap-4 sm:mb-6"><h2 id={`${menuId}-title`} className="font-body text-base font-medium text-white/80">Explore AdaPenyu</h2><Button variant="secondary" className="size-11 rounded-full bg-white/10 p-0 text-white hover:bg-white/20 hover:text-white focus-visible:outline-white" onClick={closeMenu} aria-label="Close navigation"><span aria-hidden="true">×</span></Button></div>
+          <div className="relative mb-4 flex items-center justify-between gap-4 sm:mb-6"><h2 id={`${menuId}-title`} className="font-body text-base font-medium text-white/80">Explore AdaPenyu</h2><Button variant="secondary" className="size-11 rounded-full bg-white/10 p-0 text-white hover:bg-white/20 hover:text-white focus-visible:outline-white" onClick={() => void closeMenu()} aria-label="Close navigation"><span aria-hidden="true">×</span></Button></div>
           <nav aria-label="Expanded navigation" className="relative grid gap-1">
-            {navigation.map((item, index) => <motion.div key={item.href} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : 12 }} transition={{ duration: reduceMotion ? 0 : 0.35, delay: reduceMotion || !isMenuOpen ? 0 : 0.06 + index * 0.055 }}><Link data-menu-item href={item.href} onClick={() => void closeMenu()} className="group/link block min-h-20 rounded-xl px-3 py-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 aria-[current=location]:bg-white/10 sm:py-4">
+            {navigation.map((item, index) => <motion.div key={item.href} initial={false} animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen || reduceMotion ? 0 : 12 }} transition={{ duration: reduceMotion ? 0 : 0.35, delay: reduceMotion || !isMenuOpen ? 0 : 0.06 + index * 0.055 }}><Link data-menu-item href={item.href} onClick={() => void closeMenu(false)} className="group/link block min-h-20 rounded-xl px-3 py-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 aria-[current=location]:bg-white/10 sm:py-4">
               <span className="block font-display text-[clamp(26px,7.7vw,30px)] font-medium leading-tight sm:text-[34px]">{item.label}</span>
               <span className="mt-1.5 block font-body text-sm leading-5 text-white/75 sm:mt-2 sm:leading-relaxed">{item.detail}</span>
             </Link></motion.div>)}
-            <Link data-menu-item href="#contact" onClick={() => void closeMenu()} className={buttonClasses("secondary", "mt-4 w-full bg-white text-primary hover:bg-white/90 focus-visible:outline-white sm:mt-6")}>Get Involved</Link>
+            <Link data-menu-item href="#contact" onClick={() => void closeMenu(false)} className={buttonClasses("secondary", "mt-4 w-full bg-white text-primary hover:bg-white/90 focus-visible:outline-white sm:mt-6")}>Get Involved</Link>
           </nav>
         </motion.div>
       </dialog>
