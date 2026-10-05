@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useId, type RefObject } from "react";
+import { useEffect, useId, useRef, type RefObject } from "react";
+import { animate } from "motion/react";
 import { prototypeScreens } from "../data/prototype-screens";
 import { FigmaImage } from "./figma-image";
 import { PhoneCarousel } from "./phone-carousel";
@@ -11,6 +12,27 @@ export function PrototypeGallery({ dialogRef, open, onClose }: {
   onClose: () => void;
 }) {
   const titleId = useId();
+  const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+  const closingRef = useRef(false);
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!open || !dialog || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    animationRef.current = animate(dialog, { opacity: [0, 1], y: [8, 0] }, { duration: 0.22, ease: [0.22, 1, 0.36, 1] });
+    return () => { animationRef.current?.stop(); };
+  }, [open, dialogRef]);
+  const close = async () => {
+    const dialog = dialogRef.current;
+    if (!dialog || closingRef.current) return;
+    closingRef.current = true;
+    animationRef.current?.stop();
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      animationRef.current = animate(dialog, { opacity: 0, y: 6 }, { duration: 0.14 });
+      await animationRef.current;
+    }
+    dialog.close();
+    dialog.style.removeProperty("opacity"); dialog.style.removeProperty("transform");
+    closingRef.current = false;
+  };
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -18,14 +40,14 @@ export function PrototypeGallery({ dialogRef, open, onClose }: {
     return () => { document.body.style.overflow = previous; };
   }, [open]);
   return (
-    <dialog ref={dialogRef} aria-labelledby={titleId} onClose={onClose} onClick={event => {
+    <dialog ref={dialogRef} aria-labelledby={titleId} onClose={onClose} onCancel={event => { event.preventDefault(); void close(); }} onClick={event => {
       if (event.target !== event.currentTarget) return;
       const rect = event.currentTarget.getBoundingClientRect();
-      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) event.currentTarget.close();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) void close();
     }} className="fixed inset-0 z-110 m-auto max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-[1100px] overflow-y-auto overscroll-contain rounded-3xl bg-paper p-5 text-primary backdrop:bg-primary/65 md:p-8">
       <div className="flex items-start justify-between gap-4">
         <div><h2 id={titleId} className="font-display text-2xl md:text-3xl">Inside AdaPenyu</h2><p className="mt-2 text-sm text-secondary">Three screens from our app prototype.</p></div>
-        <button type="button" aria-label="Close app screenshots" onClick={() => dialogRef.current?.close()} className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/5 text-2xl hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">×</button>
+        <button type="button" aria-label="Close app screenshots" onClick={() => void close()} className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/5 text-2xl hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">×</button>
       </div>
       <PhoneCarousel compact />
       <div className="mt-6 hidden grid-cols-3 items-start gap-6 md:grid">
