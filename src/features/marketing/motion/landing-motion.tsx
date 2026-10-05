@@ -47,11 +47,11 @@ export function LandingMotion({ children }: { children: ReactNode }) {
       if (desktop) {
         const story = root.querySelector<HTMLElement>("[data-story-pin]");
         if (story) {
-          const stage = prepareStage(story, 1.25);
+          const stage = prepareStage(story, 0.8);
           const beats = [...story.querySelectorAll<HTMLElement>("[data-story-beat]")];
           const arrows = [...story.querySelectorAll<HTMLElement>("[data-story-arrow]")];
           const timeline = gsap.timeline({
-            scrollTrigger: { id: "chapter-our-project", trigger: stage, start: "top top", end: () => `+=${innerHeight * 1.25}`, scrub: true, invalidateOnRefresh: true },
+            scrollTrigger: { id: "chapter-our-project", trigger: stage, start: "top top", end: () => `+=${innerHeight * 0.8}`, scrub: true, invalidateOnRefresh: true },
           });
           timeline.to({}, { duration: 0.25 });
           beats.forEach((beat, index) => {
@@ -66,9 +66,9 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         }
         const steps = root.querySelector<HTMLElement>("[data-steps-pin]");
         if (steps) {
-          const stage = prepareStage(steps, 0.65);
+          const stage = prepareStage(steps, 0.45);
           const timeline = gsap.timeline({
-            scrollTrigger: { id: "chapter-how-it-works", trigger: stage, start: "top top", end: () => `+=${innerHeight * 0.65}`, scrub: true, invalidateOnRefresh: true },
+            scrollTrigger: { id: "chapter-how-it-works", trigger: stage, start: "top top", end: () => `+=${innerHeight * 0.45}`, scrub: true, invalidateOnRefresh: true },
           });
           timeline.to({}, { duration: 0.15 });
           steps.querySelectorAll<HTMLElement>("[data-step]").forEach((step, index) => {
