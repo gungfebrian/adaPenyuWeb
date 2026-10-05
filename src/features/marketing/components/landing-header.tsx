@@ -90,6 +90,9 @@ export function LandingHeader() {
     let settleTimer = 0;
     const darkSections = [...document.querySelectorAll<HTMLElement>('[data-header-theme="dark"]')];
     const chapters = [...document.querySelectorAll<HTMLElement>("main section[id]")];
+    const paint = (element: HTMLElement, property: string, value: string) => {
+      if (element.style.getPropertyValue(property) !== value) element.style.setProperty(property, value);
+    };
     const update = () => {
       frame = 0;
       const header = headerRef.current;
@@ -101,20 +104,20 @@ export function LandingHeader() {
         .filter(section => section.top <= 100).at(-1)?.id ?? "home";
       const compact = window.scrollY > Math.min(320, innerHeight * 0.35);
       const expanded = !compact || hoveringRef.current || !!blockRef.current?.contains(document.activeElement);
-      header.dataset.expanded = String(expanded);
-      if (navRef.current) navRef.current.inert = !expanded;
+      if (header.dataset.expanded !== String(expanded)) header.dataset.expanded = String(expanded);
+      if (navRef.current && navRef.current.inert === expanded) navRef.current.inert = !expanded;
       for (const { element, rect } of paints) {
         const bands = darkBands.filter(band => band.left < rect.right && band.right > rect.left);
         const surface = element.dataset.navPaint === "surface";
         const base = surface ? "#00263c" : "#ffffff";
         const inverse = surface ? "#ffffff" : "#00263c";
-        element.style.setProperty("--nav-paint", boundaryPaint(rect.top, rect.height, bands, base, inverse));
+        paint(element, "--nav-paint", boundaryPaint(rect.top, rect.height, bands, base, inverse));
         const darkAtBottom = bands.some(band => band.top <= rect.bottom - 1 && band.bottom > rect.bottom - 1);
-        element.style.setProperty("--nav-solid", darkAtBottom ? inverse : base);
+        paint(element, "--nav-solid", darkAtBottom ? inverse : base);
         if (surface) {
           const darkAtCenter = bands.some(band => band.top <= rect.top + rect.height / 2 && band.bottom > rect.top + rect.height / 2);
-          element.style.setProperty("--nav-focus", darkAtCenter ? "#00263c" : "#ffffff");
-          element.style.setProperty("--nav-hover", darkAtCenter ? "#00263c12" : "#ffffff18");
+          paint(element, "--nav-focus", darkAtCenter ? "#00263c" : "#ffffff");
+          paint(element, "--nav-hover", darkAtCenter ? "#00263c12" : "#ffffff18");
         }
       }
       const target = current === "faq" ? "#faq" : ["about-us", "where-we-come-from", "contribute", "contact"].includes(current) ? "#about-us" : current === "home" ? "#home" : "#our-project";
