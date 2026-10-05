@@ -312,6 +312,11 @@ export function LandingMotion({ children }: { children: ReactNode }) {
         await curtainAnimation;
         if (currentVersion !== version) return;
       }
+      // A modal makes the destination inert until it closes. Wait before moving
+      // focus, including when reduced motion skips the chapter curtain.
+      const menu = document.querySelector<HTMLDialogElement>("header dialog[open]");
+      if (menu) await new Promise<void>(resolve => menu.addEventListener("close", () => resolve(), { once: true }));
+      if (currentVersion !== version) return;
       position(id);
       if (historyEntry) history.pushState(null, "", `#${id}`);
       if (curtain && transition && !reduced) {

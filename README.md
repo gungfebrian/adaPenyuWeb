@@ -32,6 +32,8 @@ can help, the prototype, and the people behind it.
   with buttons and keyboard controls below 768px.
 - A centred mobile navbar with an animated dropdown, member profile dialogs,
   and an animated FAQ.
+- Tap the hero's AdaPenyu app icon to open the three original prototype screenshots.
+  The popup offers a phone carousel on mobile and a three-screen view on larger displays.
 - Keyboard navigation, visible focus states, and a static alternative for reduced motion.
 
 ## Design language
@@ -83,6 +85,8 @@ dropdown and returns focus to the button; selecting a chapter moves to that sect
 The phone carousel supports swiping, previous/next buttons, and direct slide selection.
 With the carousel focused, use Left/Right to change slides or Home/End to reach the
 first/last screen. It never advances automatically and respects reduced motion.
+The hero screenshot popup starts at the first screen each time it opens. Escape or
+the close button dismisses it and returns focus to the app icon.
 
 ## Run locally
 

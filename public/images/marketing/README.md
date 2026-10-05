@@ -46,5 +46,7 @@ alt text; keep purely decorative ocean layers hidden from assistive technology.
 An SVG containing an embedded bitmap still has raster resolution and payload costs.
 Keep source exports intact and optimize derived assets separately when needed.
 
-Browser and Apple touch icons are generated from the original dark PNG in
-`public/Logo`, with a tighter crop. The website's source logos are unchanged.
+Browser and Apple touch icons are cropped exports of the original dark PNG in
+`public/Logo`, served from versioned `public/icons/adapenyu-*-v3.png` URLs. The fallback
+`public/favicon.ico` contains the same AdaPenyu artwork. Legacy generated icon routes
+have been removed; the website's source logos are unchanged.

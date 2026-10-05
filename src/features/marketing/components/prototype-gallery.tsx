@@ -49,7 +49,7 @@ export function PrototypeGallery({ dialogRef, open, onClose }: {
         <div><h2 id={titleId} className="font-display text-2xl md:text-3xl">Inside AdaPenyu</h2><p className="mt-2 text-sm text-secondary">Three screens from our app prototype.</p></div>
         <button type="button" aria-label="Close app screenshots" onClick={() => void close()} className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/5 text-2xl hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">×</button>
       </div>
-      <PhoneCarousel compact />
+      {open && <PhoneCarousel compact />}
       <div className="mt-6 hidden grid-cols-3 items-start gap-6 md:grid">
         {prototypeScreens.map(screen => <figure key={screen.name} className="min-w-0 text-center"><FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} className="mx-auto h-[min(60dvh,590px)] w-full object-contain" sizes="30vw" /><figcaption className="mt-3 font-medium">{screen.title}</figcaption></figure>)}
       </div>
