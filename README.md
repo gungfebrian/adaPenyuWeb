@@ -90,7 +90,7 @@ the close button dismisses it and returns focus to the app icon.
 
 ## Run locally
 
-Requires Node.js 20.9+ and pnpm.
+Requires Node.js 22 and pnpm 10.34.6 (pinned in `package.json`).
 
 ```bash
 pnpm install
