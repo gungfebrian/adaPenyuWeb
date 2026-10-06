@@ -1,0 +1,57 @@
+.workspace-shell {
+  --background: #ffffff;
+  --foreground: #00263c;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #fff;
+  color: #00263c;
+  color-scheme: light;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+.workspace-shell::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background: url("/images/marketing/hero-pattern.svg") center top / cover;
+  pointer-events: none;
+}
+.workspace-shell::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 190px;
+  background: url("/images/marketing/hero-foreground-wave.svg") center bottom / 100% 100% no-repeat;
+  opacity: .25;
+  pointer-events: none;
+}
+.workspace-header { width: 100%; max-width: 1480px; margin: 0 auto; padding: 28px 20px 0; }
+.workspace-nav { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 16px; border-radius: 20px; background: #00263c; color: #fff; padding: 10px 18px; box-shadow: 0 7px 22px #00263c0a; }
+.workspace-brand { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 10px; border-radius: 9px; }
+.workspace-brand span { display: block; width: 125px; height: 39px; background: #fff; mask: url("/images/marketing/wordmark.svg") center / contain no-repeat; }
+.workspace-nav nav { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.workspace-nav-link { display: inline-flex; align-items: center; min-height: 44px; border-radius: 11px; padding: 0 14px; font-size: 14px; font-weight: 500; transition: background-color 150ms ease-out; }
+.workspace-nav-link:hover { background: #ffffff15; }
+.workspace-nav :is(a,button):focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.workspace-content { position: relative; padding-bottom: 64px; }
+.workspace-shell ::selection { background: #c8e2ec; color: #00263c; }
+@media (max-width: 767px) {
+  .workspace-header { padding: 16px 12px 0; }
+  .workspace-nav { width: 100%; justify-content: center; gap: 2px; border-radius: 17px; padding: 8px; }
+  .workspace-brand { min-height: 42px; }
+  .workspace-brand span { width: 112px; height: 35px; }
+  .workspace-nav nav { width: 100%; justify-content: center; gap: 0; }
+  .workspace-nav-link { padding: 0 9px; font-size: 11px; }
+  .workspace-shell::after { height: 120px; }
+  .workspace-content { padding-top: 24px; padding-bottom: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .workspace-nav-link { transition: none; } }
+.workspace-nav-link[aria-current="page"] { background: #ffffff1c; font-weight: 600; }
+@media (max-width: 767px) { .workspace-nav-link { font-size: 14px; padding: 0 17px; } }

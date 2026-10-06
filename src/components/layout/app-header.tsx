@@ -1,17 +1,21 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { siteConfig } from "@/lib/config/site";
-
-const linkClass = "inline-flex min-h-11 items-center rounded-full px-4 transition-colors duration-200 hover:bg-foreground/8 focus-visible:outline-solid focus-visible:outline-3 focus-visible:outline-current focus-visible:outline-offset-4";
+const linkClass = "workspace-nav-link";
 
 export function AppHeader() {
+  const pathname = usePathname();
   return (
-    <header className="flex flex-wrap justify-between gap-4 border-b border-foreground/20 p-5">
-      <Link className={linkClass} href="/">{siteConfig.name}</Link>
+    <header className="workspace-header">
+      <div className="workspace-nav">
+      <Link className="workspace-brand" href="/" aria-label="AdaPenyu home"><span aria-hidden="true" /></Link>
       <nav className="flex flex-wrap gap-4" aria-label="Main navigation">
-        <Link className={linkClass} href="/identify">Identify a turtle</Link>
-        <Link className={linkClass} href="/turtles">Turtle catalogue</Link>
+        <Link className={linkClass} href="/schedule" aria-current={pathname === "/schedule" ? "page" : undefined}>Calendar</Link>
+        <Link className={linkClass} href="/meetings" aria-current={pathname === "/meetings" ? "page" : undefined}>Meetings</Link>
       </nav>
+      </div>
     </header>
   );
 }

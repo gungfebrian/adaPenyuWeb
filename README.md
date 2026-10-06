@@ -114,3 +114,72 @@ The displayed accuracy figure comes from the supplied prototype design, rather
 than an independently reproduced benchmark in this repository.
 
 Maintained by [Gung](https://github.com/gungfebrian).
+
+## Meeting scheduler
+
+Visit `/schedule` or choose **Calendar** in the site navigation. Google login is required.
+The navbar has two sections: **Calendar** (`/schedule`) and **Meetings** (`/meetings`).
+Meetings shows the same account’s saved meetings as cards with dates, times,
+participants, status, and video-call links. Search by title, person, or notes;
+sort by date (oldest/newest) or title (A–Z). Filter by All, Upcoming, Past, or
+Cancelled, and use Reset to clear the search, filter, and sort. Open
+details to edit, cancel, or delete a meeting without leaving the list. Both routes
+require verified login.
+
+The calendar opens in month view. Click a date to see its hourly timeline, then
+click a half-hour slot to add a meeting. A compact inspector holds the title,
+participants, duration, and existing HTTPS video-call link. Add professors,
+doctors, or friends inside the inspector, and select one or more participants.
+
+Click a meeting to edit it, open its call link, cancel it, or delete it. Deletion
+requires confirmation and offers Undo for the most recent deletion while you stay on the page.
+Undo rejects a restored scheduled meeting if its time has since been occupied. The toolbar switches
+between month and day, navigates dates, and returns to today. Cancelled meetings
+can be shown with the sidebar checkbox or mobile footer control. The interface
+uses AdaPenyu’s light ocean identity: DM Sans, a navy wordmark/navigation bar,
+the existing organic background pattern, and pale blue calendar surfaces. The
+calendar stays light in either device appearance and stacks on mobile. Overlapping
+meetings in the organizer’s agenda are rejected. Dates use the device timezone;
+timestamps remain UTC. Arrow keys navigate calendar dates; Escape closes details.
+
+This is a local preview. Data is saved under `adapenyu-schedule-v1:<user-id>` in this browser’s
+local storage, using a separate key for each verified account. Existing anonymous
+preview data is retained but is not automatically assigned to a signed-in user.
+It does not send invitations, check participant calendar availability, or create
+Google Meet links.
+
+Supabase browser/server clients live in `src/utils/supabase/`. Next.js 16's
+`src/proxy.ts` refreshes sessions on auth and schedule routes; the schedule page
+also verifies claims on the server. Sign-in uses Google's OAuth flow with a PKCE
+code exchange at `/auth/callback`. Sign-out uses a server action. The public
+landing page does not require login.
+
+### Enable Google sign-in
+
+1. Copy `.env.example` to `.env.local` and supply the project URL and publishable
+   key. The local file already contains the supplied project configuration.
+2. In Supabase **Authentication → Sign In / Providers → Google**, enable Google
+   and enter the Google OAuth client ID and secret.
+3. In Google Cloud, add this authorized redirect URI for the supplied project:
+   `https://zpviqbsngylpfgyuijzu.supabase.co/auth/v1/callback`.
+4. In Supabase **Authentication → URL Configuration**, add
+   `http://localhost:3000/auth/callback` and your deployed site's `/auth/callback`
+   URL to the redirect allowlist. Set the Site URL to the deployed site.
+5. Set the two public environment variables in the hosting environment as well.
+   Restart the dev server after environment changes.
+
+The login page checks Google provider availability and disables sign-in while the
+provider is unavailable. No Google secret belongs in a `NEXT_PUBLIC_` variable.
+
+Meeting data still needs database integration. Replace
+`src/features/schedule/storage.ts` with authenticated Supabase queries once the
+tables exist, and protect all rows with owner-based RLS. Browser storage provides
+local previews, not a database authorization boundary. Calendar/Meet creation and
+attendee invitations require separate Google API permissions beyond sign-in.
+The sample `todos` query was not added because this app has no `todos` feature.
+
+Run scheduler validation checks with Node.js 22.18+:
+
+```bash
+node --test tests/*.test.mjs
+```

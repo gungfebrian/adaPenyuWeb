@@ -12,6 +12,7 @@ const navigation = [
   { label: "Our Project", href: "#our-project", detail: "Recognising turtles through photographs" },
   { label: "About Us", href: "#about-us", detail: "Meet the Citizens of the Sea" },
   { label: "FAQ", href: "#faq", detail: "Your questions, answered" },
+  { label: "Schedule", href: "/schedule", detail: "Arrange a meeting with professors and doctors" },
 ] as const;
 
 function NavigationLabel({ children, adaptive = false }: { children: string; adaptive?: boolean }) {
