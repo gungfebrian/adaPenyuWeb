@@ -59,15 +59,21 @@ shared theme tokens live in `globals.css`.
 src/
 ├── app/
 │   ├── (marketing)/        Landing route and brand fonts
-│   ├── (workspace)/        Turtle catalogue and identification prototype
+│   ├── (workspace)/        Turtle prototypes, login, calendar, and meetings
+│   ├── auth/               OAuth callback and code exchange
 │   └── api/                Re-identification endpoint placeholder
 ├── features/
 │   ├── marketing/          Sections, artwork, content, and scroll sequences
+│   ├── auth/               Google sign-in and sign-out actions
+│   ├── schedule/           Calendar, meeting editor, and local storage adapter
 │   ├── turtles/            Turtle types, UI, and repository interface
 │   └── re-identification/  Upload UI, match types, and model service interface
 ├── components/             Shared UI and motion helpers
-└── lib/                    Motion settings, brand icons, and site configuration
+├── utils/supabase/          Browser/server clients and session refresh
+├── proxy.ts                Session refresh on protected workspace routes
+└── lib/                    Motion settings and site configuration
 public/images/              Supplied SVG artwork and ocean-layer metadata
+public/icons/               Versioned AdaPenyu browser and touch icons
 ```
 
 **Motion** handles interface transitions. **GSAP ScrollTrigger** handles coordinated
