@@ -113,6 +113,15 @@ pnpm build
 
 ## Project status
 
+| Route | Purpose | Current access / state |
+| --- | --- | --- |
+| `/` | Ocean story and prototype presentation | Public |
+| `/login` | Google sign-in | Signed-in visitors return to the calendar |
+| `/schedule` | Calendar and meeting editor | Verified sign-in required |
+| `/meetings` | Searchable meeting list | Verified sign-in required |
+| `/identify` | Photo identification preview | Upload and matching are not connected |
+| `/turtles` | Turtle catalogue preview | Data source is not connected |
+
 The public website and frontend interactions are implemented. The turtle workspace
 is a prototype: uploads, model inference, persistence, and identity review await
 integration. The API currently returns `501`; the contact form saves a local draft.
