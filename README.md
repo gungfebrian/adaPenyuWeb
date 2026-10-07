@@ -171,12 +171,13 @@ landing page does not require login.
 
 ### Enable Google sign-in
 
-1. Copy `.env.example` to `.env.local` and supply the project URL and publishable
-   key. The local file already contains the supplied project configuration.
+1. Copy `.env.example` to `.env.local` and replace both placeholders with your
+   Supabase project URL and publishable key. `.env.local` is ignored by Git and
+   is not included when cloning this repository.
 2. In Supabase **Authentication → Sign In / Providers → Google**, enable Google
    and enter the Google OAuth client ID and secret.
-3. In Google Cloud, add this authorized redirect URI for the supplied project:
-   `https://zpviqbsngylpfgyuijzu.supabase.co/auth/v1/callback`.
+3. In Google Cloud, add your Supabase project's authorized redirect URI:
+   `https://<project-ref>.supabase.co/auth/v1/callback`.
 4. In Supabase **Authentication → URL Configuration**, add
    `http://localhost:3000/auth/callback` and your deployed site's `/auth/callback`
    URL to the redirect allowlist. Set the Site URL to the deployed site.
