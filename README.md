@@ -111,6 +111,20 @@ pnpm typecheck
 pnpm build
 ```
 
+## Deployment
+
+Pushes to `main` trigger the connected Vercel production build. The package manager
+and Node major are pinned in `package.json`.
+
+When adding a dependency, use `pnpm add` and commit both `package.json` and
+`pnpm-lock.yaml`. Before publishing, the dependency installation should also work
+with `pnpm install --frozen-lockfile`. An `ERR_PNPM_OUTDATED_LOCKFILE` failure means
+the manifest and lockfile need to be synchronized and committed together.
+
+Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in the
+Vercel environments that serve the authenticated workspace. Deploy again after
+changing these values so the browser bundle receives the updated configuration.
+
 ## Project status
 
 | Route | Purpose | Current access / state |
