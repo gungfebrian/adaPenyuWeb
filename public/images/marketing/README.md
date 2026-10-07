@@ -36,6 +36,18 @@ and above, the original GSAP phone fan remains. The mobile navigation dropdown u
 the existing accuracy pattern and custom menu/close SVG masks; it adds no new artwork
 or carousel dependency.
 
+## Prototype screenshot contexts
+
+| Context | Below 768px | At 768px and above |
+| --- | --- | --- |
+| Benefits section | Native swipe carousel with manual controls | Three-phone scroll fan |
+| Hero app-icon popup | Compact carousel, starting at the first screen | All three screens side by side |
+
+Both contexts use the same screen metadata and supplied SVGs. The popup is assembled
+in `prototype-gallery.tsx`; its native dialog handles modal focus, while the logo
+component restores trigger focus after dismissal. Keep screenshot proportions intact
+when adjusting the surrounding layout.
+
 ## Adding artwork
 
 Use descriptive filenames and retain the source SVG's `viewBox` and aspect ratio.
