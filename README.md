@@ -177,6 +177,14 @@ preview data is retained but is not automatically assigned to a signed-in user.
 It does not send invitations, check participant calendar availability, or create
 Google Meet links.
 
+### Data continuity
+
+- Each account's meetings are stored in this browser, not synchronized across devices.
+- Signing out does not delete the saved schedule; signing back into the same account
+  in the same browser restores it.
+- Clearing the site's browser storage removes its local meeting data. The current
+  preview has no server backup or export feature.
+
 Supabase browser/server clients live in `src/utils/supabase/`. Next.js 16's
 `src/proxy.ts` refreshes sessions on auth and schedule routes; the schedule page
 also verifies claims on the server. Sign-in uses Google's OAuth flow with a PKCE
