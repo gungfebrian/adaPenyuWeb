@@ -144,6 +144,13 @@ than an independently reproduced benchmark in this repository.
 
 Maintained by [Gung](https://github.com/gungfebrian).
 
+## Contributor guides
+
+- [Preparing a change](CONTRIBUTING.md)
+- [Updating marketing content](docs/marketing-content.md)
+- [Manual UI checks](docs/manual-ui-checks.md)
+- [Existing test coverage](docs/test-coverage.md)
+
 ## Meeting scheduler
 
 Visit `/schedule` or choose **Calendar** in the site navigation. Google login is required.
