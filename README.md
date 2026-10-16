@@ -139,8 +139,8 @@ changing these values so the browser bundle receives the updated configuration.
 The public website and frontend interactions are implemented. The turtle workspace
 is a prototype: uploads, model inference, persistence, and identity review await
 integration. The API currently returns `501`; the contact form saves a local draft.
-The displayed accuracy figure comes from the supplied prototype design, rather
-than an independently reproduced benchmark in this repository.
+The marketing page does not publish an accuracy figure until the model has a
+documented, independently reproducible evaluation.
 
 Maintained by [Gung](https://github.com/gungfebrian).
 
