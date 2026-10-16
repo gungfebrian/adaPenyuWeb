@@ -138,7 +138,8 @@ changing these values so the browser bundle receives the updated configuration.
 
 The public website and frontend interactions are implemented. The turtle workspace
 is a prototype: uploads, model inference, persistence, and identity review await
-integration. The API currently returns `501`; the contact form saves a local draft.
+integration. The API currently returns `501`; the contact form opens an email draft
+in the visitor's email app and offers optional local draft storage with a delete action.
 The marketing page does not publish an accuracy figure until the model has a
 documented, independently reproducible evaluation.
 

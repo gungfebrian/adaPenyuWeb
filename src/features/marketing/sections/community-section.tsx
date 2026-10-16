@@ -164,6 +164,7 @@ export function ContactSection() {
           <p className="mt-4 max-w-md font-detail text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
             Researcher, conservationist, or potential collaborator, we’d love to hear from you!
           </p>
+          <a href="mailto:adapenyu@gmail.com" className="mt-5 inline-flex min-h-11 items-center rounded-md font-detail text-base font-semibold text-white underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
         </div>
         <div data-reveal className="relative">
           <ContactForm />

@@ -46,6 +46,8 @@ export function ContactForm() {
       if (isContactDraft(parsed)) {
         setDraft(parsed);
         setStatus("Saved draft restored from this device. It has not been sent.");
+      } else {
+        setStatus("The saved draft could not be read from this device.");
       }
     } catch {
       setStatus("A saved draft could not be read from this device.");
@@ -57,9 +59,7 @@ export function ContactForm() {
     setStatus("");
   }
 
-  function saveDraft(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
+  function saveDraft() {
     try {
       localStorage.setItem(storageKey, JSON.stringify(draft));
       setStatus("Draft saved on this device. It has not been sent.");
@@ -68,8 +68,31 @@ export function ContactForm() {
     }
   }
 
+  function clearSavedDraft() {
+    try {
+      localStorage.removeItem(storageKey);
+      setStatus("Saved draft removed from this device. The text above is still available until you leave this page.");
+    } catch {
+      setStatus("This browser could not remove the saved draft.");
+    }
+  }
+
+  function openEmail(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const body = [
+      draft.message.trim(),
+      "",
+      `Name: ${draft.name.trim()}`,
+      `Email: ${draft.email.trim()}`,
+      ...(draft.organization.trim() ? [`Organization: ${draft.organization.trim()}`] : []),
+    ].join("\n");
+    const subject = encodeURIComponent("AdaPenyu collaboration inquiry");
+    window.location.href = `mailto:adapenyu@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
+    setStatus("Your email app should open with a draft. Send it there to contact us.");
+  }
+
   return (
-    <form className="grid gap-5" onSubmit={saveDraft}>
+    <form className="grid gap-5" onSubmit={openEmail}>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="contact-name" className="font-detail text-sm font-semibold text-white">
@@ -81,6 +104,7 @@ export function ContactForm() {
             className={fieldClassName}
             id="contact-name"
             name="name"
+            maxLength={120}
             onChange={(event) => updateField("name", event.currentTarget.value)}
             required
             value={draft.name}
@@ -97,6 +121,7 @@ export function ContactForm() {
             className={fieldClassName}
             id="contact-email"
             name="email"
+            maxLength={254}
             onChange={(event) => updateField("email", event.currentTarget.value)}
             required
             type="email"
@@ -114,6 +139,7 @@ export function ContactForm() {
           className={fieldClassName}
           id="contact-organization"
           name="organization"
+          maxLength={120}
           onChange={(event) => updateField("organization", event.currentTarget.value)}
           value={draft.organization}
         />
@@ -128,6 +154,7 @@ export function ContactForm() {
           className={`${fieldClassName} min-h-36 resize-y`}
           id="contact-message"
           name="message"
+          maxLength={2000}
           onChange={(event) => updateField("message", event.currentTarget.value)}
           required
           rows={5}
@@ -137,16 +164,20 @@ export function ContactForm() {
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p id="contact-draft-note" className="font-detail text-sm leading-relaxed text-white/75">
-          This form saves a draft on your device. It does not send a message.
+          Your email app will open with this message. Please send it there. You can also save a draft on this device.
         </p>
         <button
           type="submit"
           className={buttonClasses("secondary", "shrink-0 bg-white hover:bg-white/85 hover:text-primary focus-visible:outline-white")}
         >
-          Save draft <span aria-hidden="true">↗</span>
+          Open email to send <span aria-hidden="true">↗</span>
         </button>
       </div>
-      <button type="button" onClick={restoreDraft} className="w-fit cursor-pointer rounded-md font-detail text-sm text-white/80 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">Restore saved draft</button>
+      <div className="flex flex-wrap gap-x-6 gap-y-3">
+        <button type="button" onClick={saveDraft} className="w-fit cursor-pointer rounded-md font-detail text-sm text-white/80 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">Save draft</button>
+        <button type="button" onClick={restoreDraft} className="w-fit cursor-pointer rounded-md font-detail text-sm text-white/80 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">Restore saved draft</button>
+        <button type="button" onClick={clearSavedDraft} className="w-fit cursor-pointer rounded-md font-detail text-sm text-white/80 underline underline-offset-4 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">Delete saved draft</button>
+      </div>
       <p className="min-h-6 font-detail text-sm font-medium text-white" role="status" aria-live="polite">
         {status}
       </p>
