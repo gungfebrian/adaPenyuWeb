@@ -1,4 +1,4 @@
-import { FigmaImage } from "../components/figma-image";
+import Image from "next/image";
 import { Pattern } from "../components/pattern";
 
 export function ProgressSection() {
@@ -17,8 +17,8 @@ export function ProgressSection() {
           <h3 className="font-detail text-xl font-semibold md:text-[1.5873cqw]">Recognising patterns across sightings</h3>
           <p className="mt-3 max-w-lg font-detail text-sm leading-relaxed text-white/90 md:text-[1.1905cqw]">Our prototype compares facial patterns to suggest potential matches for review. Field performance has not been independently validated yet.</p>
           <div data-match-sequence className="mt-6 flex items-center gap-3 md:gap-5" aria-label="Two sightings of turtle facial patterns">
-            <div data-match-photo className="w-1/2 -rotate-3"><div data-tilt className="overflow-hidden rounded-xl"><FigmaImage name="match-photo-left" width={255} height={159} alt="A turtle’s facial scales in one sighting" className="h-auto w-full" /></div></div>
-            <div data-match-photo className="w-1/2 rotate-3"><div data-tilt className="overflow-hidden rounded-xl"><FigmaImage name="match-photo-right" width={255} height={159} alt="Facial scales photographed in another sighting" className="h-auto w-full" /></div></div>
+            <div data-match-photo className="w-1/2 -rotate-3"><div data-tilt className="overflow-hidden rounded-xl"><Image src="/images/marketing/match-photo-left.webp" width={255} height={159} alt="A turtle’s facial scales in one sighting" unoptimized className="h-auto w-full" /></div></div>
+            <div data-match-photo className="w-1/2 rotate-3"><div data-tilt className="overflow-hidden rounded-xl"><Image src="/images/marketing/match-photo-right.webp" width={255} height={159} alt="Facial scales photographed in another sighting" unoptimized className="h-auto w-full" /></div></div>
           </div>
         </div>
       </div>
