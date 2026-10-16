@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import { MatchCandidateList } from "@/features/re-identification/components/match-candidate-list";
 import { PhotoUpload } from "@/features/re-identification/components/photo-upload";
 
-export const metadata: Metadata = { title: "Identify a turtle" };
+export const metadata: Metadata = {
+  title: "Identify a turtle",
+  robots: { index: false, follow: false },
+};
 
 export default function IdentifyPage() {
   return (

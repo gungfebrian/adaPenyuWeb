@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 
 import { TurtleList } from "@/features/turtles/components/turtle-list";
 
-export const metadata: Metadata = { title: "Turtle catalogue" };
+export const metadata: Metadata = {
+  title: "Turtle catalogue",
+  robots: { index: false, follow: false },
+};
 
 export default function TurtlesPage() {
   return (
