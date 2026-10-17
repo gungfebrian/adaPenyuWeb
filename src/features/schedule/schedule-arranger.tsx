@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { emptySchedule, hasMeetingConflict, isSafeMeetingLink, participantLabel, type Meeting, type Participant, type ScheduleData } from "./model";
 import { createScheduleStorage } from "./storage";
+import { createScheduleBackup } from "./backup";
 import { dateFromKey, dayMeetings, localDate, meetingPosition } from "./calendar";
 import { MonthCalendar } from "./month-calendar";
 import { MeetingsList } from "./meetings-list";
@@ -88,6 +89,24 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
   function persist(next: ScheduleData, success: string) {
     try { storage.save(next); setData(next); setMessage(success); setError(""); return true; }
     catch { setError("Changes couldn’t be saved. Allow browser storage, then try again."); setMessage(""); return false; }
+  }
+  function downloadBackup() {
+    try {
+      const content = createScheduleBackup(data);
+      const url = URL.createObjectURL(new Blob([content], { type: "application/json" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `adapenyu-schedule-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 0);
+      setMessage("Backup downloaded. Keep the file private; it contains meeting details.");
+      setError("");
+    } catch {
+      setError("The backup could not be created. Your saved calendar has not changed.");
+      setMessage("");
+    }
   }
   function update<K extends keyof Draft>(key: K, value: Draft[K]) {
     setDraft(d => ({ ...d, [key]: value })); setError("");
@@ -187,7 +206,7 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
           {selectedDay === today && <div className="current-time-line" style={{ top: (new Date(now).getHours() * 60 + new Date(now).getMinutes()) / 60 * 72 }} aria-hidden="true"><span /></div>}
         </div>
       </div></>}
-      <footer className="calendar-footer"><span>{timeZone || "Device timezone"} · On this device</span><span>{view === "meetings" ? `${data.meetings.length} saved meeting${data.meetings.length === 1 ? "" : "s"}` : view === "day" ? `${events.length} meeting${events.length === 1 ? "" : "s"}` : "Click a date to get started"}</span>{view !== "meetings" && <button type="button" className="mobile-cancelled-toggle" aria-pressed={showCancelled} onClick={() => setShowCancelled(value => !value)}>{showCancelled ? "Hide cancelled" : "Show cancelled"}</button>}</footer>
+      <footer className="calendar-footer"><span>{timeZone || "Device timezone"} · On this device</span><span>{view === "meetings" ? `${data.meetings.length} saved meeting${data.meetings.length === 1 ? "" : "s"}` : view === "day" ? `${events.length} meeting${events.length === 1 ? "" : "s"}` : "Click a date to get started"}</span><button type="button" onClick={downloadBackup} disabled={!loaded || loadFailed} className="min-h-9 rounded-md px-2 font-semibold text-[var(--cal-ink)] underline underline-offset-2 hover:bg-[var(--cal-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50">Download backup</button>{view !== "meetings" && <button type="button" className="mobile-cancelled-toggle" aria-pressed={showCancelled} onClick={() => setShowCancelled(value => !value)}>{showCancelled ? "Hide cancelled" : "Show cancelled"}</button>}</footer>
     </div>
     {showEditor && <aside className="meeting-inspector" ref={editorRef} aria-label="Meeting details">
       <div className="inspector-heading"><h2>{editingId ? "Meeting details" : "New meeting"}</h2><button type="button" className="icon-button" aria-label="Close meeting details" onClick={() => { setShowEditor(false); setConfirmCancel(false); }}><Icon name="close" /></button></div>

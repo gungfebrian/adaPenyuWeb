@@ -190,8 +190,10 @@ Google Meet links.
 - Each account's meetings are stored in this browser, not synchronized across devices.
 - Signing out does not delete the saved schedule; signing back into the same account
   in the same browser restores it.
-- Clearing the site's browser storage removes its local meeting data. The current
-  preview has no server backup or export feature.
+- Clearing the site's browser storage removes its local meeting data. Download a
+  JSON backup from the calendar or meeting list before clearing browser data;
+  the file contains meeting links, notes, and participant names, so keep it private.
+- The preview has no server backup or account sync.
 
 Supabase browser/server clients live in `src/utils/supabase/`. Next.js 16's
 `src/proxy.ts` refreshes sessions on auth and schedule routes; the schedule page
