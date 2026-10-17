@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { emptySchedule, hasMeetingConflict, isSafeMeetingLink, participantLabel, type Meeting, type Participant, type ScheduleData } from "./model";
 import { createScheduleStorage } from "./storage";
-import { createScheduleBackup } from "./backup";
+import { createScheduleBackup, parseScheduleBackup } from "./backup";
 import { dateFromKey, dayMeetings, localDate, meetingPosition } from "./calendar";
 import { MonthCalendar } from "./month-calendar";
 import { MeetingsList } from "./meetings-list";
@@ -38,12 +38,16 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
   const [lastDeleted, setLastDeleted] = useState<Meeting>();
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [pendingImport, setPendingImport] = useState<ScheduleData | null>(null);
   const [timeZone, setTimeZone] = useState("");
   const timelineRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const editorRef = useRef<HTMLElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const newMeetingRef = useRef<HTMLButtonElement>(null);
+  const importInputRef = useRef<HTMLInputElement>(null);
+  const importButtonRef = useRef<HTMLButtonElement>(null);
+  const confirmImportRef = useRef<HTMLButtonElement>(null);
   const editingMeeting = data.meetings.find(m => m.id === editingId);
   const today = now ? localDate(new Date(now)) : "";
 
@@ -87,7 +91,7 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
   }, [showEditor, editingId]);
 
   function persist(next: ScheduleData, success: string) {
-    try { storage.save(next); setData(next); setMessage(success); setError(""); return true; }
+    try { storage.save(next); setData(next); setPendingImport(null); setMessage(success); setError(""); return true; }
     catch { setError("Changes couldn’t be saved. Allow browser storage, then try again."); setMessage(""); return false; }
   }
   function downloadBackup() {
@@ -106,6 +110,35 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
     } catch {
       setError("The backup could not be created. Your saved calendar has not changed.");
       setMessage("");
+    }
+  }
+  async function chooseBackup(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.currentTarget.files?.[0];
+    event.currentTarget.value = "";
+    if (!file) return;
+    setPendingImport(null);
+    if (file.size > 1_000_000) {
+      setError("The backup file is too large. Choose a file smaller than 1 MB.");
+      setMessage("");
+      return;
+    }
+    try {
+      const imported = parseScheduleBackup(await file.text());
+      setPendingImport(imported);
+      setMessage(""); setError("");
+      window.requestAnimationFrame(() => confirmImportRef.current?.focus({ preventScroll: true }));
+    } catch {
+      setPendingImport(null);
+      setError("This file is not a valid AdaPenyu schedule backup. Your saved calendar has not changed.");
+      setMessage("");
+    }
+  }
+  function confirmImport() {
+    if (!pendingImport) return;
+    if (persist(pendingImport, "Backup restored on this device.")) {
+      setShowEditor(false);
+      setLastDeleted(undefined);
+      importButtonRef.current?.focus({ preventScroll: true });
     }
   }
   function update<K extends keyof Draft>(key: K, value: Draft[K]) {
@@ -195,6 +228,13 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
       </header>
       <div className="calendar-heading"><h2 aria-live="polite">{view === "meetings" ? "Your meetings" : view === "month" ? monthLabel || "Calendar" : selectedDate?.toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" })}</h2><p>{view === "meetings" ? "Every conversation you’ve arranged, in one list." : view === "month" ? "Select a date to see its times." : `${selectedDate?.toLocaleDateString("en-US", { weekday: "long" })} · Click a time to add a meeting.`}</p></div>
       <div className="calendar-feedback" aria-live="polite">{!showEditor && error ? <p role="alert">{error}</p> : <p role="status">{message || (!loaded ? "Loading calendar…" : "")}</p>}{lastDeleted && <button type="button" className="undo-delete" onClick={undoDelete}>Undo last deletion</button>}</div>
+      {pendingImport && <div role="group" aria-label="Confirm schedule restore" className="mx-4 mb-3 rounded-xl border border-[var(--cal-line)] bg-[var(--cal-panel)] p-4 text-sm text-[var(--cal-ink)] sm:mx-6">
+        <p id="schedule-restore-summary">Restore {pendingImport.meetings.length} meeting{pendingImport.meetings.length === 1 ? "" : "s"} and {pendingImport.participants.length} person{pendingImport.participants.length === 1 ? "" : "s"}? This replaces {data.meetings.length} meeting{data.meetings.length === 1 ? "" : "s"} currently saved in this browser for your signed-in account.</p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          <button ref={confirmImportRef} type="button" aria-describedby="schedule-restore-summary" onClick={confirmImport} className="min-h-11 rounded-lg bg-[var(--cal-ink)] px-4 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2">Replace saved schedule</button>
+          <button type="button" onClick={() => { setPendingImport(null); importButtonRef.current?.focus({ preventScroll: true }); }} className="min-h-11 rounded-lg px-4 font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2">Keep current schedule</button>
+        </div>
+      </div>}
       {!loaded ? <div className="calendar-loading">Loading your meetings…</div> : view === "meetings" ? <MeetingsList meetings={data.meetings} now={now} onOpen={edit} /> : view === "month" && month ? <MonthCalendar month={month} selectedDay={selectedDay} today={today} meetings={data.meetings} showCancelled={showCancelled} onSelect={selectDay} onMeeting={edit} /> : <>{events.some(m => m.status === "cancelled") && <div className="cancelled-day-events" aria-label="Cancelled meetings">{events.filter(m => m.status === "cancelled").map(m => <button key={m.id} type="button" className="quiet-button" aria-label={`Open ${m.title}`} onClick={() => edit(m)}>Cancelled · {m.title}</button>)}</div>}<div className="day-scroll" ref={timelineRef} aria-label="Day schedule">
         <div className="day-timeline">
           {Array.from({ length: 24 }, (_, hour) => <div key={hour} className="timeline-hour"><span className="hour-label">{hourLabel(hour)}</span><div className="hour-slots">{[0, 30].map(minute => {
@@ -206,7 +246,7 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
           {selectedDay === today && <div className="current-time-line" style={{ top: (new Date(now).getHours() * 60 + new Date(now).getMinutes()) / 60 * 72 }} aria-hidden="true"><span /></div>}
         </div>
       </div></>}
-      <footer className="calendar-footer"><span>{timeZone || "Device timezone"} · On this device</span><span>{view === "meetings" ? `${data.meetings.length} saved meeting${data.meetings.length === 1 ? "" : "s"}` : view === "day" ? `${events.length} meeting${events.length === 1 ? "" : "s"}` : "Click a date to get started"}</span><button type="button" onClick={downloadBackup} disabled={!loaded || loadFailed} className="min-h-9 rounded-md px-2 font-semibold text-[var(--cal-ink)] underline underline-offset-2 hover:bg-[var(--cal-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50">Download backup</button>{view !== "meetings" && <button type="button" className="mobile-cancelled-toggle" aria-pressed={showCancelled} onClick={() => setShowCancelled(value => !value)}>{showCancelled ? "Hide cancelled" : "Show cancelled"}</button>}</footer>
+      <footer className="calendar-footer"><span>{timeZone || "Device timezone"} · On this device</span><span>{view === "meetings" ? `${data.meetings.length} saved meeting${data.meetings.length === 1 ? "" : "s"}` : view === "day" ? `${events.length} meeting${events.length === 1 ? "" : "s"}` : "Click a date to get started"}</span><button type="button" onClick={downloadBackup} disabled={!loaded || loadFailed} className="min-h-9 rounded-md px-2 font-semibold text-[var(--cal-ink)] underline underline-offset-2 hover:bg-[var(--cal-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50">Download backup</button><input ref={importInputRef} type="file" accept=".json,application/json" aria-label="Choose schedule backup file" className="sr-only" tabIndex={-1} onChange={event => void chooseBackup(event)} /><button ref={importButtonRef} type="button" onClick={() => importInputRef.current?.click()} disabled={!loaded || loadFailed} className="min-h-9 rounded-md px-2 font-semibold text-[var(--cal-ink)] underline underline-offset-2 hover:bg-[var(--cal-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50">Restore backup</button>{view !== "meetings" && <button type="button" className="mobile-cancelled-toggle" aria-pressed={showCancelled} onClick={() => setShowCancelled(value => !value)}>{showCancelled ? "Hide cancelled" : "Show cancelled"}</button>}</footer>
     </div>
     {showEditor && <aside className="meeting-inspector" ref={editorRef} aria-label="Meeting details">
       <div className="inspector-heading"><h2>{editingId ? "Meeting details" : "New meeting"}</h2><button type="button" className="icon-button" aria-label="Close meeting details" onClick={() => { setShowEditor(false); setConfirmCancel(false); }}><Icon name="close" /></button></div>

@@ -193,6 +193,9 @@ Google Meet links.
 - Clearing the site's browser storage removes its local meeting data. Download a
   JSON backup from the calendar or meeting list before clearing browser data;
   the file contains meeting links, notes, and participant names, so keep it private.
+- Restore a backup from the calendar or meeting list to replace the local schedule
+  for the currently signed-in account. The file is validated and the replacement
+  requires confirmation; it does not sync with other browsers automatically.
 - The preview has no server backup or account sync.
 
 Supabase browser/server clients live in `src/utils/supabase/`. Next.js 16's

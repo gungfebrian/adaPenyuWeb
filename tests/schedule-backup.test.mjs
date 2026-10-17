@@ -15,7 +15,7 @@ runInNewContext(compiled, {
   JSON,
   Error,
 });
-const { createScheduleBackup, scheduleBackupFormat } = backupModule.exports;
+const { createScheduleBackup, parseScheduleBackup, scheduleBackupFormat } = backupModule.exports;
 
 test("exports a versioned, portable schedule without an account identifier", () => {
   const schedule = {
@@ -36,4 +36,21 @@ test("exports a versioned, portable schedule without an account identifier", () 
 
 test("refuses to export an invalid schedule", () => {
   assert.throws(() => createScheduleBackup({ ...emptySchedule, version: 99 }));
+});
+
+test("restores a valid backup and rejects unrelated or corrupted files", () => {
+  const exported = createScheduleBackup(emptySchedule, "2026-10-17T00:00:00.000Z");
+  assert.deepEqual(JSON.parse(JSON.stringify(parseScheduleBackup(exported))), emptySchedule);
+  assert.throws(() => parseScheduleBackup("not JSON"));
+  assert.throws(() => parseScheduleBackup(JSON.stringify({ format: "other", schedule: emptySchedule })));
+  assert.throws(() => parseScheduleBackup(JSON.stringify({ format: scheduleBackupFormat, schedule: { ...emptySchedule, version: 2 } })));
+  const unsafe = {
+    ...emptySchedule,
+    meetings: [{
+      id: "unsafe", title: "Unsafe link", participants: [{ id: "p1", name: "Ayu", title: "Dr." }],
+      startsAt: "2026-10-20T02:00:00.000Z", duration: 30, timeZone: "Asia/Makassar",
+      link: "javascript:alert(1)", notes: "", status: "scheduled",
+    }],
+  };
+  assert.throws(() => parseScheduleBackup(JSON.stringify({ format: scheduleBackupFormat, schedule: unsafe })));
 });

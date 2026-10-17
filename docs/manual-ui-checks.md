@@ -27,6 +27,10 @@ Use a test account and disposable meetings. Follow the [sign-in setup](../README
 - Try an overlapping meeting, then an adjacent slot. Check that only the overlap is rejected.
 - Edit, cancel, and delete a meeting. Check the most recent deletion's Undo action.
 - Sign out and back into the same account in the same browser; confirm its schedule returns.
+- Download a backup and verify that its JSON contains the saved meetings and participants.
+- Restore that backup in a disposable test account. Confirm that the preview lists the
+  replacement count, cancelling keeps current data, and confirming replaces it.
+- Try an unrelated or malformed JSON file; confirm the saved schedule stays intact.
 
 Check with a second test account when reviewing account isolation. Local meeting
 data is browser-specific, so another browser is not expected to contain the same schedule.
