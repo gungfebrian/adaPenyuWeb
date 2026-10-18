@@ -32,3 +32,20 @@ test("rejects corrupted account storage without replacing the original", () => {
   assert.throws(() => createScheduleStorage("user-a").load());
   assert.equal(saved.get("adapenyu-schedule-v1:user-a"), "corrupt");
 });
+
+test("an older tab cannot overwrite changes saved by another tab", () => {
+  const { createScheduleStorage, saved } = createStorageEnvironment();
+  const firstTab = createScheduleStorage("user-a");
+  const secondTab = createScheduleStorage("user-a");
+  firstTab.load();
+  secondTab.load();
+  const latest = { ...emptySchedule, participants: [{ id: "p1", name: "Ayu", title: "Dr." }] };
+  firstTab.save(latest);
+
+  assert.throws(() => secondTab.save(emptySchedule), { name: "ScheduleConflictError" });
+  assert.deepEqual(JSON.parse(saved.get("adapenyu-schedule-v1:user-a")), latest);
+
+  secondTab.load();
+  secondTab.save({ ...latest, participants: [...latest.participants, { id: "p2", name: "Budi", title: "Friend" }] });
+  assert.equal(firstTab.load().participants.length, 2);
+});

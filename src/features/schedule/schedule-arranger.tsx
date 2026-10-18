@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { emptySchedule, hasMeetingConflict, isSafeMeetingLink, participantLabel, type Meeting, type Participant, type ScheduleData } from "./model";
-import { createScheduleStorage } from "./storage";
+import { createScheduleStorage, ScheduleConflictError } from "./storage";
 import { createScheduleBackup, parseScheduleBackup } from "./backup";
 import { dateFromKey, dayMeetings, localDate, meetingPosition } from "./calendar";
 import { MonthCalendar } from "./month-calendar";
@@ -92,7 +92,17 @@ export function ScheduleArranger({ userId, initialView = "month" }: { userId: st
 
   function persist(next: ScheduleData, success: string) {
     try { storage.save(next); setData(next); setPendingImport(null); setMessage(success); setError(""); return true; }
-    catch { setError("Changes couldn’t be saved. Allow browser storage, then try again."); setMessage(""); return false; }
+    catch (cause) {
+      if (cause instanceof ScheduleConflictError) {
+        setLoadFailed(true);
+        setPendingImport(null);
+        setError("This calendar changed in another tab. Reload before editing so your changes do not overwrite it.");
+      } else {
+        setError("Changes couldn’t be saved. Allow browser storage, then try again.");
+      }
+      setMessage("");
+      return false;
+    }
   }
   function downloadBackup() {
     try {
