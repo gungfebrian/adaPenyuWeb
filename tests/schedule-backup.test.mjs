@@ -54,3 +54,23 @@ test("restores a valid backup and rejects unrelated or corrupted files", () => {
   };
   assert.throws(() => parseScheduleBackup(JSON.stringify({ format: scheduleBackupFormat, schedule: unsafe })));
 });
+
+test("rejects duplicate or disconnected records before replacing the local schedule", () => {
+  const person = { id: "p1", name: "Ayu", title: "Dr." };
+  const meeting = {
+    id: "m1", title: "Field review", participants: [person],
+    startsAt: "2026-10-20T02:00:00.000Z", duration: 30, timeZone: "Asia/Makassar",
+    link: "https://meet.example.com/field", notes: "", status: "scheduled",
+  };
+  const invalidSchedules = [
+    { ...emptySchedule, participants: [person, person], meetings: [meeting] },
+    { ...emptySchedule, participants: [person], meetings: [meeting, meeting] },
+    { ...emptySchedule, participants: [person], meetings: [{ ...meeting, participants: [person, person] }] },
+    { ...emptySchedule, participants: [], meetings: [meeting] },
+    { ...emptySchedule, participants: [{ ...person, id: " " }], meetings: [] },
+  ];
+  for (const schedule of invalidSchedules) {
+    assert.throws(() => parseScheduleBackup(JSON.stringify({ format: scheduleBackupFormat, schedule })));
+    assert.throws(() => createScheduleBackup(schedule));
+  }
+});

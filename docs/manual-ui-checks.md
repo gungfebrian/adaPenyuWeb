@@ -31,6 +31,10 @@ Use a test account and disposable meetings. Follow the [sign-in setup](../README
 - Restore that backup in a disposable test account. Confirm that the preview lists the
   replacement count, cancelling keeps current data, and confirming replaces it.
 - Try an unrelated or malformed JSON file; confirm the saved schedule stays intact.
+- Try a backup with duplicate meeting IDs or a meeting participant missing from the
+  participant list; confirm restore is rejected and the saved schedule stays intact.
+- Open the same schedule in two tabs. Save a change in one, then try to save stale
+  changes in the other; confirm the second tab asks for a reload and keeps the first change.
 
 Check with a second test account when reviewing account isolation. Local meeting
 data is browser-specific, so another browser is not expected to contain the same schedule.
