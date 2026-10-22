@@ -38,3 +38,20 @@ Use a test account and disposable meetings. Follow the [sign-in setup](../README
 
 Check with a second test account when reviewing account isolation. Local meeting
 data is browser-specific, so another browser is not expected to contain the same schedule.
+
+## Account email actions and iOS Universal Links
+
+- Request `/.well-known/apple-app-site-association` and verify it returns HTTP `200`,
+  `Content-Type: application/json`, no redirect, and matches only `/account/reset-password`,
+  `/account/accept-invitation`, and `/account/confirm-email`.
+- Open `/account/reset-password?token=synthetic_test_token`, `/account/accept-invitation?token=synthetic_test_token`,
+  and `/account/confirm-email?token=synthetic_test_token`. Verify that `?token=...` is
+  immediately removed from the browser address bar and that no network request is sent
+  until the submit button is pressed.
+- Open `/account/reset-password` without a token or with duplicate `?token=a&token=b`
+  parameters; confirm the form is disabled and displays recovery guidance.
+- While signed in, open `/account/confirm-email?token=synthetic_test_token`; confirm
+  the page asks for explicit confirmation before leaving the active session.
+- On a physical iOS device with a signed build (`applinks:www.adapenyu.com`), tap each of
+  the three `https://www.adapenyu.com/account/*?token=...` links from Mail or Notes to
+  verify Universal Link routing into the AdaPenyu app.

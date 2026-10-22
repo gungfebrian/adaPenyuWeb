@@ -130,7 +130,11 @@ changing these values so the browser bundle receives the updated configuration.
 | Route | Purpose | Current access / state |
 | --- | --- | --- |
 | `/` | Ocean story and prototype presentation | Public |
-| `/login` | Google sign-in | Signed-in visitors return to the calendar |
+| `/login` | Google sign-in and post-action sign-in notices | Signed-in visitors return to the calendar |
+| `/account/reset-password` | Account password reset email-action fallback | Public; requires one-time email token |
+| `/account/accept-invitation` | Ranger invitation & owner setup email-action fallback | Public; requires one-time email token |
+| `/account/confirm-email` | Account email confirmation fallback | Public; requires one-time email token |
+| `/.well-known/apple-app-site-association` | iOS Universal Links association manifest | Public JSON (`200 OK`, no extension) |
 | `/schedule` | Calendar and meeting editor | Verified sign-in required |
 | `/meetings` | Searchable meeting list | Verified sign-in required |
 | `/identify` | Photo identification preview | Upload and matching are not connected |
@@ -142,6 +146,25 @@ integration. The API currently returns `501`; the contact form opens an email dr
 in the visitor's email app and offers optional local draft storage with a delete action.
 The marketing page does not publish an accuracy figure until the model has a
 documented, independently reproducible evaluation.
+
+### Account email actions and iOS Universal Links
+
+The website hosts the iOS Universal Links association file at
+`https://www.adapenyu.com/.well-known/apple-app-site-association` (`HTTP 200`,
+`Content-Type: application/json`, no filename extension, no redirects) for
+`7Y44BM6QU8.com.ADA.ADA-Penyu` and `35SGY39Y8Z.com.ADA.ADA-Penyu`, restricted to:
+
+- `/account/reset-password` → `POST /api/v1/auth/reset-password`
+- `/account/accept-invitation` → `POST /api/v1/auth/invitations/accept`
+- `/account/confirm-email` → `POST /api/v1/auth/confirm-email`
+
+Set `NEXT_PUBLIC_API_BASE_URL` in each web environment (kept separate from
+`https://www.adapenyu.com`) and `AUTH_ACTION_BASE_URL=https://www.adapenyu.com/account`
+on the backend API. Each `/account/*` page reads `?token=...` into memory, scrubs it
+immediately from the browser URL via `history.replaceState`, serves `Cache-Control: no-store`
+and `Referrer-Policy: no-referrer`, requires explicit submission without bearer
+credentials, prompts before leaving an active signed-in session, and directs users
+to sign in after `204 No Content` without automatic authentication.
 
 Maintained by [Gung](https://github.com/gungfebrian).
 

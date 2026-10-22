@@ -4,6 +4,7 @@ Use this map to find the regression checks relevant to a scheduler or session ch
 
 | Test file | Checks |
 | --- | --- |
+| `tests/account-actions.test.mjs` | Universal Link validation, single-token constraints, cold-start/foreground/session-restoration coordinator & deduplication, signed-in session confirmation, untrimmed password policy, public API calls without bearer credentials, `204`/`400`/`409`/`422`/network handling, duplicate-submit prevention, URL token scrubbing, log redaction, and AASA response |
 | `tests/calendar.test.mjs` | Six-week month grids, local date round trips, overnight meetings, end boundaries, and cancellations |
 | `tests/schedule.test.mjs` | HTTPS meeting links, overlaps, editing, cancellation, restored data validation, and participant labels |
 | `tests/schedule-storage.test.mjs` | Account-specific storage, retained anonymous preview data, and rejection of corrupt saved data |
