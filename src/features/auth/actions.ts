@@ -8,3 +8,13 @@ export async function signOut() {
   const { error } = await supabase.auth.signOut({ scope: "local" });
   redirect(error ? "/login?error=signout" : "/login");
 }
+
+export async function leaveCurrentSessionForAccountAction(): Promise<{ ok: boolean }> {
+  try {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.signOut({ scope: "local" });
+    return { ok: !error };
+  } catch {
+    return { ok: true };
+  }
+}
