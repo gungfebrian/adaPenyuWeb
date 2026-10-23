@@ -1,0 +1,5559 @@
+[
+  {
+    "id": "green-adelotte",
+    "name": "Adelotte",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Adelotte/2021/Adelotte_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-10-06",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Adelotte/2021/Adelotte_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "247",
+              "315",
+              "326",
+              "337",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Adelotte/2021/Adelotte_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "236",
+              "246",
+              "315",
+              "325",
+              "337",
+              "415"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-03-19",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Adelotte/2019/Adelotte_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "144",
+              "215",
+              "226",
+              "235",
+              "246",
+              "256",
+              "314",
+              "326",
+              "336",
+              "345",
+              "355",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Adelotte/2019/Adelotte_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "214",
+              "225",
+              "235",
+              "246",
+              "315",
+              "325",
+              "335",
+              "414"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-baguette",
+    "name": "Baguette",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Baguette/2019/Baguette_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-09-29",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Baguette/2019/Baguette_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "327",
+              "337",
+              "414",
+              "425",
+              "434",
+              "444"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Baguette/2019/Baguette_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "214",
+              "225",
+              "234",
+              "246",
+              "256",
+              "314",
+              "327",
+              "336",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-03-26",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Baguette/2017/Baguette_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "327",
+              "337",
+              "414",
+              "425",
+              "434",
+              "444"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Baguette/2017/Baguette_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "234",
+              "246",
+              "256",
+              "314",
+              "327",
+              "337",
+              "415",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-benjamin",
+    "name": "Benjamin",
+    "species": "Green",
+    "firstYear": 2009,
+    "lastYear": 2012,
+    "primaryPhoto": "/turtles/Green/Benjamin/2012/Benjamin_2012_L.webp",
+    "sightings": [
+      {
+        "date": "2012-08-12",
+        "year": 2012,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Benjamin/2012/Benjamin_2012_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "215",
+              "224",
+              "235",
+              "245",
+              "256",
+              "266",
+              "314",
+              "326",
+              "336",
+              "345",
+              "355",
+              "366",
+              "414",
+              "427",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Benjamin/2012/Benjamin_2012_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "215",
+              "224",
+              "234",
+              "245",
+              "257",
+              "266",
+              "314",
+              "325",
+              "335",
+              "344",
+              "356",
+              "364",
+              "375",
+              "416",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2009-07-04",
+        "year": 2009,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Benjamin/2009/Benjamin_2009_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "214",
+              "225",
+              "235",
+              "245",
+              "256",
+              "315",
+              "325",
+              "335",
+              "345",
+              "356",
+              "416",
+              "424",
+              "514"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Benjamin/2009/Benjamin_2009_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "145",
+              "215",
+              "226",
+              "234",
+              "246",
+              "257",
+              "314",
+              "325",
+              "335",
+              "344",
+              "357",
+              "366",
+              "416",
+              "423",
+              "435"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-calvin",
+    "name": "Calvin",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Calvin/2021/Calvin_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-05-11",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Calvin/2021/Calvin_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "216",
+              "226",
+              "236",
+              "245",
+              "315",
+              "324",
+              "336",
+              "345",
+              "357",
+              "414",
+              "426",
+              "435"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Calvin/2021/Calvin_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "315",
+              "324",
+              "335",
+              "347",
+              "416",
+              "425",
+              "434"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-05-29",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Calvin/2014/Calvin_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "216",
+              "226",
+              "236",
+              "245",
+              "315",
+              "324",
+              "336",
+              "345",
+              "357",
+              "414",
+              "426",
+              "435",
+              "444"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Calvin/2014/Calvin_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "324",
+              "335",
+              "347",
+              "356",
+              "416",
+              "424",
+              "434"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-caroline",
+    "name": "Caroline",
+    "species": "Green",
+    "firstYear": 2021,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Caroline/2024/Caroline_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-03-24",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Caroline/2024/Caroline_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "227",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "345",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Caroline/2024/Caroline_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "236",
+              "246",
+              "315",
+              "325",
+              "336",
+              "414"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2021-03-14",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Caroline/2021/Caroline_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "227",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "345",
+              "356",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Caroline/2021/Caroline_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "236",
+              "246",
+              "315",
+              "325",
+              "336",
+              "345"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-chewie",
+    "name": "Chewie",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Chewie/2019/Chewie_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-04-23",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Chewie/2019/Chewie_2019_L.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "124",
+              "136",
+              "144",
+              "155",
+              "214",
+              "226",
+              "235",
+              "249",
+              "315",
+              "325",
+              "335",
+              "345",
+              "355",
+              "416",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Chewie/2019/Chewie_2019_R.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "154",
+              "215",
+              "225",
+              "235",
+              "248",
+              "314",
+              "325",
+              "335",
+              "345",
+              "355",
+              "415"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-05-03",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Chewie/2014/Chewie_2014_L.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "144",
+              "155",
+              "215",
+              "226",
+              "235",
+              "249",
+              "315",
+              "325",
+              "335",
+              "345",
+              "417",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Chewie/2014/Chewie_2014_R.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "154",
+              "216",
+              "225",
+              "235",
+              "248",
+              "314",
+              "326",
+              "335",
+              "346",
+              "415"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-cleo",
+    "name": "Cleo",
+    "species": "Green",
+    "firstYear": 2011,
+    "lastYear": 2017,
+    "primaryPhoto": "/turtles/Green/Cleo/2017/Cleo_2017_L.webp",
+    "sightings": [
+      {
+        "date": "2017-10-10",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Cleo/2017/Cleo_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "134",
+              "146",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "325",
+              "336",
+              "344",
+              "354",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Cleo/2017/Cleo_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "324",
+              "335",
+              "345",
+              "355",
+              "366",
+              "416",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2011-07-17",
+        "year": 2011,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Cleo/2011/Cleo_2011_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "134",
+              "146",
+              "216",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "325",
+              "336",
+              "344",
+              "354",
+              "365",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Cleo/2011/Cleo_2011_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "324",
+              "335",
+              "345",
+              "354",
+              "364",
+              "375",
+              "416"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-daphne",
+    "name": "Daphne",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Daphne/2021/Daphne_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-02-26",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Daphne/2021/Daphne_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "214",
+              "225",
+              "237",
+              "246",
+              "255",
+              "316",
+              "325",
+              "334",
+              "345",
+              "357",
+              "415",
+              "428",
+              "434",
+              "445",
+              "514"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Daphne/2021/Daphne_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "214",
+              "226",
+              "235",
+              "246",
+              "255",
+              "315",
+              "326",
+              "335",
+              "347",
+              "356",
+              "414",
+              "426",
+              "434",
+              "445",
+              "455"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-04-16",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Daphne/2017/Daphne_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "214",
+              "226",
+              "236",
+              "246",
+              "255",
+              "267",
+              "315",
+              "326",
+              "334",
+              "345",
+              "357",
+              "367",
+              "414",
+              "427",
+              "434",
+              "445"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Daphne/2017/Daphne_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "214",
+              "226",
+              "235",
+              "246",
+              "255",
+              "267",
+              "315",
+              "326",
+              "335",
+              "347",
+              "356",
+              "414",
+              "426",
+              "434",
+              "444"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-dils",
+    "name": "Dils",
+    "species": "Green",
+    "firstYear": 2008,
+    "lastYear": 2014,
+    "primaryPhoto": "/turtles/Green/Dils/2014/Dils_2014_L.webp",
+    "sightings": [
+      {
+        "date": "2014-03-21",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Dils/2014/Dils_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "336",
+              "346",
+              "414",
+              "424",
+              "435"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Dils/2014/Dils_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "246",
+              "314",
+              "325",
+              "334",
+              "345",
+              "414"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2008-08-09",
+        "year": 2008,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Dils/2008/Dils_2008_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "326",
+              "336",
+              "346",
+              "355",
+              "414",
+              "424",
+              "435"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Dils/2008/Dils_2008_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "246",
+              "256",
+              "314",
+              "325",
+              "334",
+              "345",
+              "355",
+              "415"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-enzo",
+    "name": "Enzo",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Enzo/2019/Enzo_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-08-04",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Enzo/2019/Enzo_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "213",
+              "224",
+              "235",
+              "245",
+              "256",
+              "314",
+              "325",
+              "335",
+              "415",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Enzo/2019/Enzo_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "246",
+              "314",
+              "325",
+              "335",
+              "345",
+              "414",
+              "426",
+              "434"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-07-07",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Enzo/2017/Enzo_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "227",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "346"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Enzo/2017/Enzo_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "346",
+              "414",
+              "426"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-eynard-loisy",
+    "name": "Eynard-Loisy",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Eynard-Loisy/2023/Eynard-Loisy_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-03-08",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Eynard-Loisy/2023/Eynard-Loisy_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "237",
+              "245",
+              "315",
+              "325",
+              "337",
+              "345",
+              "415",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Eynard-Loisy/2023/Eynard-Loisy_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "214",
+              "226",
+              "235",
+              "247",
+              "254",
+              "315",
+              "326",
+              "336",
+              "415",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-03-27",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Eynard-Loisy/2014/Eynard-Loisy_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "245",
+              "256",
+              "314",
+              "325",
+              "336",
+              "345",
+              "356",
+              "413"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Eynard-Loisy/2014/Eynard-Loisy_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "235",
+              "245",
+              "254",
+              "266",
+              "315",
+              "326",
+              "335",
+              "345",
+              "415"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-idefix",
+    "name": "Idefix",
+    "species": "Green",
+    "firstYear": 2020,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Idefix/2024/Idefix_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-06-03",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Idefix/2024/Idefix_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "214",
+              "227",
+              "237",
+              "245",
+              "315",
+              "324",
+              "336",
+              "346",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Idefix/2024/Idefix_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "214",
+              "227",
+              "238",
+              "245",
+              "315",
+              "325",
+              "334",
+              "347",
+              "356",
+              "415",
+              "425",
+              "434"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2020-12-16",
+        "year": 2020,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Idefix/2020/Idefix_2020_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "214",
+              "227",
+              "237",
+              "245",
+              "315",
+              "324",
+              "336",
+              "346",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Idefix/2020/Idefix_2020_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "214",
+              "227",
+              "238",
+              "245",
+              "315",
+              "325",
+              "334",
+              "347",
+              "356",
+              "415",
+              "425",
+              "434"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-ipanema",
+    "name": "Ipanema",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Ipanema/2023/Ipanema_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-05-27",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ipanema/2023/Ipanema_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "134",
+              "146",
+              "215",
+              "225",
+              "235",
+              "247",
+              "255",
+              "314",
+              "326",
+              "335",
+              "346",
+              "416",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ipanema/2023/Ipanema_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "226",
+              "237",
+              "245",
+              "314",
+              "326",
+              "335",
+              "347",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-09-20",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ipanema/2019/Ipanema_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "214",
+              "224",
+              "234",
+              "245",
+              "255",
+              "315",
+              "324",
+              "336",
+              "346",
+              "415",
+              "424",
+              "433"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ipanema/2019/Ipanema_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "146",
+              "215",
+              "225",
+              "237",
+              "245",
+              "314",
+              "326",
+              "335",
+              "347",
+              "414",
+              "426",
+              "434",
+              "444"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-jennifer",
+    "name": "Jennifer",
+    "species": "Green",
+    "firstYear": 2021,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Jennifer/2023/Jennifer_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-09-29",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Jennifer/2023/Jennifer_2023_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "216",
+              "225",
+              "237",
+              "245",
+              "256",
+              "314",
+              "327",
+              "334",
+              "344",
+              "356",
+              "366",
+              "414",
+              "428"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Jennifer/2023/Jennifer_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "214",
+              "225",
+              "236",
+              "245",
+              "256",
+              "316",
+              "325",
+              "337",
+              "345",
+              "414",
+              "425",
+              "435"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2021-03-14",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Jennifer/2021/Jennifer_2021_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "216",
+              "225",
+              "237",
+              "245",
+              "256",
+              "314",
+              "327",
+              "334",
+              "343",
+              "356",
+              "366",
+              "414",
+              "427",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Jennifer/2021/Jennifer_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "136",
+              "144",
+              "215",
+              "225",
+              "235",
+              "245",
+              "256",
+              "267",
+              "314",
+              "326",
+              "335",
+              "347",
+              "355",
+              "365",
+              "415",
+              "425",
+              "436",
+              "445",
+              "456"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-julien",
+    "name": "Julien",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Julien/2021/Julien_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-09-23",
+        "year": 2021,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Julien/2021/Julien_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "247",
+              "257",
+              "314",
+              "327",
+              "335",
+              "347",
+              "353",
+              "414",
+              "426",
+              "435"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Julien/2021/Julien_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "134",
+              "146",
+              "215",
+              "225",
+              "234",
+              "247",
+              "255",
+              "316",
+              "324",
+              "337",
+              "415",
+              "425",
+              "435",
+              "444"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-05-22",
+        "year": 2017,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Julien/2017/Julien_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "247",
+              "253",
+              "267",
+              "314",
+              "327",
+              "335",
+              "347",
+              "414",
+              "426",
+              "435"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Julien/2017/Julien_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "216",
+              "225",
+              "234",
+              "246",
+              "254",
+              "314",
+              "327",
+              "337",
+              "344",
+              "356",
+              "414",
+              "424",
+              "436",
+              "445",
+              "455"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-kachuva",
+    "name": "Kachuva",
+    "species": "Green",
+    "firstYear": 2022,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Kachuva/2024/Kachuva_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-02-15",
+        "year": 2024,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Kachuva/2024/Kachuva_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "216",
+              "227",
+              "236",
+              "314",
+              "326",
+              "334",
+              "345",
+              "414",
+              "425"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Kachuva/2024/Kachuva_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "247",
+              "314",
+              "325",
+              "335",
+              "346"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2022-10-10",
+        "year": 2022,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Kachuva/2022/Kachuva_2022_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "216",
+              "227",
+              "235",
+              "314",
+              "325",
+              "334",
+              "345",
+              "416"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Kachuva/2022/Kachuva_2022_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "247",
+              "314",
+              "325",
+              "335",
+              "346"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-karine",
+    "name": "Karine",
+    "species": "Green",
+    "firstYear": 2009,
+    "lastYear": 2011,
+    "primaryPhoto": "/turtles/Green/Karine/2011/Karine_2011_L.webp",
+    "sightings": [
+      {
+        "date": "2011-11-18",
+        "year": 2011,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Karine/2011/Karine_2011_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "215",
+              "224",
+              "238",
+              "246",
+              "314",
+              "326",
+              "335",
+              "344",
+              "355",
+              "414"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Karine/2011/Karine_2011_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "215",
+              "224",
+              "236",
+              "246",
+              "314",
+              "326",
+              "334",
+              "344",
+              "354",
+              "414",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2009-01-10",
+        "year": 2009,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Karine/2009/Karine_2009_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "215",
+              "224",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "344",
+              "356",
+              "414"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Karine/2009/Karine_2009_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "344",
+              "354",
+              "414",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-katia",
+    "name": "Katia",
+    "species": "Green",
+    "firstYear": 2021,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Katia/2024/Katia_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-02-08",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Katia/2024/Katia_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "248",
+              "314",
+              "326",
+              "336",
+              "347",
+              "354",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Katia/2024/Katia_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "214",
+              "226",
+              "238",
+              "315",
+              "326",
+              "334",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2021-09-06",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Katia/2021/Katia_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "248",
+              "314",
+              "326",
+              "336",
+              "347",
+              "354",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Katia/2021/Katia_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "214",
+              "226",
+              "238",
+              "315",
+              "326",
+              "334",
+              "414",
+              "426"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-kiki-gloria",
+    "name": "Kiki-Gloria",
+    "species": "Green",
+    "firstYear": 2009,
+    "lastYear": 2013,
+    "primaryPhoto": "/turtles/Green/Kiki-Gloria/2013/Kiki-Gloria_2013_L.webp",
+    "sightings": [
+      {
+        "date": "2013-01-16",
+        "year": 2013,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Kiki-Gloria/2013/Kiki-Gloria_2013_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "215",
+              "226",
+              "237",
+              "246",
+              "315",
+              "325",
+              "336",
+              "344",
+              "356",
+              "365",
+              "414",
+              "424"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Kiki-Gloria/2013/Kiki-Gloria_2013_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "214",
+              "225",
+              "236",
+              "246",
+              "256",
+              "316",
+              "325",
+              "335",
+              "346",
+              "414",
+              "423",
+              "434",
+              "445"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2009-09-03",
+        "year": 2009,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Kiki-Gloria/2009/Kiki-Gloria_2009_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "144",
+              "215",
+              "226",
+              "236",
+              "247",
+              "315",
+              "325",
+              "337",
+              "344",
+              "356",
+              "414",
+              "424"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Kiki-Gloria/2009/Kiki-Gloria_2009_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "336",
+              "345",
+              "356",
+              "414",
+              "425",
+              "435"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-leia-rose",
+    "name": "Leia-Rose",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Leia-Rose/2021/Leia-Rose_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-06-06",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leia-Rose/2021/Leia-Rose_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "145",
+              "214",
+              "227",
+              "235",
+              "245",
+              "256",
+              "315",
+              "324",
+              "336",
+              "347",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leia-Rose/2021/Leia-Rose_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "247",
+              "314",
+              "325",
+              "336",
+              "345",
+              "416"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-08-02",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leia-Rose/2019/Leia-Rose_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "145",
+              "214",
+              "227",
+              "235",
+              "245",
+              "256",
+              "315",
+              "324",
+              "336",
+              "346",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leia-Rose/2019/Leia-Rose_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "247",
+              "314",
+              "325",
+              "336",
+              "345",
+              "416"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-leo",
+    "name": "Leo",
+    "species": "Green",
+    "firstYear": 2008,
+    "lastYear": 2013,
+    "primaryPhoto": "/turtles/Green/Leo/2013/Leo_2013_L.webp",
+    "sightings": [
+      {
+        "date": "2013-03-01",
+        "year": 2013,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leo/2013/Leo_2013_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "144",
+              "216",
+              "225",
+              "235",
+              "248",
+              "255",
+              "314",
+              "326",
+              "335",
+              "347",
+              "414",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leo/2013/Leo_2013_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "144",
+              "216",
+              "225",
+              "235",
+              "246",
+              "255",
+              "314",
+              "326",
+              "336",
+              "345",
+              "356",
+              "414",
+              "425"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2008-06-15",
+        "year": 2008,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leo/2008/Leo_2008_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "226",
+              "235",
+              "245",
+              "257",
+              "314",
+              "326",
+              "335",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leo/2008/Leo_2008_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "144",
+              "215",
+              "225",
+              "235",
+              "246",
+              "255",
+              "315",
+              "326",
+              "335",
+              "346",
+              "414"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-leonard",
+    "name": "Leonard",
+    "species": "Green",
+    "firstYear": 2018,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Leonard/2023/Leonard_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-09-02",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leonard/2023/Leonard_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "214",
+              "229",
+              "234",
+              "247",
+              "255",
+              "314",
+              "325",
+              "334",
+              "345",
+              "356",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leonard/2023/Leonard_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "214",
+              "228",
+              "237",
+              "245",
+              "255",
+              "314",
+              "325",
+              "335",
+              "344",
+              "355",
+              "367",
+              "416"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2018-11-18",
+        "year": 2018,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Leonard/2018/Leonard_2018_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "214",
+              "228",
+              "234",
+              "247",
+              "255",
+              "314",
+              "324",
+              "334",
+              "345",
+              "356",
+              "415",
+              "424"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Leonard/2018/Leonard_2018_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "214",
+              "227",
+              "236",
+              "245",
+              "255",
+              "314",
+              "324",
+              "335",
+              "344",
+              "355",
+              "366",
+              "416",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-liloti",
+    "name": "Liloti",
+    "species": "Green",
+    "firstYear": 2021,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Liloti/2024/Liloti_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-03-11",
+        "year": 2024,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Liloti/2024/Liloti_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "244",
+              "258",
+              "314",
+              "327",
+              "335",
+              "345",
+              "414",
+              "426"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Liloti/2024/Liloti_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "244",
+              "258",
+              "314",
+              "327",
+              "335",
+              "345",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2021-06-06",
+        "year": 2021,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Liloti/2021/Liloti_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "244",
+              "258",
+              "315",
+              "327",
+              "335",
+              "345",
+              "414",
+              "424",
+              "437",
+              "445"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Liloti/2021/Liloti_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "134",
+              "145",
+              "216",
+              "225",
+              "235",
+              "248",
+              "314",
+              "326",
+              "336",
+              "345",
+              "355",
+              "414",
+              "424",
+              "437",
+              "445"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-louisiane",
+    "name": "Louisiane",
+    "species": "Green",
+    "firstYear": 2011,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Louisiane/2023/Louisiane_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-08-16",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Louisiane/2023/Louisiane_2023_L.webp",
+            "po": 3,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "216",
+              "224",
+              "236",
+              "245",
+              "314",
+              "327",
+              "336",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Louisiane/2023/Louisiane_2023_R.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "214",
+              "225",
+              "236",
+              "245",
+              "316",
+              "326",
+              "414",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2011-07-29",
+        "year": 2011,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Louisiane/2011/Louisiane_2011_L.webp",
+            "po": 3,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "216",
+              "224",
+              "236",
+              "245",
+              "314",
+              "327",
+              "336",
+              "414",
+              "425",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Louisiane/2011/Louisiane_2011_R.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "214",
+              "225",
+              "236",
+              "245",
+              "316",
+              "326",
+              "414",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-marlou",
+    "name": "Marlou",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Marlou/2019/Marlou_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-03-02",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Marlou/2019/Marlou_2019_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "216",
+              "226",
+              "238",
+              "247",
+              "254",
+              "314",
+              "327",
+              "335",
+              "345",
+              "355",
+              "366",
+              "373",
+              "414",
+              "424",
+              "437",
+              "445",
+              "513",
+              "526"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Marlou/2019/Marlou_2019_R.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "215",
+              "225",
+              "236",
+              "246",
+              "256",
+              "315",
+              "326",
+              "335",
+              "346",
+              "354",
+              "365",
+              "377",
+              "414",
+              "426",
+              "437",
+              "514"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-08-19",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Marlou/2017/Marlou_2017_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "216",
+              "226",
+              "238",
+              "314",
+              "327",
+              "335",
+              "345",
+              "355",
+              "366",
+              "373",
+              "414",
+              "424",
+              "436",
+              "445"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Marlou/2017/Marlou_2017_R.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "215",
+              "225",
+              "236",
+              "246",
+              "256",
+              "315",
+              "326",
+              "334",
+              "346",
+              "354",
+              "365",
+              "414",
+              "425",
+              "438",
+              "514"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-may-lee",
+    "name": "May-Lee",
+    "species": "Green",
+    "firstYear": 2012,
+    "lastYear": 2016,
+    "primaryPhoto": "/turtles/Green/May-Lee/2016/May-Lee_2016_L.webp",
+    "sightings": [
+      {
+        "date": "2016-08-17",
+        "year": 2016,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/May-Lee/2016/May-Lee_2016_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "325",
+              "336",
+              "345",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/May-Lee/2016/May-Lee_2016_R.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "235",
+              "247",
+              "315",
+              "326",
+              "335",
+              "415",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2012-11-25",
+        "year": 2012,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/May-Lee/2012/May-Lee_2012_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "325",
+              "336",
+              "345",
+              "357",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/May-Lee/2012/May-Lee_2012_R.webp",
+            "po": 5,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "235",
+              "247",
+              "256",
+              "315",
+              "326",
+              "335",
+              "346",
+              "415",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-miniedith",
+    "name": "MiniEdith",
+    "species": "Green",
+    "firstYear": 2021,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/MiniEdith/2023/MiniEdith_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-10-09",
+        "year": 2023,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/MiniEdith/2023/MiniEdith_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "314",
+              "326",
+              "336",
+              "346",
+              "414",
+              "426",
+              "434"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/MiniEdith/2023/MiniEdith_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "247",
+              "315",
+              "326",
+              "335",
+              "416"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2021-09-11",
+        "year": 2021,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/MiniEdith/2021/MiniEdith_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "346",
+              "414",
+              "426",
+              "433"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/MiniEdith/2021/MiniEdith_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "247",
+              "314",
+              "326",
+              "336",
+              "345",
+              "414",
+              "426"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-modestie",
+    "name": "Modestie",
+    "species": "Green",
+    "firstYear": 2016,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Modestie/2024/Modestie_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-03-14",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Modestie/2024/Modestie_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "235",
+              "247",
+              "315",
+              "327",
+              "337",
+              "414",
+              "426"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Modestie/2024/Modestie_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "127",
+              "135",
+              "145",
+              "215",
+              "224",
+              "235",
+              "246",
+              "256",
+              "316",
+              "325",
+              "335",
+              "416"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2016-12-02",
+        "year": 2016,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Modestie/2016/Modestie_2016_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "235",
+              "247",
+              "314",
+              "327",
+              "337",
+              "347",
+              "414",
+              "427",
+              "433",
+              "443"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Modestie/2016/Modestie_2016_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "127",
+              "134",
+              "146",
+              "215",
+              "224",
+              "235",
+              "247",
+              "255",
+              "316",
+              "325",
+              "335",
+              "416"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-myriam",
+    "name": "Myriam",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Myriam/2023/Myriam_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-07-23",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Myriam/2023/Myriam_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "146",
+              "214",
+              "225",
+              "237",
+              "245",
+              "257",
+              "315",
+              "325",
+              "334",
+              "346",
+              "355"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Myriam/2023/Myriam_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "134",
+              "146",
+              "214",
+              "225",
+              "237",
+              "246",
+              "256",
+              "315",
+              "325",
+              "334",
+              "347",
+              "355"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-04-04",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Myriam/2017/Myriam_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "146",
+              "214",
+              "225",
+              "237",
+              "245",
+              "257",
+              "264",
+              "315",
+              "325",
+              "334",
+              "346",
+              "355",
+              "365",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Myriam/2017/Myriam_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "116",
+              "124",
+              "135",
+              "146",
+              "214",
+              "225",
+              "235",
+              "246",
+              "256",
+              "315",
+              "326",
+              "337",
+              "345",
+              "415",
+              "424",
+              "436",
+              "444",
+              "455"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-nadejda",
+    "name": "Nadejda",
+    "species": "Green",
+    "firstYear": 2017,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Nadejda/2021/Nadejda_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-11-10",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Nadejda/2021/Nadejda_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "256",
+              "314",
+              "327",
+              "334",
+              "345",
+              "356",
+              "414",
+              "427",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Nadejda/2021/Nadejda_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "246",
+              "257",
+              "314",
+              "326",
+              "336",
+              "345",
+              "356",
+              "363",
+              "414",
+              "424",
+              "437",
+              "444"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2017-04-05",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Nadejda/2017/Nadejda_2017_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "214",
+              "225",
+              "236",
+              "246",
+              "256",
+              "316",
+              "324",
+              "335",
+              "346",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Nadejda/2017/Nadejda_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "247",
+              "257",
+              "314",
+              "326",
+              "335",
+              "347",
+              "353",
+              "416",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-naoki",
+    "name": "Naoki",
+    "species": "Green",
+    "firstYear": 2016,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Naoki/2019/Naoki_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-01-31",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Naoki/2019/Naoki_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "227",
+              "235",
+              "246",
+              "315",
+              "324",
+              "335",
+              "346",
+              "355",
+              "366",
+              "416",
+              "423",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Naoki/2019/Naoki_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "144",
+              "216",
+              "225",
+              "235",
+              "246",
+              "255",
+              "314",
+              "327",
+              "334",
+              "346",
+              "355",
+              "366",
+              "376",
+              "414",
+              "424",
+              "438",
+              "444"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2016-03-22",
+        "year": 2016,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Naoki/2016/Naoki_2016_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "144",
+              "215",
+              "227",
+              "235",
+              "246",
+              "315",
+              "324",
+              "335",
+              "347",
+              "355",
+              "416",
+              "423",
+              "435"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Naoki/2016/Naoki_2016_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "137",
+              "144",
+              "215",
+              "226",
+              "235",
+              "246",
+              "255",
+              "315",
+              "325",
+              "336",
+              "346",
+              "356",
+              "418",
+              "425"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-nathanael",
+    "name": "Nathanael",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Nathanael/2024/Nathanael_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-02-08",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Nathanael/2024/Nathanael_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "215",
+              "225",
+              "235",
+              "247",
+              "254",
+              "314",
+              "327",
+              "335",
+              "414"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Nathanael/2024/Nathanael_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "315",
+              "326",
+              "335",
+              "345",
+              "414",
+              "424",
+              "436"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-05-12",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Nathanael/2019/Nathanael_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "146",
+              "215",
+              "225",
+              "235",
+              "247",
+              "254",
+              "314",
+              "327",
+              "335",
+              "414"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Nathanael/2019/Nathanael_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "134",
+              "145",
+              "215",
+              "226",
+              "236",
+              "245",
+              "314",
+              "325",
+              "336",
+              "345",
+              "414",
+              "425"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-newt",
+    "name": "Newt",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2018,
+    "primaryPhoto": "/turtles/Green/Newt/2018/Newt_2018_L.webp",
+    "sightings": [
+      {
+        "date": "2018-07-26",
+        "year": 2018,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Newt/2018/Newt_2018_L.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "123",
+              "135",
+              "143",
+              "155",
+              "216",
+              "225",
+              "237",
+              "245",
+              "255",
+              "314",
+              "326",
+              "334",
+              "414",
+              "425",
+              "434",
+              "444",
+              "456"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Newt/2018/Newt_2018_R.webp",
+            "po": 3,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "216",
+              "226",
+              "235",
+              "245",
+              "255",
+              "314",
+              "325",
+              "336",
+              "346",
+              "354",
+              "366",
+              "414",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-05-03",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Newt/2014/Newt_2014_L.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "123",
+              "135",
+              "144",
+              "155",
+              "216",
+              "225",
+              "237",
+              "245",
+              "314",
+              "327",
+              "334",
+              "414",
+              "425",
+              "436"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Newt/2014/Newt_2014_R.webp",
+            "po": 3,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "216",
+              "226",
+              "235",
+              "245",
+              "255",
+              "314",
+              "325",
+              "336",
+              "346",
+              "354",
+              "366",
+              "414"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-ninugo",
+    "name": "Ninugo",
+    "species": "Green",
+    "firstYear": 2016,
+    "lastYear": 2022,
+    "primaryPhoto": "/turtles/Green/Ninugo/2022/Ninugo_2022_L.webp",
+    "sightings": [
+      {
+        "date": "2022-04-24",
+        "year": 2022,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ninugo/2022/Ninugo_2022_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "145",
+              "215",
+              "226",
+              "235",
+              "246",
+              "256",
+              "314",
+              "328",
+              "336",
+              "346",
+              "357",
+              "414",
+              "424",
+              "438",
+              "444",
+              "454",
+              "465"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ninugo/2022/Ninugo_2022_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "227",
+              "237",
+              "248",
+              "314",
+              "325",
+              "335",
+              "345",
+              "358",
+              "363",
+              "416",
+              "425",
+              "435"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2016-09-18",
+        "year": 2016,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ninugo/2016/Ninugo_2016_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "145",
+              "216",
+              "225",
+              "235",
+              "246",
+              "315",
+              "325",
+              "336",
+              "347",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ninugo/2016/Ninugo_2016_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "227",
+              "236",
+              "243",
+              "257",
+              "314",
+              "325",
+              "334",
+              "345",
+              "358",
+              "366",
+              "416",
+              "424",
+              "435",
+              "444"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-noraf",
+    "name": "Noraf",
+    "species": "Green",
+    "firstYear": 2013,
+    "lastYear": 2018,
+    "primaryPhoto": "/turtles/Green/Noraf/2018/Noraf_2018_L.webp",
+    "sightings": [
+      {
+        "date": "2018-05-07",
+        "year": 2018,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Noraf/2018/Noraf_2018_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "236",
+              "247",
+              "315",
+              "325",
+              "335",
+              "345",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Noraf/2018/Noraf_2018_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "236",
+              "247",
+              "315",
+              "325",
+              "335",
+              "345",
+              "415"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2013-09-15",
+        "year": 2013,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Noraf/2013/Noraf_2013_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "236",
+              "247",
+              "315",
+              "325",
+              "335",
+              "345",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Noraf/2013/Noraf_2013_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "155",
+              "215",
+              "226",
+              "235",
+              "247",
+              "255",
+              "315",
+              "325",
+              "334",
+              "345",
+              "356",
+              "415"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-oma",
+    "name": "Oma",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2024,
+    "primaryPhoto": "/turtles/Green/Oma/2024/Oma_2024_L.webp",
+    "sightings": [
+      {
+        "date": "2024-03-24",
+        "year": 2024,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Oma/2024/Oma_2024_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "134",
+              "144",
+              "216",
+              "224",
+              "237",
+              "248",
+              "314",
+              "326",
+              "335",
+              "346",
+              "355",
+              "415",
+              "424",
+              "436",
+              "445"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Oma/2024/Oma_2024_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "147",
+              "216",
+              "226",
+              "238",
+              "314",
+              "328",
+              "334",
+              "346",
+              "356",
+              "365",
+              "414",
+              "424",
+              "436",
+              "444",
+              "455"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-04-04",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Oma/2014/Oma_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "144",
+              "156",
+              "216",
+              "224",
+              "236",
+              "248",
+              "256",
+              "315",
+              "326",
+              "335",
+              "345",
+              "355",
+              "365",
+              "414",
+              "425",
+              "435",
+              "446",
+              "454",
+              "515"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Oma/2014/Oma_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "216",
+              "226",
+              "238",
+              "245",
+              "314",
+              "327",
+              "334",
+              "346",
+              "355",
+              "365",
+              "374",
+              "414",
+              "424",
+              "434",
+              "445",
+              "454"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-ros",
+    "name": "Ros",
+    "species": "Green",
+    "firstYear": 2020,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Ros/2023/Ros_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-11-10",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ros/2023/Ros_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "246",
+              "314",
+              "326",
+              "337",
+              "414",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ros/2023/Ros_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "345",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2020-02-03",
+        "year": 2020,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ros/2020/Ros_2020_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "235",
+              "246",
+              "314",
+              "326",
+              "337",
+              "414",
+              "425",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ros/2020/Ros_2020_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "345",
+              "414",
+              "426"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-sablier",
+    "name": "Sablier",
+    "species": "Green",
+    "firstYear": 2008,
+    "lastYear": 2013,
+    "primaryPhoto": "/turtles/Green/Sablier/2013/Sablier_2013_L.webp",
+    "sightings": [
+      {
+        "date": "2013-01-18",
+        "year": 2013,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Sablier/2013/Sablier_2013_L.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "124",
+              "134",
+              "144",
+              "155",
+              "215",
+              "226",
+              "236",
+              "245",
+              "314",
+              "325",
+              "334",
+              "346",
+              "415",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Sablier/2013/Sablier_2013_R.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "124",
+              "135",
+              "144",
+              "155",
+              "214",
+              "227",
+              "236",
+              "245",
+              "314",
+              "324",
+              "334",
+              "343",
+              "355",
+              "415",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2008-04-23",
+        "year": 2008,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Sablier/2008/Sablier_2008_L.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "124",
+              "134",
+              "144",
+              "155",
+              "215",
+              "226",
+              "236",
+              "245",
+              "256",
+              "314",
+              "325",
+              "334",
+              "346",
+              "356",
+              "415",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Sablier/2008/Sablier_2008_R.webp",
+            "po": 5,
+            "idCodes": [
+              "115",
+              "124",
+              "135",
+              "144",
+              "155",
+              "214",
+              "227",
+              "236",
+              "245",
+              "256",
+              "314",
+              "324",
+              "334",
+              "345",
+              "353",
+              "366",
+              "415",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-samy",
+    "name": "Samy",
+    "species": "Green",
+    "firstYear": 2008,
+    "lastYear": 2014,
+    "primaryPhoto": "/turtles/Green/Samy/2014/Samy_2014_L.webp",
+    "sightings": [
+      {
+        "date": "2014-05-10",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Samy/2014/Samy_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "226",
+              "236",
+              "247",
+              "255",
+              "314",
+              "328",
+              "336",
+              "346",
+              "355",
+              "414",
+              "424",
+              "436",
+              "444"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Samy/2014/Samy_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "146",
+              "215",
+              "225",
+              "235",
+              "246",
+              "255",
+              "316",
+              "326",
+              "337",
+              "346",
+              "415",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2008-07-20",
+        "year": 2008,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Samy/2008/Samy_2008_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "214",
+              "226",
+              "236",
+              "246",
+              "315",
+              "326",
+              "335",
+              "345",
+              "413",
+              "425",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Samy/2008/Samy_2008_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "146",
+              "215",
+              "225",
+              "236",
+              "246",
+              "255",
+              "316",
+              "325",
+              "336",
+              "346",
+              "414",
+              "425",
+              "434"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-song",
+    "name": "Song",
+    "species": "Green",
+    "firstYear": 2012,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Song/2023/Song_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-09-21",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Song/2023/Song_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "346",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Song/2023/Song_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "314",
+              "326",
+              "335",
+              "346",
+              "414",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2012-08-07",
+        "year": 2012,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Song/2012/Song_2012_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "235",
+              "246",
+              "256",
+              "314",
+              "325",
+              "335",
+              "345",
+              "356",
+              "415"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Song/2012/Song_2012_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "236",
+              "246",
+              "256",
+              "315",
+              "325",
+              "336",
+              "346",
+              "415",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-steph",
+    "name": "Steph",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2017,
+    "primaryPhoto": "/turtles/Green/Steph/2017/Steph_2017_L.webp",
+    "sightings": [
+      {
+        "date": "2017-05-19",
+        "year": 2017,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Steph/2017/Steph_2017_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "325",
+              "336",
+              "345",
+              "416",
+              "425",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Steph/2017/Steph_2017_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "224",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "346",
+              "416",
+              "424",
+              "435"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-03-19",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Steph/2014/Steph_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "225",
+              "236",
+              "246",
+              "314",
+              "325",
+              "336",
+              "345",
+              "416",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Steph/2014/Steph_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "145",
+              "215",
+              "224",
+              "236",
+              "246",
+              "314",
+              "325",
+              "335",
+              "346",
+              "416",
+              "424",
+              "435"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-taho",
+    "name": "Taho",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Taho/2023/Taho_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-08-20",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Taho/2023/Taho_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "226",
+              "237",
+              "245",
+              "314",
+              "325",
+              "336",
+              "346",
+              "416",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Taho/2023/Taho_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "245",
+              "314",
+              "325",
+              "336",
+              "346",
+              "416",
+              "426"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-09-16",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Taho/2019/Taho_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "226",
+              "237",
+              "245",
+              "314",
+              "325",
+              "336",
+              "346",
+              "416",
+              "425",
+              "436",
+              "514"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Taho/2019/Taho_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "245",
+              "314",
+              "325",
+              "336",
+              "346",
+              "416",
+              "426"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-taleen",
+    "name": "Taleen",
+    "species": "Green",
+    "firstYear": 2020,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Taleen/2023/Taleen_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-12-14",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Taleen/2023/Taleen_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "145",
+              "215",
+              "226",
+              "236",
+              "244",
+              "257",
+              "315",
+              "324",
+              "335",
+              "347",
+              "416"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Taleen/2023/Taleen_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "226",
+              "236",
+              "247",
+              "314",
+              "326",
+              "334",
+              "345",
+              "356",
+              "414",
+              "427",
+              "435"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2020-08-31",
+        "year": 2020,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Taleen/2020/Taleen_2020_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "136",
+              "145",
+              "216",
+              "226",
+              "236",
+              "244",
+              "257",
+              "314",
+              "326",
+              "334",
+              "345",
+              "357",
+              "414",
+              "427",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Taleen/2020/Taleen_2020_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "135",
+              "145",
+              "216",
+              "226",
+              "236",
+              "247",
+              "314",
+              "326",
+              "334",
+              "345",
+              "356",
+              "414",
+              "427",
+              "435"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-tya",
+    "name": "Tya",
+    "species": "Green",
+    "firstYear": 2015,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Tya/2021/Tya%20_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-03-23",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Tya/2021/Tya%20_2021_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "215",
+              "226",
+              "235",
+              "246",
+              "316",
+              "324",
+              "338",
+              "345",
+              "416",
+              "423",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Tya/2021/Tya%20_2021_R.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "215",
+              "226",
+              "235",
+              "246",
+              "314",
+              "327",
+              "336",
+              "345",
+              "414",
+              "424",
+              "436",
+              "444"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2015-10-16",
+        "year": 2015,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Tya/2015/Tya%20_2015_L.webp",
+            "po": 3,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "215",
+              "226",
+              "235",
+              "246",
+              "316",
+              "324",
+              "338",
+              "345",
+              "416",
+              "423"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Tya/2015/Tya%20_2015_R.webp",
+            "po": 3,
+            "idCodes": [
+              "114",
+              "125",
+              "136",
+              "215",
+              "225",
+              "235",
+              "246",
+              "314",
+              "327",
+              "336",
+              "344",
+              "414",
+              "424",
+              "436"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-valerian",
+    "name": "Valerian",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2022,
+    "primaryPhoto": "/turtles/Green/Valerian/2022/Valerian_2022_L.webp",
+    "sightings": [
+      {
+        "date": "2022-08-01",
+        "year": 2022,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Valerian/2022/Valerian_2022_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "214",
+              "226",
+              "238",
+              "315",
+              "326",
+              "335",
+              "415",
+              "424",
+              "435"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Valerian/2022/Valerian_2022_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "126",
+              "134",
+              "145",
+              "215",
+              "226",
+              "237",
+              "314",
+              "325",
+              "335"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-09-27",
+        "year": 2019,
+        "photos": {
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Valerian/2019/Valerian_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "214",
+              "225",
+              "237",
+              "315",
+              "324",
+              "335",
+              "415",
+              "423",
+              "435"
+            ]
+          },
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Valerian/2019/Valerian_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "134",
+              "145",
+              "214",
+              "225",
+              "237",
+              "314",
+              "324",
+              "335"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-xavier",
+    "name": "Xavier",
+    "species": "Green",
+    "firstYear": 2007,
+    "lastYear": 2015,
+    "primaryPhoto": "/turtles/Green/Xavier/2015/Xavier_2015_L.webp",
+    "sightings": [
+      {
+        "date": "2015-04-24",
+        "year": 2015,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Xavier/2015/Xavier_2015_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "225",
+              "233",
+              "246",
+              "256",
+              "314",
+              "325",
+              "334",
+              "347",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Xavier/2015/Xavier_2015_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "126",
+              "135",
+              "145",
+              "214",
+              "225",
+              "235",
+              "246",
+              "256",
+              "315",
+              "324",
+              "335",
+              "347",
+              "355",
+              "416",
+              "424",
+              "434"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2007-08-13",
+        "year": 2007,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Xavier/2007/Xavier_2007_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "234",
+              "246",
+              "256",
+              "266",
+              "314",
+              "325",
+              "335",
+              "346",
+              "355",
+              "365",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Xavier/2007/Xavier_2007_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "234",
+              "246",
+              "256",
+              "266",
+              "315",
+              "325",
+              "335",
+              "347",
+              "355",
+              "416",
+              "424",
+              "434"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-yanis",
+    "name": "Yanis",
+    "species": "Green",
+    "firstYear": 2015,
+    "lastYear": 2018,
+    "primaryPhoto": "/turtles/Green/Yanis/2018/Yanis_2018_L.webp",
+    "sightings": [
+      {
+        "date": "2018-04-11",
+        "year": 2018,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Yanis/2018/Yanis_2018_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "224",
+              "235",
+              "246",
+              "257",
+              "315",
+              "324",
+              "336",
+              "346",
+              "354",
+              "414"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Yanis/2018/Yanis_2018_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "137",
+              "144",
+              "214",
+              "225",
+              "235",
+              "245",
+              "255",
+              "265",
+              "316",
+              "327",
+              "337",
+              "346",
+              "414",
+              "424",
+              "434",
+              "446",
+              "455"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2015-05-06",
+        "year": 2015,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Yanis/2015/Yanis_2015_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "225",
+              "237",
+              "247",
+              "315",
+              "324",
+              "335",
+              "346",
+              "354",
+              "367",
+              "414",
+              "426",
+              "437",
+              "444"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Yanis/2015/Yanis_2015_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "144",
+              "214",
+              "226",
+              "236",
+              "245",
+              "255",
+              "266",
+              "315",
+              "325",
+              "337",
+              "346",
+              "356",
+              "415",
+              "425",
+              "435",
+              "445"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-ylan",
+    "name": "Ylan",
+    "species": "Green",
+    "firstYear": 2014,
+    "lastYear": 2021,
+    "primaryPhoto": "/turtles/Green/Ylan/2021/Ylan_2021_L.webp",
+    "sightings": [
+      {
+        "date": "2021-03-04",
+        "year": 2021,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ylan/2021/Ylan_2021_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "216",
+              "225",
+              "237",
+              "246",
+              "314",
+              "325",
+              "336",
+              "346",
+              "355",
+              "417",
+              "424",
+              "434"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ylan/2021/Ylan_2021_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "215",
+              "225",
+              "238",
+              "245",
+              "314",
+              "324",
+              "334",
+              "344",
+              "356",
+              "364",
+              "414",
+              "426",
+              "436"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2014-04-18",
+        "year": 2014,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Ylan/2014/Ylan_2014_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "145",
+              "215",
+              "225",
+              "236",
+              "246",
+              "315",
+              "326",
+              "336",
+              "345",
+              "416",
+              "424"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Ylan/2014/Ylan_2014_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "134",
+              "146",
+              "214",
+              "225",
+              "238",
+              "245",
+              "315",
+              "324",
+              "336",
+              "345",
+              "413",
+              "426",
+              "436"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-youken-diazgo",
+    "name": "Youken-Diazgo",
+    "species": "Green",
+    "firstYear": 2011,
+    "lastYear": 2019,
+    "primaryPhoto": "/turtles/Green/Youken-Diazgo/2019/Youken-Diazgo_2019_L.webp",
+    "sightings": [
+      {
+        "date": "2019-02-02",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Youken-Diazgo/2019/Youken-Diazgo_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "144",
+              "215",
+              "226",
+              "235",
+              "245",
+              "256",
+              "314",
+              "326",
+              "336",
+              "345",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Youken-Diazgo/2019/Youken-Diazgo_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "114",
+              "125",
+              "135",
+              "144",
+              "214",
+              "225",
+              "235",
+              "246",
+              "315",
+              "326",
+              "335",
+              "344"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2011-05-20",
+        "year": 2011,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Youken-Diazgo/2011/Youken-Diazgo_2011_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "144",
+              "215",
+              "226",
+              "235",
+              "245",
+              "257",
+              "314",
+              "326",
+              "336",
+              "345",
+              "353",
+              "363",
+              "414",
+              "425"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Youken-Diazgo/2011/Youken-Diazgo_2011_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "144",
+              "215",
+              "226",
+              "235",
+              "246",
+              "255",
+              "314",
+              "326",
+              "336",
+              "345",
+              "354",
+              "414"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "green-zippy",
+    "name": "Zippy",
+    "species": "Green",
+    "firstYear": 2019,
+    "lastYear": 2023,
+    "primaryPhoto": "/turtles/Green/Zippy/2023/Zippy_2023_L.webp",
+    "sightings": [
+      {
+        "date": "2023-02-12",
+        "year": 2023,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Zippy/2023/Zippy_2023_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "215",
+              "226",
+              "236",
+              "246",
+              "315",
+              "327",
+              "335",
+              "346",
+              "414",
+              "425",
+              "436",
+              "445"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Zippy/2023/Zippy_2023_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "136",
+              "145",
+              "214",
+              "225",
+              "236",
+              "245",
+              "256",
+              "316",
+              "325",
+              "336",
+              "414",
+              "424"
+            ]
+          }
+        }
+      },
+      {
+        "date": "2019-06-19",
+        "year": 2019,
+        "photos": {
+          "left": {
+            "side": "left",
+            "path": "/turtles/Green/Zippy/2019/Zippy_2019_L.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "226",
+              "235",
+              "246",
+              "316",
+              "325",
+              "335",
+              "413",
+              "424",
+              "436",
+              "445",
+              "513"
+            ]
+          },
+          "right": {
+            "side": "right",
+            "path": "/turtles/Green/Zippy/2019/Zippy_2019_R.webp",
+            "po": 4,
+            "idCodes": [
+              "115",
+              "125",
+              "135",
+              "145",
+              "214",
+              "225",
+              "235",
+              "245",
+              "256",
+              "315",
+              "325",
+              "336",
+              "414",
+              "424"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
