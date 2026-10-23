@@ -149,6 +149,35 @@ export function PenyuGalleryPage() {
               </dd>
             </div>
           </dl>
+
+          <aside
+            aria-labelledby="gallery-photo-credits"
+            className="mt-5 rounded-[22px] border border-primary/10 bg-surface/85 p-5 font-detail text-sm text-secondary sm:p-6"
+          >
+            <h2
+              id="gallery-photo-credits"
+              className="font-body font-semibold text-primary"
+            >
+              Dataset &amp; photo credits
+            </h2>
+            <p className="mt-2 max-w-3xl leading-relaxed">
+              This gallery displays 50 green sea turtle profiles and 200
+              photographs from ReunionTurtles, shared by WildlifeDatasets on
+              Kaggle. Photographs © Kelonia, Réunion. The dataset lists Claire
+              Jean as the owner’s contact. Photo use is subject to the dataset’s
+              usage terms.
+            </p>
+            <a
+              href="https://www.kaggle.com/datasets/wildlifedatasets/reunionturtles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-sm font-semibold text-primary underline underline-offset-4 hover:text-secondary focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+            >
+              View dataset &amp; usage terms on Kaggle
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </aside>
         </div>
       </section>
 
@@ -176,7 +205,7 @@ export function PenyuGalleryPage() {
               className="h-auto w-24 brightness-0 invert"
             />
           </Link>
-          <p>© 2026 AdaPenyu. All rights reserved.</p>
+          <p>© 2026 AdaPenyu. Website design and interface.</p>
           <a
             href="mailto:adapenyu@gmail.com"
             className="inline-flex min-h-11 w-fit items-center rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
