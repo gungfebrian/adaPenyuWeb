@@ -130,6 +130,7 @@ changing these values so the browser bundle receives the updated configuration.
 | Route | Purpose | Current access / state |
 | --- | --- | --- |
 | `/` | Ocean story and prototype presentation | Public |
+| `/penyuGallery` | Turtle photo gallery with filters and profile details | Public; `/penyu-gallery` redirects here |
 | `/login` | Google sign-in and post-action sign-in notices | Signed-in visitors return to the calendar |
 | `/account/reset-password` | Account password reset email-action fallback | Public; requires one-time email token |
 | `/account/accept-invitation` | Ranger invitation & owner setup email-action fallback | Public; requires one-time email token |
