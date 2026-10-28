@@ -176,6 +176,24 @@ Maintained by [Gung](https://github.com/gungfebrian).
 - [Manual UI checks](docs/manual-ui-checks.md)
 - [Existing test coverage](docs/test-coverage.md)
 
+## Turtle gallery
+
+Open `/penyuGallery` to browse the public photo collection. Search by turtle name
+and filter by sighting year; **Reset filters** restores the full collection.
+Mystery mode starts with names hidden. Use **Reveal name** on a card or inside its
+profile, or turn mystery mode off to show every name. Turning it back on clears
+the revealed names.
+
+Open a card to compare left and right facial profiles across its dated sightings.
+The profile includes post-ocular scale counts and expandable identification codes.
+Use the previous/next buttons or Left/Right arrow keys to browse turtles, and
+Escape to close the profile.
+
+Search, year, and the open profile are stored in the URL as `q`, `year`, and
+`turtle`, so you can copy the current link. Mystery mode, revealed names, and the
+selected sighting reset on reload. Photo ownership and the dataset usage link
+appear under **Photo credits** on the gallery page.
+
 ## Meeting scheduler
 
 Visit `/schedule` or choose **Calendar** in the site navigation. Google login is required.
