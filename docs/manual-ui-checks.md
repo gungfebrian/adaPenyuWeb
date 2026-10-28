@@ -18,6 +18,34 @@ route, and result for each check you perform. These are review steps, not record
 - Enable reduced motion in the device or browser settings and reload. Confirm
   content remains readable and decorative movement is static.
 
+## Public turtle gallery
+
+- Open `/penyuGallery` while signed out. Check both a narrow mobile viewport and
+  a desktop viewport for readable controls, uncropped profile photos, and overflow.
+  Confirm `/penyu-gallery` redirects to `/penyuGallery`.
+- Search for a known turtle, then combine the search with a sighting year. Check
+  the result count and use **Reset filters** to restore the collection.
+- Search for a name that is absent. Check the empty state and use **View all
+  turtles** to recover.
+- With mystery mode on, reveal a name on a card and confirm its profile shows the
+  same name. Turn mystery mode off and back on; check that revealed names reset.
+- Open a profile with the keyboard. Check that focus starts on its close button,
+  Tab stays inside the dialog, and Escape closes it and restores the opener's focus.
+- Use the previous/next controls and Left/Right arrow keys. Check that navigation
+  follows the filtered results and wraps at either end; with one result, both
+  navigation buttons should be disabled.
+- Switch between dated sightings and compare both facial profiles, scale counts,
+  and expandable identification codes. Check that changing turtles starts at its
+  first sighting.
+- Copy a filtered URL with a profile open and reload it. Confirm the search, year,
+  and profile return, while mystery mode starts with names hidden.
+- Open `/penyuGallery?year=invalid&turtle=missing`. Confirm the gallery removes
+  the invalid parameters and remains usable.
+- Open `/penyuGallery?q=Calvin&turtle=green-adelotte`. Confirm the linked Adelotte
+  profile remains viewable even though it is outside the Calvin search results.
+- Follow **Photo credits** and check that the ownership text and dataset usage
+  link remain available. Repeat the controls check with reduced motion enabled.
+
 ## Authenticated scheduler
 
 Use a test account and disposable meetings. Follow the [sign-in setup](../README.md#enable-google-sign-in) first.
