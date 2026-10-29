@@ -14,9 +14,19 @@ Keep credentials in the local environment file described in the README.
 
 ## Verify and describe the result
 
-Run `pnpm lint`, `pnpm typecheck`, and `pnpm build`. For interactive changes, use the
-[manual UI checklist](docs/manual-ui-checks.md). Record the commands you ran and
-their results in the pull request, along with any checks you could not complete.
+Run `pnpm lint`, `pnpm typecheck`, and `pnpm build`. For account action, scheduler,
+backup, or session changes, also run the regression suite with Node.js 22.18 or
+newer within the project's pinned Node 22 major:
+
+```bash
+node --test tests/*.test.mjs
+```
+
+See the [test coverage map](docs/test-coverage.md) for individual test files and
+the limits of those checks. For interactive changes, use the
+[manual UI checklist](docs/manual-ui-checks.md). Record the commands you ran,
+Node version, and results in the pull request, along with any checks you could
+not complete. Report browser checks separately from automated results.
 
 Describe what visitors can do after the change and include screenshots when the
 layout changes. Keep each commit focused on a reviewable change. A push to `main`
