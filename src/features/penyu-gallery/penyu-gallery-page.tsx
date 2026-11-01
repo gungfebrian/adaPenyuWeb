@@ -21,7 +21,7 @@ export function PenyuGalleryPage() {
       <section
         id="gallery-hero"
         aria-labelledby="penyu-gallery-title"
-        className="relative isolate overflow-hidden px-[var(--page-gutter)] pt-24 pb-12 sm:pt-28 sm:pb-16"
+        className="relative isolate overflow-hidden px-[var(--page-gutter)] pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32"
       >
         <div className="absolute inset-0 -z-10 opacity-35">
           <Pattern variant="hero" parallax={false} />
@@ -35,12 +35,13 @@ export function PenyuGalleryPage() {
             <span aria-current="page">Penyu Gallery</span>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
-            <div>
-              <p className="font-detail text-xs font-semibold tracking-[0.18em] text-secondary uppercase">
-                A closer look beneath the surface
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <div className="max-w-xl">
+              <p className="inline-flex items-center gap-2.5 rounded-full border border-primary/15 bg-paper/80 px-3.5 py-2 font-detail text-xs font-semibold tracking-[0.12em] text-secondary uppercase">
+                <span aria-hidden="true" className="size-1.5 rounded-full bg-secondary" />
+                Réunion · Green sea turtles
               </p>
-              <h1 id="penyu-gallery-title" className="mt-5 font-body text-[clamp(3rem,5.8vw,5.25rem)] leading-[1.06] font-medium tracking-[-0.055em]">
+              <h1 id="penyu-gallery-title" className="mt-6 font-body text-[clamp(3.25rem,6vw,5.5rem)] leading-[1.04] font-medium tracking-[-0.055em]">
                 Every face<br />
                 has a <span className="font-display tracking-[-0.045em] text-secondary">story.</span>
               </h1>
@@ -65,43 +66,55 @@ export function PenyuGalleryPage() {
                   [firstYear + "–" + lastYear, "Years of sightings"],
                 ].map(([value, label]) => (
                   <div key={label}>
-                    <dt className="font-body text-lg font-medium tracking-tight sm:text-2xl">{value}</dt>
-                    <dd className="mt-1 font-detail text-[11px] leading-relaxed text-secondary sm:text-xs">{label}</dd>
+                    <dt className="font-detail text-xs leading-relaxed text-secondary">{label}</dt>
+                    <dd className="mt-2 font-body text-xl font-medium tracking-tight tabular-nums sm:text-2xl">{value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
 
-            <div className="relative mx-auto w-[90%] max-w-[380px] pt-3 pb-12 pl-12 sm:w-full sm:max-w-[550px] sm:pl-16 lg:pl-12">
-              <div aria-hidden="true" className="absolute inset-x-3 inset-y-10 -z-10 rounded-[50%] bg-surface" />
-              <figure className="relative ml-auto w-[92%] rotate-3 rounded-[26px] border border-primary/10 bg-paper p-2.5 shadow-[0_14px_36px_#00263c12] sm:p-3">
-                <Image
-                  src="/turtles/Green/Calvin/2021/Calvin_2021_L.webp"
-                  alt="The left facial profile of a green sea turtle, showing its eye and scale patterns."
-                  width={616}
-                  height={592}
-                  preload
-                  unoptimized
-                  sizes="(min-width: 1024px) 440px, (min-width: 640px) 420px, 72vw"
-                  className="h-auto w-full rounded-[18px]"
-                />
-                <figcaption className="flex items-center justify-between gap-3 px-2 pt-3 pb-1 font-detail text-[11px] text-secondary sm:text-xs">
-                  <span>Left facial profile</span><span>2021</span>
-                </figcaption>
-              </figure>
-              <figure className="absolute bottom-0 left-0 w-[43%] -rotate-6 rounded-[20px] border border-primary/10 bg-paper p-2 shadow-[0_10px_28px_#00263c18]">
-                <Image
-                  src="/turtles/Green/Calvin/2021/Calvin_2021_R.webp"
-                  alt="The same green sea turtle photographed from its right side."
-                  width={800}
-                  height={755}
-                  unoptimized
-                  sizes="(min-width: 640px) 230px, 38vw"
-                  className="aspect-square w-full rounded-[13px] object-contain bg-banner"
-                />
-                <figcaption className="px-1 pt-2 pb-0.5 font-detail text-[11px] text-secondary sm:text-xs">A different perspective.</figcaption>
-              </figure>
-              <div aria-hidden="true" className="absolute -top-2 -right-1 w-[80px] rotate-12 sm:-right-2 sm:w-[110px]">
+            <div className="relative mx-auto w-full max-w-[600px] pb-5 sm:pb-7">
+              <div className="relative isolate overflow-hidden rounded-[28px] bg-banner p-4 text-white sm:rounded-[36px] sm:p-6">
+                <div className="absolute inset-0 -z-10 opacity-30"><Pattern variant="accuracy" parallax={false} /></div>
+                <div className="mb-5 flex items-center justify-between gap-4 font-detail text-xs">
+                  <span className="tracking-[0.14em] uppercase">A study in patterns</span>
+                  <span className="rounded-full border border-white/30 px-3 py-1.5">2021</span>
+                </div>
+                <figure>
+                  <div className="grid grid-cols-[1.35fr_1fr] items-end gap-3 sm:gap-4">
+                    <div className="overflow-hidden rounded-[20px] border border-white/15 bg-primary">
+                      <Image
+                        src="/turtles/Green/Calvin/2021/Calvin_2021_L.webp"
+                        alt="The left facial profile of a green sea turtle, showing its eye and scale patterns."
+                        width={616}
+                        height={592}
+                        preload
+                        unoptimized
+                        sizes="(min-width: 1024px) 300px, (min-width: 640px) 310px, 52vw"
+                        className="aspect-[4/5] h-auto w-full object-contain"
+                      />
+                    </div>
+                    <div className="pb-7 sm:pb-10">
+                      <p className="mb-3 font-detail text-xs text-white/85">One turtle.<br />Two perspectives.</p>
+                      <div className="overflow-hidden rounded-[18px] border border-white/15 bg-primary">
+                        <Image
+                          src="/turtles/Green/Calvin/2021/Calvin_2021_R.webp"
+                          alt="The same green sea turtle photographed from its right side."
+                          width={800}
+                          height={755}
+                          unoptimized
+                          sizes="(min-width: 640px) 230px, 38vw"
+                          className="aspect-[4/5] h-auto w-full object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption className="mt-5 border-t border-white/20 pt-4 font-detail text-xs leading-relaxed text-white/85">
+                    Left &amp; right facial profiles · Original photographs
+                  </figcaption>
+                </figure>
+              </div>
+              <div aria-hidden="true" className="pointer-events-none absolute -right-3 -bottom-4 w-24 rotate-12 sm:-right-5 sm:w-32">
                 <FigmaImage name="banner-turtle" width={437} height={310} className="h-auto w-full" />
               </div>
             </div>

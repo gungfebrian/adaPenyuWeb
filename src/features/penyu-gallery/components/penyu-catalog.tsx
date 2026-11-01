@@ -194,18 +194,18 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
       <section
         id="penyu-catalog"
         aria-labelledby="penyu-catalog-title"
-        className="scroll-mt-28 px-[var(--page-gutter)] pt-8 pb-20 sm:pt-12 sm:pb-28"
+        className="scroll-mt-28 border-t border-primary/10 bg-surface/60 px-[var(--page-gutter)] pt-10 pb-20 sm:pt-14 sm:pb-28"
       >
         <div className="mx-auto max-w-[1280px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-detail text-[11px] font-semibold tracking-[0.16em] text-secondary uppercase">The collection</p>
+              <p className="font-detail text-xs font-semibold tracking-[0.16em] text-secondary uppercase">The collection / {String(turtles.length).padStart(2, "0")} individuals</p>
               <h2 id="penyu-catalog-title" className="mt-3 font-body text-3xl font-semibold tracking-[-0.035em] text-primary sm:text-4xl">Find a familiar face.</h2>
             </div>
             <p className="max-w-xs font-detail text-sm leading-relaxed text-secondary">Look closely. The scales around each eye tell a different story.</p>
           </div>
 
-          <div className="mt-7 grid gap-3 border-y border-primary/10 bg-surface/70 px-4 py-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-center">
+          <div className="mt-7 grid gap-3 rounded-2xl border border-primary/10 bg-paper p-3 sm:p-4 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-center">
             <label className="flex min-h-12 items-center gap-3 rounded-xl border border-primary/10 bg-paper px-4 text-secondary focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-secondary">
               <GalleryIcon name="search" />
               <span className="sr-only">Search turtles by name</span>
@@ -214,7 +214,7 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                 value={query}
                 onChange={(event) => updateSearch({ q: event.target.value || null })}
                 placeholder="Search a turtle by name"
-                className="w-full min-w-0 bg-transparent py-3 font-body text-base text-primary placeholder:text-secondary focus:outline-none sm:text-sm [&::-webkit-search-cancel-button]:hidden"
+                className="w-full min-w-0 bg-transparent py-3 font-body text-base text-primary placeholder:text-secondary focus:outline-none [&::-webkit-search-cancel-button]:hidden"
               />
               {query && <button type="button" onClick={() => updateSearch({ q: null })} aria-label="Clear search" className={`grid size-11 shrink-0 cursor-pointer place-items-center rounded-md hover:bg-surface ${focusRing}`}><GalleryIcon name="close" className="size-4" /></button>}
             </label>
@@ -243,22 +243,22 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
             </button>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-start justify-between gap-x-6 gap-y-2 font-detail text-xs leading-relaxed text-secondary sm:text-sm">
-            <p id="mystery-mode-description">{mysteryMode ? "Names are hidden. Make a guess, then reveal an identity." : "Names are visible. Turn on mystery mode for a fresh challenge."}</p>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 font-detail text-sm leading-relaxed text-secondary">
+            <p id="mystery-mode-description" className="max-w-lg">{mysteryMode ? "Names are hidden. Make a guess, then reveal an identity." : "Names are visible. Turn on mystery mode for a fresh challenge."}</p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <p role="status" aria-live="polite" aria-atomic="true"><span className="font-semibold text-primary">{filtered.length}</span> {filtered.length === 1 ? "turtle" : "turtles"}{mysteryMode && <> · {revealedCount} names revealed</>}</p>
+              <p role="status" aria-live="polite" aria-atomic="true"><span className="font-semibold text-primary">{filtered.length}</span> {filtered.length === 1 ? "turtle" : "turtles"}{mysteryMode && <> · {revealedCount} {revealedCount === 1 ? "name" : "names"} revealed</>}</p>
               {(query || year !== "All") && <button type="button" onClick={resetFilters} className={`min-h-11 cursor-pointer font-semibold text-primary underline underline-offset-4 hover:text-secondary ${focusRing}`}>Reset filters</button>}
             </div>
           </div>
 
           {filtered.length ? (
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-9 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7 lg:gap-y-11">
+            <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {filtered.map((turtle) => {
                 const isRevealed = !mysteryMode || revealedIds.has(turtle.id);
                 const number = turtleNumber(indices.get(turtle.id) ?? 0);
                 const title = isRevealed ? turtle.name : `Turtle ${number}`;
                 return (
-                  <article key={turtle.id} data-turtle-card={turtle.id} className="group/card min-w-0">
+                  <article key={turtle.id} data-turtle-card={turtle.id} className="group/card min-w-0 rounded-[24px] border border-primary/10 bg-paper p-3 transition-[border-color,box-shadow] duration-200 hover:border-primary/25 hover:shadow-[0_8px_28px_#00263c0a] focus-within:border-primary/25 motion-reduce:transition-none sm:p-4">
                     <button
                       type="button"
                       onClick={() => openTurtle(turtle.id)}
@@ -267,16 +267,17 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                     >
                       <span className="relative block aspect-[4/3] overflow-hidden rounded-2xl bg-banner">
                         <img src={turtle.primaryPhoto} alt={`${title}, green sea turtle facial profile`} loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                        <span className="absolute top-3 left-3 rounded-full border border-white/25 bg-primary px-3 py-1.5 font-detail text-xs font-medium text-white tabular-nums">Profile {number}</span>
                         <span className="absolute right-3 bottom-3 grid size-11 place-items-center rounded-full bg-paper text-primary transition-colors group-hover/open:bg-primary group-hover/open:text-white motion-reduce:transition-none"><GalleryIcon name="next" className="size-4" /></span>
                       </span>
-                      <span className="mt-4 flex items-start justify-between gap-3">
-                        <strong className="font-body text-[23px] leading-tight font-semibold tracking-[-0.025em] text-primary group-hover/open:text-secondary">{title}</strong>
-                        <span className="pt-1 font-detail text-[11px] tracking-wider text-secondary tabular-nums">{number}</span>
+                      <span className="mt-4 block px-1">
+                        <span className="mb-1.5 block font-detail text-[11px] font-medium tracking-[0.1em] text-secondary uppercase">Green sea turtle</span>
+                        <strong className="block break-words font-body text-2xl leading-tight font-semibold tracking-[-0.025em] text-primary group-hover/open:text-secondary">{title}</strong>
                       </span>
-                      <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-detail text-xs leading-relaxed text-secondary"><span>{turtle.firstYear}–{turtle.lastYear}</span><span>{turtle.sightings.length} sightings</span></span>
+                      <span className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 px-1 pb-1 font-detail text-xs leading-relaxed text-secondary"><span>{turtle.firstYear}–{turtle.lastYear}</span><span aria-hidden="true">·</span><span>{turtle.sightings.length} sightings</span><span className="ml-auto font-medium text-primary underline decoration-primary/25 underline-offset-4 group-hover/open:decoration-primary">View profile</span></span>
                     </button>
                     {mysteryMode && (
-                      <div className="mt-3 border-t border-primary/10 pt-2">
+                      <div className="mt-3 border-t border-primary/10 px-1 pt-2">
                         <button
                           type="button"
                           aria-disabled={isRevealed}
