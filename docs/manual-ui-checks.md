@@ -46,6 +46,23 @@ route, and result for each check you perform. These are review steps, not record
 - Follow **Photo credits** and check that the ownership text and dataset usage
   link remain available. Repeat the controls check with reduced motion enabled.
 
+### Gallery layout review
+
+- At mobile, tablet, and desktop widths, check the hero heading, year badge,
+  paired photographs, and decorative turtle for overlap. Both facial profiles
+  should remain fully visible inside their frames.
+- Check that **Explore gallery** reaches the collection heading and **Photo
+  credits** reaches **Behind the photographs**, with neither target hidden under
+  the navigation bar.
+- Compare the hero's turtle count, photograph count, and sighting year range with
+  `src/features/penyu-gallery/data/turtles.json`. The collection heading should
+  show the same total turtle count even while search results are filtered.
+- At narrow widths, check that the search field, year selector, and mystery-mode
+  button fit without horizontal scrolling. Check visible keyboard focus on each
+  control and on both hero links.
+- At the bottom of the page, check that the home wordmark and contact email remain
+  readable and usable when the footer wraps onto multiple lines.
+
 ## Authenticated scheduler
 
 Use a test account and disposable meetings. Follow the [sign-in setup](../README.md#enable-google-sign-in) first.
