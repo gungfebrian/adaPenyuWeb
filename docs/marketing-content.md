@@ -55,3 +55,20 @@ Retain the existing ReunionTurtles dataset link and Kelonia photo credit when
 editing the gallery. Confirm the source's usage terms before adding or replacing
 photographs. Run the [gallery checks](manual-ui-checks.md#public-turtle-gallery)
 after changing records or image paths.
+
+### Gallery presentation sources
+
+| Change | Source |
+| --- | --- |
+| Hero copy, featured photo pair, statistics, credits, and footer | `src/features/penyu-gallery/penyu-gallery-page.tsx` |
+| Collection heading, search, year filter, mystery mode, cards, and profile dialog | `src/features/penyu-gallery/components/penyu-catalog.tsx` |
+| Browser title and search description | `src/app/(marketing)/penyuGallery/page.tsx` |
+
+The featured pair currently shows Calvin's left and right profiles from 2021.
+If you replace it, update both image paths, alternative text, source dimensions,
+and the visible year badge together. Keep the pair from the same turtle and
+sighting so the caption remains accurate. Preserve `object-contain` when adjusting
+the frames so facial scale patterns remain visible.
+
+The **Explore gallery** and **Photo credits** links target `penyu-catalog` and
+`gallery-photo-credits`. Keep those IDs aligned with their links when moving sections.
