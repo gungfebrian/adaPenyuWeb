@@ -111,6 +111,27 @@ pnpm typecheck
 pnpm build
 ```
 
+### Environment reference
+
+Copy `.env.example` to `.env.local` before configuring sign-in or account email
+actions. The example contains placeholders and a local API address:
+
+| Variable | Used by |
+| --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase clients for sign-in and workspace sessions |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | The same clients; use the project's publishable key |
+| `NEXT_PUBLIC_API_BASE_URL` | Account email-action requests to the AdaPenyu backend |
+
+For local account-action testing, the example points to `http://127.0.0.1:8000`;
+run the backend separately. For a deployed site, set this value to the deployed
+API address. The account-action URL validator rejects `adapenyu.com` and
+`www.adapenyu.com` as API hosts, as well as URLs containing credentials, query
+parameters, or fragments.
+
+Keep `.env.local` out of commits. Variables with the `NEXT_PUBLIC_` prefix are
+available to browser code; use the [Google sign-in setup](#enable-google-sign-in)
+for provider credentials and redirect configuration.
+
 ## Deployment
 
 Pushes to `main` trigger the connected Vercel production build. The package manager
