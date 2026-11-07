@@ -32,3 +32,20 @@ Describe what visitors can do after the change and include screenshots when the
 layout changes. Keep each commit focused on a reviewable change. A push to `main`
 starts the connected deployment; confirm the hosting build before reporting that
 the live site is updated.
+
+## Open and finish a pull request
+
+Push the change branch and open a pull request targeting `main`. Include the
+problem, resulting behavior, validation results, and any remaining limitations.
+For documentation changes, identify the source files or existing behavior you
+checked. Keep setup examples free of real credentials and account-action tokens.
+
+Before merging, review the final diff and run `git diff --check origin/main...HEAD`.
+Confirm that the PR contains only the intended files and commits, and check any
+reported build or review failures. After merging, switch to `main`, fetch the
+remote, and update with `git pull --ff-only`. Confirm the working tree is clean
+and `git rev-list --left-right --count main...origin/main` reports `0 0`.
+
+Record deployment status separately from the merge result. If the hosting build
+has not been checked, report the change as merged and leave live-site validation
+pending.
