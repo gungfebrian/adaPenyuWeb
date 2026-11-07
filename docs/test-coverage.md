@@ -32,6 +32,20 @@ client. They do not prove that a real Google sign-in or deployment works. Use th
 [manual UI checklist](manual-ui-checks.md) to review browser behavior, and record
 fresh results when reporting validation.
 
+## Account-action coverage limits
+
+The account tests exercise TypeScript link parsing, request coordination, and
+response helpers with synthetic tokens. The Universal Link cases describe the
+expected account flow; they do not launch a signed iOS app or test Apple's link
+association on a device. API response cases use simulated responses and do not
+consume real password-reset, invitation, or confirmation tokens.
+
+When changing account links, report Node suite results separately from browser
+form checks, backend integration checks, and physical-device Universal Link
+checks. Use the [account email-action checklist](manual-ui-checks.md#account-email-actions-and-ios-universal-links)
+for the browser and device steps. A passing suite does not establish that a
+production API or installed app accepts the links.
+
 ## Gallery coverage
 
 The current Node suite has no gallery-specific tests. Lint, typecheck, and build
