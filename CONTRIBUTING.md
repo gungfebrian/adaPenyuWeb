@@ -12,6 +12,23 @@ Use this guide to prepare a focused change for review. Follow the [local setup](
 Use pnpm for dependency changes and include both `package.json` and `pnpm-lock.yaml`.
 Keep credentials in the local environment file described in the README.
 
+### Stage documentation deliberately
+
+The repository's `.gitignore` ignores `*.md` except the root `README.md`.
+Already tracked guides still appear in diffs, but new Markdown files need explicit
+staging. For an intended new guide, check the ignore rule and add that file only:
+
+```bash
+git check-ignore -v docs/new-guide.md
+git add -f docs/new-guide.md
+git diff --cached --stat
+git diff --cached --check
+```
+
+Replace `docs/new-guide.md` with the actual path. Link the guide from the relevant
+documentation index so readers can find it. Keep local agent instructions and
+private handover notes excluded; avoid forcing an entire directory into staging.
+
 ## Verify and describe the result
 
 Run `pnpm lint`, `pnpm typecheck`, and `pnpm build`. For account action, scheduler,
