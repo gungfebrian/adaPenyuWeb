@@ -18,6 +18,22 @@ route, and result for each check you perform. These are review steps, not record
 - Enable reduced motion in the device or browser settings and reload. Confirm
   content remains readable and decorative movement is static.
 
+### Contact drafts
+
+Use disposable contact details and leave any opened email draft unsent.
+
+- Submit with required fields empty or an invalid email address; check that the
+  browser prevents submission. Organization should remain optional.
+- Enter a message containing `&`, `?`, and line breaks, then choose **Open email
+  to send**. Check the recipient, subject, and decoded message in the email app.
+  The website should ask you to send it there, without claiming delivery.
+- Choose **Save draft**, reload, and confirm the fields start empty. Choose
+  **Restore saved draft** and compare all four fields with the saved text.
+- Choose **Delete saved draft** and confirm the current text remains visible.
+  Reload and try restoring again; check the message that no saved draft was found.
+- If browser storage is blocked, try saving and restoring. Check that readable
+  status messages explain the failure and that the form remains usable.
+
 ## Public turtle gallery
 
 - Open `/penyuGallery` while signed out. Check both a narrow mobile viewport and

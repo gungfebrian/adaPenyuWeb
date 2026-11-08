@@ -27,6 +27,23 @@ dimensions when replacing an export. See the [artwork guide](../public/images/ma
 Describe planned model behavior as a prototype. Any accuracy claim needs supporting
 evaluation evidence; the existing design figure is not a benchmark reproduced by this repository.
 
+## Contact form copy and drafts
+
+The contact fields, recipient, email subject, and status messages live in
+`src/features/marketing/components/contact-form.tsx`. Submission opens a `mailto:`
+draft addressed to `adapenyu@gmail.com`; the visitor sends it from their email
+app. Keep the button and confirmation copy clear about that step, since opening
+the draft does not confirm delivery.
+
+**Save draft** stores the name, email, organization, and message under
+`adapenyu-contact-draft` in this browser's local storage. Restoration requires
+**Restore saved draft**; the form does not restore automatically on page load.
+**Delete saved draft** removes the saved record while leaving the current fields
+visible. Keep the four string fields compatible with existing saved drafts when
+editing this component, or handle older draft shapes explicitly.
+
+After changing the form, follow the [contact draft checks](manual-ui-checks.md#contact-drafts).
+
 ## Turtle gallery records and photographs
 
 The public gallery at `/penyuGallery` reads
