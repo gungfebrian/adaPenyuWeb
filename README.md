@@ -58,13 +58,15 @@ shared theme tokens live in `globals.css`.
 ```text
 src/
 ├── app/
-│   ├── (marketing)/        Landing route and brand fonts
-│   ├── (workspace)/        Turtle prototypes, login, calendar, and meetings
+│   ├── (marketing)/        Landing page, public gallery, and brand fonts
+│   ├── (workspace)/        Prototypes, login, account actions, calendar, and meetings
 │   ├── auth/               OAuth callback and code exchange
 │   └── api/                Re-identification endpoint placeholder
 ├── features/
 │   ├── marketing/          Sections, artwork, content, and scroll sequences
+│   ├── penyu-gallery/      Public photo collection, filters, and profile dialog
 │   ├── auth/               Google sign-in and sign-out actions
+│   ├── account/            Email-action forms, token handling, and link association
 │   ├── schedule/           Calendar, meeting editor, and local storage adapter
 │   ├── turtles/            Turtle types, UI, and repository interface
 │   └── re-identification/  Upload UI, match types, and model service interface
@@ -74,7 +76,14 @@ src/
 └── lib/                    Motion settings and site configuration
 public/images/              Supplied SVG artwork and ocean-layer metadata
 public/icons/               Versioned AdaPenyu browser and touch icons
+public/turtles/             Original photographs used by the public gallery
 ```
+
+The public photo collection lives in `features/penyu-gallery`; `features/turtles`
+contains the separate workspace catalogue prototype. Account email-action pages
+share the workspace route group but remain public; the calendar and meeting list
+require verified sign-in. See the [route status table](#project-status) for access
+and integration details.
 
 **Motion** handles interface transitions. **GSAP ScrollTrigger** handles coordinated
 scroll sequences and ocean depth. Separate wrappers keep idle animation independent
