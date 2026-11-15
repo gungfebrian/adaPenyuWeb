@@ -8,6 +8,34 @@ Use these source files to update landing-page content without duplicating data i
 | Identification steps and benefit copy | `src/features/marketing/content.ts` |
 | Prototype screen titles, descriptions, and dimensions | `src/features/marketing/data/prototype-screens.ts` |
 
+## Page metadata and crawler settings
+
+Use these sources when changing browser titles, search descriptions, or shared
+link previews. Visible page copy and metadata have separate definitions.
+
+| Content | Source |
+| --- | --- |
+| Site name, production URL, and shared description | `src/lib/config/site.ts` |
+| Default title, title template, metadata base URL, and browser/touch icons | `src/app/layout.tsx` |
+| Homepage title, description, canonical link, Open Graph, and Twitter preview | `src/app/(marketing)/page.tsx` |
+| Gallery title and description | `src/app/(marketing)/penyuGallery/page.tsx` |
+| Public sitemap entries | `src/app/sitemap.ts` |
+| Crawler rules and sitemap location | `src/app/robots.ts` |
+
+The homepage references `public/og-preview.png` in both social preview definitions.
+When replacing it, keep the declared dimensions and alternative text aligned with
+the image. Review the homepage's title and description alongside the shared
+`siteConfig` values; some strings are defined directly in the page.
+
+The sitemap currently lists the homepage and `/penyuGallery`. Keep the redirect
+alias `/penyu-gallery` out of the sitemap. Crawler rules disallow `/api/`, `/auth/`,
+and `/account/`; account pages also receive `X-Robots-Tag: noindex, nofollow` from
+`next.config.ts`. These settings describe crawler behavior; route access is
+handled separately by the application.
+
+Follow the [metadata checks](manual-ui-checks.md#page-metadata-and-crawler-responses)
+after changing these files or the preview image.
+
 ## Team profiles
 
 Keep each member's preferred spelling and capitalization in `name`. The profile
