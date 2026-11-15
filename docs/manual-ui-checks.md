@@ -3,6 +3,26 @@
 Use this checklist after an interactive or visual change. Record browser, viewport,
 route, and result for each check you perform. These are review steps, not recorded test results.
 
+## Page metadata and crawler responses
+
+Use the [metadata source map](marketing-content.md#page-metadata-and-crawler-settings)
+to compare the rendered output with the intended configuration.
+
+- Open `/` and `/penyuGallery`. Check each browser title and inspect the response
+  HTML for its description; the gallery description should match the collection
+  counts when records change.
+- On `/`, check the canonical link, Open Graph tags, and Twitter preview tags.
+  Confirm `/og-preview.png` loads and its actual dimensions match the homepage's
+  declared image dimensions. Report social-platform preview checks separately;
+  inspecting HTML does not verify a platform's cached preview.
+- Request `/sitemap.xml`. Confirm it lists the production homepage and
+  `/penyuGallery`, with no `/penyu-gallery` alias or account-action URLs.
+- Request `/robots.txt`. Check the sitemap URL and the `/api/`, `/auth/`, and
+  `/account/` exclusions against `src/app/robots.ts`.
+- Request `/account/confirm-email` without a token and check the response header
+  `X-Robots-Tag: noindex, nofollow`. Record which environment served the response;
+  a local check does not establish the deployed configuration.
+
 ## Public landing page
 
 - Check a narrow mobile viewport and a desktop viewport for clipped text, overlapping
