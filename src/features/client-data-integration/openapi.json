@@ -1,0 +1,2401 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AdaPenyu Integration API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/integration/v1/individuals": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "List Individuals",
+        "operationId": "list_individuals_api_integration_v1_individuals_get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "species",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurtleSpecies"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Species"
+            }
+          },
+          {
+            "name": "condition",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/HealthStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Condition"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^(name|last_seen_desc)$",
+              "default": "name",
+              "title": "Sort"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_TurtleProfile_"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/individuals/{individual_id}": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "Get Individual",
+        "operationId": "get_individual_api_integration_v1_individuals__individual_id__get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "individual_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Individual Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurtleProfile"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found or outside the authenticated organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/individuals/{individual_id}/logs": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "List Individual Logs",
+        "operationId": "list_individual_logs_api_integration_v1_individuals__individual_id__logs_get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "individual_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Individual Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_IntegrationSighting_"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found or outside the authenticated organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/individuals/{individual_id}/photos/{side}": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "Get Individual Photo",
+        "operationId": "get_individual_photo_api_integration_v1_individuals__individual_id__photos__side__get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "individual_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Individual Id"
+            }
+          },
+          {
+            "name": "side",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TurtleSide"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary download",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/webp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found or outside the authenticated organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Storage, email delivery, or inference temporarily unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/logs": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "List Logs",
+        "operationId": "list_logs_api_integration_v1_logs_get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "since",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Since"
+            }
+          },
+          {
+            "name": "until",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Until"
+            }
+          },
+          {
+            "name": "identified_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "title": "Identified Only"
+            }
+          },
+          {
+            "name": "has_coordinates",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Has Coordinates"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 200,
+              "minimum": 1,
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Page_IntegrationSighting_"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/logs/{log_id}": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "Get Log",
+        "operationId": "get_log_api_integration_v1_logs__log_id__get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Log Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationSighting"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found or outside the authenticated organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/integration/v1/logs/{log_id}/photos/{photo_id}": {
+      "get": {
+        "tags": [
+          "client integration"
+        ],
+        "summary": "Get Log Photo",
+        "operationId": "get_log_photo_api_integration_v1_logs__log_id__photos__photo_id__get",
+        "security": [
+          {
+            "AdapenyuAPIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "log_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Log Id"
+            }
+          },
+          {
+            "name": "photo_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Photo Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Binary download",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/webp": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Authentication challenge for the required credential scheme"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid fields, body, image, or current password",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request quota exceeded; wait according to Retry-After",
+            "headers": {
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "description": "Advised delay in seconds (currently fixed at 60)"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found or outside the authenticated organization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Storage, email delivery, or inference temporarily unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organization/api-key": {
+      "get": {
+        "tags": [
+          "organization API key"
+        ],
+        "summary": "Get Key",
+        "operationId": "get_key_api_v1_organization_api_key_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationAPIKeyOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "description": "Authentication challenge for the required credential scheme",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Image or total request body exceeds its configured byte limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account is not permitted to perform this operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "organization API key"
+        ],
+        "summary": "Revoke Key",
+        "operationId": "revoke_key_api_v1_organization_api_key_delete",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "description": "Authentication challenge for the required credential scheme",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Image or total request body exceeds its configured byte limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account is not permitted to perform this operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/organization/api-key/rotate": {
+      "post": {
+        "tags": [
+          "organization API key"
+        ],
+        "summary": "Rotate Key",
+        "operationId": "rotate_key_api_v1_organization_api_key_rotate_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationAPIKeyIssued"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid, expired, or revoked authentication credentials",
+            "headers": {
+              "WWW-Authenticate": {
+                "description": "Authentication challenge for the required credential scheme",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Image or total request body exceeds its configured byte limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; internal details are withheld",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The authenticated account is not permitted to perform this operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorOut"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiErrorOut": {
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationIssueOut"
+                },
+                "type": "array"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              }
+            ],
+            "title": "Detail"
+          },
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "ApiErrorOut"
+      },
+      "BodyCondition": {
+        "type": "string",
+        "enum": [
+          "healthy",
+          "scarred",
+          "injured"
+        ],
+        "title": "BodyCondition"
+      },
+      "BodyRegion": {
+        "type": "string",
+        "enum": [
+          "head",
+          "carapace",
+          "front_flipper_left",
+          "front_flipper_right",
+          "rear_flipper_left",
+          "rear_flipper_right",
+          "tail"
+        ],
+        "title": "BodyRegion"
+      },
+      "Condition": {
+        "properties": {
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BodyCondition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "markings": {
+            "items": {
+              "$ref": "#/components/schemas/Marking"
+            },
+            "type": "array",
+            "title": "Markings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "notes",
+          "markings"
+        ],
+        "title": "Condition"
+      },
+      "Coordinates": {
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "title": "Coordinates"
+      },
+      "DeceasedEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "deceased",
+            "title": "Type"
+          },
+          "suspected_cause": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suspected Cause"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "suspected_cause"
+        ],
+        "title": "DeceasedEvent"
+      },
+      "FalseCrawlEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "false_crawl",
+            "title": "Type"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "FalseCrawlEvent"
+      },
+      "HealthStatus": {
+        "type": "string",
+        "enum": [
+          "unknown",
+          "healthy",
+          "scarred",
+          "injured"
+        ],
+        "title": "HealthStatus"
+      },
+      "Identification": {
+        "properties": {
+          "method": {
+            "$ref": "#/components/schemas/IdentificationMethod"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "method",
+          "confidence"
+        ],
+        "title": "Identification"
+      },
+      "IdentificationMethod": {
+        "type": "string",
+        "enum": [
+          "photo_match",
+          "manual",
+          "flipper_tag",
+          "new_individual"
+        ],
+        "title": "IdentificationMethod"
+      },
+      "IdentityPhotos": {
+        "properties": {
+          "left": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Photo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "right": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Photo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "left",
+          "right"
+        ],
+        "title": "IdentityPhotos"
+      },
+      "IntegrationSighting": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "event": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SightingEvent"
+              },
+              {
+                "$ref": "#/components/schemas/NestingEvent"
+              },
+              {
+                "$ref": "#/components/schemas/FalseCrawlEvent"
+              },
+              {
+                "$ref": "#/components/schemas/StrandedEvent"
+              },
+              {
+                "$ref": "#/components/schemas/DeceasedEvent"
+              },
+              {
+                "$ref": "#/components/schemas/OtherEvent"
+              }
+            ],
+            "title": "Event",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "deceased": "#/components/schemas/DeceasedEvent",
+                "false_crawl": "#/components/schemas/FalseCrawlEvent",
+                "nesting": "#/components/schemas/NestingEvent",
+                "other": "#/components/schemas/OtherEvent",
+                "sighting": "#/components/schemas/SightingEvent",
+                "stranded": "#/components/schemas/StrandedEvent"
+              }
+            }
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Condition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "turtle_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turtle Id"
+          },
+          "behavior": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Behavior"
+          },
+          "measurements": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Measurements"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "identification": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Identification"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "photos": {
+            "items": {
+              "$ref": "#/components/schemas/SightingPhoto"
+            },
+            "type": "array",
+            "title": "Photos"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "observed_at",
+          "event",
+          "location",
+          "condition",
+          "turtle_id",
+          "behavior",
+          "measurements",
+          "identification",
+          "notes",
+          "photos",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "IntegrationSighting"
+      },
+      "Location": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Name"
+          },
+          "coordinates": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Coordinates"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "coordinates"
+        ],
+        "title": "Location"
+      },
+      "Marking": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "region": {
+            "$ref": "#/components/schemas/BodyRegion"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/MarkingKind"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/Severity"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "is_permanent": {
+            "type": "boolean",
+            "title": "Is Permanent"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "region",
+          "kind",
+          "severity",
+          "notes",
+          "is_permanent",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "Marking"
+      },
+      "MarkingKind": {
+        "type": "string",
+        "enum": [
+          "scratch",
+          "wound",
+          "missing_limb",
+          "deformity",
+          "barnacles",
+          "fibropapilloma",
+          "tag_scar",
+          "other"
+        ],
+        "title": "MarkingKind"
+      },
+      "Measurements": {
+        "properties": {
+          "carapace_length_cm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Carapace Length Cm"
+          },
+          "carapace_width_cm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Carapace Width Cm"
+          },
+          "weight_kg": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weight Kg"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "carapace_length_cm",
+          "carapace_width_cm",
+          "weight_kg"
+        ],
+        "title": "Measurements"
+      },
+      "NestingEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "nesting",
+            "title": "Type"
+          },
+          "egg_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Egg Count"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "egg_count"
+        ],
+        "title": "NestingEvent"
+      },
+      "OrganizationAPIKeyIssued": {
+        "properties": {
+          "configured": {
+            "type": "boolean",
+            "title": "Configured"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "issued_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issued At"
+          },
+          "api_key": {
+            "type": "string",
+            "title": "Api Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "configured",
+          "prefix",
+          "issued_at",
+          "api_key"
+        ],
+        "title": "OrganizationAPIKeyIssued"
+      },
+      "OrganizationAPIKeyOut": {
+        "properties": {
+          "configured": {
+            "type": "boolean",
+            "title": "Configured"
+          },
+          "prefix": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prefix"
+          },
+          "issued_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issued At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "configured",
+          "prefix",
+          "issued_at"
+        ],
+        "title": "OrganizationAPIKeyOut"
+      },
+      "OtherEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "other",
+            "title": "Type"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "description"
+        ],
+        "title": "OtherEvent"
+      },
+      "Page_IntegrationSighting_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/IntegrationSighting"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "title": "Page[IntegrationSighting]"
+      },
+      "Page_TurtleProfile_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/TurtleProfile"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "title": "Page[TurtleProfile]"
+      },
+      "Photo": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Url"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "captured_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Captured At"
+          },
+          "uploaded_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Uploaded At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "download_url",
+          "expires_at",
+          "captured_at",
+          "uploaded_at"
+        ],
+        "title": "Photo"
+      },
+      "RecordedCondition": {
+        "properties": {
+          "log_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Log Id"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/BodyCondition"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "log_id",
+          "observed_at",
+          "status"
+        ],
+        "title": "RecordedCondition"
+      },
+      "RecordedMeasurements": {
+        "properties": {
+          "log_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Log Id"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "values": {
+            "$ref": "#/components/schemas/Measurements"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "log_id",
+          "observed_at",
+          "values"
+        ],
+        "title": "RecordedMeasurements"
+      },
+      "Severity": {
+        "type": "string",
+        "enum": [
+          "minor",
+          "moderate",
+          "severe"
+        ],
+        "title": "Severity"
+      },
+      "SightingEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "sighting",
+            "title": "Type"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "SightingEvent"
+      },
+      "SightingPhoto": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Url"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "captured_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Captured At"
+          },
+          "uploaded_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Uploaded At"
+          },
+          "marking_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marking Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "url",
+          "download_url",
+          "expires_at",
+          "captured_at",
+          "uploaded_at",
+          "marking_id"
+        ],
+        "title": "SightingPhoto"
+      },
+      "SightingPreview": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "event": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SightingEvent"
+              },
+              {
+                "$ref": "#/components/schemas/NestingEvent"
+              },
+              {
+                "$ref": "#/components/schemas/FalseCrawlEvent"
+              },
+              {
+                "$ref": "#/components/schemas/StrandedEvent"
+              },
+              {
+                "$ref": "#/components/schemas/DeceasedEvent"
+              },
+              {
+                "$ref": "#/components/schemas/OtherEvent"
+              }
+            ],
+            "title": "Event",
+            "discriminator": {
+              "propertyName": "type",
+              "mapping": {
+                "deceased": "#/components/schemas/DeceasedEvent",
+                "false_crawl": "#/components/schemas/FalseCrawlEvent",
+                "nesting": "#/components/schemas/NestingEvent",
+                "other": "#/components/schemas/OtherEvent",
+                "sighting": "#/components/schemas/SightingEvent",
+                "stranded": "#/components/schemas/StrandedEvent"
+              }
+            }
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Condition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "observed_at",
+          "event",
+          "location",
+          "condition"
+        ],
+        "title": "SightingPreview"
+      },
+      "StrandedEvent": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "stranded",
+            "title": "Type"
+          },
+          "is_injured": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Injured"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "is_injured"
+        ],
+        "title": "StrandedEvent"
+      },
+      "TurtleProfile": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "profile_code": {
+            "type": "string",
+            "title": "Profile Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "species": {
+            "$ref": "#/components/schemas/TurtleSpecies"
+          },
+          "sex": {
+            "$ref": "#/components/schemas/TurtleSex"
+          },
+          "identity_photos": {
+            "$ref": "#/components/schemas/IdentityPhotos"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/TurtleSummary"
+          },
+          "first_seen_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "First Seen At"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "profile_code",
+          "name",
+          "species",
+          "sex",
+          "identity_photos",
+          "summary",
+          "first_seen_at",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "TurtleProfile"
+      },
+      "TurtleSex": {
+        "type": "string",
+        "enum": [
+          "male",
+          "female",
+          "unknown"
+        ],
+        "title": "TurtleSex"
+      },
+      "TurtleSide": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ],
+        "title": "TurtleSide"
+      },
+      "TurtleSpecies": {
+        "type": "string",
+        "enum": [
+          "hawksbill",
+          "green",
+          "loggerhead",
+          "leatherback",
+          "olive_ridley",
+          "unknown"
+        ],
+        "title": "TurtleSpecies"
+      },
+      "TurtleSummary": {
+        "properties": {
+          "total_sightings": {
+            "type": "integer",
+            "title": "Total Sightings"
+          },
+          "latest_sighting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SightingPreview"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "last_recorded_condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RecordedCondition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "latest_measurements": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RecordedMeasurements"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total_sightings",
+          "latest_sighting",
+          "last_recorded_condition",
+          "latest_measurements"
+        ],
+        "title": "TurtleSummary"
+      },
+      "ValidationIssueOut": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Loc"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Msg"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationIssueOut"
+      }
+    },
+    "securitySchemes": {
+      "AdapenyuAPIKey": {
+        "type": "apiKey",
+        "description": "Organization read-only key; store it as ADAPENYU_API_KEY in your client environment.",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com",
+      "description": "Replace with your organization’s API origin"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "turtle": {
+    "id": "10000000-0000-4000-8000-000000000001",
+    "profile_code": "000001",
+    "name": "Example turtle",
+    "species": "green",
+    "sex": "unknown",
+    "identity_photos": {
+      "left": {
+        "id": "30000000-0000-4000-8000-000000000001",
+        "url": "/api/integration/v1/individuals/10000000-0000-4000-8000-000000000001/photos/left",
+        "download_url": null,
+        "expires_at": null,
+        "captured_at": null,
+        "uploaded_at": "2026-11-04T08:05:00Z"
+      },
+      "right": null
+    },
+    "summary": {
+      "total_sightings": 1,
+      "latest_sighting": {
+        "id": "20000000-0000-4000-8000-000000000001",
+        "observed_at": "2026-11-04T08:00:00Z",
+        "event": {
+          "type": "sighting"
+        },
+        "location": {
+          "name": "Example site",
+          "coordinates": null
+        },
+        "condition": null
+      },
+      "last_recorded_condition": null,
+      "latest_measurements": {
+        "log_id": "20000000-0000-4000-8000-000000000001",
+        "observed_at": "2026-11-04T08:00:00Z",
+        "values": {
+          "carapace_length_cm": 62.5,
+          "carapace_width_cm": 54.2,
+          "weight_kg": null
+        }
+      }
+    },
+    "first_seen_at": "2026-11-04T08:00:00Z",
+    "created_at": "2026-11-04T08:04:00Z",
+    "updated_at": "2026-11-04T08:04:00Z"
+  },
+  "sighting": {
+    "id": "20000000-0000-4000-8000-000000000001",
+    "turtle_id": "10000000-0000-4000-8000-000000000001",
+    "observed_at": "2026-11-04T08:00:00Z",
+    "event": {
+      "type": "sighting"
+    },
+    "location": {
+      "name": "Example site",
+      "coordinates": null
+    },
+    "condition": null,
+    "behavior": null,
+    "measurements": {
+      "carapace_length_cm": 62.5,
+      "carapace_width_cm": 54.2,
+      "weight_kg": null
+    },
+    "identification": {
+      "method": "manual",
+      "confidence": null
+    },
+    "notes": null,
+    "photos": [
+      {
+        "id": "30000000-0000-4000-8000-000000000002",
+        "url": "/api/integration/v1/logs/20000000-0000-4000-8000-000000000001/photos/30000000-0000-4000-8000-000000000002",
+        "download_url": null,
+        "expires_at": null,
+        "captured_at": "2026-11-04T08:00:00Z",
+        "uploaded_at": "2026-11-04T08:06:00Z",
+        "marking_id": null
+      }
+    ],
+    "created_at": "2026-11-04T08:04:00Z",
+    "updated_at": "2026-11-04T08:04:00Z"
+  }
+}

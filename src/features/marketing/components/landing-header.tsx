@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, animate, motion, useReducedMotion } from "motion/react";
 import { Button, buttonClasses } from "@/components/ui/button";
+import { siteConfig } from "@/lib/config/site";
 import { Pattern } from "./pattern";
 import { MobileNavigationPanel } from "./mobile-navigation-panel";
 
@@ -13,6 +14,8 @@ const navigation = [
   { label: "Our Project", href: "#our-project", detail: "Recognising turtles through photographs" },
   { label: "About Us", href: "#about-us", detail: "Meet the Citizens of the Sea" },
   { label: "FAQ", href: "#faq", detail: "Your questions, answered" },
+  { label: "Docs", href: siteConfig.integrationGuidePath, detail: "Connect tools to your organization’s turtle data" },
+  { label: "Developer Settings", href: `${siteConfig.integrationGuidePath}#get-an-api-key`, detail: "Find the organization API key controls in the Mac app" },
   { label: "Penyu Gallery", href: "/penyuGallery", detail: "Explore 50 green sea turtle facial profiles" },
   { label: "Schedule", href: "/schedule", detail: "Arrange a meeting with professors and doctors" },
 ] as const;
@@ -127,7 +130,8 @@ export function LandingHeader() {
           paint(element, "--nav-hover", darkAtCenter ? "#00263c12" : "#ffffff18");
         }
       }
-      const target = !isHome ? pathname : current === "faq" ? "#faq" : ["about-us", "where-we-come-from", "contribute", "contact"].includes(current) ? "#about-us" : current === "home" ? "#home" : "#our-project";
+      const pageTarget = pathname.startsWith(`${siteConfig.integrationGuidePath}/`) ? siteConfig.integrationGuidePath : pathname;
+      const target = !isHome ? pageTarget : current === "faq" ? "#faq" : ["about-us", "where-we-come-from", "contribute", "contact"].includes(current) ? "#about-us" : current === "home" ? "#home" : "#our-project";
       header.querySelectorAll('nav a').forEach(link => {
         if (link.getAttribute("href") === target) link.setAttribute("aria-current", isHome ? "location" : "page");
         else link.removeAttribute("aria-current");
@@ -176,11 +180,11 @@ export function LandingHeader() {
       <div className="flex items-center justify-center gap-4 md:justify-between">
         <div ref={blockRef} data-nav-paint="surface" onPointerEnter={event => { if (event.pointerType === "mouse") { hoveringRef.current = true; refreshHeaderRef.current?.(); } }} onPointerLeave={() => { hoveringRef.current = false; refreshHeaderRef.current?.(); }} onFocusCapture={() => refreshHeaderRef.current?.()} onBlurCapture={() => refreshHeaderRef.current?.()} className="pointer-events-auto flex items-center gap-3 rounded-2xl bg-primary p-1.5 pl-4 text-white shadow-[0_4px_20px_#00263c08] [background-image:var(--nav-paint)] lg:gap-5">
           <Link ref={brandRef} href={resolveHref("#home")} aria-label="AdaPenyu home" className="shrink-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:[outline-color:var(--nav-focus,currentColor)]">
-            <span aria-hidden="true" data-nav-paint="ink" className="block aspect-[251/78] w-[112px] bg-white [background-image:var(--nav-paint)] [mask-image:url('/images/marketing/wordmark.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] sm:w-[125px]" />
+            <span aria-hidden="true" data-nav-paint="ink" className="block aspect-[251/78] w-[112px] bg-white [background-image:var(--nav-paint)] [mask-image:url('/images/marketing/wordmark.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain] sm:w-[125px] lg:w-[105px] xl:w-[125px]" />
           </Link>
           <div className="flex items-center">
-            <nav ref={navRef} aria-label="Main navigation" className="hidden max-w-[600px] items-center gap-5 overflow-hidden pr-4 pl-3 opacity-100 transition-[max-width,opacity,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-[expanded=false]/header:pointer-events-none group-data-[expanded=false]/header:max-w-0 group-data-[expanded=false]/header:px-0 group-data-[expanded=false]/header:opacity-0 motion-reduce:transition-none lg:flex">
-              {navigation.map(item => <Link key={item.href} href={resolveHref(item.href)} className="group/link flex min-h-11 shrink-0 items-center rounded-md text-sm font-medium aria-[current=location]:font-semibold aria-[current=page]:font-semibold focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2"><NavigationLabel adaptive>{item.label}</NavigationLabel></Link>)}
+            <nav ref={navRef} aria-label="Main navigation" className="hidden max-w-[44rem] items-center gap-2 overflow-hidden pr-4 pl-3 opacity-100 transition-[max-width,opacity,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-data-[expanded=false]/header:pointer-events-none group-data-[expanded=false]/header:max-w-0 group-data-[expanded=false]/header:px-0 group-data-[expanded=false]/header:opacity-0 motion-reduce:transition-none lg:flex xl:gap-5">
+              {navigation.map(item => <Link key={item.href} href={resolveHref(item.href)} className="group/link flex min-h-11 shrink-0 items-center rounded-md text-[13px] font-medium aria-[current=location]:font-semibold aria-[current=page]:font-semibold focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2 xl:text-sm"><NavigationLabel adaptive>{item.label}</NavigationLabel></Link>)}
             </nav>
             <button ref={menuButtonRef} type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-expanded={isMenuOpen} aria-controls={menuId} onClick={() => { dialogRef.current?.showModal(); setIsMenuOpen(true); }} className="group hidden size-11 cursor-pointer items-center justify-center rounded-xl transition-colors hover:bg-[var(--nav-hover)] focus-visible:outline-2 focus-visible:[outline-color:var(--nav-focus,currentColor)] focus-visible:outline-offset-2 md:flex">
               <span aria-hidden="true" data-nav-paint="ink" className="size-5 bg-white [background-image:var(--nav-paint)] [mask-image:url('/icons/nav-menu.svg')] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]" />

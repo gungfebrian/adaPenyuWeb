@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config/site";
 
 import { ContactForm } from "../components/contact-form";
 import { FaqAccordion } from "../components/faq-accordion";
@@ -213,7 +214,10 @@ export function MarketingFooter() {
           />
         </Link>
         <p>© 2026 AdaPenyu. All rights reserved.</p>
-        <a href="mailto:adapenyu@gmail.com" className="inline-flex min-h-11 w-fit items-center rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
+        <div className="flex flex-wrap gap-x-6">
+          <Link href={siteConfig.integrationGuidePath} className="inline-flex min-h-11 w-fit items-center rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">Client data integration</Link>
+          <a href="mailto:adapenyu@gmail.com" className="inline-flex min-h-11 w-fit items-center rounded-sm hover:underline hover:underline-offset-4 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">adapenyu@gmail.com</a>
+        </div>
       </div>
     </footer>
   );

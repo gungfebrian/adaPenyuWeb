@@ -8,15 +8,16 @@ route, and result for each check you perform. These are review steps, not record
 Use the [metadata source map](marketing-content.md#page-metadata-and-crawler-settings)
 to compare the rendered output with the intended configuration.
 
-- Open `/` and `/penyuGallery`. Check each browser title and inspect the response
-  HTML for its description; the gallery description should match the collection
-  counts when records change.
+- Open `/`, `/penyuGallery`, and `/docs/client-data-integration`. Check each
+  browser title and inspect the response HTML for its description. The gallery
+  description should match the collection counts when records change.
 - On `/`, check the canonical link, Open Graph tags, and Twitter preview tags.
   Confirm `/og-preview.png` loads and its actual dimensions match the homepage's
   declared image dimensions. Report social-platform preview checks separately;
   inspecting HTML does not verify a platform's cached preview.
-- Request `/sitemap.xml`. Confirm it lists the production homepage and
-  `/penyuGallery`, with no `/penyu-gallery` alias or account-action URLs.
+- Request `/sitemap.xml`. Confirm it lists the production homepage,
+  `/penyuGallery`, and `/docs/client-data-integration`. Check the guide’s canonical
+  URL and confirm the sitemap excludes the `/penyu-gallery` alias and account-action URLs.
 - Request `/robots.txt`. Check the sitemap URL and the `/api/`, `/auth/`, and
   `/account/` exclusions against `src/app/robots.ts`.
 - Request `/account/confirm-email` without a token and check the response header
@@ -37,6 +38,20 @@ to compare the rendered output with the intended configuration.
   Escape and confirm keyboard focus returns to the selected portrait button.
 - Enable reduced motion in the device or browser settings and reload. Confirm
   content remains readable and decorative movement is static.
+
+### Client data integration guide
+
+- Open **Docs** from the desktop header, expanded menu, and mobile menu.
+  Confirm the guide opens while signed out and the menu fits at 1024px.
+- In **Manage access**, check the screenshot’s alt text, the redacted key
+  prefix and issue time, and the full-size screenshot link.
+- Request `/llms.txt` and follow its Markdown guide link. Check the response
+  content type, the HTML guide’s alternate link and discovery header, and
+  compare the curl and JSON examples in both formats.
+- From **API reference**, open a list endpoint, a photo download, and an owner
+  key operation. Check the method, authentication header, parameters, status
+  codes, expandable schema fields, and request and response examples against
+  the linked OpenAPI document.
 
 ### Contact drafts
 

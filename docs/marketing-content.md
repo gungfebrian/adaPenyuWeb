@@ -19,6 +19,8 @@ link previews. Visible page copy and metadata have separate definitions.
 | Default title, title template, metadata base URL, and browser/touch icons | `src/app/layout.tsx` |
 | Homepage title, description, canonical link, Open Graph, and Twitter preview | `src/app/(marketing)/page.tsx` |
 | Gallery title and description | `src/app/(marketing)/penyuGallery/page.tsx` |
+| Client data integration guide and metadata | `src/app/(marketing)/docs/client-data-integration/page.tsx` |
+| Shared guide copy and API response examples | `src/features/client-data-integration/guide.ts` |
 | Public sitemap entries | `src/app/sitemap.ts` |
 | Crawler rules and sitemap location | `src/app/robots.ts` |
 
@@ -27,14 +29,25 @@ When replacing it, keep the declared dimensions and alternative text aligned wit
 the image. Review the homepage's title and description alongside the shared
 `siteConfig` values; some strings are defined directly in the page.
 
-The sitemap currently lists the homepage and `/penyuGallery`. Keep the redirect
-alias `/penyu-gallery` out of the sitemap. Crawler rules disallow `/api/`, `/auth/`,
+The sitemap lists the homepage, `/penyuGallery`, and
+`/docs/client-data-integration`. Keep the redirect alias `/penyu-gallery` out
+of the sitemap. Crawler rules disallow `/api/`, `/auth/`,
 and `/account/`; account pages also receive `X-Robots-Tag: noindex, nofollow` from
 `next.config.ts`. These settings describe crawler behavior; route access is
 handled separately by the application.
 
 Follow the [metadata checks](manual-ui-checks.md#page-metadata-and-crawler-responses)
 after changing these files or the preview image.
+
+Edit the shared integration guide when the API instructions or response
+examples change. The HTML guide and `/docs/client-data-integration.md` use the
+same content. The site’s `/llms.txt` points agents to the Markdown guide.
+
+The endpoint reference uses the FastAPI contracts in the backend checkout.
+After a backend contract change, use its Python environment to run
+`python scripts/export-integration-openapi.py <backend-checkout>` from this
+repository, then review the generated OpenAPI diff and the example payloads in
+`src/features/client-data-integration/examples.json`.
 
 ## Team profiles
 
