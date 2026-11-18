@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { siteConfig } from "./src/lib/config/site";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
@@ -9,6 +10,12 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "Content-Type", value: "application/json" },
           { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
+        ],
+      },
+      {
+        source: siteConfig.integrationGuidePath,
+        headers: [
+          { key: "Link", value: "</llms.txt>; rel=\"describedby\"" },
         ],
       },
       {
