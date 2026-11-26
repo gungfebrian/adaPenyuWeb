@@ -43,7 +43,7 @@ function GalleryIcon({
   name,
   className = "size-5",
 }: {
-  name: "search" | "close" | "previous" | "next" | "eye" | "hidden" | "check";
+  name: "search" | "close" | "previous" | "next" | "eye" | "hidden" | "check" | "chevron";
   className?: string;
 }) {
   return (
@@ -51,7 +51,7 @@ function GalleryIcon({
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.7"
+      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -65,12 +65,21 @@ function GalleryIcon({
       {name === "eye" && <><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></>}
       {name === "hidden" && <><path d="m3 3 18 18M10.5 5.1 12 5c6.5 0 10 7 10 7a18.5 18.5 0 0 1-3.3 4.2M6.3 6.3A20 20 0 0 0 2 12s3.5 7 10 7a11 11 0 0 0 5.7-1.7M9.9 9.9a3 3 0 0 0 4.2 4.2" /></>}
       {name === "check" && <path d="m5 12 4 4L19 6" />}
+      {name === "chevron" && <path d="m6 9 6 6 6-6" />}
     </svg>
   );
 }
 
 function turtleNumber(index: number) {
   return String(index + 1).padStart(2, "0");
+}
+
+function formatYearRange(firstYear: number, lastYear: number) {
+  return firstYear === lastYear ? String(firstYear) : `${firstYear}–${lastYear}`;
+}
+
+function formatSightingCount(count: number) {
+  return `${count} ${count === 1 ? "sighting" : "sightings"}`;
 }
 
 function formatDate(date: string) {
@@ -125,6 +134,7 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
       (year === "All" || turtle.sightings.some((sighting) => String(sighting.year) === year)),
     );
   }, [query, turtles, year]);
+
   // A shared profile may be outside the link's filters. Keep it viewable and
   // use the complete archive for navigation in that case.
   const navigationTurtles = selected && !filtered.some((turtle) => turtle.id === selected.id)
@@ -146,8 +156,6 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
     if (Object.keys(invalid).length) updateSearch(invalid);
   }, [requestedYear, requestedTurtle, selected, year]);
 
-  // Opening and closing are independent of which turtle is selected. The native
-  // dialog keeps the page inert and restores the original opener after browsing.
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!hasSelection || !dialog) return;
@@ -194,112 +202,199 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
       <section
         id="penyu-catalog"
         aria-labelledby="penyu-catalog-title"
-        className="scroll-mt-28 border-t border-primary/10 bg-surface/60 px-[var(--page-gutter)] pt-10 pb-20 sm:pt-14 sm:pb-28"
+        className="scroll-mt-24 bg-paper px-[var(--page-gutter)] pt-6 pb-16 sm:pt-10 sm:pb-24"
       >
-        <div className="mx-auto max-w-[1280px]">
+        <div className="mx-auto w-full max-w-[1352px]">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-detail text-xs font-semibold tracking-[0.16em] text-secondary uppercase">The collection / {String(turtles.length).padStart(2, "0")} individuals</p>
-              <h2 id="penyu-catalog-title" className="mt-3 font-body text-3xl font-semibold tracking-[-0.035em] text-primary sm:text-4xl">Find a familiar face.</h2>
+              <p className="font-detail text-base font-medium text-secondary sm:text-lg">
+                The collection
+              </p>
+              <h2
+                id="penyu-catalog-title"
+                className="mt-2 font-display text-[32px] leading-[1.2] font-medium text-secondary sm:text-[42px]"
+              >
+                Find a familiar face
+              </h2>
             </div>
-            <p className="max-w-xs font-detail text-sm leading-relaxed text-secondary">Look closely. The scales around each eye tell a different story.</p>
+            <p
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+              className="font-detail text-sm text-secondary"
+            >
+              <span className="font-semibold text-primary tabular-nums">{filtered.length}</span>{" "}
+              {filtered.length === 1 ? "turtle" : "turtles"}
+              {mysteryMode && (
+                <>
+                  {" "}· <span className="tabular-nums">{revealedCount}</span> revealed
+                </>
+              )}
+            </p>
           </div>
 
-          <div className="mt-7 grid gap-3 rounded-2xl border border-primary/10 bg-paper p-3 sm:p-4 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-center">
-            <label className="flex min-h-12 items-center gap-3 rounded-xl border border-primary/10 bg-paper px-4 text-secondary focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-secondary">
-              <GalleryIcon name="search" />
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <label className="flex min-h-12 w-full items-center gap-3 rounded-2xl bg-surface px-4 text-secondary transition-colors focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-secondary sm:max-w-sm">
+              <GalleryIcon name="search" className="size-4 shrink-0" />
               <span className="sr-only">Search turtles by name</span>
               <input
                 type="search"
                 value={query}
                 onChange={(event) => updateSearch({ q: event.target.value || null })}
-                placeholder="Search a turtle by name"
-                className="w-full min-w-0 bg-transparent py-3 font-body text-base text-primary placeholder:text-secondary focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+                placeholder="Search turtles by name"
+                className="w-full min-w-0 bg-transparent py-3 font-body text-sm text-primary placeholder:text-secondary/80 focus:outline-none sm:text-base [&::-webkit-search-cancel-button]:hidden"
               />
-              {query && <button type="button" onClick={() => updateSearch({ q: null })} aria-label="Clear search" className={`grid size-11 shrink-0 cursor-pointer place-items-center rounded-md hover:bg-surface ${focusRing}`}><GalleryIcon name="close" className="size-4" /></button>}
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => updateSearch({ q: null })}
+                  aria-label="Clear search"
+                  className={`grid size-9 shrink-0 cursor-pointer place-items-center rounded-full hover:bg-primary/10 ${focusRing}`}
+                >
+                  <GalleryIcon name="close" className="size-4" />
+                </button>
+              )}
             </label>
 
-            <label className="flex min-h-12 items-center justify-between gap-3 rounded-xl border border-primary/10 bg-paper px-4 font-body text-sm text-primary">
-              <span className="text-secondary">Observed in</span>
-              <select
-                value={year}
-                onChange={(event) => updateSearch({ year: event.target.value === "All" ? null : event.target.value })}
-                className={`min-h-11 cursor-pointer bg-paper pr-1 font-medium ${focusRing}`}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <label className="relative inline-flex min-h-12 items-center rounded-2xl bg-surface px-4 font-body text-sm font-medium text-primary transition-colors hover:bg-primary/8 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-secondary">
+                <span className="sr-only">Filter by sighting year</span>
+                <span aria-hidden="true" className="mr-2 font-detail text-xs text-secondary">Year</span>
+                <select
+                  value={year}
+                  onChange={(event) => updateSearch({ year: event.target.value === "All" ? null : event.target.value })}
+                  className="min-h-11 cursor-pointer appearance-none bg-transparent pr-6 font-body text-sm font-semibold text-primary focus:outline-none"
+                >
+                  <option value="All">All years</option>
+                  {years.map((item) => (
+                    <option key={item} value={String(item)}>{item}</option>
+                  ))}
+                </select>
+                <GalleryIcon name="chevron" className="pointer-events-none absolute right-3.5 size-4 text-secondary" />
+              </label>
+
+              <button
+                type="button"
+                aria-pressed={mysteryMode}
+                aria-describedby="mystery-mode-description"
+                onClick={toggleMysteryMode}
+                className={`inline-flex min-h-12 cursor-pointer items-center gap-2.5 rounded-2xl px-4 font-body text-sm font-medium transition-colors motion-reduce:transition-none ${focusRing} ${
+                  mysteryMode
+                    ? "bg-primary text-white hover:bg-banner"
+                    : "bg-surface text-primary hover:bg-primary/8"
+                }`}
               >
-                <option value="All">All years</option>
-                {years.map((item) => <option key={item} value={String(item)}>{item}</option>)}
-              </select>
-            </label>
-
-            <button
-              type="button"
-              aria-pressed={mysteryMode}
-              aria-describedby="mystery-mode-description"
-              onClick={toggleMysteryMode}
-              className={`flex min-h-12 cursor-pointer items-center justify-between gap-4 rounded-xl border px-4 font-body text-sm font-medium transition-colors motion-reduce:transition-none ${focusRing} ${mysteryMode ? "border-primary bg-primary text-white hover:bg-banner" : "border-primary/15 bg-paper text-primary hover:bg-surface"}`}
-            >
-              <span className="flex items-center gap-2.5"><GalleryIcon name={mysteryMode ? "hidden" : "eye"} />Mystery mode</span>
-              <span className={`text-xs ${mysteryMode ? "text-white/75" : "text-secondary"}`}>{mysteryMode ? "On" : "Off"}</span>
-            </button>
-          </div>
-
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 font-detail text-sm leading-relaxed text-secondary">
-            <p id="mystery-mode-description" className="max-w-lg">{mysteryMode ? "Names are hidden. Make a guess, then reveal an identity." : "Names are visible. Turn on mystery mode for a fresh challenge."}</p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <p role="status" aria-live="polite" aria-atomic="true"><span className="font-semibold text-primary">{filtered.length}</span> {filtered.length === 1 ? "turtle" : "turtles"}{mysteryMode && <> · {revealedCount} {revealedCount === 1 ? "name" : "names"} revealed</>}</p>
-              {(query || year !== "All") && <button type="button" onClick={resetFilters} className={`min-h-11 cursor-pointer font-semibold text-primary underline underline-offset-4 hover:text-secondary ${focusRing}`}>Reset filters</button>}
+                <GalleryIcon name={mysteryMode ? "hidden" : "eye"} className="size-4" />
+                <span>Mystery mode</span>
+                <span className={`font-detail text-xs ${mysteryMode ? "text-white/75" : "text-secondary"}`}>
+                  {mysteryMode ? "On" : "Off"}
+                </span>
+              </button>
             </div>
           </div>
 
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 font-detail text-sm text-secondary">
+            <p id="mystery-mode-description">
+              {mysteryMode
+                ? "Names are hidden — study the scales behind the eye, then tap Reveal to check."
+                : "Names are visible. Switch on mystery mode to test your eye."}
+            </p>
+            {(query || year !== "All") && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className={`min-h-10 cursor-pointer font-body text-sm font-semibold text-primary underline decoration-primary/35 underline-offset-4 hover:text-secondary hover:decoration-secondary ${focusRing}`}
+              >
+                Reset filters
+              </button>
+            )}
+          </div>
+
           {filtered.length ? (
-            <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-              {filtered.map((turtle) => {
+            <ul className="mt-8 grid list-none grid-cols-1 gap-x-6 gap-y-8 p-0 min-[480px]:grid-cols-2 sm:gap-y-10 md:grid-cols-3 lg:grid-cols-4">
+              {filtered.map((turtle, visibleIndex) => {
                 const isRevealed = !mysteryMode || revealedIds.has(turtle.id);
                 const number = turtleNumber(indices.get(turtle.id) ?? 0);
                 const title = isRevealed ? turtle.name : `Turtle ${number}`;
                 return (
-                  <article key={turtle.id} data-turtle-card={turtle.id} className="group/card min-w-0 rounded-[24px] border border-primary/10 bg-paper p-3 transition-[border-color,box-shadow] duration-200 hover:border-primary/25 hover:shadow-[0_8px_28px_#00263c0a] focus-within:border-primary/25 motion-reduce:transition-none sm:p-4">
-                    <button
-                      type="button"
-                      onClick={() => openTurtle(turtle.id)}
-                      aria-label={`${title}, open photo profile`}
-                      className={`group/open block w-full cursor-pointer rounded-2xl text-left ${focusRing}`}
-                    >
-                      <span className="relative block aspect-[4/3] overflow-hidden rounded-2xl bg-banner">
-                        <img src={turtle.primaryPhoto} alt={`${title}, green sea turtle facial profile`} loading="lazy" decoding="async" className="h-full w-full object-contain" />
-                        <span className="absolute top-3 left-3 rounded-full border border-white/25 bg-primary px-3 py-1.5 font-detail text-xs font-medium text-white tabular-nums">Profile {number}</span>
-                        <span className="absolute right-3 bottom-3 grid size-11 place-items-center rounded-full bg-paper text-primary transition-colors group-hover/open:bg-primary group-hover/open:text-white motion-reduce:transition-none"><GalleryIcon name="next" className="size-4" /></span>
-                      </span>
-                      <span className="mt-4 block px-1">
-                        <span className="mb-1.5 block font-detail text-[11px] font-medium tracking-[0.1em] text-secondary uppercase">Green sea turtle</span>
-                        <strong className="block break-words font-body text-2xl leading-tight font-semibold tracking-[-0.025em] text-primary group-hover/open:text-secondary">{title}</strong>
-                      </span>
-                      <span className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 px-1 pb-1 font-detail text-xs leading-relaxed text-secondary"><span>{turtle.firstYear}–{turtle.lastYear}</span><span aria-hidden="true">·</span><span>{turtle.sightings.length} sightings</span><span className="ml-auto font-medium text-primary underline decoration-primary/25 underline-offset-4 group-hover/open:decoration-primary">View profile</span></span>
-                    </button>
-                    {mysteryMode && (
-                      <div className="mt-3 border-t border-primary/10 px-1 pt-2">
+                  <li key={turtle.id} data-turtle-card={turtle.id} className="min-w-0">
+                    <article className="group/card flex flex-col">
+                      <button
+                        type="button"
+                        onClick={() => openTurtle(turtle.id)}
+                        aria-label={`${title}, open photo profile`}
+                        className={`block w-full cursor-pointer rounded-[20px] text-left ${focusRing}`}
+                      >
+                        <span className="relative block aspect-[6/5] overflow-hidden rounded-[20px] bg-surface shadow-[0_8px_24px_#00263c0d] transition-shadow duration-300 group-hover/card:shadow-[0_14px_34px_#00263c1a] motion-reduce:transition-none">
+                          <img
+                            src={turtle.primaryPhoto}
+                            alt={`${title}, green sea turtle facial profile`}
+                            loading={visibleIndex < 8 ? "eager" : "lazy"}
+                            decoding="async"
+                            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:scale-[1.04] motion-reduce:transition-none"
+                          />
+                        </span>
+                      </button>
+
+                      <div className="mt-3.5 flex items-start justify-between gap-2 px-0.5">
                         <button
                           type="button"
-                          aria-disabled={isRevealed}
-                          aria-label={isRevealed ? `${turtle.name}, name revealed` : "Reveal name"}
-                          onClick={() => { if (!isRevealed) revealTurtle(turtle.id); }}
-                          className={`flex min-h-11 items-center gap-2 rounded-sm font-body text-sm font-medium ${focusRing} ${isRevealed ? "cursor-default text-secondary" : "cursor-pointer text-primary hover:text-secondary"}`}
+                          onClick={() => openTurtle(turtle.id)}
+                          className={`min-w-0 flex-1 cursor-pointer rounded-md text-left ${focusRing}`}
                         >
-                          <GalleryIcon name={isRevealed ? "check" : "eye"} className="size-4" />
-                          {isRevealed ? "Name revealed" : "Reveal name"}
+                          <strong className="block truncate font-body text-base leading-snug font-semibold text-primary transition-colors group-hover/card:text-secondary sm:text-lg">
+                            {title}
+                          </strong>
+                          <span className="mt-0.5 block font-detail text-xs leading-relaxed text-secondary sm:text-sm">
+                            {formatYearRange(turtle.firstYear, turtle.lastYear)} ·{" "}
+                            {formatSightingCount(turtle.sightings.length)}
+                          </span>
                         </button>
+
+                        {mysteryMode && (
+                          <button
+                            type="button"
+                            aria-disabled={isRevealed}
+                            aria-label={isRevealed ? `${turtle.name}, name revealed` : `Reveal name for Turtle ${number}`}
+                            onClick={() => { if (!isRevealed) revealTurtle(turtle.id); }}
+                            className={`mt-0.5 inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-xl px-3 font-body text-xs font-medium transition-colors motion-reduce:transition-none ${focusRing} ${
+                              isRevealed
+                                ? "cursor-default bg-transparent px-1.5 text-secondary/75"
+                                : "cursor-pointer bg-surface text-primary hover:bg-primary hover:text-white"
+                            }`}
+                          >
+                            {isRevealed ? (
+                              <>
+                                <GalleryIcon name="check" className="size-3.5" />
+                                <span className="sr-only sm:not-sr-only">Revealed</span>
+                              </>
+                            ) : (
+                              <span>Reveal</span>
+                            )}
+                          </button>
+                        )}
                       </div>
-                    )}
-                  </article>
+                    </article>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           ) : (
-            <div className="mt-8 rounded-2xl bg-surface px-6 py-16 text-center">
+            <div className="mt-8 rounded-[24px] bg-surface px-6 py-16 text-center">
               <GalleryIcon name="search" className="mx-auto size-8 text-secondary" />
-              <h3 className="mt-5 font-body text-2xl font-semibold tracking-tight text-primary">No familiar faces here yet.</h3>
-              <p className="mt-2 font-detail text-sm leading-relaxed text-secondary">Try a different name or explore another year.</p>
-              <button type="button" onClick={resetFilters} className={`mt-6 min-h-11 cursor-pointer rounded-xl bg-primary px-5 py-3 font-body text-sm font-medium text-white hover:bg-banner ${focusRing}`}>View all turtles</button>
+              <h3 className="mt-4 font-display text-2xl font-medium text-primary">
+                No matching turtles found
+              </h3>
+              <p className="mt-2 font-detail text-sm leading-relaxed text-secondary">
+                Try another name or clear the year filter.
+              </p>
+              <button
+                type="button"
+                onClick={resetFilters}
+                className={`mt-6 min-h-11 cursor-pointer rounded-2xl bg-primary px-6 py-3 font-body text-sm font-medium text-white transition-colors hover:bg-banner ${focusRing}`}
+              >
+                Show all turtles
+              </button>
             </div>
           )}
         </div>
@@ -311,13 +406,19 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
         aria-describedby="penyu-dialog-description"
         onCancel={(event) => { event.preventDefault(); closeTurtle(); }}
         onClose={(event) => {
-          // A queued close event from effect cleanup may arrive after reopening.
           if (!event.currentTarget.open) closeTurtle();
         }}
         onClick={(event) => {
           if (event.target !== event.currentTarget) return;
           const bounds = event.currentTarget.getBoundingClientRect();
-          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeTurtle();
+          if (
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom
+          ) {
+            closeTurtle();
+          }
         }}
         onKeyDown={(event) => {
           if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
@@ -327,65 +428,158 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
             moveSelection(event.key === "ArrowLeft" ? -1 : 1);
           }
         }}
-        className="fixed inset-0 m-auto max-h-[calc(100dvh_-_2rem)] w-[calc(100%_-_2rem)] max-w-[1040px] overflow-y-auto overscroll-contain rounded-2xl border-0 bg-paper p-0 text-primary shadow-[0_24px_100px_#00263c55] backdrop:bg-primary/70 backdrop:backdrop-blur-sm sm:rounded-3xl"
+        className="fixed inset-0 m-auto max-h-[calc(100dvh_-_2rem)] w-[calc(100%_-_2rem)] max-w-[1000px] overflow-y-auto overscroll-contain rounded-[24px] border-0 bg-paper p-0 text-primary shadow-[0_24px_100px_#00263c45] backdrop:bg-primary/55 backdrop:backdrop-blur-sm sm:rounded-[28px]"
       >
-        {selected && activeSighting && <>
-          <header className="sticky top-0 z-10 border-b border-primary/10 bg-paper px-5 py-4 sm:px-7 sm:py-5">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="font-detail text-[10px] font-semibold tracking-[0.14em] text-secondary uppercase sm:text-[11px]">Green sea turtle · Profile {turtleNumber(indices.get(selected.id) ?? 0)}</p>
-                <h2 id="penyu-dialog-title" className="mt-2 font-body text-2xl leading-tight font-semibold tracking-[-0.03em] sm:text-3xl">{selectedLabel}</h2>
+        {selected && activeSighting && (
+          <>
+            <header className="sticky top-0 z-10 border-b border-primary/8 bg-paper/95 px-5 py-4 backdrop-blur-sm sm:px-7 sm:py-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-detail text-xs font-medium text-secondary sm:text-sm">
+                    Green sea turtle · #{turtleNumber(indices.get(selected.id) ?? 0)}
+                  </p>
+                  <h2
+                    id="penyu-dialog-title"
+                    className="mt-1 font-display text-2xl leading-tight font-medium text-primary sm:text-3xl"
+                  >
+                    {selectedLabel}
+                  </h2>
+                </div>
+                <button
+                  ref={closeRef}
+                  type="button"
+                  onClick={closeTurtle}
+                  aria-label="Close turtle profile"
+                  className={`grid size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-surface text-primary transition-colors hover:bg-primary/10 ${focusRing}`}
+                >
+                  <GalleryIcon name="close" />
+                </button>
               </div>
-              <button ref={closeRef} type="button" onClick={closeTurtle} aria-label="Close turtle profile" className={`grid size-11 shrink-0 cursor-pointer place-items-center rounded-full bg-surface text-primary hover:bg-primary hover:text-white ${focusRing}`}><GalleryIcon name="close" /></button>
-            </div>
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                <p id="penyu-dialog-description" className="font-detail text-xs text-secondary">{selected.sightings.length} sightings · {selected.firstYear}–{selected.lastYear}</p>
-                {mysteryMode && (
+
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <p id="penyu-dialog-description" className="font-detail text-xs text-secondary sm:text-sm">
+                    {formatSightingCount(selected.sightings.length)} ·{" "}
+                    {formatYearRange(selected.firstYear, selected.lastYear)}
+                  </p>
+                  {mysteryMode && (
+                    <button
+                      type="button"
+                      aria-disabled={selectedRevealed}
+                      aria-label={selectedRevealed ? `${selected.name}, name revealed` : "Reveal name"}
+                      onClick={() => { if (!selectedRevealed) revealTurtle(selected.id); }}
+                      className={`inline-flex min-h-9 items-center gap-1.5 rounded-xl px-3 font-body text-xs font-medium transition-colors ${focusRing} ${
+                        selectedRevealed
+                          ? "cursor-default bg-surface/70 text-secondary"
+                          : "cursor-pointer bg-primary text-white hover:bg-banner"
+                      }`}
+                    >
+                      <GalleryIcon name={selectedRevealed ? "check" : "eye"} className="size-3.5" />
+                      {selectedRevealed ? "Name revealed" : "Reveal name"}
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-1.5">
                   <button
                     type="button"
-                    aria-disabled={selectedRevealed}
-                    aria-label={selectedRevealed ? `${selected.name}, name revealed` : "Reveal name"}
-                    onClick={() => { if (!selectedRevealed) revealTurtle(selected.id); }}
-                    className={`flex min-h-11 items-center gap-2 rounded-md font-body text-xs font-semibold ${focusRing} ${selectedRevealed ? "cursor-default text-secondary" : "cursor-pointer text-primary hover:text-secondary"}`}
+                    onClick={() => moveSelection(-1)}
+                    disabled={navigationTurtles.length < 2}
+                    aria-label="Previous turtle"
+                    className={`grid size-10 cursor-pointer place-items-center rounded-full bg-surface text-primary transition-colors hover:bg-primary/10 disabled:cursor-default disabled:opacity-35 ${focusRing}`}
                   >
-                    <GalleryIcon name={selectedRevealed ? "check" : "eye"} className="size-4" />
-                    {selectedRevealed ? "Name revealed" : "Reveal name"}
+                    <GalleryIcon name="previous" className="size-4" />
                   </button>
-                )}
+                  <span className="min-w-14 text-center font-detail text-xs text-secondary tabular-nums">
+                    {selectedPosition + 1} / {navigationTurtles.length}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => moveSelection(1)}
+                    disabled={navigationTurtles.length < 2}
+                    aria-label="Next turtle"
+                    className={`grid size-10 cursor-pointer place-items-center rounded-full bg-surface text-primary transition-colors hover:bg-primary/10 disabled:cursor-default disabled:opacity-35 ${focusRing}`}
+                  >
+                    <GalleryIcon name="next" className="size-4" />
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <button type="button" onClick={() => moveSelection(-1)} disabled={navigationTurtles.length < 2} aria-label="Previous turtle" className={`grid size-11 cursor-pointer place-items-center rounded-full border border-primary/15 hover:bg-surface disabled:cursor-default disabled:opacity-35 ${focusRing}`}><GalleryIcon name="previous" className="size-4" /></button>
-                <span className="min-w-14 text-center font-detail text-xs text-secondary tabular-nums">{selectedPosition + 1} / {navigationTurtles.length}</span>
-                <button type="button" onClick={() => moveSelection(1)} disabled={navigationTurtles.length < 2} aria-label="Next turtle" className={`grid size-11 cursor-pointer place-items-center rounded-full border border-primary/15 hover:bg-surface disabled:cursor-default disabled:opacity-35 ${focusRing}`}><GalleryIcon name="next" className="size-4" /></button>
+            </header>
+
+            <div className="px-5 pt-5 pb-6 sm:px-7 sm:pt-6 sm:pb-7">
+              <div role="group" aria-label="Choose a sighting" className="flex items-center gap-2 overflow-x-auto pb-2">
+                <span className="mr-1 shrink-0 font-detail text-xs font-medium text-secondary">
+                  Sightings
+                </span>
+                {selected.sightings.map((sighting, index) => (
+                  <button
+                    key={sighting.date}
+                    type="button"
+                    aria-pressed={index === sightingIndex}
+                    onClick={() => setSightingSelection({ turtleId: selected.id, index })}
+                    className={`min-h-10 shrink-0 cursor-pointer rounded-full px-4 font-body text-xs font-medium transition-colors ${focusRing} ${
+                      index === sightingIndex
+                        ? "bg-primary text-white"
+                        : "bg-surface text-secondary hover:bg-primary/10 hover:text-primary"
+                    }`}
+                  >
+                    {formatDate(sighting.date)}
+                  </button>
+                ))}
               </div>
-            </div>
-          </header>
 
-          <div className="px-5 pt-5 pb-6 sm:px-7 sm:pt-6 sm:pb-7">
-            <div role="group" aria-label="Choose a sighting" className="flex items-center gap-2 overflow-x-auto pb-2">
-              <span className="mr-2 shrink-0 font-detail text-xs font-medium text-secondary">Sightings</span>
-              {selected.sightings.map((sighting, index) => <button key={sighting.date} type="button" aria-pressed={index === sightingIndex} onClick={() => setSightingSelection({ turtleId: selected.id, index })} className={`min-h-11 shrink-0 cursor-pointer rounded-lg px-3.5 py-2 font-body text-xs font-medium ${focusRing} ${index === sightingIndex ? "bg-primary text-white" : "bg-surface text-secondary hover:text-primary"}`}>{formatDate(sighting.date)}</button>)}
-            </div>
+              <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                {(["left", "right"] as const).map((side) => {
+                  const photo = activeSighting.photos[side];
+                  return (
+                    <article key={side}>
+                      <div className="mb-2.5 flex items-center justify-between gap-3">
+                        <h3 className="font-body text-sm font-semibold capitalize text-primary">
+                          {side} facial profile
+                        </h3>
+                        <span
+                          className="font-detail text-xs text-secondary"
+                          aria-label={photo ? `${photo.po} post-ocular scales` : "Post-ocular scale count unavailable"}
+                        >
+                          PO {photo?.po ?? "—"}
+                        </span>
+                      </div>
+                      <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-[20px] bg-banner">
+                        {photo ? (
+                          <img
+                            src={photo.path}
+                            alt={`${selectedLabel}, ${side} facial profile on ${formatDate(activeSighting.date)}`}
+                            decoding="async"
+                            className="h-full w-full object-contain"
+                          />
+                        ) : (
+                          <p className="font-detail text-sm text-white/75">
+                            No {side} profile recorded
+                          </p>
+                        )}
+                      </div>
+                      {photo && (
+                        <details className="mt-3 rounded-2xl bg-surface px-4 py-2.5 font-detail text-xs text-secondary">
+                          <summary className={`cursor-pointer rounded-sm py-1 font-medium text-primary ${focusRing}`}>
+                            Scale identification codes ({photo.idCodes.length})
+                          </summary>
+                          <p className="mt-2 leading-loose text-secondary">
+                            {photo.idCodes.join(" · ")}
+                          </p>
+                        </details>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
 
-            <div className="mt-4 grid gap-6 sm:grid-cols-2">
-              {(["left", "right"] as const).map((side) => {
-                const photo = activeSighting.photos[side];
-                return <article key={side}>
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="font-body text-sm font-semibold capitalize">{side} facial profile</h3>
-                    <span className="font-detail text-xs text-secondary" aria-label={photo ? `${photo.po} post-ocular scales` : "Post-ocular scale count unavailable"}>PO {photo?.po ?? "—"}</span>
-                  </div>
-                  <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-xl bg-banner">
-                    {photo ? <img src={photo.path} alt={`${selectedLabel}, ${side} facial profile on ${formatDate(activeSighting.date)}`} decoding="async" className="h-full w-full object-contain" /> : <p className="font-detail text-sm text-white/75">No {side} profile recorded</p>}
-                  </div>
-                  {photo && <details className="mt-3 border-b border-primary/10 pb-3 font-detail text-xs text-secondary"><summary className={`cursor-pointer rounded-sm py-1.5 font-medium ${focusRing}`}>Scale identification codes ({photo.idCodes.length})</summary><p className="mt-2 leading-loose text-primary">{photo.idCodes.join(" · ")}</p></details>}
-                </article>;
-              })}
+              <p className="mt-5 font-detail text-xs leading-relaxed text-secondary">
+                PO counts the post-ocular scales behind the eye. Compare the same side across
+                sightings to follow an individual turtle.
+              </p>
             </div>
-            <p className="mt-5 font-detail text-xs leading-relaxed text-secondary">PO counts the post-ocular scales behind the eye. Compare the same side across sightings to follow an individual turtle.</p>
-          </div>
-        </>}
+          </>
+        )}
       </dialog>
     </>
   );

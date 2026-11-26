@@ -198,19 +198,19 @@ export function FaqSection() {
   );
 }
 
-export function MarketingFooter() {
+export function MarketingFooter({ homeHref = "#home" }: { homeHref?: string } = {}) {
   return (
     <footer data-header-theme="dark" data-motion-section className="relative isolate overflow-hidden bg-banner px-[var(--page-gutter)] py-9 text-white [overflow-anchor:none] sm:py-12">
       <Pattern variant="accuracy" parallax={false} />
       <div className="relative mx-auto grid w-full max-w-[1440px] gap-5 font-body text-sm sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-10 md:gap-14">
-        <Link href="#home" aria-label="AdaPenyu home" className="inline-flex min-h-11 w-fit items-center rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
+        <Link href={homeHref} aria-label="AdaPenyu home" className="inline-flex min-h-11 w-fit items-center rounded-lg focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4">
           <Image
-            src="/images/marketing/wordmark.svg"
+            src="/images/marketing/footer-wordmark.svg"
             alt="AdaPenyu"
-            width={251}
-            height={78}
+            width={129}
+            height={40}
             unoptimized
-            className="h-auto w-24 brightness-0 invert"
+            className="h-auto w-24 sm:w-28"
           />
         </Link>
         <p>© 2026 AdaPenyu. All rights reserved.</p>

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { prototypeScreens } from "../data/prototype-screens";
-import { FigmaImage } from "./figma-image";
 
 /** Native scroll snapping keeps touch swipes independent of the page animation. */
 export function PhoneCarousel({ compact = false }: { compact?: boolean }) {
@@ -52,7 +52,7 @@ export function PhoneCarousel({ compact = false }: { compact?: boolean }) {
         {prototypeScreens.map((screen, index) => (
           <figure key={screen.name} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${prototypeScreens.length}: ${screen.title}`} className="flex w-full shrink-0 snap-center flex-col items-center">
             <div className={`flex w-full items-center justify-center ${compact ? "h-[min(55dvh,460px)]" : "h-[min(145vw,590px)]"}`}>
-              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" className="h-full w-full object-contain" />
+              <Image src={screen.src} width={screen.width} height={screen.height} alt={screen.alt} sizes="(max-width: 767px) 68vw, 1px" unoptimized className="h-full w-full object-contain drop-shadow-[0_14px_28px_rgba(0,38,60,0.16)]" />
             </div>
             <figcaption className="mt-4 text-center text-base font-medium text-primary">{screen.title}</figcaption>
           </figure>

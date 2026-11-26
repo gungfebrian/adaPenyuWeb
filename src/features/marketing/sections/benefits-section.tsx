@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BenefitCard } from "../components/benefit-card";
 import { benefits } from "../content";
 import { FigmaImage } from "../components/figma-image";
@@ -26,7 +27,7 @@ export function BenefitsSection() {
         {prototypeScreens.map((screen, index) => (
           <figure data-phone key={screen.name} className={`group/phone shrink-0 origin-top ${index === 1 ? "z-2" : "z-1"} ${screen.position}`}>
             <div className="transition-transform duration-300 ease-out motion-safe:[@media(hover:hover)]:group-hover/phone:-translate-y-2 motion-reduce:transition-none">
-              <FigmaImage name={screen.name} width={screen.width} height={screen.height} alt={screen.alt} sizes="23vw" className="h-auto w-full" />
+              <Image src={screen.src} width={screen.width} height={screen.height} alt={screen.alt} sizes="24vw" unoptimized className="h-auto w-full drop-shadow-[0_18px_36px_rgba(0,38,60,0.16)]" />
             </div>
           </figure>
         ))}

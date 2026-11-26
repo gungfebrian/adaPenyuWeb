@@ -8,8 +8,12 @@ website can preserve the supplied composition, colors, and illustration style.
 - `hero-pattern.svg` and `benefits-pattern.svg`: traced background vector paths.
 - `accuracy-pattern.svg`: the blue pattern used by progress, contribution, contact,
   the navigation dialog, and footer.
-- `app-icon.svg`, `wordmark.svg`, portraits, and prototype screens: SVG containers
-  that preserve supplied raster artwork. They are not all vector paths.
+- `wordmark.svg` and `footer-wordmark.svg`: pure-vector traced AdaPenyu wordmarks
+  with 4× intrinsic dimensions for crisp Retina rendering in both `<img>` and CSS
+  `mask-image` contexts.
+- `app-photo.webp`, `app-catalogue.webp`, `app-record.webp`, and `match-photo-*.webp`:
+  high-DPI iOS app screenshots and facial-scale comparison visuals.
+- `app-icon.svg` and portraits: SVG containers that preserve supplied raster artwork.
 - `hero-foreground-wave.svg` and `hero-frontmost-wave.svg`: extended foreground
   fills that keep the hero and story joined during parallax.
 - `steps-seabed.svg`: the original reef crest with an ocean-depth gradient.
