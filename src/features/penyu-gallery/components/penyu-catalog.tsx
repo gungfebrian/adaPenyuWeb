@@ -544,13 +544,13 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                           PO {photo?.po ?? "—"}
                         </span>
                       </div>
-                      <div className={photo ? "overflow-hidden rounded-[20px] bg-banner" : "grid aspect-[4/3] place-items-center overflow-hidden rounded-[20px] bg-banner"}>
+                      <div className="relative grid aspect-[4/3] max-h-[50dvh] place-items-center overflow-hidden rounded-[20px] bg-banner">
                         {photo ? (
                           <img
                             src={photo.path}
                             alt={`${selectedLabel}, ${side} facial profile on ${formatDate(activeSighting.date)}`}
                             decoding="async"
-                            className="block h-auto w-full"
+                            className="absolute inset-0 h-full w-full object-contain object-center"
                           />
                         ) : (
                           <p className="font-detail text-sm text-white/75">
