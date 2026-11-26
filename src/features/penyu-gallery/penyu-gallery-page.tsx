@@ -85,7 +85,7 @@ export function PenyuGalleryPage() {
                         preload
                         unoptimized
                         sizes="(min-width: 1024px) 280px, 44vw"
-                        className="aspect-[5/4] h-auto w-full object-cover"
+                        className="block h-auto w-full"
                       />
                     </div>
                     <p className="mt-2.5 font-detail text-xs text-white/75">Left profile</p>
@@ -99,7 +99,7 @@ export function PenyuGalleryPage() {
                         height={755}
                         unoptimized
                         sizes="(min-width: 1024px) 280px, 44vw"
-                        className="aspect-[5/4] h-auto w-full object-cover"
+                        className="block h-auto w-full"
                       />
                     </div>
                     <p className="mt-2.5 font-detail text-xs text-white/75">Right profile</p>
