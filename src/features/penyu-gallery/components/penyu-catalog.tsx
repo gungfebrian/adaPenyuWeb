@@ -325,13 +325,13 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                         aria-label={`${title}, open photo profile`}
                         className={`block w-full cursor-pointer rounded-[20px] text-left ${focusRing}`}
                       >
-                        <span className="relative block overflow-hidden rounded-[20px] bg-surface shadow-[0_8px_24px_#00263c0d] transition-shadow duration-300 group-hover/card:shadow-[0_14px_34px_#00263c1a] motion-reduce:transition-none">
+                        <span className="relative block aspect-[6/5] overflow-hidden rounded-[20px] bg-surface shadow-[0_8px_24px_#00263c0d] transition-shadow duration-300 group-hover/card:shadow-[0_14px_34px_#00263c1a] motion-reduce:transition-none">
                           <img
                             src={turtle.primaryPhoto}
                             alt={`${title}, green sea turtle facial profile`}
                             loading={visibleIndex < 8 ? "eager" : "lazy"}
                             decoding="async"
-                            className="block h-auto w-full"
+                            className="absolute inset-0 h-full w-full object-contain object-center"
                           />
                         </span>
                       </button>
