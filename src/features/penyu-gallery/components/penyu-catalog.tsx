@@ -325,13 +325,13 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                         aria-label={`${title}, open photo profile`}
                         className={`block w-full cursor-pointer rounded-[20px] text-left ${focusRing}`}
                       >
-                        <span className="relative block aspect-[6/5] overflow-hidden rounded-[20px] bg-surface shadow-[0_8px_24px_#00263c0d] transition-shadow duration-300 group-hover/card:shadow-[0_14px_34px_#00263c1a] motion-reduce:transition-none">
+                        <span className="relative block overflow-hidden rounded-[20px] bg-surface shadow-[0_8px_24px_#00263c0d] transition-shadow duration-300 group-hover/card:shadow-[0_14px_34px_#00263c1a] motion-reduce:transition-none">
                           <img
                             src={turtle.primaryPhoto}
                             alt={`${title}, green sea turtle facial profile`}
                             loading={visibleIndex < 8 ? "eager" : "lazy"}
                             decoding="async"
-                            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/card:scale-[1.04] motion-reduce:transition-none"
+                            className="block h-auto w-full"
                           />
                         </span>
                       </button>
@@ -544,13 +544,13 @@ export function PenyuCatalog({ turtles }: { turtles: GalleryTurtle[] }) {
                           PO {photo?.po ?? "—"}
                         </span>
                       </div>
-                      <div className="grid aspect-[4/3] place-items-center overflow-hidden rounded-[20px] bg-banner">
+                      <div className={photo ? "overflow-hidden rounded-[20px] bg-banner" : "grid aspect-[4/3] place-items-center overflow-hidden rounded-[20px] bg-banner"}>
                         {photo ? (
                           <img
                             src={photo.path}
                             alt={`${selectedLabel}, ${side} facial profile on ${formatDate(activeSighting.date)}`}
                             decoding="async"
-                            className="h-full w-full object-contain"
+                            className="block h-auto w-full"
                           />
                         ) : (
                           <p className="font-detail text-sm text-white/75">
